@@ -18,7 +18,7 @@ links:
   icon_pack: fas
   name: OHDSI Forums discussion
   url: https://forums.ohdsi.org/t/ohdsi-covid-19-review-on-the-effect-of-ace-inhibitors-and-angiotensin-receptor-blockers-on-covid-19-incidence-and-complication-rate/10071
-url_code: "https://github.com/ohdsi-studies/X"
+url_code: "https://github.com/ohdsi-studies/RASBlockerInCovid"
 url_pdf: ""
 url_slides: ""
 url_video: ""
@@ -31,4 +31,18 @@ url_video: ""
 slides: example
 ---
 
+<img src="https://img.shields.io/badge/Study%20Status-Design%20Finalized-brightgreen.svg" alt="Study Status: Design Finalized">
+
+- Analytics use case(s): **Population-Level Estimation**
+- Study type: **Clinical Application**
+- Tags: **Study-a-thon, COVID-19**
+- Study lead: **Seng Chan You**
+- Study lead forums tag: **[SCYou](https://forums.ohdsi.org/u/SCYou)**
+- Study start date: **March 16, 2020**
+- Study end date:
+- Protocol:
+- Publications:
+- Results explorer:
+
 We seek to understand implications of the ACE-2 pathway, which can serve as an entry point for COVID-19 and is also upregulated by ACE inhibitors and Angiotensin Receptor Blockers. We will compare ACE and ARB vs. other anti-hypertensive drugs (calcium channel blockers, thiazide diuretics) to evaluate: 1) ‘susceptability’: amongst new users, what is the risk of Covid-19 positive? and 2) ‘severity’: amongst Covid-19 cases who are prevalent users, what is the risk of viral complication?
+
