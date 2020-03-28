@@ -11,6 +11,9 @@ type: Insurance Claims
 omop: v5.3
 dbms: SQL Server
 patient_count: NA
+has_covid: "Y"
+first_time: "No"
+data_history: "2003-2018"
 references: []
 
 authors: 
@@ -29,15 +32,10 @@ links:
       name: More information
       url: covid19data.hira.or.kr/
 
-# Featured image
-# To use, place an image named `featured.jpg/png` in your page's folder.
-# Placement options: 1 = Full column width, 2 = Out-set, 3 = Screen-width
-# Focal point options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
-# Set `preview_only` to `true` to just use the image for thumbnails.
 image:
-  placement: 3
+  placement: 1
   caption: ""
-  focal_point: "Right"
+  focal_point: ""
   preview_only: false
   alt_text: "Image retrieved from https://www.hira.or.kr/eng/main.do"
 
@@ -48,4 +46,3 @@ image:
 #   Otherwise, set `projects = []`.
 projects: ["ace-arb"]
 ---
-

@@ -19,6 +19,10 @@
       <li>OMOP CDM {{ .Params.omop }}</li>
       <li>Database Layer: {{ .Params.country }}</li>
       <li>Patient Count: {{ .Params.patient_count }}</li>
+      <li>Has COVID-19 data: {{ .Params.has_covid }}</li>
+      <li>Data history: {{ .Params.data_history }}</li>
+      <li>First time: {{ .Params.first_time }}</li>
+      </br>
       <li>References:</li>
       <ul>
         {{ range .Params.references }}
