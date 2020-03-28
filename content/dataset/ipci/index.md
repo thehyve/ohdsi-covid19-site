@@ -1,7 +1,7 @@
 ---
 title: IPCI
 subtitle: Integrated Primary Care Information
-summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis nibh quis est tempor convallis ut ac arcu. Fusce ultricies blandit varius. Duis laoreet ligula vitae tellus condimentum porta. Nunc ex tellus, gravida et imperdiet vitae, ultricies non massa. Praesent accumsan finibus purus et auctor. Integer faucibus sed odio sit amet gravida. Vivamus eleifend, est convallis scelerisque eleifend, risus augue suscipit augue, eu facilisis libero ipsum vel lorem. Nunc consectetur turpis et condimentum consectetur. Donec nec purus sit amet est efficitur cursus.'
+summary: 'This is the summary'
 owner:
   organisation: Erasmus Medical Center Rotterdam
   lead: Peter Rijnbeek

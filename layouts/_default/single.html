@@ -1,0 +1,39 @@
+{{- define "main" -}}
+
+<!--TODO: this is the specific format for a dataset. Should not be used as default. -->
+<article class="article">
+
+  {{ partial "page_header" . }}
+
+  <div class="article-container">
+
+    <p>{{ .Summary }}</p>
+    <ul>
+      <li>Organisation: {{ .Params.owner.organisation }}</li>
+      <ul>
+        <li>Lead: {{ .Params.owner.lead }}</li>
+        <li>Alternate: {{ .Params.owner.alternate }}</li>
+      </ul>
+      <li>Country: {{ .Params.country }}</li>
+      <li>Data capture process: {{ .Params.type }}</li>
+      <li>OMOP CDM {{ .Params.omop }}</li>
+      <li>Database Layer: {{ .Params.country }}</li>
+      <li>Patient Count: {{ .Params.patient_count }}</li>
+      <li>References:</li>
+      <ul>
+        {{ range .Params.references }}
+        <li> {{ . }} </li>
+        {{ end }}
+      </ul>
+    </ul>
+
+    <div class="article-style">
+      {{ .Content }}
+    </div>
+
+    {{ partial "page_footer" . }}
+
+  </div>
+</article>
+
+{{- end -}}
