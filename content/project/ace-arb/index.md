@@ -1,7 +1,7 @@
 ---
 title: Estimating the effect of ACE inhibitors and Angiotensin Receptor Blockers on COVID-19 incidence and complications
 summary: 'We seek to understand implications of the ACE-2 pathway, which can serve as an entry point for COVID-19 and is also upregulated by ACE inhibitors and Angiotensin Receptor Blockers. We will compare ACE and ARB vs. other anti-hypertensive drugs (calcium channel blockers, thiazide diuretics) to evaluate: 1) ‘susceptability’: amongst new users, what is the risk of Covid-19 positive? and 2) ‘severity’: amongst Covid-19 cases who are prevalent users, what is the risk of viral complication?'
-tags:
+tag:
 - Estimation study
 date: "2020-03-26T00:00:00Z"
 author: keesvanbochove
@@ -30,8 +30,6 @@ url_video: ""
 #   Otherwise, set `slides = ""`.
 slides: example
 ---
-
-<img src="https://img.shields.io/badge/Study%20Status-Design%20Finalized-brightgreen.svg" alt="Study Status: Design Finalized">
 
 - Analytics use case(s): **Population-Level Estimation**
 - Study type: **Clinical Application**
