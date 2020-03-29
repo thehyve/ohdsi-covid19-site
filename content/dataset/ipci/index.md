@@ -2,8 +2,8 @@
 title: "IPCI"
 subtitle: ""
 summary: "The Integrated Primary Care Information (IPCI) database is a Dutch database containing the complete medical record of more than 2.5 million patients provided by more than 450 GPs geographically spread over the Netherlands. (12) In the Netherlands, all citizens are registered with a GP practice which acts as a gatekeeper in a two-way exchange of information with secondary care. "
-owner:
-    organisation: "Erasmus Medical Center Rotterdam"
+owners:
+  - organisation: "Erasmus Medical Center Rotterdam"
     lead: "Peter Rijnbeek"
     alternate: "Johan van der Lei, Solomon Ioannou"
 country: "Netherlands"
@@ -23,7 +23,7 @@ categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00
 lastmod: 2020-03-28T00:00:00+01:00
 featured: false
-draft: true
+draft: false
 
 links:
     - icon: globe

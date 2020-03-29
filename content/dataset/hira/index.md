@@ -2,8 +2,8 @@
 title: HIRA
 subtitle: Health Insurance Review and Assessment Service
 summary: "Mandatory national calim data which contains patients who received Covid-19 test."
-owner:
-    organisation: HIRA
+owners:
+  - organisation: HIRA
     lead: "Jimyunk Park, Chungsoo Kim"
     alternate: "Seng Chan You, Seongwon Lee"
 country: South Korea

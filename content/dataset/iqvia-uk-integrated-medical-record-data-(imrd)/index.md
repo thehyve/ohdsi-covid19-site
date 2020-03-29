@@ -2,9 +2,9 @@
 title: "IQVIA UK Integrated Medical Record Data (IMRD)"
 subtitle: ""
 summary: "Pseudonymized Electronic Medical Records collected from Patient Management software used within UK Primary Care "
-owner:
-    organisation: "IQVIA"
-    lead: "Kristin Kostka"
+owners:
+  - organisation: "IQVIA"
+    lead: "Sarah Seager"
     alternate: ""
 country: "UK"
 type: "General practice electronic health records"
@@ -17,13 +17,13 @@ data_history: "1989 – "
 references: [""]
 
 authors: 
-    - "Kristin Kostka"
+    - "Sarah Seager"
 tags: []
 categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00
 lastmod: 2020-03-28T00:00:00+01:00
 featured: false
-draft: true
+draft: false
 
 links:
     - icon: globe

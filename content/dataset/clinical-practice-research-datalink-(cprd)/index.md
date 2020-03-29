@@ -2,8 +2,8 @@
 title: "Clinical Practice Research Datalink (CPRD)"
 subtitle: ""
 summary: ""
-owner:
-    organisation: "Janssen R&D"
+owners:
+  - organisation: "Janssen R&D"
     lead: "Janssen R&D"
     alternate: "See Grid"
 country: "UK"
@@ -23,7 +23,7 @@ categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00
 lastmod: 2020-03-28T00:00:00+01:00
 featured: false
-draft: true
+draft: false
 
 links:
     - icon: globe

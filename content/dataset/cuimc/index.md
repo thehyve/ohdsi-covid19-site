@@ -2,8 +2,8 @@
 title: "CUIMC"
 subtitle: ""
 summary: "TBC"
-owner:
-    organisation: "Columbia University"
+owners:
+  - organisation: "Columbia University"
     lead: "Thomas Falconer"
     alternate: "Matthew Spotnitz, Karthik Natarajan, Noemie Elhadad"
 country: "USA"
@@ -23,7 +23,7 @@ categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00
 lastmod: 2020-03-28T00:00:00+01:00
 featured: false
-draft: true
+draft: false
 
 links:
     - icon: globe

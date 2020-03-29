@@ -2,8 +2,8 @@
 title: "Optum De-identified Electronic Health Record Dataset (PANTHER)"
 subtitle: ""
 summary: "Optum’s  de-identified Electronic Health Record  data medical records database. The medical record data includes clinical information, inclusive of prescriptions as prescribed and administered, lab results, vital signs, body measurements, diagnoses, procedures, and   information derived from clinical notes using Natural Language Processing (NLP)."
-owner:
-    organisation: "Janssen R&D"
+owners:
+  - organisation: "Janssen R&D"
     lead: "Janssen R&D"
     alternate: "See Grid"
 country: "USA"
@@ -23,7 +23,7 @@ categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00
 lastmod: 2020-03-28T00:00:00+01:00
 featured: false
-draft: true
+draft: false
 
 links:
     - icon: globe

@@ -2,8 +2,8 @@
 title: "IQVIA US Hospital Charge Datamaster"
 subtitle: ""
 summary: "Anonymized patient level data are sourced from hospital charge detail masters (CDM) and collected from resource management software within short-term, acute-care and non-federal hospitals "
-owner:
-    organisation: "IQVIA"
+owners:
+  - organisation: "IQVIA"
     lead: "Kristin Kostka"
     alternate: ""
 country: "USA"
@@ -23,7 +23,7 @@ categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00
 lastmod: 2020-03-28T00:00:00+01:00
 featured: false
-draft: true
+draft: false
 
 links:
     - icon: globe

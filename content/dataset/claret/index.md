@@ -2,8 +2,8 @@
 title: "CLARET"
 subtitle: ""
 summary: ""
-owner:
-    organisation: "Tufts"
+owners:
+  - organisation: "Tufts"
     lead: "Andrew Williams"
     alternate: "Robert Miller"
 country: "USA"
@@ -23,7 +23,7 @@ categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00
 lastmod: 2020-03-28T00:00:00+01:00
 featured: false
-draft: true
+draft: false
 
 links:
     - icon: globe

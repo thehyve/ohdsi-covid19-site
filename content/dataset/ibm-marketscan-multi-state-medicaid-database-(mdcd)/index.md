@@ -2,10 +2,13 @@
 title: "IBM MarketScan Multi-State Medicaid Database (MDCD)"
 subtitle: ""
 summary: "Adjudicated US health insurance claims for Medicaid enrollees  from multiple states   and includes hospital discharge diagnoses, outpatient diagnoses and procedures, and outpatient pharmacy claims as well as ethnicity and Medicare eligibility. The dataset lacks lab result data"
-owner:
-    organisation: "Janssen R&D"
+owners:
+  - organisation: "Janssen R&D"
     lead: "Janssen R&D"
     alternate: "See Grid"
+  - organisation: "AbbVie"
+    lead: "Weihua Gao"
+    alternate: "Shivaji Manthena "
 country: "USA"
 type: "Insurance claims"
 omop: "CDM v5.3"
@@ -23,7 +26,7 @@ categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00
 lastmod: 2020-03-28T00:00:00+01:00
 featured: false
-draft: true
+draft: false
 
 links:
     - icon: globe

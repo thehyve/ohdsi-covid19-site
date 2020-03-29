@@ -2,8 +2,8 @@
 title: "STARR-OMOP"
 subtitle: ""
 summary: "TBC"
-owner:
-    organisation: "Stanford University"
+owners:
+  - organisation: "Stanford University"
     lead: "Jose Posada"
     alternate: "Priya Desai"
 country: "USA"
@@ -23,7 +23,7 @@ categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00
 lastmod: 2020-03-28T00:00:00+01:00
 featured: false
-draft: true
+draft: false
 
 links:
     - icon: globe

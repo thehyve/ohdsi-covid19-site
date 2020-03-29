@@ -1,7 +1,7 @@
 ---
-title: "IBM MarketScan Commercial Claims (CCAE)"
+title: "IBM MarketScan Medicare Supplemental Database (MDCR)	"
 subtitle: ""
-summary: "Data from individuals enrolled in United States employer-sponsored   insurance   health   plans.   The   data includes adjudicated   health   insurance   claims   (e.g. inpatient, outpatient, and outpatient pharmacy) as well as enrollment data from large employers and health plans who provide private healthcare coverage to employees, their spouses,and dependents. Additionally, it captures laboratory tests for a subset of the covered lives. The patients in thisdatabase are aged under 65."
+summary: "Represents health services of retirees (aged 65 or older) inthe United States with primary or Medicare supplemental coverage through privately insured fee-for-service, point-of-service, or capitated health plans. These data include adjudicated health insurance  claims (e.g.   inpatient, outpatient, and outpatient pharmacy). Additionally, it captures laboratory tests for a subset of the covered lives."
 owners:
   - organisation: "University of New Mexico Health Sciences Center"
     lead: "Christophe G Lambert"
@@ -11,7 +11,7 @@ owners:
     alternate: "See Grid"
   - organisation: "AbbVie"
     lead: "Weihua Gao"
-    alternate: "Shivaji Manthena / Lakshmi Kandukuri"
+    alternate: "Shivaji Manthena /Lakshmi Kandukuri"
 country: "United States"
 type: "Insurance claims"
 omop: "CDM v5.0"

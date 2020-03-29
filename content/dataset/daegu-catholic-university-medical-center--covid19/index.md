@@ -2,8 +2,8 @@
 title: "Daegu Catholic University Medical Center--Covid19"
 subtitle: ""
 summary: "A teaching university hospitals in Covid-19 endemic area in South Korea.  It contails patients who received Covid-19 test. This DB is onE of the above FEEDER-NET."
-owner:
-    organisation: "Daegu Catholic University Medical Center"
+owners:
+  - organisation: "Daegu Catholic University Medical Center"
     lead: "Sanggyu Kwak"
     alternate: ""
 country: "South Korea"
@@ -23,7 +23,7 @@ categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00
 lastmod: 2020-03-28T00:00:00+01:00
 featured: false
-draft: true
+draft: false
 
 links:
     - icon: globe

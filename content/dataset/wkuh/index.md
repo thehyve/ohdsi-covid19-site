@@ -2,8 +2,8 @@
 title: "WKUH"
 subtitle: ""
 summary: "A teaching university hospitals in Jeonbuk, South Korea. This DB does not have Covid-19 case. One of FEEDER-NET member"
-owner:
-    organisation: "Wonkwang University Hospital"
+owners:
+  - organisation: "Wonkwang University Hospital"
     lead: "Jimyunk Park/Chungsoo Kim"
     alternate: "Seng Chan You,  Seongwon Lee"
 country: "South Korea"
@@ -24,7 +24,7 @@ categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00
 lastmod: 2020-03-28T00:00:00+01:00
 featured: false
-draft: true
+draft: false
 
 links:
     - icon: globe

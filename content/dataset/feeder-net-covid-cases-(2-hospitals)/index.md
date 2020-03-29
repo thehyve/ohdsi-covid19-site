@@ -2,8 +2,8 @@
 title: "FEEDER-NET COVID Cases (2 Hospitals)"
 subtitle: ""
 summary: "Two teaching university hospitals in Covid-19 endemic area in South Korea.  They contails patients who received Covid-19 test."
-owner:
-    organisation: "FEEDER-NET"
+owners:
+  - organisation: "FEEDER-NET"
     lead: "Jimyunk Park/Chungsoo Kim"
     alternate: "Hyunki Woo, Geunhae Lee"
 country: "South Korea"
@@ -24,7 +24,7 @@ categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00
 lastmod: 2020-03-28T00:00:00+01:00
 featured: false
-draft: true
+draft: false
 
 links:
     - icon: globe

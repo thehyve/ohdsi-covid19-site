@@ -2,8 +2,8 @@
 title: "UC Health Data Compass"
 subtitle: ""
 summary: "Health Data Campus"
-owner:
-    organisation: "U of Colorado Anschutz Medical Campus"
+owners:
+  - organisation: "U of Colorado Anschutz Medical Campus"
     lead: "Lisa Schilling"
     alternate: ""
 country: "USA"
@@ -23,7 +23,7 @@ categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00
 lastmod: 2020-03-28T00:00:00+01:00
 featured: false
-draft: true
+draft: false
 
 links:
     - icon: globe

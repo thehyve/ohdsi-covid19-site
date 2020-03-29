@@ -2,8 +2,8 @@
 title: "IQVIA US LRxDx Open Claims"
 subtitle: ""
 summary: "Pre-adjudicated claims at the anonymized patient level collected from office-based physicians and specialists via office management software and clearinghouse switch sources for the purpose of reimbursement. "
-owner:
-    organisation: "IQVIA"
+owners:
+  - organisation: "IQVIA"
     lead: "Kristin Kostka"
     alternate: ""
 country: "USA"
@@ -23,7 +23,7 @@ categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00
 lastmod: 2020-03-28T00:00:00+01:00
 featured: false
-draft: true
+draft: false
 
 links:
     - icon: globe

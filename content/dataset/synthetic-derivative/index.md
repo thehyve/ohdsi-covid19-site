@@ -2,8 +2,8 @@
 title: "Synthetic Derivative"
 subtitle: ""
 summary: ""
-owner:
-    organisation: "Vanderbilt Medical Center"
+owners:
+  - organisation: "Vanderbilt Medical Center"
     lead: "Darwin Fu"
     alternate: ""
 country: "United States"
@@ -23,7 +23,7 @@ categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00
 lastmod: 2020-03-28T00:00:00+01:00
 featured: false
-draft: true
+draft: false
 
 links:
     - icon: globe

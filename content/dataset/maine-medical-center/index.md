@@ -1,19 +1,19 @@
 ---
 title: "Maine Medical Center"
 subtitle: ""
-summary: ""
-owner:
-    organisation: "Maine Medical Center"
+summary: "Inpaitent and outpatient EHR records from a tertiary care hospital"
+owners:
+  - organisation: "Maine Medical Center"
     lead: "Adam Black"
     alternate: ""
 country: "USA"
 type: "General practice electronic health records"
 omop: "CDM v5.3"
 dbms: "SQL Server"
-patient_count: ""
+patient_count: "0.93m"
 has_covid: "Y"
 first_time: "Yes"
-data_history: ""
+data_history: "2000-08/2019"
 references: [""]
 
 authors: 
@@ -23,7 +23,7 @@ categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00
 lastmod: 2020-03-28T00:00:00+01:00
 featured: false
-draft: true
+draft: false
 
 links:
     - icon: globe

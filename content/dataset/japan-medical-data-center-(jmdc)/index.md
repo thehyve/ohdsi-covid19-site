@@ -2,8 +2,8 @@
 title: "Japan Medical Data Center (JMDC)"
 subtitle: ""
 summary: "Data from 60 Society-Managed Health Insurance plans covering workers aged 18 to 65  and  their dependents (children younger than 18 years old and elderly peopleolder than 65 years old). JMDC data includes membership status of the insured people and claims data provided byinsurers under contract (e.g. patient-level demographic information, inpatient and outpatient data inclusive of diagnosis and procedures, and prescriptions as dispensed claims information)"
-owner:
-    organisation: "Janssen R&D"
+owners:
+  - organisation: "Janssen R&D"
     lead: "Janssen R&D"
     alternate: "See Grid"
 country: "Japan"
@@ -23,7 +23,7 @@ categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00
 lastmod: 2020-03-28T00:00:00+01:00
 featured: false
-draft: true
+draft: false
 
 links:
     - icon: globe
