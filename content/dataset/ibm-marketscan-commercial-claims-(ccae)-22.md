@@ -3,27 +3,21 @@ title: "IBM MarketScan Commercial Claims (CCAE)"
 subtitle: ""
 summary: "Data from individuals enrolled in United States employer-sponsored   insurance   health   plans.   The   data includes adjudicated   health   insurance   claims   (e.g. inpatient, outpatient, and outpatient pharmacy) as well as enrollment data from large employers and health plans who provide private healthcare coverage to employees, their spouses,and dependents. Additionally, it captures laboratory tests for a subset of the covered lives. The patients in thisdatabase are aged under 65."
 owners:
-  - organisation: "University of New Mexico Health Sciences Center"
-    lead: "Christophe G Lambert"
-    alternate: ""
   - organisation: "Janssen R&D"
     lead: "Janssen R&D"
     alternate: "See Grid"
-  - organisation: "AbbVie"
-    lead: "Weihua Gao"
-    alternate: "Shivaji Manthena / Lakshmi Kandukuri"
-country: "United States"
+country: "USA"
 type: "Insurance claims"
-omop: "CDM v5.0"
-dbms: "Postgres"
-patient_count: ""
+omop: "CDM v5.3"
+dbms: "SQL Server"
+patient_count: "142m"
 has_covid: "N"
-first_time: "Yes"
-data_history: ""
+first_time: "No"
+data_history: "2000 – "
 references: [""]
 
 authors: 
-    - "Christophe G Lambert"
+    - "Janssen R&D"
 tags: []
 categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00

@@ -1,22 +1,19 @@
 ---
-title: "IBM MarketScan Multi-State Medicaid Database (MDCD)"
+title: "IBM MarketScan Medicare Supplemental Database (MDCR)	"
 subtitle: ""
-summary: "Adjudicated US health insurance claims for Medicaid enrollees  from multiple states   and includes hospital discharge diagnoses, outpatient diagnoses and procedures, and outpatient pharmacy claims as well as ethnicity and Medicare eligibility. The dataset lacks lab result data"
+summary: "Represents health services of retirees (aged 65 or older) inthe United States with primary or Medicare supplemental coverage through privately insured fee-for-service, point-of-service, or capitated health plans. These data include adjudicated health insurance  claims (e.g.   inpatient, outpatient, and outpatient pharmacy). Additionally, it captures laboratory tests for a subset of the covered lives."
 owners:
   - organisation: "Janssen R&D"
     lead: "Janssen R&D"
     alternate: "See Grid"
-  - organisation: "AbbVie"
-    lead: "Weihua Gao"
-    alternate: "Shivaji Manthena "
 country: "USA"
 type: "Insurance claims"
 omop: "CDM v5.3"
 dbms: "SQL Server"
-patient_count: "26m"
+patient_count: "10m "
 has_covid: "N"
 first_time: "No"
-data_history: "2006 – "
+data_history: "2000 – "
 references: [""]
 
 authors: 

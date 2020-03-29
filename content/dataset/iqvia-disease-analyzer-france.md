@@ -1,22 +1,19 @@
 ---
-title: "IQVIA Disease Analyser Germany"
+title: "IQVIA Disease Analyzer France"
 subtitle: ""
-summary: "Anonymized patient records collected from Patient Management software used by GPs and selected specialists to document patients’ medical records within their office-based practice during a visit "
+summary: "Anonymized patient records collected from Patient Management software used by GPs during an office visit to document patients’ clinical records "
 owners:
   - organisation: "IQVIA"
     lead: "Kristin Kostka"
     alternate: ""
-  - organisation: "Janssen R&D"
-    lead: "Janssen R&D"
-    alternate: "See Grid"
-country: "Germany"
-type: "General practice electronic health records"
+country: "France"
+type: "General practice electronic health records, Outpatient specialist electronic health records"
 omop: "CDM v5.3"
 dbms: "AWS Redshift"
-patient_count: "37m "
+patient_count: "10m "
 has_covid: "N"
 first_time: "No"
-data_history: "1992 – "
+data_history: "1997 – "
 references: [""]
 
 authors: 
