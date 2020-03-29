@@ -7,8 +7,8 @@ authors:
 - edburn
 
 organizations:
-- name: Nuffield Department of Orthopaedics, Rheumatology and Musculoskeletal Sciences
-  role: RESEARCH ASSOCIATE IN REAL WORLD HEALTH ECONOMICS
+- name: Nuffield Department of Orthopaedics, Rheumatology and Musculoskeletal Sciences, Oxford University
+  role: Research Associate In Real World Health Economics
   address: Oxford
 
 avatar: https://www.ndorms.ox.ac.uk/team/edward-burn/@@haiku.profiles.portrait/8fbaee61a0be4f4dbc4f7cd361fefc36/@@images/image/w1140?0b96c712-7e43-4cb0-88aa-978da3d0c115
@@ -18,15 +18,8 @@ avatar: https://www.ndorms.ox.ac.uk/team/edward-burn/@@haiku.profiles.portrait/8
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
 #   form "mailto:your-email@example.com" or "#contact" for contact widget.
 social:
-- icon: orcid
-  icon_pack: fab
-  link: https://orcid.org/0000-0002-9286-1128
-- icon: google-scholar
-  icon_pack: ai
-  link: ""
-- icon: github
-  icon_pack: fab
-  link: https://edward-burn.github.io
+- orcid: https://orcid.org/0000-0002-9286-1128
+- github: edward-burn
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
@@ -34,10 +27,8 @@ social:
 #   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: "edward.burn@ndorms.ox.ac.uk"
-
-ohdsi_forums_username: "SCYou"
-
+# NB this file is in an open github repository
+#email: 
 
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.

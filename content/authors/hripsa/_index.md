@@ -16,15 +16,10 @@ organizations:
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
 #   form "mailto:your-email@example.com" or "#contact" for contact widget.
 social:
-- icon: orcid
-  icon_pack: fab
-  link: https://orcid.org/0000-0003-2664-7614
-- icon: google-scholar
-  icon_pack: ai
-  link: https://scholar.google.co.uk/citations?user=hgUGouQAAAAJ
-- icon: discourse
-  icon_pack: fab
-  link: https://forums.ohdsi.org/u/hripcsa
+- orcid: 0000-0003-2664-7614
+- google_scholar: hgUGouQAAAAJ
+- ohdsi_forums: hripcsa
+- ohdsi_collaborators: george-hripcsak
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
@@ -33,7 +28,6 @@ social:
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 
-ohdsi_forums_username: "hripcsa"
 avatar: "https://ohdsi.org/wp-content/uploads/2014/07/hripcsak_web.jpg"
 
 # Organizational groups that you belong to (for People widget)

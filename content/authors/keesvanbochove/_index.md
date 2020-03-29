@@ -25,21 +25,14 @@ interests:
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
 #   form "mailto:your-email@example.com" or "#contact" for contact widget.
 social:
-- icon: orcid
-  icon_pack: fab
-  link: https://orcid.org/0000-0002-8589-0609
-- icon: twitter
-  icon_pack: fab
-  link: https://twitter.com/keesvanbochove
-- icon: skype
-  icon_pack: fab
-  link: skype:keesboston
-- icon: google-scholar
-  icon_pack: ai
-  link: https://scholar.google.co.uk/citations?user=PIMnlLEAAAAJ
-- icon: github
-  icon_pack: fab
-  link: https://github.com/keesvanbochove
+- orcid: 0000-0002-8589-0609
+- twitter: keesvanbochove
+- skype: keesboston
+- google_scholar: PIMnlLEAAAAJ
+- github: keesvanbochove
+- ohdsi_forums: keesvanbochove
+- ohdsi_collaborators: kees-van-bochove
+
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
@@ -47,9 +40,7 @@ social:
 #   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: "kees@thehyve.nl"
-
-ohdsi_forums_username: "keesvanbochove"
+#email: ""
 
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.

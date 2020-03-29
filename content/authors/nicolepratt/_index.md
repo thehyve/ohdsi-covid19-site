@@ -1,25 +1,24 @@
 ---
 # Display name
-name: Marc Suchard
+name: Nicole Pratt
 
 # Username (this should match the folder name)
 authors:
-- msuchard
+- nicolepratt
 
 organizations:
-- name: University of California, Los Angeles
-  role: Professor, Department of Biomathematics, David Geffen School of Medicine
-
+- name: School of Pharmacy and Medical Sciences, University of South Australia
+  role: Associate Professor and Deputy Director of the Quality Use of Medicines and Pharmacy Research Centre
+  url: https://www.unisa.edu.au/Health-Sciences/Schools/Pharmacy-and-Medical-Sciences/
 # Social/Academic Networking
 # For available icons, see: https://sourcethemes.com/academic/docs/page-builder/#icons
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
 #   form "mailto:your-email@example.com" or "#contact" for contact widget.
 social:
-- orcid: 0000-0001-9818-479X
+- orcid: 0000-0001-8730-8910
 - google_scholar: DDKRubAAAAAJ
-- github: msuchard
-- ohdsi_forums: msuchard
-- ohdsi_collaborators: marc-suchard
+- ohdsi_forums: nicolepratt
+- ohdsi_collaborators: nicole-pratt
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
