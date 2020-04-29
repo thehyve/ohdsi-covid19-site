@@ -14,7 +14,7 @@ patient_count: "3.1m"
 has_covid: "N"
 first_time: "No"
 data_history: "1996-2018"
-references: [""]
+references: []
 
 authors: 
     - "Jimyunk Park"
