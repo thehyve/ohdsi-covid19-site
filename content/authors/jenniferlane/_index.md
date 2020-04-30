@@ -20,7 +20,7 @@ social:
 - google_scholar: DDKRubAAAAAJ
 - github: xxx
 - ohdsi_forums: jenniferlane
-- ohdsi_collaborators: jenniferlane
+- ohdsi_collaborators: jennifer-lane
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
