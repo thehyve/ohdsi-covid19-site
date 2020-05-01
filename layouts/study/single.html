@@ -6,15 +6,31 @@
 
   <div class="article-container">
 
-    <div class="article-style">
-      {{ .Content }}
-    </div>
+      <p>{{ .Summary }}</p>
 
-    <p>{{ .Summary }}</p>
-
-    <ul>
-      <li>Study type:</li>
-    </ul>
+      <li>Data holders:</li>
+      <ol>
+        {{ range .Params.drug }}
+        <li>
+          <b>{{ .name }}</b>
+          </br> Name: <i>{{ .name }}</i>
+          </br> Code: <i>{{ .code }}</i>
+        </li>
+        {{ end }}
+      </ol>
+      <li>Event:</li>
+      <ol>
+        {{ range .Params.event }}
+          </br> Name: <b>{{ .name }}</b>
+          </br> Location: <b>{{ .location }}</b>
+        {{ end }}
+      </ol>
+      <li>Dataset:</li>
+      <ol>
+        {{ range .Params.dataset }}
+          </br> Name: <b>{{ .name }}</b>
+        {{ end }}
+      </ol>
 
     {{ partial "page_footer" . }}
 
