@@ -4,37 +4,38 @@ title: 'Risk of hydroxychloroquine, alone and in combination with azithromycin: 
 Summary: Many existing drugs are being considered for use in treatment and prophylaxis of COVID-19 in rapid clinical trials across the world. However, the full safety profiles of these drugs is often unknown, and the current trials are unlikely to be powered or have sufficent follow-up time to evaluate most safety outcomes. The aim of this OHDSI study is to use existing retrospective data to evaluate the safety of these drugs. Where possible, we also attempt to estimate potential efficacy, for example using prior viral infections as surrogate outcome, or where available by using COVID-19 as outcome
 medicalcondition: 'COVID-19'
 drug:
-- hydroxychloroquine
-- azithromycin
+  - name: hydroxychloroquine
+    code: "XXX"
+  - name: azithromycin
+    code: "XXX"
 tags:
 - Estimation
-author:
-- jenniferlane
-- jweave17
+authors:
+- "Jennifer Lane"
+- "James Weaver"
 date: "2020-03-26T00:00:00Z"
 event:
-- name: study-a-thon
-- location: virtual
+  - name: study-a-thon
+    location: virtual
 dataset:
-- AmbEMR
-- CCAE
-- CPRD
-- DA Germany
-- IMRD
-- IPCI
-- JMDC
-- MDCD
-- Open Claims
-- Optum
-- PanTher
-- SIDIAP
-- VA
-studyprotocol:
-- ID: XXX
-- Date: "2020-03-26T00:00:00Z"
-- authors:
-    - jenniferlane
-    - jweave17
+- name: AmbEMR
+- name: CCAE
+- name: CPRD
+- name: DA Germany
+- name: IMRD
+- name: IPCI
+- name: JMDC
+- name: MDCD
+- name: Open Claims
+- name: Optum
+- name: PanTher
+- name: SIDIAP
+- name: VA
+
+#studyprotocol:
+#  - ID: XXX
+#    Date: "2020-03-26T00:00:00Z"
+
 - Rpackage:
     - repository: https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine
     - language: R
