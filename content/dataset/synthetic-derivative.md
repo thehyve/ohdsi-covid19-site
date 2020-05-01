@@ -7,7 +7,8 @@ owners:
     lead: "Darwin Fu"
     alternate: ""
 country: "United States"
-source_type: "General practice electronic health records"
+source_types: 
+    - "General practice electronic health records"
 omop: "Unsure version, will check"
 dbms: "IBM Netezza"
 patient_count: ""

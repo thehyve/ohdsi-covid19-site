@@ -7,7 +7,11 @@ owners:
     lead: "Thomas Falconer"
     alternate: "Matthew Spotnitz, Karthik Natarajan, Noemie Elhadad"
 country: "USA"
-source_type: "General practice electronic health records, Outpatient specialist electronic health records, Inpatient Hospital electronic health records, Hospital billing/summary"
+source_types: 
+    - "General practice electronic health records"
+    - " Outpatient specialist electronic health records"
+    - " Inpatient Hospital electronic health records"
+    - " Hospital billing/summary"
 omop: "CDM v5.0"
 dbms: "SQL Server"
 patient_count: "TBC"

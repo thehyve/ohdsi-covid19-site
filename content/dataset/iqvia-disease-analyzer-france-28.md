@@ -7,7 +7,9 @@ owners:
     lead: "Janssen R&D"
     alternate: "See Grid"
 country: "France"
-source_type: "General practice electronic health records, Outpatient specialist electronic health records"
+source_types: 
+    - "General practice electronic health records"
+    - " Outpatient specialist electronic health records"
 omop: "CDM v5.3"
 dbms: "SQL Server"
 patient_count: ""

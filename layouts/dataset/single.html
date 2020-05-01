@@ -1,6 +1,5 @@
 {{- define "main" -}}
 
-<!--TODO: this is the specific format for a dataset. Should not be used as default. -->
 <article class="article">
 
   {{ partial "page_header" . }}
@@ -20,7 +19,14 @@
         {{ end }}
       </ol>
       <li>Country: <b>{{ .Params.country }}</b></li>
-      <li>Data capture process: <b>{{ .Params.type }}</b></li>
+      <li>Data provenance:</li>
+      <ul>
+        {{ range .Params.source_types }}
+        <li>
+          <b>{{ . }}</b>
+        </li>
+        {{ end }}
+      </ul>
       <li>OMOP <b>{{ .Params.omop }}</b></li>
       <li>Database Layer: <b>{{ .Params.dbms }}</b></li>
       <li>Patient Count: <b>{{ .Params.patient_count }}</b></li>

@@ -7,7 +7,8 @@ owners:
     lead: "Christophe G Lambert"
     alternate: ""
 country: "United States"
-source_type: "Insurance claims"
+source_types: 
+    - "Insurance claims"
 omop: "CDM v5.0"
 dbms: "Postgres"
 patient_count: ""

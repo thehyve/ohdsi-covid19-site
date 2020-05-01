@@ -1,5 +1,5 @@
 ---
-title: "TUD"
+title: ""
 subtitle: ""
 summary: ""
 owners:
@@ -7,7 +7,8 @@ owners:
     lead: "Ines Reinecke"
     alternate: ""
 country: "Germany"
-source_type: "Inpatient Hospital electronic health records"
+source_types: 
+    - "Inpatient Hospital electronic health records"
 omop: "CDM v5.2"
 dbms: "Unknown"
 patient_count: ""

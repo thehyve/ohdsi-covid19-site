@@ -7,7 +7,9 @@ owners:
     lead: "Sanggyu Kwak"
     alternate: ""
 country: "South Korea"
-source_type: "General practice electronic health records, Inpatient Hospital electronic health records"
+source_types: 
+    - "General practice electronic health records"
+    - " Inpatient Hospital electronic health records"
 omop: "CDM v5.3"
 dbms: "Postgres"
 patient_count: "1270.0"

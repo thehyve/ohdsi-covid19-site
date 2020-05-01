@@ -7,7 +7,12 @@ owners:
     lead: "Andrew Williams"
     alternate: "Robert Miller"
 country: "USA"
-source_type: "General practice electronic health records, Outpatient specialist electronic health records, Inpatient Hospital electronic health records, Tumor registry, MA State Death Registry"
+source_types: 
+    - "General practice electronic health records"
+    - " Outpatient specialist electronic health records"
+    - " Inpatient Hospital electronic health records"
+    - " Tumor registry"
+    - " MA State Death Registry"
 omop: "CDM v5.3"
 dbms: "SQL Server"
 patient_count: "1m"

@@ -7,7 +7,8 @@ owners:
     lead: "Kristin Kostka"
     alternate: ""
 country: "USA"
-source_type: "Hospital billing/summary"
+source_types: 
+    - "Hospital billing/summary"
 omop: "CDM v5.3"
 dbms: "AWS Redshift"
 patient_count: "86m "

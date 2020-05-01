@@ -7,7 +7,9 @@ owners:
     lead: "Jose Posada"
     alternate: "Priya Desai"
 country: "USA"
-source_type: "General practice electronic health records, Inpatient Hospital electronic health records"
+source_types: 
+    - "General practice electronic health records"
+    - " Inpatient Hospital electronic health records"
 omop: "CDM v5.3"
 dbms: "Google BigQuery"
 patient_count: "2.9m"

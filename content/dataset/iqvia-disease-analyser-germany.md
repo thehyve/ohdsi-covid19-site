@@ -7,7 +7,8 @@ owners:
     lead: "Kristin Kostka"
     alternate: ""
 country: "Germany"
-source_type: "General practice electronic health records"
+source_types: 
+    - "General practice electronic health records"
 omop: "CDM v5.3"
 dbms: "AWS Redshift"
 patient_count: "37m "

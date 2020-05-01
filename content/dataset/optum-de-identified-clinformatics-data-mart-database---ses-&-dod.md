@@ -7,7 +7,8 @@ owners:
     lead: "Janssen R&D"
     alternate: "See Grid"
 country: "USA"
-source_type: "Insurance claims"
+source_types: 
+    - "Insurance claims"
 omop: "CDM v5.3"
 dbms: "SQL Server"
 patient_count: ""

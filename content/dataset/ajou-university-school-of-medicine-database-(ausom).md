@@ -7,7 +7,8 @@ owners:
     lead: "Jimyunk Park/Chungsoo Kim"
     alternate: "Seng Chan You, Seongwon Lee"
 country: "South Korea"
-source_type: "General practice electronic health records"
+source_types: 
+    - "General practice electronic health records"
 omop: "CDM v5.3"
 dbms: "Postgres"
 patient_count: "3.1m"

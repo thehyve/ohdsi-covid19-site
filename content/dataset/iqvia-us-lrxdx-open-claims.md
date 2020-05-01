@@ -7,7 +7,8 @@ owners:
     lead: "Kristin Kostka"
     alternate: ""
 country: "USA"
-source_type: "Insurance claims"
+source_types: 
+    - "Insurance claims"
 omop: "CDM v5.3"
 dbms: "AWS Redshift"
 patient_count: "654m"

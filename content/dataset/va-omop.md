@@ -7,7 +7,8 @@ owners:
     lead: "Michael Matheny"
     alternate: "Scott DuVall"
 country: "USA"
-source_type: "Electronic health records and claims from inpatient and outpatient"
+source_types: 
+    - "Electronic health records and claims from inpatient and outpatient"
 omop: "CDM v5.2"
 dbms: "SQL Server"
 patient_count: "~12m"

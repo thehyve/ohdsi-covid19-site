@@ -7,7 +7,8 @@ owners:
     lead: "Weihua Gao"
     alternate: "Shivaji Manthena /Siting Wang"
 country: "USA"
-source_type: "Insurance claims"
+source_types: 
+    - "Insurance claims"
 omop: "CDM v5.0"
 dbms: "SQL Server (hardoop)"
 patient_count: "~8m"
