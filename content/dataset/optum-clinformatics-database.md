@@ -5,9 +5,9 @@ summary: "Optum’s  Clinformatics® Data Mart (CDM) is a statistically de-ident
 owners:
   - organisation: "AbbVie"
     lead: "Weihua Gao"
-    alternate: "Shivaji Manthena "
+    alternate: "Shivaji Manthena /Siting Wang"
 country: "USA"
-type: "Insurance claims"
+source_type: "Insurance claims"
 omop: "CDM v5.0"
 dbms: "SQL Server (hardoop)"
 patient_count: "~8m"
@@ -18,6 +18,8 @@ references: [""]
 
 authors: 
     - "Weihua Gao"
+    - "Shivaji Manthena "
+    - "Siting Wang"
 tags: []
 categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00

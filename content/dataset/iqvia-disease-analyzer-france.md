@@ -7,7 +7,7 @@ owners:
     lead: "Kristin Kostka"
     alternate: ""
 country: "France"
-type: "General practice electronic health records, Outpatient specialist electronic health records"
+source_type: "General practice electronic health records, Outpatient specialist electronic health records"
 omop: "CDM v5.3"
 dbms: "AWS Redshift"
 patient_count: "10m "
@@ -18,6 +18,7 @@ references: [""]
 
 authors: 
     - "Kristin Kostka"
+    - ""
 tags: []
 categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00

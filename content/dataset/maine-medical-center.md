@@ -7,7 +7,7 @@ owners:
     lead: "Adam Black"
     alternate: ""
 country: "USA"
-type: "General practice electronic health records"
+source_type: "General practice electronic health records"
 omop: "CDM v5.3"
 dbms: "SQL Server"
 patient_count: "0.93m"
@@ -18,6 +18,7 @@ references: [""]
 
 authors: 
     - "Adam Black"
+    - ""
 tags: []
 categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00

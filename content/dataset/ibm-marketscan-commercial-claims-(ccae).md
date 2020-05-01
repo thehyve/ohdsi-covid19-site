@@ -7,7 +7,7 @@ owners:
     lead: "Christophe G Lambert"
     alternate: ""
 country: "United States"
-type: "Insurance claims"
+source_type: "Insurance claims"
 omop: "CDM v5.0"
 dbms: "Postgres"
 patient_count: ""
@@ -18,6 +18,7 @@ references: [""]
 
 authors: 
     - "Christophe G Lambert"
+    - ""
 tags: []
 categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00

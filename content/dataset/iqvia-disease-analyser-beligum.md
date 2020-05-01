@@ -1,19 +1,19 @@
 ---
-title: "IQVIA Disease Analyser Germany"
+title: "IQVIA Disease Analyser Beligum"
 subtitle: ""
-summary: "Anonymized patient records collected from Patient Management software used by GPs and selected specialists to document patients’ medical records within their office-based practice during a visit "
+summary: "database consists of data collected from electronic medical records and longitudinal patient database. Data coverage 2 million patients, 688 care sites, 15 million visits, and 140 million service records. "
 owners:
   - organisation: "IQVIA"
     lead: "Kristin Kostka"
     alternate: ""
-country: "Germany"
+country: "Belgium"
 source_type: "General practice electronic health records"
 omop: "CDM v5.3"
 dbms: "AWS Redshift"
-patient_count: "37m "
+patient_count: "2m"
 has_covid: "N"
 first_time: "No"
-data_history: "1992 – "
+data_history: "2008-"
 references: [""]
 
 authors: 
