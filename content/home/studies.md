@@ -11,7 +11,7 @@ subtitle = ""
 [content]
   # Page type to display. E.g. project.
   page_type = "study"
-  
+
   # Filter toolbar (optional).
   # Add or remove as many filters (`[[content.filter_button]]` instances) as you like.
   # To show all items, set `tag` to "*".
@@ -34,8 +34,8 @@ subtitle = ""
     tag = "Estimation"
   
   [[content.filter_button]]
-    name = "Patient Level Prediction"
-    tag = "Patient Level Prediction"
+    name = "Prediction"
+    analytics_usecase = "Prediction"
 
 [design]
   # Choose how many columns the section has. Valid values: 1 or 2.
