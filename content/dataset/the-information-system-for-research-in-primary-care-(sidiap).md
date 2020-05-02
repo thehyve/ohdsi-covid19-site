@@ -7,10 +7,12 @@ owners:
     lead: "Sergio Fernández Bertolín"
     alternate: "Edward Burn, Talita Duarte Salles"
 country: "Spain"
-type: "General practice electronic health records, Inpatient Hospital electronic health records"
+source_types: 
+    - "General practice electronic health records"
+    - " Inpatient Hospital electronic health records"
 omop: "CDM v5.3"
 dbms: "Postgres"
-patient_count: "6m "
+patient_count: "7.7m"
 has_covid: "N"
 first_time: "No"
 data_history: "2006 – "
@@ -18,6 +20,7 @@ references: ["Bolíbar B, Fina Avilés F, Morros R, Del Mar Garcia-Gil M, Hermos
 
 authors: 
     - "Sergio Fernández Bertolín"
+    - "Edward Burn, Talita Duarte Salles"
 tags: []
 categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00

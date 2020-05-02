@@ -7,7 +7,8 @@ owners:
     lead: "Janssen R&D"
     alternate: "See Grid"
 country: "Japan"
-type: "Insurance claims"
+source_types: 
+    - "Insurance claims"
 omop: "CDM v5.3"
 dbms: "SQL Server"
 patient_count: "5.5m"
@@ -18,6 +19,7 @@ references: [""]
 
 authors: 
     - "Janssen R&D"
+    - "See Grid"
 tags: []
 categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00

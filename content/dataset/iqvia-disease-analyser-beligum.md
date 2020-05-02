@@ -1,24 +1,24 @@
 ---
-title: "IQVIA UK Integrated Medical Record Data (IMRD)"
+title: "IQVIA Disease Analyser Beligum"
 subtitle: ""
-summary: "Pseudonymized Electronic Medical Records collected from Patient Management software used within UK Primary Care "
+summary: "database consists of data collected from electronic medical records and longitudinal patient database. Data coverage 2 million patients, 688 care sites, 15 million visits, and 140 million service records. "
 owners:
   - organisation: "IQVIA"
-    lead: "Sarah Seager"
+    lead: "Kristin Kostka"
     alternate: ""
-country: "UK"
+country: "Belgium"
 source_types: 
     - "General practice electronic health records"
 omop: "CDM v5.3"
 dbms: "AWS Redshift"
-patient_count: "15m "
+patient_count: "2m"
 has_covid: "N"
 first_time: "No"
-data_history: "1989 – "
+data_history: "2008-"
 references: [""]
 
 authors: 
-    - "Sarah Seager"
+    - "Kristin Kostka"
     - ""
 tags: []
 categories: ["dataset"]

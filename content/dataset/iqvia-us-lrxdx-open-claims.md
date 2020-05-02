@@ -7,7 +7,8 @@ owners:
     lead: "Kristin Kostka"
     alternate: ""
 country: "USA"
-type: "Insurance claims"
+source_types: 
+    - "Insurance claims"
 omop: "CDM v5.3"
 dbms: "AWS Redshift"
 patient_count: "654m"
@@ -18,6 +19,7 @@ references: [""]
 
 authors: 
     - "Kristin Kostka"
+    - ""
 tags: []
 categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00

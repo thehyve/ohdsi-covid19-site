@@ -1,13 +1,17 @@
 ---
 title: "CUIMC"
 subtitle: ""
-summary: "TBC"
+summary: "Electronic health record data from the Columbia University Medical Center, New York-Presbyterian Hospital clinical transaction-based data repository"
 owners:
   - organisation: "Columbia University"
     lead: "Thomas Falconer"
     alternate: "Matthew Spotnitz, Karthik Natarajan, Noemie Elhadad"
 country: "USA"
-type: "General practice electronic health records, Outpatient specialist electronic health records, Inpatient Hospital electronic health records, Hospital billing/summary"
+source_types: 
+    - "General practice electronic health records"
+    - " Outpatient specialist electronic health records"
+    - " Inpatient Hospital electronic health records"
+    - " Hospital billing/summary"
 omop: "CDM v5.0"
 dbms: "SQL Server"
 patient_count: "TBC"
@@ -18,6 +22,7 @@ references: [""]
 
 authors: 
     - "Thomas Falconer"
+    - "Matthew Spotnitz, Karthik Natarajan, Noemie Elhadad"
 tags: []
 categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00

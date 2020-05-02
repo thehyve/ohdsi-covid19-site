@@ -7,7 +7,8 @@ owners:
     lead: "Ines Reinecke"
     alternate: ""
 country: "Germany"
-type: "Inpatient Hospital electronic health records"
+source_types: 
+    - "Inpatient Hospital electronic health records"
 omop: "CDM v5.2"
 dbms: "Unknown"
 patient_count: ""
@@ -18,6 +19,7 @@ references: [""]
 
 authors: 
     - "Ines Reinecke"
+    - ""
 tags: []
 categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00

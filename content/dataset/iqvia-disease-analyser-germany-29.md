@@ -1,23 +1,25 @@
 ---
-title: "IBM MarketScan Medicare Supplemental Database (MDCR)	"
+title: "IQVIA Disease Analyser Germany"
 subtitle: ""
-summary: "Represents health services of retirees (aged 65 or older) inthe United States with primary or Medicare supplemental coverage through privately insured fee-for-service, point-of-service, or capitated health plans. These data include adjudicated health insurance  claims (e.g.   inpatient, outpatient, and outpatient pharmacy). Additionally, it captures laboratory tests for a subset of the covered lives."
+summary: "Anonymized patient records collected from Patient Management software used by GPs and selected specialists to document patients’ medical records within their office-based practice during a visit "
 owners:
   - organisation: "Janssen R&D"
     lead: "Janssen R&D"
     alternate: "See Grid"
-country: "USA"
-type: "Insurance claims"
+country: "Germany"
+source_types: 
+    - "General practice electronic health records"
 omop: "CDM v5.3"
 dbms: "SQL Server"
-patient_count: "10m "
+patient_count: "37m "
 has_covid: "N"
 first_time: "No"
-data_history: "2000 – "
+data_history: "1992 – "
 references: [""]
 
 authors: 
     - "Janssen R&D"
+    - "See Grid"
 tags: []
 categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00

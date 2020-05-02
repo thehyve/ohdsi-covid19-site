@@ -7,7 +7,8 @@ owners:
     lead: "Lisa Schilling"
     alternate: ""
 country: "USA"
-type: "10 hospitals and lots of ambulatory practices"
+source_types: 
+    - "10 hospitals and lots of ambulatory practices"
 omop: "CDM v5.3"
 dbms: "Google BigQuery"
 patient_count: "6m "
@@ -18,6 +19,7 @@ references: [""]
 
 authors: 
     - "Lisa Schilling"
+    - ""
 tags: []
 categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00

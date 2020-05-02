@@ -7,7 +7,11 @@ owners:
     lead: "Yeon Hee Kim"
     alternate: ""
 country: "South Korea"
-type: "General practice electronic health records, Outpatient specialist electronic health records, Inpatient Hospital electronic health records, Registry"
+source_types: 
+    - "General practice electronic health records"
+    - " Outpatient specialist electronic health records"
+    - " Inpatient Hospital electronic health records"
+    - " Registry"
 omop: "CDM v5.3"
 dbms: "Unknown"
 patient_count: ""
@@ -18,6 +22,7 @@ references: [""]
 
 authors: 
     - "Yeon Hee Kim"
+    - ""
 tags: []
 categories: ["dataset"]
 date: 2020-03-28T00:00:00+01:00
