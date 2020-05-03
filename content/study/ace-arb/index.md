@@ -33,11 +33,6 @@ url_video: ""
 slides: example
 ---
 
-
-{{< list_tags >}}
-
-We seek to understand implications of the ACE-2 pathway, which can serve as an entry point for COVID-19 and is also upregulated by ACE inhibitors and Angiotensin Receptor Blockers. We will compare ACE and ARB vs. other anti-hypertensive drugs (calcium channel blockers, thiazide diuretics) to evaluate: 1) ‘susceptability’: amongst new users, what is the risk of Covid-19 positive? and 2) ‘severity’: amongst Covid-19 cases who are prevalent users, what is the risk of viral complication?
-
 # Databases
 
 Data source | Source population | Sample size | Data type | Longitudinal history
@@ -47,14 +42,37 @@ Columbia University Irving Medical Center|Patients of the Columbia University Ir
 
 
 # Design
-
+## Cohorts
+### Prevalent users of ACE inhibitors or ARBs (monotherapy), hospitalized with influenza 2014-2019
 ```mermaid
 gantt
+  %% http://atlas-covid19.ohdsi.org/#/cohortdefinition/609
+  %% See https://mermaid-js.github.io/mermaid/#/gantt for docs
   axisFormat %m-%Y
-  title Test design
+  title [INFLUENZA ACE ID v1]
   section Primary Criteria
-[OHDSI Covid19 v1] Inpatient Visit :active, index, 2019-12-01,30d
-  has >=180d of prior observation :done,prior,2019-06-01, 180d
+  All of [OHDSI Covid19 v1] Inpatient Visit :active, index, 2019-04-01,1d
+  section Additional Criteria
+  Any of [COVID19 v1] Influenza (including complications) - Conditions :active, after index, 1d
+  section Inclusion Rules
+  age >=18 :active,after index
+  has >=180d of prior observation :active,2018-10-03, 180d
+  No hospitalization for COVID19 in the 6 months preceding admission :crit,2018-10-03, 180d
+  Has T/C drug drug era overlapping day -30 or a drug exposure in the last 60 days :active,2018-10-03
+  Any of prior ACEi or ARB drug era :done,2018-10-03, 180d
+  or ACEi or ARB drug exposure in 60 days before :done,2019-01-31,60d
+  Hypertension diagnosis anytime before start-date  :active,2018-10-03, 180d
+  No exposure to any other antihypertensives within 180 days before start-date :crit,2018-10-03, 180d
+```
+
+
+```mermaid
+graph BT
+    Start[Original cohorts:<br/>Target: n = 67212<br/>Comparator: n = 35379]
+    Start-->Age
+    Age[fa:fa-question age >=18]
+    Age-->|N|C[fa:fa-ban Target: n = 50<br/>fa:fa-ban Comparator: n =40]
+    Age-->|Y|D[Final cohorts:<br/>fa:fa-check Target: n = 67212<br/>fa:fa-check Comparator: n = 35379];
 ```
 
 # Coverage
