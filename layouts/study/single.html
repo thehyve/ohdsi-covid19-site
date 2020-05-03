@@ -2,9 +2,11 @@
 
 <article class="article article-project">
 
-  {{ partial "page_header.html" . }}
+  {{ partial "page_header" . }}
 
   <div class="article-container">
+
+    <div class="article-style">
 
       <p>{{ .Summary }}</p>
 
@@ -32,6 +34,11 @@
         {{ end }}
       </ol>
 
+      {{ .Content }}
+
+    </div>
+
+    
     {{ partial "page_footer" . }}
 
     <div class="project-related-pages content-widget-hr">
