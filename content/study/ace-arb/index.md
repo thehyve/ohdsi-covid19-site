@@ -24,11 +24,11 @@ drug:
 event:
 - name: study-a-thon
   location: virtual
-dataset:
-- name: MDCD
-- name: CCAE
-- name: CPRD
-- name: DA Germany
+#dataset:
+#- name: MDCD
+#- name: CCAE
+#- name: CPRD
+#- name: DA Germany
 
 # Optional external URL for project (replaces project detail page).
 external_link: ""
