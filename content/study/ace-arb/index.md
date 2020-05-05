@@ -14,6 +14,8 @@ study_type:
 date: "2020-03-26T00:00:00Z"
 authors: 
 - SCYou
+- msuchard
+- mconover
 
 # Study tags
 drug:
