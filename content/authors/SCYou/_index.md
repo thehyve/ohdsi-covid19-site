@@ -7,7 +7,7 @@ authors:
 - SCYou
 
 organizations:
-- name: Yonsei University College of Medicine
+- name: Ajou University
   role: Medical Doctor, Department of Internal Medicine
   address: Seoul 120-752, South Korea
 
@@ -37,3 +37,4 @@ social:
 user_groups:
 - Estimation Studies
 ---
+Dr You is a medical doctor who majored in internal medicine from Severance hospital, Korea. He received his Master of Medical Science at the same university. Currently he is a PhD candidate in the Department of Biomedical Informatics, Ajou university and studies primarily OHDSI network research. He received the best community contribution award for clinical evidence generation at the 2017 OHDSI symposium. He works as a member of several OHDSI working group: Genomic WG, Population-Level Estimation WG, and Patient-Level-Prediction Oncology WG.
