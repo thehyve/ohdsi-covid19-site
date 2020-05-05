@@ -10,10 +10,6 @@
 {
   "@context": "https://schema.org",
   "@type": "MedicalObservationalStudy",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": {{$page.Permalink}}
-  },
   "name" : {{$page.Title}},
   "description" : {{$page.Summary}},
   "studyDesign" :
@@ -58,6 +54,10 @@
           "url" : "https://teams.microsoft.com"
           }
     },
+  "mainEntityOfPage": {
+  "@type": "WebPage",
+  "@id": {{$page.Permalink}}
+  },
   {{ if $featured_image }}
   "image": [
     {{$featured_image.Permalink}}
