@@ -1,8 +1,8 @@
 ---
-title: "Estimating the effect of ACE inhibitors and Angiotensin Receptor Blockers on COVID-19 incidence and complications
-summary: 'We seek to understand implications of the ACE-2 pathway, which can serve as an entry point for COVID-19 and is also upregulated by ACE inhibitors and Angiotensin Receptor Blockers. We will compare ACE and ARB vs. other anti-hypertensive drugs (calcium channel blockers, thiazide diuretics) to evaluate: 
+title: Estimating the effect of ACE inhibitors and Angiotensin Receptor Blockers on COVID-19 incidence and complications
+summary: "We seek to understand implications of the ACE-2 pathway, which can serve as an entry point for COVID-19 and is also upregulated by ACE inhibitors and Angiotensin Receptor Blockers. We will compare ACE and ARB vs. other anti-hypertensive drugs (calcium channel blockers, thiazide diuretics) to evaluate: 
 1. ‘susceptability’: amongst new users, what is the risk of Covid-19 positive? 
-2. ‘severity’: amongst Covid-19 cases who are prevalent users, what is the risk of viral complication?'"
+2. ‘severity’: amongst Covid-19 cases who are prevalent users, what is the risk of viral complication?"
 tags:
 - Study-a-thon
 - COVID-19
