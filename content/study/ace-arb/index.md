@@ -20,9 +20,9 @@ authors:
 # Study tags
 drug:
 - name: angiotensin converting enzyme (ACE) inhibitors
-  code: "XXX"
+  code: 4132786
 - name: angiotensin II receptor blockers (ARB)
-  code: "XXX"
+  code: 4132787
 event:
 - name: study-a-thon
   location: virtual
