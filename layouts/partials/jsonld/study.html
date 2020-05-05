@@ -2,12 +2,6 @@
 {{ $summary := .summary }}
 {{ $featured_image := ($page.Resources.ByType "image").GetMatch "*featured*" }}
 
-{{/* Get schema type. */}}
-{{ $schema := "Article" }}
-{{ if eq $page.Type "post" }}
-  {{ $schema = "BlogPosting" }}
-{{ end }}
-
 {{ $author := partial "functions/get_author_name" $page }}
 {{ $publisher := site.Params.org_name | default site.Title }}
 {{ $logo_url := partial "functions/get_logo_url" $page -}}
@@ -15,12 +9,55 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": {{$schema}},
+  "@type": "MedicalObservationalStudy",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": {{$page.Permalink}}
   },
-  "headline": {{$page.Title}},
+  "name" : {{$page.Title}},
+  "description" : {{$page.Summary}},
+  "studyDesign" :
+    {"@type" : "MedicalObservationalStudyDesign",
+    "name" : "Study Protocol",
+    "url" : "https://mieur.sharepoint.com/:w:/r/sites/OHDSI-COVID-19/_layouts/15/Doc.aspx?sourcedoc=%7BFBE5F42B-102C-4B3A-96DE-E53098D9FAC3%7D&file=PLP_protocol_Q1%2BQ2.docx&action=default&mobileredirect=true"
+    },
+  "healthCondition" : [
+      {"@type" : "MedicalCondition",
+      "name" : "COVID-19",
+      "code" : {"@type" : "MedicalCode",
+                "codeValue" : "37311061",
+                "codingSystem" : "Condition",
+                "sameAs" : " http://snomed.info/id/840539006"
+                }
+      },
+      {"@type" : "MedicalCondition",
+      "name" : "Pneumonia",
+      "code" : {"@type" : "MedicalCode",
+                "codeValue" : "255848",
+                "codingSystem" : "Condition",
+                "sameAs" : " http://snomed.info/id/233604007"
+                }
+      }
+  ],
+  "recognizingAuthority" :
+      {"@type" : "Organization",
+      "name": "OHDSI"
+      },
+      "subjectOf" :
+        {"@type" : "Event",
+        "name" : "Virtual study-a-thon on COVID-19",
+        "description" : "Virtual study-a-thon run by the OHDSI community to aid response to COVID-19.",
+        "organizer" : {"@type" : "Organization",
+          "name": "OHDSI"
+          },
+        "startDate" : "2020-03-26",
+        "endDate" : "2020-03-29",
+        "location" :
+          {"@type" : "VirtualLocation",
+          "name" : "Microsoft Teams",
+          "url" : "https://teams.microsoft.com"
+          }
+    },
   {{ if $featured_image }}
   "image": [
     {{$featured_image.Permalink}}
