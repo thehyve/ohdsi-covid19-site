@@ -1,6 +1,8 @@
 ---
-title: Estimating the effect of ACE inhibitors and Angiotensin Receptor Blockers on COVID-19 incidence and complications
-summary: 'We seek to understand implications of the ACE-2 pathway, which can serve as an entry point for COVID-19 and is also upregulated by ACE inhibitors and Angiotensin Receptor Blockers. We will compare ACE and ARB vs. other anti-hypertensive drugs (calcium channel blockers, thiazide diuretics) to evaluate: 1) ‘susceptability’: amongst new users, what is the risk of Covid-19 positive? and 2) ‘severity’: amongst Covid-19 cases who are prevalent users, what is the risk of viral complication?'
+title: "Estimating the effect of ACE inhibitors and Angiotensin Receptor Blockers on COVID-19 incidence and complications
+summary: 'We seek to understand implications of the ACE-2 pathway, which can serve as an entry point for COVID-19 and is also upregulated by ACE inhibitors and Angiotensin Receptor Blockers. We will compare ACE and ARB vs. other anti-hypertensive drugs (calcium channel blockers, thiazide diuretics) to evaluate: 
+1. ‘susceptability’: amongst new users, what is the risk of Covid-19 positive? 
+2. ‘severity’: amongst Covid-19 cases who are prevalent users, what is the risk of viral complication?'"
 tags:
 - Study-a-thon
 - COVID-19
@@ -10,7 +12,23 @@ analytics_usecases:
 study_type:
 - Clinical Application
 date: "2020-03-26T00:00:00Z"
-author: SCYou
+authors: 
+- SCYou
+
+# Study tags
+drug:
+- name: hydroxychloroquine
+  code: "XXX"
+- name: azithromycin
+  code: "XXX"
+event:
+- name: study-a-thon
+  location: virtual
+dataset:
+- name: MDCD
+- name: CCAE
+- name: CPRD
+- name: DA Germany
 
 # Optional external URL for project (replaces project detail page).
 external_link: ""
