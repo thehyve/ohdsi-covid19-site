@@ -17,9 +17,9 @@ authors:
 
 # Study tags
 drug:
-- name: hydroxychloroquine
+- name: angiotensin converting enzyme (ACE) inhibitors
   code: "XXX"
-- name: azithromycin
+- name: angiotensin II receptor blockers (ARB)
   code: "XXX"
 event:
 - name: study-a-thon
@@ -38,8 +38,12 @@ links:
   icon_pack: fas
   name: OHDSI Forums discussion
   url: https://forums.ohdsi.org/t/ohdsi-covid-19-review-on-the-effect-of-ace-inhibitors-and-angiotensin-receptor-blockers-on-covid-19-incidence-and-complication-rate/10071
-url_code: "https://github.com/ohdsi-studies/RASBlockerInCovid"
-url_pdf: ""
+- icon: globe
+  icon_pack: fas
+  name: Results explorer
+  url: https://data.ohdsi.org/Covid19EstimationAceInhibitors/
+url_code: "https://github.com/ohdsi-studies/Covid19EstimationRasInhibitors"
+url_pdf: "https://github.com/ohdsi-studies/Covid19EstimationRasInhibitors"
 url_slides: ""
 url_video: ""
 
