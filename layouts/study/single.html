@@ -1,43 +1,203 @@
 {{- define "main" -}}
 
 <article class="article article-project">
-
   {{ partial "page_header" . }}
 
   <div class="article-container">
 
     <div class="article-style">
 
-      <p>{{ .Summary }}</p>
+      <!-- <p>{{ .Summary }}</p> -->
+      <p>{{ .Description }}</p>
+      
 
-      <li>Drugs:</li>
-      <ol>
-        {{ range .Params.drug }}
-        <li>
-          <b>{{ .name }}</b>
-          </br> Name: <i>{{ .name }}</i>
-          </br> Code: <i>{{ .code }}</i>
-        </li>
-        {{ end }}
-      </ol>
-      <li>Event:</li>
-      <ol>
-        {{ range .Params.event }}
-          </br> Name: <b>{{ .name }}</b>
-          </br> Location: <b>{{ .location }}</b>
-        {{ end }}
-      </ol>
-      <li>Dataset:</li>
-      <ol>
-        {{ range .Params.dataset }}
-          </br> Name: <b>{{ .name }}</b>
-        {{ end }}
-      </ol>
+      <dl>
+        <dt>ID</dt><dd>{{ .Params.id}}</dd>
+        <dt>Disambiguating Description</dt><dd>{{ .Params.disambiguatingDescription}}</dd>
+        <dt>License</dt><dd><a href="{{ .Params.license}}" target="_blank">{{ .Params.license}}</a></dd>
+        <dt>Date Published</dt><dd>{{ .Params.datePublished}}</dd>
 
+        {{if ne .Params.contributor nil}}
+          {{if (gt (len .Params.contributor) 1)}}
+            <dt>Contributors</dt>
+          {{else}}
+            <dt>Contributor</dt>
+          {{end}}
+          <dd>
+            <ol>
+            {{ range .Params.contributor }}
+            <li>{{ .name }}</li>
+            {{ end }}
+            </ol>
+          </dd>
+        {{end}}
+        
+        {{if ne .Params.studyDesign nil}}
+          <dt>Study Design</dt>
+          <dd>
+            <dl>
+              <dt>Type</dt><dd>Medical Observational Study Design</dd>
+              <dt>ID</dt><dd>{{.Params.studyDesign.id}}</dd>
+              <dt>Version</dt><dd>{{.Params.studyDesign.version}}</dd>
+              <dt>Date Modified</dt><dd>{{.Params.studyDesign.dateModified}}</dd>
+              <dt>URL</dt><dd><a href={{.Params.studyDesign.url}}>{{.Params.studyDesign.url}}</a></dd>
+            </ul>
+          </dd>
+        {{end}}
+        
+        {{if ne .Params.healthCondition nil}}
+          {{if (gt (len .Params.healthCondition) 1)}}
+            <dt>Health Conditions</dt>
+          {{else}}
+            <dt>Health Condition</dt>
+          {{end}}
+          <dd>
+            <ol>
+            {{ range .Params.healthCondition }}
+            <li>
+              <dl>
+                <dt>Type</dt><dd>Medical Condition</dd>
+                <dt>Name</dt><dd>{{ .name }}</dd>
+                <dt>Code</dt><dd>
+                  <dl>
+                    <dt>Type</dt><dd>MedicalCode</dd>
+                    <dt>Term Code</dt><dd>{{.code.termCode}}</dd>
+                    <dt>Coding System</dt><dd>{{.code.codingSystem}}</dd>
+                    <dt>In Defined Termset</dt><dd><a href={{.code.inDefinedTermset}}>{{.code.inDefinedTermset}}</a></dd>
+                  </dl>
+                </dd>
+              </dl>
+            </li>
+            {{ end }}
+            </ol>
+          </dd>
+        {{end}}
+
+        {{if ne .Params.studySubject nil}}
+          {{if (gt (len .Params.studySubject) 1)}}
+            <dt>Study Subjects</dt>
+          {{else}}
+            <dt>Study Subject</dt>
+          {{end}}
+          <dd>
+            <ol>
+            {{ range .Params.studySubject }}
+            <li>
+              <dl>
+                <dt>Type</dt><dd>Drug</dd>
+                <dt>Name</dt><dd>{{ .name }}</dd>
+                <dt>Code</dt><dd>
+                  <dl>
+                    <dt>Type</dt><dd>MedicalCode</dd>
+                    <dt>Term Code</dt><dd>{{.code.termCode}}</dd>
+                    <dt>Coding System</dt><dd>{{.code.codingSystem}}</dd>
+                    <dt>In Defined Termset</dt><dd><a href={{.code.inDefinedTermset}}>{{.code.inDefinedTermset}}</a></dd>
+                  </dl>
+                </dd>
+              </dl>
+            </li>
+            {{ end }}
+            </ol>
+          </dd>
+        {{end}}
+
+        {{if ne .Params.subjectOf nil}}
+          <dt>Subject Of</dt>
+          <dd>
+            <dl>
+              <dt>Type</dt><dd>Event</dd>
+              <dt>Name</dt><dd>{{.Params.subjectOf.name}}</dd>
+              <dt>Organizer</dt><dd>
+                <dl>
+                  <dt>Type</dt><dd>Organization</dd>
+                  <dt>Name</dt><dd>{{.Params.subjectOf.organizer.name}}</dd>
+                </dl>
+              </dd>
+              <dt>Location</dt><dd>{{.Params.subjectOf.location}}</dd>
+              <dt>Start Date</dt><dd>{{.Params.subjectOf.startDate}}</dd>
+              <dt>End Date</dt><dd>{{.Params.subjectOf.endDate}}</dd>
+              <dt></dt><dd></dd>
+              <dt></dt><dd></dd>
+              <dt></dt><dd></dd>
+            </dl>
+          </dd>
+        {{end}}
+        
+        {{if ne .Params.result nil}}
+          {{if (gt (len .Params.result) 1)}}
+            <dt>result</dt>
+          {{else}}
+            <dt>result</dt>
+          {{end}}
+          <dd>
+            <ol>
+            {{ range .Params.result }}
+            <li><dl>
+              <dt>Type</dt><dd>Medical Scholarly Article</dd>
+              <dt>Url</dt><dd><a href={{.url}}>{{.url}}</a></dd>
+            </dl></li>
+            {{ end }}
+            </ol>
+          </dd>
+        {{end}}
+
+        {{if ne .Params.hasPart nil}}
+          {{if (gt (len .Params.hasPart) 1)}}
+            <dt>Has Parts</dt>
+          {{else}}
+            <dt>Has Part</dt>
+          {{end}}
+          <ol>
+            {{ range .Params.hasPart }}
+            <li>
+              <dl>
+                {{ range $key, $value := . }}
+                {{ with (eq $key "@type") }}<dt>Type</dt><dd>{{$value}}</dd>{{end}}
+                {{ with (eq $key "name") }}<dt>Name</dt><dd>{{$value}}</dd>{{end}}
+                {{ with (eq $key "codeRepository") }}<dt>Code Repository</dt><dd><a href={{$value}}>{{$value}}</a></dd>{{end}}
+                {{ with (eq $key "installURL") }}<dt>Install URL</dt><dd><a href={{$value}}>{{$value}}</a></dd>{{end}}
+                {{ with (eq $key "softwareVersion") }}<dt>Software Version</dt><dd>{{$value}}</dd>{{end}}
+                {{ with (eq $key "programmingLanguage") }}<dt>Programming Language</dt><dd>{{$value}}</dd>{{end}}
+                {{ with (eq $key "version") }}<dt>Version</dt><dd>{{$value}}</dd>{{end}}
+                {{ with (eq $key "maintainer") }}<dt>Maintainer</dt><dd>
+                  <dl>
+                    <dt>Type</dt><dd>Organization</dd>
+                    <dt>Name</dt><dd>{{$value.name}}</dd>
+                  </dl>{{end}}
+                {{end}}
+              </dl>
+            </li>
+            {{ end }}
+            </ol>
+          </dd>
+        {{end}}
+        
+        {{if ne .Params.citation nil}}
+          {{if (gt (len .Params.citation) 1)}}
+            <dt>Citations</dt>
+          {{else}}
+            <dt>Citation</dt>
+          {{end}}
+          <dd>
+            <ol>
+            {{ range .Params.citation }}
+            <li>
+              <dl>
+                <dt>Type</dt><dd>Scholarly Article</dd>
+                <dt>Url</dt><dd><a href={{.Params.citation.url}}>{{.Params.citation.url}}</a></dd>
+                <dt>Author</dt><dd>{{.Params.citation.author}}</dd>
+                <dt>Date Published</dt><dd>{{.Params.citation.datePublished}}</dd>
+                <dt>Headline</dt><dd>{{.Params.citation.headline}}</dd>
+                <dt>Publisher</dt><dd>{{.Params.citation.publisher}}</dd>
+              </dl>
+            </li>
+            {{ end }}
+            </ol>
+          </dd>
+        {{end}}
+      </dl>
       {{ .Content }}
-
     </div>
-
 
     {{ partial "page_footer" . }}
 
