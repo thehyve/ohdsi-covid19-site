@@ -174,7 +174,13 @@ schema:SoftwareSourceCode  a		owl:Class ;
         rdfs:comment      "Computer programming source code. Example: Full (compile ready) solutions, code snippet samples, scripts, templates."@en ;
         rdfs:isDefinedBy  <https://schema.org/SoftwareSourceCode> ;
         rdfs:label        "SoftwareSourceCode"@en ;
-        rdfs:subClassOf   schema:CreativeWork .		
+        rdfs:subClassOf   schema:CreativeWork .	
+
+schema:Substance  a       owl:Class ;
+        rdfs:comment      "Any matter of defined composition that has discrete existence, whose origin may be biological, mineral or chemical."@en ;
+        rdfs:isDefinedBy  <https://health-lifesci.schema.org/Substance> ;
+        rdfs:label        "Substance"@en ;
+        rdfs:subClassOf   schema:MedicalEntity .		
 
 # Properties
 		
