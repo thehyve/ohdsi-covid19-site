@@ -1,5 +1,5 @@
 @prefix schema: <http://schema.org/> .
-@prefix ohdsi: <http://ohdsi.data.org> .
+@prefix ohdsi: <http://ohdsi.data.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ohdsi:Dataset_ARS a schema:SourceDatabase ;
