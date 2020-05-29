@@ -686,14 +686,14 @@ ohdsi:sourceDatabase a owl:ObjectProperty ;
     rdfs:domain schema:MedicalObservationalStudy ;
     rdfs:range ohdsi:SourceDatabase ;
     rdfs:comment "This is the associated source database" .
-	
-schema:contributor  a     owl:ObjectProperty ;
-        rdfs:comment      "A secondary contributor to the CreativeWork or Event."@en ;
+
+schema:author  a          owl:ObjectProperty ;
+        rdfs:comment      "The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably."@en ;
         rdfs:domain       [ a            owl:Class ;
-                            owl:unionOf  ( schema:CreativeWork schema:Event schema:MedicalObservationalStudy )
+                            owl:unionOf  ( schema:CreativeWork schema:Rating schema:MedicalObservationalStudy)
                           ] ;
-        rdfs:isDefinedBy  <https://schema.org/contributor> ;
-        rdfs:label        "contributor"@en ;
+        rdfs:isDefinedBy  <https://schema.org/author> ;
+        rdfs:label        "author"@en ;
         rdfs:range        [ a            owl:Class ;
                             owl:unionOf  ( schema:Organization schema:Person schema:Text schema:URL schema:Role )
                           ] .
@@ -729,6 +729,17 @@ schema:result  a          owl:ObjectProperty ;
         rdfs:label        "result"@en ;
         rdfs:range        [ a            owl:Class ;
                             owl:unionOf  ( schema:Thing schema:Text schema:URL schema:Role )
+                          ] .
+
+schema:publication  a     owl:ObjectProperty ;
+        rdfs:comment      "A publication event associated with the item."@en ;
+        rdfs:domain       [ a            owl:Class ;
+                            owl:unionOf  ( schema:CreativeWork schema:MedicalObservationalStudy )
+                          ] ;
+        rdfs:isDefinedBy  <https://schema.org/publication> ;
+        rdfs:label        "publication"@en ;
+        rdfs:range        [ a            owl:Class ;
+                            owl:unionOf  ( schema:PublicationEvent schema:Text schema:URL schema:Role )
                           ] .
 
 schema:hasPart  a         owl:ObjectProperty ;
