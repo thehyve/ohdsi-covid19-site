@@ -388,17 +388,6 @@ schema:subjectOf  a       owl:ObjectProperty ;
                           ] ;
         owl:inverseOf     schema:about .
 		
-schema:disambiguatingDescription  a		owl:ObjectProperty ;
-        rdfs:comment        "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation."@en ;
-        rdfs:domain         [ a            owl:Class ;
-                              owl:unionOf  ( schema:Thing )
-                            ] ;
-        rdfs:isDefinedBy    <https://schema.org/disambiguatingDescription> ;
-        rdfs:label          "disambiguatingDescription"@en ;
-        rdfs:range          [ a            owl:Class ;
-                              owl:unionOf  ( schema:Text schema:URL schema:Role )
-                            ] ;
-        rdfs:subPropertyOf  schema:description .
 		
 schema:studyDesign  a     owl:ObjectProperty ;
         rdfs:comment      "Specifics about the observational study design (enumerated)."@en ;
@@ -775,3 +764,14 @@ schema:dateModified  a    owl:datatypeProperty ;
         rdfs:range        [ a            owl:Class ;
                             owl:unionOf  ( schema:Date schema:DateTime )
                           ] .
+						  
+schema:studyType  a		owl:ObjectProperty ;
+        rdfs:comment        "Type of the study."@en ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( schema:MedicalObservationalStudy )
+                            ] ;
+        rdfs:isDefinedBy    <https://schema.org/disambiguatingDescription> ;
+        rdfs:label          "studyType"@en ;
+        rdfs:range          [ a            owl:Class ;
+                              owl:unionOf  ( schema:Text )
+                            ] .
