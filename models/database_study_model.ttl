@@ -365,17 +365,6 @@ schema:version  a         owl:ObjectProperty ;
                             owl:unionOf  ( schema:Number schema:Text schema:URL schema:Role )
                           ] .
 
-schema:publication  a     owl:ObjectProperty ;
-        rdfs:comment      "A publication event associated with the item."@en ;
-        rdfs:domain       [ a            owl:Class ;
-                            owl:unionOf  ( schema:CreativeWork )
-                          ] ;
-        rdfs:isDefinedBy  <https://schema.org/publication> ;
-        rdfs:label        "publication"@en ;
-        rdfs:range        [ a            owl:Class ;
-                            owl:unionOf  ( schema:PublicationEvent schema:Text schema:URL schema:Role )
-                          ] .
-
 schema:alternateName  a   owl:ObjectProperty ;
         rdfs:comment      "An alias for the item."@en ;
         rdfs:domain       [ a            owl:Class ;
@@ -739,7 +728,7 @@ schema:publication  a     owl:ObjectProperty ;
         rdfs:isDefinedBy  <https://schema.org/publication> ;
         rdfs:label        "publication"@en ;
         rdfs:range        [ a            owl:Class ;
-                            owl:unionOf  ( schema:PublicationEvent schema:Text schema:URL schema:Role )
+                            owl:unionOf  ( schema:PublicationEvent schema:Text schema:URL schema:Role schema:Article)
                           ] .
 
 schema:hasPart  a         owl:ObjectProperty ;
