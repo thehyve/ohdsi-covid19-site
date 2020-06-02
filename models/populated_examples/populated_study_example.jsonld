@@ -103,7 +103,7 @@
 	"citation" : "ohdsi:ScientificReference",
     "hasPart" : [ "ohdsi:RCode", "ohdsi:Atlas" ],
 	"omopDatabase" : [ "ohdsi:THIN", "ohdsi:SIDIAP", "ohdsi:IPCI", "ohdsi:CPRD" ],
-    "sourceDatabase" : "ohdsi:OMOP_ARS",
+    "sourceDatabase" : [ "ohdsi:THIN", "ohdsi:SIDIAP", "ohdsi:IPCI", "ohdsi:CPRD" ],
     "discussionUrl" : "https://forums.ohdsi.org/"
   }, 
 {
@@ -139,6 +139,11 @@
     "@id" : "ohdsi:CPRD",
     "@type" : "ohdsi:SourceDatabase",
     "identifier" : "CPRD",
+    "name" : "Clinical Practice Research Datalink"
+  }, {
+    "@id" : "ohdsi:CPRD_OMOP",
+    "@type" : "ohdsi:OMOPDatabase",
+    "identifier" : "CPRD_OMOP",
     "name" : "Clinical Practice Research Datalink"
   }, {
     "@id" : "ohdsi:Covid19",
@@ -184,6 +189,12 @@
     "identifier" : "IPCI",
     "name" : "Integrated Primary Care Information"
   }, {
+    "@id" : "ohdsi:IPCI_OMOP",
+    "@type" : "ohdsi:OMOPDatabase",
+    "identifier" : "IPCI_OMOP",
+    "name" : "Integrated Primary Care Information"
+  },
+  {
     "@id" : "ohdsi:JamesWeaver",
     "@type" : "schema:Person",
     "name" : "James Weaver"
@@ -200,11 +211,6 @@
     "@type" : "schema:Organization",
     "name" : "OHDSI"
   }, {
-    "@id" : "ohdsi:OMOP_CPRD",
-    "@type" : "ohdsi:OMOPDatabase",
-    "identifier" : "...",
-    "name" : "..."
-  }, {
     "@id" : "ohdsi:RCode",
     "@type" : "schema:SoftwareSourceCode",
     "codeRepository" : "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine",
@@ -215,6 +221,11 @@
     "@id" : "ohdsi:SIDIAP",
     "@type" : "ohdsi:SourceDatabase",
     "identifier" : "SIDIAP",
+    "name" : "The Information System for the Development of Research in Primary Care"
+  }, {
+    "@id" : "ohdsi:SIDIAP_OMOP",
+    "@type" : "ohdsi:OMOPDatabase",
+    "identifier" : "SIDIAP_OMOP",
     "name" : "The Information System for the Development of Research in Primary Care"
   }, {
     "@id" : "ohdsi:ScientificReference",
@@ -253,6 +264,11 @@
     "@id" : "ohdsi:THIN",
     "@type" : "ohdsi:SourceDatabase",
     "identifier" : "THIN",
+    "name" : "The Health Improvement Network"
+  }, {
+    "@id" : "ohdsi:THIN_OMOP",
+    "@type" : "ohdsi:OMOPDatabase",
+    "identifier" : "THIN_OMOP",
     "name" : "The Health Improvement Network"
   } ]
  }
