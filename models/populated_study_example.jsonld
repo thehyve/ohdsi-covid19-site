@@ -1,0 +1,260 @@
+{
+"@context": {
+	"schema" : "http://schema.org/",
+	"ohdsi" : "http://ohdsi.data.org/",
+	"xsd" : "http://www.w3.org/2001/XMLSchema#",
+	
+	"inDefinedTermset" : "http://schema.org/inDefinedTermset",
+	"codingSystem" : "http://schema.org/codingSystem",
+	"termCode" : "http://schema.org/termCode",
+	"name" : "http://schema.org/name",
+	"identifier" : "http://schema.org/identifier",
+	"code" : {
+		"@id" : "http://schema.org/code",
+		"@type" : "@id"
+		},
+	"healthCondition" : {
+		"@id" : "http://schema.org/healthCondition",
+		"@type" : "@id"
+		},
+	"author" : {
+		"@id" : "http://schema.org/author",
+		"@type" : "@id"
+		},
+	"studyType" : "http://schema.org/studyType",
+	"studySubject" : {
+		"@id" : "http://schema.org/studySubject",
+		"@type" : "@id"
+		},
+	"hasPart" : {
+		"@id" : "http://schema.org/hasPart",
+		"@type" : "@id"
+		},
+	"result" : {
+		"@id" : "http://schema.org/result",
+		"@type" : "@id"
+		},
+	"citation" : {
+		"@id" : "http://schema.org/citation",
+		"@type" : "@id"
+		},
+	"datePublished" : "http://schema.org/datePublished",
+	"omopDatabase" : {
+		"@id" : "http://ohdsi.data.org/omopDatabase",
+		"@type" : "@id"
+		},
+	"publication" : {
+		"@id" : "http://schema.org/publication",
+		"@type" : "@id"
+		},
+	"license" : "http://schema.org/license",
+	"subjectOf" : {
+		"@id" : "http://schema.org/subjectOf",
+		"@type" : "@id"
+		},
+	"description" : "http://schema.org/description",
+	"sourceDatabase" : {
+		"@id" : "http://ohdsi.data.org/sourceDatabase",
+		"@type" : "@id"
+		},
+	"discussionUrl" : "http://schema.org/discussionUrl",
+	"url" : "http://schema.org/url",
+	"studyDesign" : {
+		"@id" : "http://schema.org/studyDesign",
+		"@type" : "@id"
+		},
+	"endDate" : "http://schema.org/endDate",
+	"startDate" : "http://schema.org/startDate",
+	"location" : "http://schema.org/location",
+	"organizer" : {
+		"@id" : "http://schema.org/organizer",
+		"@type" : "@id"
+		},
+	"dateModified" : "http://schema.org/dateModified",
+	"version" : "http://schema.org/version",
+	"dateCreated" : "http://schema.org/dateCreated",
+	"maintainer" : {
+		"@id" : "http://schema.org/maintainer",
+		"@type" : "@id"
+		},
+	"softwareVersion" : "http://schema.org/softwareVersion",
+	"installURL" : "http://schema.org/installURL",
+	"programmingLanguage" : "http://schema.org/programmingLanguage",
+	"codeRepository" : "http://schema.org/codeRepository"
+	},
+"@id" : "urn:x-arq:DefaultGraphNode",
+"@graph": [ {
+    "@id" : "ohdsi:Study_HQC",
+    "@type" : "schema:MedicalObservationalStudy",
+	"identifier" : "EUPAS34497",
+	"name" : "Risk of hydroxychloroquine, alone and in combination with azithromycin: a multi-national study",
+    "description" : "Retrospective, real-world, observational study to estimate the population-level effects of hydroxychloroquine among patients with rheumatoid arthritis. Designed and executed during the OHDSI community COVID-19 virtual study-a-thon (March 26-29) to inform healthcare decision-making in response to the current global pandemic.",
+    "url" : "http://www.encepp.eu/encepp/viewResource.htm?id=34498",
+	"studyType" : "Estimation study",
+    "license" : "http://www.encepp.eu/encepp_studies/index.shtml",
+    "datePublished" : "02-04-2020",
+    "author" : [ "ohdsi:JenniferLane", "ohdsi:DanielPrietoAlhambra", "ohdsi:MartijnSchuemie", "ohdsi:JamesWeaver", "ohdsi:DanielMorales" ],
+    "studyDesign" : "ohdsi:StudydesignHQC",
+    "healthCondition" : "ohdsi:Covid19",
+    "studySubject" : [ "ohdsi:Amoxicillin", "ohdsi:Hydroxychloroquine", "ohdsi:Azithromycin", "ohdsi:Sulfasalazine" ],
+    "subjectOf" : "ohdsi:Covid19Studyathon",
+    "result" : "ohdsi:Shiny",
+	"publication" : "ohdsi:StudyPublication",
+	"citation" : "ohdsi:ScientificReference",
+    "hasPart" : [ "ohdsi:RCode", "ohdsi:Atlas" ],
+	"omopDatabase" : [ "ohdsi:THIN", "ohdsi:SIDIAP", "ohdsi:IPCI", "ohdsi:CPRD" ],
+    "sourceDatabase" : "ohdsi:OMOP_ARS",
+    "discussionUrl" : "https://forums.ohdsi.org/"
+  }, 
+{
+    "@id" : "ohdsi:Amoxicillin",
+    "@type" : "schema:Drug",
+    "code" : "ohdsi:AmoxicillinCode",
+    "name" : "Amoxicillin"
+  }, {
+    "@id" : "ohdsi:AmoxicillinCode",
+    "@type" : "schema:MedicalCode",
+    "codingSystem" : "Drug",
+    "inDefinedTermset" : "https://github.com/OHDSI/Vocabulary-v5.0",
+    "termCode" : "1713332"
+  }, {
+    "@id" : "ohdsi:Atlas",
+    "@type" : "schema:SoftwareApplication",
+    "installURL" : "https://github.com/OHDSI/Atlas/wiki/Atlas-Setup-Guide",
+    "maintainer" : "ohdsi:OHDSI",
+    "name" : "Atlas",
+    "softwareVersion" : "..."
+  }, {
+    "@id" : "ohdsi:Azithromycin",
+    "@type" : "schema:Drug",
+    "code" : "ohdsi:AzithromycineCode",
+    "name" : "Azithromycin"
+  }, {
+    "@id" : "ohdsi:AzithromycinCode",
+    "@type" : "schema:MedicalCode",
+    "codingSystem" : "Drug",
+    "inDefinedTermset" : "https://github.com/OHDSI/Vocabulary-v5.0",
+    "termCode" : "1734104"
+  }, {
+    "@id" : "ohdsi:CPRD",
+    "@type" : "ohdsi:SourceDatabase",
+    "identifier" : "CPRD",
+    "name" : "Clinical Practice Research Datalink"
+  }, {
+    "@id" : "ohdsi:Covid19",
+    "@type" : "schema:MedicalCondition",
+    "code" : "ohdsi:Covid19Code",
+    "name" : "Disease caused by severe acute respiratory syndrome coronavirus 2"
+  }, {
+    "@id" : "ohdsi:Covid19Studyathon",
+    "@type" : "schema:Event",
+    "endDate" : "29-03-2020",
+    "location" : "Microsoft Teams",
+    "name" : "COVID-19 virtual study-a-thon",
+    "organizer" : "ohdsi:OHDSI",
+    "startDate" : "26-03-2020"
+  }, {
+    "@id" : "ohdsi:Covid19code",
+    "@type" : "schema:MedicalCode",
+    "codingSystem" : "Condition",
+    "inDefinedTermset" : "https://github.com/OHDSI/Vocabulary-v5.0",
+    "termCode" : "37311061"
+  }, {
+    "@id" : "ohdsi:DanielMorales",
+    "@type" : "schema:Person",
+    "name" : "Daniel Morales"
+  }, {
+    "@id" : "ohdsi:DanielPrietoAlhambra",
+    "@type" : "schema:Person",
+    "name" : "Daniel Prieto-Alhambra"
+  }, {
+    "@id" : "ohdsi:Hydroxychloroquine",
+    "@type" : "schema:Drug",
+    "code" : "ohdsi:HydroxychloroquineCode",
+    "name" : "Hydroxychloroquine"
+  }, {
+    "@id" : "ohdsi:HydroxychloroquineCode",
+    "@type" : "schema:MedicalCode",
+    "codingSystem" : "Drug",
+    "inDefinedTermset" : "https://github.com/OHDSI/Vocabulary-v5.0",
+    "termCode" : "1777087"
+  }, {
+    "@id" : "ohdsi:IPCI",
+    "@type" : "ohdsi:SourceDatabase",
+    "identifier" : "IPCI",
+    "name" : "Integrated Primary Care Information"
+  }, {
+    "@id" : "ohdsi:JamesWeaver",
+    "@type" : "schema:Person",
+    "name" : "James Weaver"
+  }, {
+    "@id" : "ohdsi:JenniferLane",
+    "@type" : "schema:Person",
+    "name" : "Jennifer Lane"
+  }, {
+    "@id" : "ohdsi:MartijnSchuemie",
+    "@type" : "schema:Person",
+    "name" : "Martijn Schuemie"
+  }, {
+    "@id" : "ohdsi:OHDSI",
+    "@type" : "schema:Organization",
+    "name" : "OHDSI"
+  }, {
+    "@id" : "ohdsi:OMOP_CPRD",
+    "@type" : "ohdsi:OMOPDatabase",
+    "identifier" : "...",
+    "name" : "..."
+  }, {
+    "@id" : "ohdsi:RCode",
+    "@type" : "schema:SoftwareSourceCode",
+    "codeRepository" : "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine",
+    "maintainer" : "ohdsi:OHDSI",
+    "programmingLanguage" : "R",
+    "version" : "..."
+  }, {
+    "@id" : "ohdsi:SIDIAP",
+    "@type" : "ohdsi:SourceDatabase",
+    "identifier" : "SIDIAP",
+    "name" : "The Information System for the Development of Research in Primary Care"
+  }, {
+    "@id" : "ohdsi:ScientificReference",
+    "@type" : "schema:ScholarlyArticle",
+    "schema:author" : "Author placeholder",
+    "datePublished" : "01-01-1970",
+    "name" : "Article title",
+    "url" : "https://pubmed.ncbi.nlm.nih.gov"
+  }, {
+    "@id" : "ohdsi:Shiny",
+    "@type" : "schema:WebApplication",
+    "url" : "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/"
+  }, {
+    "@id" : "ohdsi:StudyPublication",
+    "@type" : "schema:MedicalScholarlyArticle",
+    "url" : "https://pubmed.ncbi.nlm.nih.gov"
+  },{
+    "@id" : "ohdsi:StudydesignHQC",
+    "@type" : "schema:MedicalObservationalStudyDesign",
+    "dateModified" : "01-04-2020",
+    "identifier" : "...",
+    "url" : "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine/blob/master/documents/OHDSI%20COVID-19%20Studyathon_PLE_HCQ_Protocol_v1.4.pdf",
+    "version" : "v1.4"
+  }, {
+    "@id" : "ohdsi:Sulfasalazine",
+    "@type" : "schema:Drug",
+    "code" : "ohdsi:SulfasalazineCode",
+    "name" : "Sulfasalazine"
+  }, {
+    "@id" : "ohdsi:SulfasalazineCod",
+    "@type" : "schema:MedicalCode",
+    "codingSystem" : "Drug",
+    "inDefinedTermset" : "https://github.com/OHDSI/Vocabulary-v5.0",
+    "termCode" : "964339"
+  }, {
+    "@id" : "ohdsi:THIN",
+    "@type" : "ohdsi:SourceDatabase",
+    "identifier" : "THIN",
+    "name" : "The Health Improvement Network"
+  } ]
+ }
+
+			
