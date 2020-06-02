@@ -103,7 +103,7 @@ ohdsi:ScientificReference a schema:ScholarlyArticle ;  #There are no citations a
 	schema:url "https://pubmed.ncbi.nlm.nih.gov" ;
 	schema:name "Article title" ;
 	schema:author "Author placeholder" ; #Store as Person class
-	schema:dateCreated "01-01-1970" . 
+	schema:datePublished "01-01-1970" . 
 	
 ohdsi:Shiny	a schema:WebApplication ;
 	schema:url "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/" .
