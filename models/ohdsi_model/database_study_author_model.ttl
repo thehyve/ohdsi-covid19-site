@@ -840,9 +840,20 @@ schema:forumName  a		owl:ObjectProperty ;
         rdfs:domain       schema:Person ; 
         rdfs:range        schema:Text .
 		
-schema:collaborator a owl:ObjectProperty ;
-        rdfs:label        "collaborator" ;
+schema:ohdsiCollaborator a owl:ObjectProperty ;
+        rdfs:label        "ohdsiCollaborator" ;
         rdfs:comment      "OHDSI collaborator information" ;
         rdfs:domain       schema:Person ; 
         rdfs:range        schema:URL .
-				
+
+schema:githubHandle a owl:ObjectProperty ;
+        rdfs:label        "githubHandle" ;
+        rdfs:comment      "GitHub username of a person" ;
+        rdfs:domain       schema:Person ; 
+        rdfs:range        schema:Text .		
+
+schema:googlescholarId a owl:ObjectProperty ;
+        rdfs:label        "googlescholarId" ;
+        rdfs:comment      "Google Scholar ID of a person" ;
+        rdfs:domain       schema:Person ; 
+        rdfs:range        schema:Text .				

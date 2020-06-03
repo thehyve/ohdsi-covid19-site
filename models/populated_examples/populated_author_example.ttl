@@ -1,0 +1,20 @@
+@prefix schema: <http://schema.org/> .
+@prefix ohdsi: <http://ohdsi.data.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ohdsi:JenniferLane a schema:Person ; 
+	schema:name "Jennifer Lane" ;
+	schema:honorificPrefix "" ;
+	schema:honorificSuffix "M.D." ;
+	schema:jobTitle "Versus Arthritis Clinical Research Fellow in Orthopaedic Surgery" ;
+	schema:worksFor ohdsi:UniversityOxford ;
+	ohdsi:orcidIdentifier "0000-0002-5052-6399" ;
+	ohdsi:forumName "jenniferlane" ;
+	ohdsi:ohdsiCollaborator "https://www.ohdsi.org/who-we-are/collaborators/jennifer-lane/" ;
+	ohdsi:githubHandle "" ;
+	ohdsi:googlescholarId "DDKRubAAAAAJ" .
+	
+ohdsi:UniversityOxford a schema:Organization ;
+	schema:name "University of Oxford" ;
+	schema:department "Trauma and Orthopaedic Surgery" ;
+	schema:address "Windmill Road, Headington, Oxford, OX3 7HE, UK" .

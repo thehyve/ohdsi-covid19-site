@@ -1,0 +1,45 @@
+{
+ "@context" : {
+    "schema" : "http://schema.org/",
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "ohdsi" : "http://ohdsi.data.org/",
+	
+	"name" : "http://schema.org/name",
+    "orcidIdentifier" : "http://ohdsi.data.org/orcidIdentifier",
+    "honorificSuffix" : "http://schema.org/honorificSuffix",
+    "honorificPrefix" : "http://schema.org/honorificPrefix",
+    "worksFor" : {
+      "@id" : "http://schema.org/worksFor",
+      "@type" : "@id"
+    },
+    "googlescholarId" : "http://ohdsi.data.org/googlescholarId",
+    "forumName" : "http://ohdsi.data.org/forumName",
+    "githubHandle" : "http://ohdsi.data.org/githubHandle",
+    "jobTitle" : "http://schema.org/jobTitle",
+    "ohdsiCollaborator" : "http://ohdsi.data.org/ohdsiCollaborator",
+    "address" : "http://schema.org/addres",
+    "department" : "http://schema.org/department"  
+  },
+  "@id" : "urn:x-arq:DefaultGraphNode",
+  "@graph" : [ {
+    "@id" : "ohdsi:JenniferLane",
+    "@type" : "schema:Person",
+    "forumName" : "jenniferlane",
+    "githubHandle" : "",
+    "googlescholarId" : "DDKRubAAAAAJ",
+    "ohdsiCollaborator" : "https://www.ohdsi.org/who-we-are/collaborators/jennifer-lane/",
+    "orcidIdentifier" : "0000-0002-5052-6399",
+    "honorificPrefix" : "",
+    "honorificSuffix" : "M.D.",
+    "jobTitle" : "Versus Arthritis Clinical Research Fellow in Orthopaedic Surgery",
+    "name" : "Jennifer Lane",
+    "worksFor" : "ohdsi:UniversityOxford"
+	}, 
+	{
+    "@id" : "ohdsi:UniversityOxford",
+    "@type" : "schema:Organization",
+    "address" : "Windmill Road, Headington, Oxford, OX3 7HE, UK",
+    "department" : "Trauma and Orthopaedic Surgery",
+    "name" : "University of Oxford"
+	} ]
+}
