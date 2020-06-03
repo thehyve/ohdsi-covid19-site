@@ -1,5 +1,7 @@
 {
   "@context" : {
+    "schema" : "http://schema.org/",
+    "ohdsi" : "http://ohdsi.data.org/",
     "name" : "http://schema.org/name",
     "orcidIdentifier" : "http://ohdsi.data.org/orcidIdentifier",
     "honorificSuffix" : "http://schema.org/honorificSuffix",
@@ -14,9 +16,7 @@
     "jobTitle" : "http://schema.org/jobTitle",
     "ohdsiCollaborator" : "http://ohdsi.data.org/ohdsiCollaborator",
     "address" : "http://schema.org/address",
-    "department" : "http://schema.org/department",
-    "schema" : "http://schema.org/",
-    "ohdsi" : "http://ohdsi.data.org/"
+    "department" : "http://schema.org/department"
   },
   "@id" : "urn:x-arq:DefaultGraphNode",
   "@graph" : [ {
