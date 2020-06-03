@@ -1,0 +1,41 @@
+@prefix schema: <http://schema.org/> .
+@prefix ohdsi: <http://ohdsi.data.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ohdsi:Dataset_ARS a ohdsi:SourceDatabase ;
+    schema:identifier "ARS1" ;
+    schema:name "Agenzia regionale di sanità della Toscana" ;
+    schema:alternateName "ARS" ;
+    schema:description "Italy has a national health care system, funded by national tax but organised at a regional level: each region receives money from the central government and must pay for the healthcare of its inhabitants. Administrative data of healthcare purchased (or administered) by each region are collected with the same national data model. ARS has a copy of the administrative data of the Tuscany region. Moreover ARS has a copy of the death and birth registry and of the malformation registry, and they can be linked at an individual level with the other health data available. The core of the system is the inhabitant registry." ;
+    schema:url "https://www.ars.toscana.it/it/" ;
+    schema:dateModified "2020-05-15"^^xsd:date ;
+    schema:dateCreated "1996-01-01"^^xsd:date ;
+    schema:spatialCoverage "Firenze" ; #This needs an ontology
+    schema:temporalCoverage "P2Y6M5D"^^xsd:duration ;
+    schema:version "5.4"^^xsd:decimal ;
+    schema:publication ohdsi:27014709 ;
+    schema:license "open-source" ;
+    ohdsi:associatedInstitution ohdsi:ARSToscana ;
+    ohdsi:principalInvestigator ohdsi:RosaGini ;
+    ohdsi:scientificContact ohdsi:RosaGini ;
+    ohdsi:administrativeContact ohdsi:RosaGini ;
+    ohdsi:technicalContact ohdsi:RosaGini ;
+    ohdsi:fundingType "European Public Funding", "Funding From Industry / Contract Research" ;
+    ohdsi:populationSize "5000000"^^xsd:integer ;
+    ohdsi:databaseSystem "PostgreSQL" .
+
+ohdsi:27014709 a schema:Article ;
+    schema:identifier <https://pubmed.ncbi.nlm.nih.gov/27014709/> ;
+    schema:name "Data Extraction and Management in Networks of Observational Health Care Databases for Scientific Research: A Comparison of EU-ADR, OMOP, Mini-Sentinel and MATRICE Strategies" ;
+    schema:author "Gini R" ; #This could be an instance of the person class but need to think about this a bit
+    schema:publisher "EGEMS (Washington, DC)" ; #Could be made into an instance of schema:Organization
+    schema:dateCreated "2016-02-08"^^xsd:date .
+
+ohdsi:ARSToscana a schema:Organization ;
+    schema:name "Agenzia regionale di sanità della Toscana" .
+
+ohdsi:RosaGini a schema:Person ;
+    schema:name "Rosa Gini" ;
+    schema:address "via Dazzi 1, 50141 Firenze, Italy" ;
+    schema:email "rosa.gini@ars.toscana.it" ;
+    schema:telephone "+393357757388" .
