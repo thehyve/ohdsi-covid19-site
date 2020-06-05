@@ -2,7 +2,6 @@
 # Display name
 title: "{{ replace .Name "-" " " | title }}"
 name: {{ .Name }}
-subtitle: ""
 
 # Username (this should match the folder name and the author name on other pages)
 authors:
@@ -50,6 +49,6 @@ social:
 
 honorificPrefix:
 
-# Array of suffixes (e.g. M.D.)
+# Array of suffixes (e.g. "M.D." , "...")
 honorificSuffix: []
 ---

@@ -8,6 +8,7 @@ lastmod: {{ .Date }}
 featured: false
 draft: false
 
+id: 
 identifier:
 
 # Author ID
