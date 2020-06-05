@@ -1,7 +1,7 @@
 ---
 # Display name
 title: "Jennifer Lane"
-name: "Jennifer Lane"
+name: "JenniferLane"
 
 # Username (this should match the folder name and the author name on other pages)
 authors:
@@ -17,14 +17,14 @@ organization:
 
 # Academic Networking
 accounts:
-  forumName: 
+  forumName: jenniferlane
   # https://github.com/USERNAME
-  githubHandle: USERNAME
+  githubHandle: 
   # https://scholar.google.com/citations?user=PERSON-ID
-  googlescholarId: PERSON-ID
+  googlescholarId: DDKRubAAAAAJ
   # OHDSI Collaborator URL
-  ohdsiCollaborator: 
-  orcidIdentifier:
+  ohdsiCollaborator: https://www.ohdsi.org/who-we-are/collaborators/jennifer-lane/
+  orcidIdentifier: 0000-0002-5052-6399
 
 social:
 # - icon: envelope

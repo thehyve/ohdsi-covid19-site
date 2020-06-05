@@ -8,6 +8,7 @@ lastmod: 2020-05-22T14:21:00+02:00
 featured: false
 draft: false
 
+id: Study_HQC
 identifier: EUPAS34497
 
 # Author ID
@@ -50,7 +51,7 @@ healthConditions:
   inDefinedTermset: https://github.com/OHDSI/Vocabulary-v5.0
   termCode: 37311061
   id: Covid19
-  codeId: Covid19code
+  codeId: Covid19Code
 - name: 
   codingSystem: 
   inDefinedTermset: https://github.com/OHDSI/Vocabulary-v5.0
@@ -62,14 +63,14 @@ healthConditions:
 license: http://www.encepp.eu/encepp_studies/index.shtml
 
 publication:
-  url: 
+  url: "https://pubmed.ncbi.nlm.nih.gov"
 
 result:
   url: "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/"
   id: Shiny
 
 studyDesign:
-  url: ""
+  url: "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine/blob/master/documents/OHDSI%20COVID-19%20Studyathon_PLE_HCQ_Protocol_v1.4.pdf"
   identifier: "..."
   version: 1.4
   dateModified: 01-04-2020
@@ -110,7 +111,7 @@ citations:
   url: "https://pubmed.ncbi.nlm.nih.gov"
   datePublished: 01-01-1970
   author: Author placeholder
-  id: referencePH1
+  id: referencePH
 
 omopDatabases:
 - THIN_OMOP
@@ -123,5 +124,5 @@ sourceDatabases:
 -  CPRD
 -  THIN
 -  SIDIAP
--  IPCI"
+-  IPCI
 ---
