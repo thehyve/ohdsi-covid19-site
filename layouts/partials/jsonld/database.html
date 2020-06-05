@@ -1,0 +1,153 @@
+{{- $page := .page }}
+{{ $summary := .summary }}
+{{ $params := $page.Params}}
+{{ $featured_image := ($page.Resources.ByType "image").GetMatch "*featured*" }}
+
+{{ $author := partial "functions/get_author_name" $page }}
+{{ $publisher := site.Params.org_name | default site.Title }}
+{{ $logo_url := partial "functions/get_logo_url" $page -}}
+
+<script type="application/ld+json">
+  {
+    "@graph": [
+      {
+        "@id": "ohdsi:{{$params.publication.id}}",
+        "@type": "schema:Article",
+        "author": "{{$params.publication.author}}",
+        "dateCreated": "{{$params.publication.dateModified}}",
+        "identifier": {
+          "@id": "{{$params.publication.identifier}}"
+        },
+        "name": "{{$params.publication.name}}",
+        "publisher": "{{$params.publication.publisher}}"
+      },
+      {
+        "@id": "ohdsi:{{$params.associatedInstitution.id}}",
+        "@type": "schema:Organization",
+        "name": "{{$params.associatedInstitution.name}}"
+      },
+      {
+        "@id": "ohdsi:{{$params.id}}",
+        "@type": "ohdsi:SourceDatabase",
+        "administrativeContact": "ohdsi:{{$params.administrativeContact.id}}",
+        "associatedInstitution": "ohdsi:{{$params.associatedInstitution.id}}",
+        "databaseSystem": "{{$params.databaseSystem}}",
+        "fundingType": [{{ range $i, $e := $params.fundingTypes }}{{ if $i }}, {{ end }}
+          "{{$e}}"{{end}}
+        ],
+        "ohdsi:populationSize": {{$params.populationSize}},
+        "principalInvestigator": "ohdsi:{{$params.principalInvestigator.id}}",
+        "scientificContact": "ohdsi:{{$params.scientificContact.id}}",
+        "technicalContact": "ohdsi:{{$params.technicalContact.id}}",
+        "alternateName": "{{$params.alternateName}}",
+        "dateCreated": "{{$params.dateCreated}}",
+        "dateModified": "{{$params.dateModified}}",
+        "description": "{{$params.description}}",
+        "identifier": "{{$params.identifier}}",
+        "license": "{{$params.license}}",
+        "name": "{{$params.name}}",
+        "publication": "ohdsi:{{$params.publication.id}}",
+        "spatialCoverage": "{{$params.spatialCoverage}}",
+        "temporalCoverage": "{{$params.temporalCoverage}}",
+        "url": "{{$params.databaseUrl}}",
+        "version": "{{$params.version}}"
+      },
+      {
+        "@id": "ohdsi:{{$params.administrativeContact.id}}",
+        "@type": "schema:Person",
+        "address": "{{$params.administrativeContact.address}}",
+        "email": "{{$params.administrativeContact.email}}",
+        "name": "{{$params.administrativeContact.name}}",
+        "telephone": "{{$params.administrativeContact.telephone}}"
+      },
+      {
+        "@id": "ohdsi:{{$params.principalInvestigator.id}}",
+        "@type": "schema:Person",
+        "address": "{{$params.principalInvestigator.address}}",
+        "email": "{{$params.principalInvestigator.email}}",
+        "name": "{{$params.principalInvestigator.name}}",
+        "telephone": "{{$params.principalInvestigator.telephone}}"
+      },
+      {
+        "@id": "ohdsi:{{$params.scientificContact.id}}",
+        "@type": "schema:Person",
+        "address": "{{$params.scientificContact.address}}",
+        "email": "{{$params.scientificContact.email}}",
+        "name": "{{$params.scientificContact.name}}",
+        "telephone": "{{$params.scientificContact.telephone}}"
+      },
+      {
+        "@id": "ohdsi:{{$params.technicalContact.id}}",
+        "@type": "schema:Person",
+        "address": "{{$params.technicalContact.address}}",
+        "email": "{{$params.technicalContact.email}}",
+        "name": "{{$params.technicalContact.name}}",
+        "telephone": "{{$params.technicalContact.telephone}}"
+      }
+    ],
+    "@id": "urn:x-arq:DefaultGraphNode",
+    "@context": {
+      "telephone": "http://schema.org/telephone",
+      "email": "http://schema.org/email",
+      "address": "http://schema.org/address",
+      "name": "http://schema.org/name",
+      "dateCreated": {
+        "@id": "http://schema.org/dateCreated",
+        "@type": "http://www.w3.org/2001/XMLSchema#date"
+      },
+      "fundingType": "http://ohdsi.data.org/fundingType",
+      "dateModified": {
+        "@id": "http://schema.org/dateModified",
+        "@type": "http://www.w3.org/2001/XMLSchema#date"
+      },
+      "temporalCoverage": {
+        "@id": "http://schema.org/temporalCoverage",
+        "@type": "http://www.w3.org/2001/XMLSchema#duration"
+      },
+      "spatialCoverage": "http://schema.org/spatialCoverage",
+      "populationSize": {
+        "@id": "http://ohdsi.data.org/populationSize",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "identifier": "http://schema.org/identifier",
+      "associatedInstitution": {
+        "@id": "http://ohdsi.data.org/associatedInstitution",
+        "@type": "@id"
+      },
+      "alternateName": "http://schema.org/alternateName",
+      "version": {
+        "@id": "http://schema.org/version",
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+      },
+      "administrativeContact": {
+        "@id": "http://ohdsi.data.org/administrativeContact",
+        "@type": "@id"
+      },
+      "url": "http://schema.org/url",
+      "description": "http://schema.org/description",
+      "databaseSystem": "http://ohdsi.data.org/databaseSystem",
+      "scientificContact": {
+        "@id": "http://ohdsi.data.org/scientificContact",
+        "@type": "@id"
+      },
+      "publication": {
+        "@id": "http://schema.org/publication",
+        "@type": "@id"
+      },
+      "principalInvestigator": {
+        "@id": "http://ohdsi.data.org/principalInvestigator",
+        "@type": "@id"
+      },
+      "license": "http://schema.org/license",
+      "technicalContact": {
+        "@id": "http://ohdsi.data.org/technicalContact",
+        "@type": "@id"
+      },
+      "publisher": "http://schema.org/publisher",
+      "author": "http://schema.org/author",
+      "schema": "http://schema.org/",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "ohdsi": "http://ohdsi.data.org/"
+    }
+  }
+</script>

@@ -4,198 +4,81 @@
   {{ partial "page_header" . }}
 
   <div class="article-container">
-
+    <div class="article-meta mb-3">
+      <button type="button" class="btn btn-outline-secondary">Identifier: {{.Params.identifier}}</button>
+      <button type="button" class="btn btn-outline-secondary">{{.Params.studyType}}</button>
+      <a type="button" class="btn btn-outline-primary" href="{{.Params.studyUrl}}"><i class="fas fa-link mr-1"></i>URL</a>
+      <a type="button" class="btn btn-outline-primary" href="{{.Params.discussionUrl}}"><i class="fas fa-comments mr-1"></i>Forum Discussion</a>
+      <a type="button" class="btn btn-outline-primary" href="{{.Params.result.url}}"><i class="fas fa-link mr-1"></i>Result</a>
+      <a type="button" class="btn btn-outline-primary" href="{{.Params.license}}"><i class="fas fa-link mr-1"></i>License</a>
+    </div>
     <div class="article-style">
 
       <!-- <p>{{ .Summary }}</p> -->
       <p>{{ .Description }}</p>
       
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="details-tab" data-toggle="tab" href="#details" role="tab" aria-controls="details" aria-selected="true">Details</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="software-tab" data-toggle="tab" href="#software" role="tab" aria-controls="software" aria-selected="false">Software</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="databases-tab" data-toggle="tab" href="#databases" role="tab" aria-controls="databases" aria-selected="false">Databases</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="citations-tab" data-toggle="tab" href="#citations" role="tab" aria-controls="citations" aria-selected="false">Citations</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
+          <b>Drugs:</b> <ul>
+            {{range .Params.drugs}}
+            <li>{{.name}}</li>
+            {{end}}
+          </ul>
+          <b>Health Conditions:</b> <ul>
+            {{range .Params.healthConditions}}
+            <li>{{.name}}</li>
+            {{end}}
+          </ul>
+          <b>Event:</b> {{.Params.event.name}} <i>({{.Params.event.startDate}} to {{.Params.event.endDate}})</i> at {{.Params.event.location}}, Organizer: {{.Params.event.organizer}}
+        </div>
+        <div class="tab-pane fade" id="software" role="tabpanel" aria-labelledby="software-tab">
+          <b>Applications:</b> <ul>
+            {{range .Params.softwareApplications}}
+              <li><a href="{{.installUrl}}">{{.name}}</a> Version: {{.version}}</li>
+            {{end}}
+          </ul>
+          <b>Source Codes:</b> <ul>
+            {{range .Params.softwareSourceCodes}}
+              <li><a href="{{.codeRepository}}">{{.name}}</a> Version: {{.version}}, Programming Language: {{.programmingLanguage}}, Maintainer: {{.maintainer}}</li>
+            {{end}}
+          </ul>
 
-      <dl>
-        <dt>ID</dt><dd>{{ .Params.id}}</dd>
-        <dt>Disambiguating Description</dt><dd>{{ .Params.disambiguatingDescription}}</dd>
-        <dt>License</dt><dd><a href="{{ .Params.license}}" target="_blank">{{ .Params.license}}</a></dd>
-        <dt>Date Published</dt><dd>{{ .Params.datePublished}}</dd>
-
-        {{if ne .Params.contributor nil}}
-          {{if (gt (len .Params.contributor) 1)}}
-            <dt>Contributors</dt>
-          {{else}}
-            <dt>Contributor</dt>
+        </div>
+        <div class="tab-pane fade" id="databases" role="tabpanel" aria-labelledby="databases-tab">
+          <b>Source Databases:</b> <ul>{{range $i, $e := .Params.sourceDatabases}}
+          {{- $db_page := site.GetPage (printf "/database/%s" $e) -}}
+          <li><a href="{{$db_page.URL}}">{{$db_page.Params.title}}</a></li>
           {{end}}
-          <dd>
-            <ol>
-            {{ range .Params.contributor }}
-            <li>{{ .name }}</li>
-            {{ end }}
-            </ol>
-          </dd>
-        {{end}}
-        
-        {{if ne .Params.studyDesign nil}}
-          <dt>Study Design</dt>
-          <dd>
-            <dl>
-              <dt>Type</dt><dd>Medical Observational Study Design</dd>
-              <dt>ID</dt><dd>{{.Params.studyDesign.id}}</dd>
-              <dt>Version</dt><dd>{{.Params.studyDesign.version}}</dd>
-              <dt>Date Modified</dt><dd>{{.Params.studyDesign.dateModified}}</dd>
-              <dt>URL</dt><dd><a href={{.Params.studyDesign.url}}>{{.Params.studyDesign.url}}</a></dd>
-            </ul>
-          </dd>
-        {{end}}
-        
-        {{if ne .Params.healthCondition nil}}
-          {{if (gt (len .Params.healthCondition) 1)}}
-            <dt>Health Conditions</dt>
-          {{else}}
-            <dt>Health Condition</dt>
+          </ul>
+          <b>OMOP Databases:</b> <ul>{{range $i, $e := .Params.omopDatabases}}
+            {{- $db_page := site.GetPage (printf "/database/%s" $e) -}}
+            <li><a href="{{$db_page.URL}}">{{$db_page.Params.title}}</a></li>
+            {{end}}
+        </ul>
+          
+        </div>
+        <div class="tab-pane fade" id="citations" role="tabpanel" aria-labelledby="citations-tab">
+          <ul>
+          {{range .Params.citations}}
+            <li><a href="{{.url}}">{{.author}}. <i>{{.articleTitle}}</i>, {{.datePublished}}</a></li>
           {{end}}
-          <dd>
-            <ol>
-            {{ range .Params.healthCondition }}
-            <li>
-              <dl>
-                <dt>Type</dt><dd>Medical Condition</dd>
-                <dt>Name</dt><dd>{{ .name }}</dd>
-                <dt>Code</dt><dd>
-                  <dl>
-                    <dt>Type</dt><dd>MedicalCode</dd>
-                    <dt>Term Code</dt><dd>{{.code.termCode}}</dd>
-                    <dt>Coding System</dt><dd>{{.code.codingSystem}}</dd>
-                    <dt>In Defined Termset</dt><dd><a href={{.code.inDefinedTermset}}>{{.code.inDefinedTermset}}</a></dd>
-                  </dl>
-                </dd>
-              </dl>
-            </li>
-            {{ end }}
-            </ol>
-          </dd>
-        {{end}}
-
-        {{if ne .Params.studySubject nil}}
-          {{if (gt (len .Params.studySubject) 1)}}
-            <dt>Study Subjects</dt>
-          {{else}}
-            <dt>Study Subject</dt>
-          {{end}}
-          <dd>
-            <ol>
-            {{ range .Params.studySubject }}
-            <li>
-              <dl>
-                <dt>Type</dt><dd>Drug</dd>
-                <dt>Name</dt><dd>{{ .name }}</dd>
-                <dt>Code</dt><dd>
-                  <dl>
-                    <dt>Type</dt><dd>MedicalCode</dd>
-                    <dt>Term Code</dt><dd>{{.code.termCode}}</dd>
-                    <dt>Coding System</dt><dd>{{.code.codingSystem}}</dd>
-                    <dt>In Defined Termset</dt><dd><a href={{.code.inDefinedTermset}}>{{.code.inDefinedTermset}}</a></dd>
-                  </dl>
-                </dd>
-              </dl>
-            </li>
-            {{ end }}
-            </ol>
-          </dd>
-        {{end}}
-
-        {{if ne .Params.subjectOf nil}}
-          <dt>Subject Of</dt>
-          <dd>
-            <dl>
-              <dt>Type</dt><dd>Event</dd>
-              <dt>Name</dt><dd>{{.Params.subjectOf.name}}</dd>
-              <dt>Organizer</dt><dd>
-                <dl>
-                  <dt>Type</dt><dd>Organization</dd>
-                  <dt>Name</dt><dd>{{.Params.subjectOf.organizer.name}}</dd>
-                </dl>
-              </dd>
-              <dt>Location</dt><dd>{{.Params.subjectOf.location}}</dd>
-              <dt>Start Date</dt><dd>{{.Params.subjectOf.startDate}}</dd>
-              <dt>End Date</dt><dd>{{.Params.subjectOf.endDate}}</dd>
-              <dt></dt><dd></dd>
-              <dt></dt><dd></dd>
-              <dt></dt><dd></dd>
-            </dl>
-          </dd>
-        {{end}}
-        
-        {{if ne .Params.result nil}}
-          {{if (gt (len .Params.result) 1)}}
-            <dt>result</dt>
-          {{else}}
-            <dt>result</dt>
-          {{end}}
-          <dd>
-            <ol>
-            {{ range .Params.result }}
-            <li><dl>
-              <dt>Type</dt><dd>Medical Scholarly Article</dd>
-              <dt>Url</dt><dd><a href={{.url}}>{{.url}}</a></dd>
-            </dl></li>
-            {{ end }}
-            </ol>
-          </dd>
-        {{end}}
-
-        {{if ne .Params.hasPart nil}}
-          {{if (gt (len .Params.hasPart) 1)}}
-            <dt>Has Parts</dt>
-          {{else}}
-            <dt>Has Part</dt>
-          {{end}}
-          <ol>
-            {{ range .Params.hasPart }}
-            <li>
-              <dl>
-                {{ range $key, $value := . }}
-                {{ with (eq $key "@type") }}<dt>Type</dt><dd>{{$value}}</dd>{{end}}
-                {{ with (eq $key "name") }}<dt>Name</dt><dd>{{$value}}</dd>{{end}}
-                {{ with (eq $key "codeRepository") }}<dt>Code Repository</dt><dd><a href={{$value}}>{{$value}}</a></dd>{{end}}
-                {{ with (eq $key "installURL") }}<dt>Install URL</dt><dd><a href={{$value}}>{{$value}}</a></dd>{{end}}
-                {{ with (eq $key "softwareVersion") }}<dt>Software Version</dt><dd>{{$value}}</dd>{{end}}
-                {{ with (eq $key "programmingLanguage") }}<dt>Programming Language</dt><dd>{{$value}}</dd>{{end}}
-                {{ with (eq $key "version") }}<dt>Version</dt><dd>{{$value}}</dd>{{end}}
-                {{ with (eq $key "maintainer") }}<dt>Maintainer</dt><dd>
-                  <dl>
-                    <dt>Type</dt><dd>Organization</dd>
-                    <dt>Name</dt><dd>{{$value.name}}</dd>
-                  </dl>{{end}}
-                {{end}}
-              </dl>
-            </li>
-            {{ end }}
-            </ol>
-          </dd>
-        {{end}}
-        
-        {{if ne .Params.citation nil}}
-          {{if (gt (len .Params.citation) 1)}}
-            <dt>Citations</dt>
-          {{else}}
-            <dt>Citation</dt>
-          {{end}}
-          <dd>
-            <ol>
-            {{ range .Params.citation }}
-            <li>
-              <dl>
-                <dt>Type</dt><dd>Scholarly Article</dd>
-                <dt>Url</dt><dd><a href={{.Params.citation.url}}>{{.Params.citation.url}}</a></dd>
-                <dt>Author</dt><dd>{{.Params.citation.author}}</dd>
-                <dt>Date Published</dt><dd>{{.Params.citation.datePublished}}</dd>
-                <dt>Headline</dt><dd>{{.Params.citation.headline}}</dd>
-                <dt>Publisher</dt><dd>{{.Params.citation.publisher}}</dd>
-              </dl>
-            </li>
-            {{ end }}
-            </ol>
-          </dd>
-        {{end}}
-      </dl>
+          </ul>
+        </div>
+      </div>
       {{ .Content }}
     </div>
 

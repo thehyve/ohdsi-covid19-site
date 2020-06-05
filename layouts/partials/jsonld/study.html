@@ -4,141 +4,250 @@
 {{ $featured_image := ($page.Resources.ByType "image").GetMatch "*featured*" }}
 
 {{ $author := partial "functions/get_author_name" $page }}
+
 {{ $publisher := site.Params.org_name | default site.Title }}
 {{ $logo_url := partial "functions/get_logo_url" $page -}}
 
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "MedicalObservationalStudy",
-  "id": "{{ $params.id}}",
-  "name": "{{$params.Title}}",
-  "description": "{{$params.description}}",
-  "disambiguatingDescription": "{{$params.disambiguatingDescription}}",
-  "license": "{{$params.license}}",
-  "datePublished": "{{$params.datePublished}}",
-  {{/*}}"datePublished": "{{ $page.PublishDate.Format "2006-01-02T15:04:05Z07:00" }}",{{*/}}
-  "contributor": [{{ range $i, $e := $params.contributor }}{{ if $i }}, {{ end }}
-    {
-      "@type" : "Person",
-      "name" : "{{$e.name}}"
-    }{{ end }}
-  ],
-  "studyDesign": {
-    "@type": "MedicalObservationalStudyDesign",
-    "id": "{{$params.studyDesign.id}}",
-    "version": "{{$params.studyDesign.version}}",
-    "dateModified": "{{$params.studyDesign.dateModified}}",
-    "url": "{{$params.studyDesign.url}}"
-  },
-  "healthCondition": [{{ range $i, $e := $params.healthCondition }}{{ if $i }}, {{ end }}
-    {
-      "@type": "MedicalCondition",
-      "name": "{{ .name }}",
-      "code": {
-        "@type": "MedicalCode",
-        "termCode": "{{.code.termCode}}",
-        "codingSystem": "{{.code.codingSystem}}",
-        "inDefinedTermset": "{{.code.inDefinedTermset}}"
-      }
-    }{{ end }}
-  ],
-  "studySubject": [{{ range $i, $e := $params.studySubject }}{{ if $i }}, {{ end }}
-    {
-      "@type": "Drug",
-      "name": "{{.name}}",
-      "code": {
-        "@type": "MedicalCode",
-        "termCode": "{{.code.termCode}}",
-        "codingSystem": "{{.code.codingSystem}}",
-        "inDefinedTermset": "{{.code.inDefinedTermset}}"
-      }
-    }{{end}}
-  ],
-  "subjectOf": {
-    "@type": "Event",
-    "name": "{{.name}}",
+  "@context": {
+    "schema": "http://schema.org/",
+    "ohdsi": "http://ohdsi.data.org/",
+    "inDefinedTermset": "http://schema.org/inDefinedTermset",
+    "codingSystem": "http://schema.org/codingSystem",
+    "termCode": {
+      "@id": "http://schema.org/termCode",
+      "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+    },
+    "name": "http://schema.org/name",
+    "identifier": "http://schema.org/identifier",
+    "code": {
+      "@id": "http://schema.org/code",
+      "@type": "@id"
+    },
+    "omopDatabase": {
+      "@id": "http://ohdsi.data.org/omopDatabase",
+      "@type": "@id"
+    },
+    "healthCondition": {
+      "@id": "http://schema.org/healthCondition",
+      "@type": "@id"
+    },
+    "author": {
+      "@id": "http://schema.org/author",
+      "@type": "@id"
+    },
+    "studyType": "http://schema.org/studyType",
+    "studySubject": {
+      "@id": "http://schema.org/studySubject",
+      "@type": "@id"
+    },
+    "hasPart": {
+      "@id": "http://schema.org/hasPart",
+      "@type": "@id"
+    },
+    "result": {
+      "@id": "http://schema.org/result",
+      "@type": "@id"
+    },
+    "sourceDatabase": {
+      "@id": "http://ohdsi.data.org/sourceDatabase",
+      "@type": "@id"
+    },
+    "datePublished": {
+      "@id": "http://schema.org/datePublished",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "publication": {
+      "@id": "http://schema.org/publication",
+      "@type": "@id"
+    },
+    "citation": {
+      "@id": "http://schema.org/citation",
+      "@type": "@id"
+    },
+    "license": "http://schema.org/license",
+    "subjectOf": {
+      "@id": "http://schema.org/subjectOf",
+      "@type": "@id"
+    },
+    "description": "http://schema.org/description",
+    "discussionUrl": "http://schema.org/discussionUrl",
+    "url": "http://schema.org/url",
+    "studyDesign": {
+      "@id": "http://schema.org/studyDesign",
+      "@type": "@id"
+    },
+    "endDate": {
+      "@id": "http://schema.org/endDate",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "startDate": {
+      "@id": "http://schema.org/startDate",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "location": "http://schema.org/location",
     "organizer": {
-      "@type": "Organization",
-      "name": "{{.organizer.name}}"
+      "@id": "http://schema.org/organizer",
+      "@type": "@id"
     },
-    "location": "{{.location}}", 
-    "startDate": "{{.startDate}}",
-    "endDate": "{{.endDate}}"
+    "dateModified": {
+      "@id": "http://schema.org/dateModified",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "version": {
+      "@id": "http://schema.org/version",
+      "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+    },
+    "maintainer": {
+      "@id": "http://schema.org/maintainer",
+      "@type": "@id"
+    },
+    "softwareVersion": "http://schema.org/softwareVersion",
+    "installURL": "http://schema.org/installURL",
+    "programmingLanguage": "http://schema.org/programmingLanguage",
+    "codeRepository": "http://schema.org/codeRepository"
   },
-  "result": [{{ range $i, $e := $params.result }}{{ if $i }}, {{ end }}{{ range $j, $v := .}}{{with (eq $j "@type")}}{{with (eq $v "MedicalScholarlyArticle")}}
+  "@id": "urn:x-arq:DefaultGraphNode",
+  "@graph": [
+    {{ range $i, $e := $params.drugs }}{
+      "@id": "ohdsi:{{.name}}",
+      "@type": "schema:Drug",
+      "code": "ohdsi:{{.name}}Code",
+      "name": "{{.name}}"
+    },{
+      "@id": "ohdsi:{{.name}}Code",
+      "@type": "schema:MedicalCode",
+      "codingSystem": "Drug",
+      "inDefinedTermset": "{{.inDefinedTermset}}",
+      "termCode": "{{.termCode}}"
+    },{{end}}
     {
-      "@type" : "MedicalScholarlyArticle",
-      "url" : "{{$e.url}}"
-    }{{end}}{{end}}{{with (eq $j "@type")}}{{with (eq $v "WebApplication")}} 
+      "@id": "ohdsi:{{$params.event.id}}",
+      "@type": "schema:Event",
+      "endDate": "{{$params.event.endDate}}",
+      "location": "{{$params.event.location}}",
+      "name": "{{$params.event.name}}",
+      "organizer": "ohdsi:{{$params.event.organizer}}",
+      "startDate": "{{$params.event.startDate}}"
+    },
+    {{ range $i, $e := $params.healthConditions }}{
+      "@id": "ohdsi:{{.codeId}}",
+      "@type": "schema:MedicalCode",
+      "codingSystem": "{{.codingSystem}}",
+      "inDefinedTermset": "{{.inDefinedTermset}}",
+      "termCode": "{{.termCode}}"
+    },{
+      "@id": "ohdsi:{{.id}}",
+      "@type": "schema:MedicalCondition",
+      "schema:code": "ohdsi:{{.codeId}}",
+      "name": "{{.name}}"
+    },{{end}}
+    {{range $i, $e := $params.authors}}{{ if $i }},{{ end }}{{- $profile_page := site.GetPage (printf "/authors/%s" $e) -}}
     {
-      "@type" : "WebApplication",
-      "url" : "{{$e.url}}"
-    }{{end}}{{end}}{{end}}{{end}}
-  ],
-  "hasPart": [{{ range $i, $e := $params.hasPart }}{{ if $i }}, {{ end }}{{ range $j, $v := .}}{{with (eq $j "@type")}}{{with (eq $v "SoftwareApplication")}}
-    {
-      "@type" : "SoftwareApplication",
-      "name" : "{{$e.name}}",
-      "installURL" : "{{$e.installURL}}",
-      "softwareVersion" : "{{$e.softwareVersion}}",
-      "maintainer" : 
-        {
-          "@type" : "Organization",
-          "name" : "{{$e.maintainer.name}}"
-        }
-    }{{end}}{{end}}{{with (eq $j "@type")}}{{with (eq $v "SoftwareSourceCode")}}
-    {
-      "@type" : "SoftwareSourceCode",
-      "codeRepository" : "{{$e.codeRepository}}",
-      "programmingLanguage" : "{{$e.programmingLanguage}}",
-      "version" : "{{$e.version}}",
-      "maintainer" :
-        {
-          "@type" : "Organization",
-          "name" : "{{$e.maintainer.name}}"
-        }
-    }{{end}}{{end}}{{end}}{{end}}
-  ],
-  "citation": [{{ range $i, $e := $params.citation }}{{ if $i }}, {{ end }}
-    {
-      "@type": "ScholarlyArticle",
-      "url": "{{.url}}",
-      "author": [{{ range $j, $v := $e.author }}{{ if $j }}, {{ end }}
-        {
-          "@type": "Person",
-          "name": "{{.name}}"
-        }{{end}}
-      ],
-      "datePublished": "{{.url}}",
-      "headline": "{{.headline}}",
-      "publisher": {
-        "@type": "Organization",
-        "name": "{{.name}}"
-      }
+      "@id": "ohdsi:{{$e}}",
+      "@type": "schema:Person",
+      "name": "{{$profile_page.Params.title}}"
     }{{end}}
-  ],
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{$page.Permalink}}"
-  },
-  "image": [{{ if $featured_image }}
-    {{$featured_image.Permalink}}
-    {{end}}],
-  {{/*}}"dateModified": "{{ $page.Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",{{*/}}
-  "authors": [{{range $params.authors}}
     {
-      "@type": "Person",
-      "name": "{{.}}"
+      "@id": "ohdsi:{{$params.event.organizer}}",
+      "@type": "schema:Organization",
+      "name": "{{$params.event.organizer}}"
     },
-  {{end}}],
-  "publisher": {
-    "@type": "Organization",
-    "name": "{{$publisher}}",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "{{$logo_url}}"
+    {{ range $i, $e := $params.softwareSourceCodes }}{
+      "@id": "ohdsi:{{.name}}",
+      "@type": "schema:SoftwareSourceCode",
+      "codeRepository": "{{.codeRepository}}",
+      "maintainer": "ohdsi:{{.maintainer}}",
+      "programmingLanguage": "{{.programmingLanguage}}",
+      "schema:version": "{{.version}}"
+    },{{end}}
+    {{ range $i, $e := $params.softwareApplications }}{
+      "@id": "ohdsi:{{.name}}",
+      "@type": "schema:SoftwareApplication",
+      "installURL": "{{.installURL}}",
+      "maintainer": "ohdsi:{{.maintainer}}",
+      "name": "{{.name}}",
+      "softwareVersion": "{{.version}}"
+    },{{end}}
+    {{range $i, $e := $params.sourceDatabases}}{{ if $i }},{{ end }}{{- $db_page := site.GetPage (printf "/database/%s" $e) -}}
+    {
+      "@id": "ohdsi:{{$e}}",
+      "@type": "ohdsi:SourceDatabase",
+      "identifier": "{{$e}}",
+      "name": "{{$db_page.Params.title}}"
+    }{{end}}
+    {{range $i, $e := $params.omopDatabases}}{{ if $i }},{{ end }}{{- $db_page := site.GetPage (printf "/database/%s" $e) -}}
+    {
+      "@id": "ohdsi:{{$e}}",
+      "@type": "ohdsi:OMOPDatabase",
+      "identifier": "{{$e}}",
+      "name": "{{$db_page.Params.title}}"
+    }{{end}}
+    {
+      "@id": "ohdsi:{{$params.result.id}}",
+      "@type": "schema:WebApplication",
+      "url": "{{$params.result.url}}"
+    },
+    {
+      "@id": "ohdsi:StudyPublication",
+      "@type": "schema:MedicalScholarlyArticle",
+      "url": "{{$params.publication.url}}"
+    },
+    {
+      "@id": "ohdsi:{{$params.studyDesign.id}}",
+      "@type": "schema:MedicalObservationalStudyDesign",
+      "dateModified": "{{$params.studyDesign.dateModified}}",
+      "identifier": "{{$params.studyDesign.identifier}}",
+      "url": "{{$params.studyDesign.url}}",
+      "version": "{{$params.studyDesign.version}}"
+    },
+    {{ range $i, $e := $params.citations }}{
+      "@id": "ohdsi:{{.id}}",
+      "@type": "schema:ScholarlyArticle",
+      "schema:author": "{{.author}}",
+      "datePublished": "{{.datePublished}}",
+      "name": "{{.article_title}}",
+      "url": "{{.url}}"
+    },{{end}}
+    {
+      "@id": "ohdsi:{{ $params.id}}",
+      "@type": "schema:MedicalObservationalStudy",
+      "omopDatabase": [{{ range $i, $e := $params.omopDatabases }}{{ if $i }}, {{ end }}
+        "ohdsi:{{$e}}"{{end}}
+      ],
+      "sourceDatabase": [{{ range $i, $e := $params.sourceDatabases }}{{ if $i }}, {{ end }}
+        "ohdsi:{{$e}}"{{end}}
+      ],
+      "author": [{{ range $i, $e := $params.authors }}{{ if $i }}, {{ end }}
+        "ohdsi:{{$e}}"{{end}}
+      ],
+      "citation": [{{ range $i, $e := $params.citations }}{{ if $i }}, {{ end }}
+        "ohdsi:{{.id}}"{{end}}
+      ],
+      "datePublished": "{{$params.datePublished}}",
+      "description": "{{$params.description}}",
+      "discussionUrl": "{{$params.discussionUrl}}",
+      "hasPart": [{{ range $i, $e := $params.softwareSourceCodes }}{{ if $i }}, {{ end }}
+        "ohdsi:{{.name}}"{{end}},{{ range $i, $e := $params.softwareApplications }}{{ if $i }}, {{ end }}
+        "ohdsi:{{.name}}"{{end}}
+      ],
+      "healthCondition": [{{ range $i, $e := $params.healthConditions }}{{ if $i }}, {{ end }}
+        "ohdsi:{{.id}}"{{end}}
+      ],
+      "identifier": "{{$params.identifier}}",
+      "license": "{{$params.license}}",
+      "name": "{{$params.name}}",
+      "publication": "ohdsi:StudyPublication",
+      "result": "ohdsi:{{$params.result.id}}",
+      "studyDesign": "ohdsi:{{$params.studyDesign.id}}",
+      "studySubject": [{{ range $i, $e := $params.drugs }}{{ if $i }}, {{ end }}
+        "ohdsi:{{.name}}"{{end}}
+      ],
+      "studyType": "{{$params.studyType}}",
+      "subjectOf": "ohdsi:{{$params.event.id}}",
+      "url": "{{$params.studyUrl}}"
     }
-  }
+  ]
 }
 </script>
