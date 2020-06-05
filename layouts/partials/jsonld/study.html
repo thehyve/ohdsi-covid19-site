@@ -114,101 +114,101 @@
       "@id": "ohdsi:{{.name}}",
       "@type": "schema:Drug",
       "code": "ohdsi:{{.name}}Code",
-      "name": "{{.name}}"
+      "name": {{.name}}
     },{
-      "@id": "ohdsi:{{.name}}Code",
+      "@id": "ohdsi:{{.name}}code",
       "@type": "schema:MedicalCode",
       "codingSystem": "Drug",
-      "inDefinedTermset": "{{.inDefinedTermset}}",
+      "inDefinedTermset": {{.inDefinedTermset}},
       "termCode": "{{.termCode}}"
     },{{end}}
     {
       "@id": "ohdsi:{{$params.event.id}}",
       "@type": "schema:Event",
-      "endDate": "{{$params.event.endDate}}",
-      "location": "{{$params.event.location}}",
-      "name": "{{$params.event.name}}",
+      "endDate": {{$params.event.endDate}},
+      "location": {{$params.event.location}},
+      "name": {{$params.event.name}},
       "organizer": "ohdsi:{{$params.event.organizer}}",
-      "startDate": "{{$params.event.startDate}}"
+      "startDate": {{$params.event.startDate}}
     },
     {{ range $i, $e := $params.healthConditions }}{
       "@id": "ohdsi:{{.codeId}}",
       "@type": "schema:MedicalCode",
-      "codingSystem": "{{.codingSystem}}",
-      "inDefinedTermset": "{{.inDefinedTermset}}",
+      "codingSystem": {{.codingSystem}},
+      "inDefinedTermset": {{.inDefinedTermset}},
       "termCode": "{{.termCode}}"
     },{
       "@id": "ohdsi:{{.id}}",
       "@type": "schema:MedicalCondition",
-      "schema:code": "ohdsi:{{.codeId}}",
-      "name": "{{.name}}"
+      "code": "ohdsi:{{.codeId}}",
+      "name": {{.name}}
     },{{end}}
-    {{range $i, $e := $params.authors}}{{ if $i }},{{ end }}{{- $profile_page := site.GetPage (printf "/authors/%s" $e) -}}
+    {{range $i, $e := $params.authors}}{{- $profile_page := site.GetPage (printf "/authors/%s" $e) -}}
     {
       "@id": "ohdsi:{{$e}}",
       "@type": "schema:Person",
-      "name": "{{$profile_page.Params.title}}"
-    }{{end}}
+      "name": {{$profile_page.Params.title}}
+    },{{end}}
     {
       "@id": "ohdsi:{{$params.event.organizer}}",
       "@type": "schema:Organization",
-      "name": "{{$params.event.organizer}}"
+      "name": {{$params.event.organizer}}
     },
     {{ range $i, $e := $params.softwareSourceCodes }}{
       "@id": "ohdsi:{{.name}}",
       "@type": "schema:SoftwareSourceCode",
-      "codeRepository": "{{.codeRepository}}",
+      "codeRepository": {{.codeRepository}},
       "maintainer": "ohdsi:{{.maintainer}}",
-      "programmingLanguage": "{{.programmingLanguage}}",
-      "schema:version": "{{.version}}"
+      "programmingLanguage": {{.programmingLanguage}},
+      "schema:version": {{.version}}
     },{{end}}
     {{ range $i, $e := $params.softwareApplications }}{
       "@id": "ohdsi:{{.name}}",
       "@type": "schema:SoftwareApplication",
-      "installURL": "{{.installURL}}",
+      "installURL": {{.installURL}},
       "maintainer": "ohdsi:{{.maintainer}}",
-      "name": "{{.name}}",
-      "softwareVersion": "{{.version}}"
+      "name": {{.name}},
+      "softwareVersion": {{.version}}
     },{{end}}
-    {{range $i, $e := $params.sourceDatabases}}{{ if $i }},{{ end }}{{- $db_page := site.GetPage (printf "/database/%s" $e) -}}
+    {{range $i, $e := $params.sourceDatabases}}{{- $db_page := site.GetPage (printf "/database/%s" $e) -}}
     {
       "@id": "ohdsi:{{$e}}",
       "@type": "ohdsi:SourceDatabase",
-      "identifier": "{{$e}}",
-      "name": "{{$db_page.Params.title}}"
-    }{{end}}
-    {{range $i, $e := $params.omopDatabases}}{{ if $i }},{{ end }}{{- $db_page := site.GetPage (printf "/database/%s" $e) -}}
+      "identifier": {{$e}},
+      "name": {{$db_page.Params.title}}
+    },{{end}}
+    {{range $i, $e := $params.omopDatabases}}{{- $db_page := site.GetPage (printf "/database/%s" $e) -}}
     {
       "@id": "ohdsi:{{$e}}",
       "@type": "ohdsi:OMOPDatabase",
-      "identifier": "{{$e}}",
-      "name": "{{$db_page.Params.title}}"
-    }{{end}}
+      "identifier": {{$e}},
+      "name": {{$db_page.Params.title}}
+    },{{end}}
     {
       "@id": "ohdsi:{{$params.result.id}}",
       "@type": "schema:WebApplication",
-      "url": "{{$params.result.url}}"
+      "url": {{$params.result.url}}
     },
     {
       "@id": "ohdsi:StudyPublication",
       "@type": "schema:MedicalScholarlyArticle",
-      "url": "{{$params.publication.url}}"
+      "url": {{$params.publication.url}}
     },
     {
       "@id": "ohdsi:{{$params.studyDesign.id}}",
       "@type": "schema:MedicalObservationalStudyDesign",
-      "dateModified": "{{$params.studyDesign.dateModified}}",
-      "identifier": "{{$params.studyDesign.identifier}}",
-      "url": "{{$params.studyDesign.url}}",
+      "dateModified": {{$params.studyDesign.dateModified}},
+      "identifier": {{$params.studyDesign.identifier}},
+      "url": {{$params.studyDesign.url}},
       "version": "{{$params.studyDesign.version}}"
     },
     {{ range $i, $e := $params.citations }}{
       "@id": "ohdsi:{{.id}}",
       "@type": "schema:ScholarlyArticle",
-      "schema:author": "{{.author}}",
-      "datePublished": "{{.datePublished}}",
-      "name": "{{.article_title}}",
-      "url": "{{.url}}"
+      "schema:author": {{.author}},
+      "datePublished": {{.datePublished}},
+      "name": {{.articleTitle}},
+      "url": {{.url}}
     },{{end}}
     {
       "@id": "ohdsi:{{ $params.id}}",
@@ -225,9 +225,9 @@
       "citation": [{{ range $i, $e := $params.citations }}{{ if $i }}, {{ end }}
         "ohdsi:{{.id}}"{{end}}
       ],
-      "datePublished": "{{$params.datePublished}}",
-      "description": "{{$params.description}}",
-      "discussionUrl": "{{$params.discussionUrl}}",
+      "datePublished": {{$params.datePublished}},
+      "description": {{$params.description}},
+      "discussionUrl": {{$params.discussionUrl}},
       "hasPart": [{{ range $i, $e := $params.softwareSourceCodes }}{{ if $i }}, {{ end }}
         "ohdsi:{{.name}}"{{end}},{{ range $i, $e := $params.softwareApplications }}{{ if $i }}, {{ end }}
         "ohdsi:{{.name}}"{{end}}
@@ -235,18 +235,18 @@
       "healthCondition": [{{ range $i, $e := $params.healthConditions }}{{ if $i }}, {{ end }}
         "ohdsi:{{.id}}"{{end}}
       ],
-      "identifier": "{{$params.identifier}}",
-      "license": "{{$params.license}}",
-      "name": "{{$params.name}}",
+      "identifier": {{$params.identifier}},
+      "license": {{$params.license}},
+      "name": {{$params.title}},
       "publication": "ohdsi:StudyPublication",
       "result": "ohdsi:{{$params.result.id}}",
       "studyDesign": "ohdsi:{{$params.studyDesign.id}}",
       "studySubject": [{{ range $i, $e := $params.drugs }}{{ if $i }}, {{ end }}
         "ohdsi:{{.name}}"{{end}}
       ],
-      "studyType": "{{$params.studyType}}",
+      "studyType": {{$params.studyType}},
       "subjectOf": "ohdsi:{{$params.event.id}}",
-      "url": "{{$params.studyUrl}}"
+      "url": {{$params.studyUrl}}
     }
   ]
 }

@@ -13,6 +13,10 @@
     {{ partial "jsonld/study.html" (dict "page" $page "summary" $summary) }}
   {{ end }}
 
+  {{ if (eq $page.Type "database") }}
+    {{ partial "jsonld/database.html" (dict "page" $page "summary" $summary) }}
+  {{ end }}
+
   {{ if (eq $page.Type "post") | or (eq $page.Type "publication") | or (eq $page.Type "project") }}
     {{ partial "jsonld/article.html" (dict "page" $page "summary" $summary) }}
   {{ end }}
@@ -25,7 +29,5 @@
     {{ partial "jsonld/authors.html" (dict "page" $page "summary" $summary) }}
   {{ end }}
 {{- else if (eq $page.Type "database") -}}
-  {{ if (eq $page.Type "database") }}
-    {{ partial "jsonld/database.html" (dict "page" $page "summary" $summary) }}
-  {{ end }}
+  
 {{- end }}

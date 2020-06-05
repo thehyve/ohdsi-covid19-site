@@ -6,83 +6,82 @@
 {{ $author := partial "functions/get_author_name" $page }}
 {{ $publisher := site.Params.org_name | default site.Title }}
 {{ $logo_url := partial "functions/get_logo_url" $page -}}
-
 <script type="application/ld+json">
   {
     "@graph": [
       {
         "@id": "ohdsi:{{$params.publication.id}}",
         "@type": "schema:Article",
-        "author": "{{$params.publication.author}}",
-        "dateCreated": "{{$params.publication.dateModified}}",
+        "author": {{$params.publication.author}},
+        "dateCreated": {{$params.publication.dateCreated}},
         "identifier": {
-          "@id": "{{$params.publication.identifier}}"
+          "@id": {{$params.publication.identifier}}
         },
-        "name": "{{$params.publication.name}}",
-        "publisher": "{{$params.publication.publisher}}"
+        "name": {{$params.publication.name}},
+        "publisher": {{$params.publication.publisher}}
       },
       {
         "@id": "ohdsi:{{$params.associatedInstitution.id}}",
         "@type": "schema:Organization",
-        "name": "{{$params.associatedInstitution.name}}"
+        "name": {{$params.associatedInstitution.name}}
       },
       {
         "@id": "ohdsi:{{$params.id}}",
         "@type": "ohdsi:SourceDatabase",
         "administrativeContact": "ohdsi:{{$params.administrativeContact.id}}",
         "associatedInstitution": "ohdsi:{{$params.associatedInstitution.id}}",
-        "databaseSystem": "{{$params.databaseSystem}}",
+        "databaseSystem": {{$params.databaseSystem}},
         "fundingType": [{{ range $i, $e := $params.fundingTypes }}{{ if $i }}, {{ end }}
-          "{{$e}}"{{end}}
+          {{$e}}{{end}}
         ],
         "ohdsi:populationSize": {{$params.populationSize}},
         "principalInvestigator": "ohdsi:{{$params.principalInvestigator.id}}",
         "scientificContact": "ohdsi:{{$params.scientificContact.id}}",
         "technicalContact": "ohdsi:{{$params.technicalContact.id}}",
-        "alternateName": "{{$params.alternateName}}",
-        "dateCreated": "{{$params.dateCreated}}",
-        "dateModified": "{{$params.dateModified}}",
-        "description": "{{$params.description}}",
-        "identifier": "{{$params.identifier}}",
-        "license": "{{$params.license}}",
-        "name": "{{$params.name}}",
+        "alternateName": {{$params.alternateName}},
+        "dateCreated": {{$params.dateCreated}},
+        "dateModified": {{$params.dateModified}},
+        "description": {{$params.description}},
+        "identifier": {{$params.identifier}},
+        "license": {{$params.license}},
+        "name": {{$params.name}},
         "publication": "ohdsi:{{$params.publication.id}}",
-        "spatialCoverage": "{{$params.spatialCoverage}}",
-        "temporalCoverage": "{{$params.temporalCoverage}}",
-        "url": "{{$params.databaseUrl}}",
-        "version": "{{$params.version}}"
+        "spatialCoverage": {{$params.spatialCoverage}},
+        "temporalCoverage": {{$params.temporalCoverage}},
+        "url": {{$params.databaseUrl}},
+        "version": {{$params.version}}
       },
       {
         "@id": "ohdsi:{{$params.administrativeContact.id}}",
         "@type": "schema:Person",
-        "address": "{{$params.administrativeContact.address}}",
-        "email": "{{$params.administrativeContact.email}}",
-        "name": "{{$params.administrativeContact.name}}",
-        "telephone": "{{$params.administrativeContact.telephone}}"
+        "address": {{$params.administrativeContact.address}},
+        "email": {{$params.administrativeContact.email}},
+        "name": {{$params.administrativeContact.name}},
+        "telephone": {{$params.administrativeContact.telephone}}
       },
       {
         "@id": "ohdsi:{{$params.principalInvestigator.id}}",
         "@type": "schema:Person",
-        "address": "{{$params.principalInvestigator.address}}",
-        "email": "{{$params.principalInvestigator.email}}",
-        "name": "{{$params.principalInvestigator.name}}",
-        "telephone": "{{$params.principalInvestigator.telephone}}"
+        "address": {{$params.principalInvestigator.address}},
+        "email": {{$params.principalInvestigator.email}},
+        "name": {{$params.principalInvestigator.name}},
+        "telephone": {{$params.principalInvestigator.telephone}}
       },
       {
         "@id": "ohdsi:{{$params.scientificContact.id}}",
         "@type": "schema:Person",
-        "address": "{{$params.scientificContact.address}}",
-        "email": "{{$params.scientificContact.email}}",
-        "name": "{{$params.scientificContact.name}}",
-        "telephone": "{{$params.scientificContact.telephone}}"
+        "address": {{$params.scientificContact.address}},
+        "email": {{$params.scientificContact.email}},
+        "name": {{$params.scientificContact.name}},
+        "telephone": {{$params.scientificContact.telephone}}
       },
       {
         "@id": "ohdsi:{{$params.technicalContact.id}}",
         "@type": "schema:Person",
-        "address": "{{$params.technicalContact.address}}",
-        "email": "{{$params.technicalContact.email}}",
-        "name": "{{$params.technicalContact.name}}",
-        "telephone": "{{$params.technicalContact.telephone}}"
+        "address": {{$params.technicalContact.address}},
+        "email": {{$params.technicalContact.email}},
+        "name": {{$params.technicalContact.name}},
+        "telephone": {{$params.technicalContact.telephone}}
       }
     ],
     "@id": "urn:x-arq:DefaultGraphNode",
