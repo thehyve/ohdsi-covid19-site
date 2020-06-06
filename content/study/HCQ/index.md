@@ -1,76 +1,128 @@
 ---
-ID: XXX
-title: 'Risk of hydroxychloroquine, alone and in combination with azithromycin: a multi-national study'
-Summary: Many existing drugs are being considered for use in treatment and prophylaxis of COVID-19 in rapid clinical trials across the world. However, the full safety profiles of these drugs is often unknown, and the current trials are unlikely to be powered or have sufficent follow-up time to evaluate most safety outcomes. The aim of this OHDSI study is to use existing retrospective data to evaluate the safety of these drugs. Where possible, we also attempt to estimate potential efficacy, for example using prior viral infections as surrogate outcome, or where available by using COVID-19 as outcome
-medicalcondition: 'COVID-19'
-drug:
-  - name: hydroxychloroquine
-    code: "XXX"
-  - name: azithromycin
-    code: "XXX"
-tags:
-- Estimation
+# Display Name
+title: "Risk of hydroxychloroquine, alone and in combination with azithromycin: a multi-national study"
+tags: []
+categories: []
+date: 2020-05-21T14:21:00+02:00
+lastmod: 2020-05-22T14:21:00+02:00
+featured: false
+draft: false
+
+id: Study_HQC
+identifier: EUPAS34497
+
+# Author ID
 authors:
-- "Jennifer Lane"
-- "James Weaver"
-date: "2020-03-26T00:00:00Z"
+- JenniferLane
+- DanielPrietoAlhambra
+- DanielMorales
+- MartijnSchuemie
+- JamesWeaver
+
+# Date format
+datePublished: 02-04-2020
+
+studyType: Estimation study
+
+studyUrl: http://www.encepp.eu/encepp/viewResource.htm?id=34498 
+
+discussionUrl: https://forums.ohdsi.org/
+
+description: Retrospective, real-world, observational study to estimate the population-level effects of hydroxychloroquine among patients with rheumatoid arthritis. Designed and executed during the OHDSI community COVID-19 virtual study-a-thon (March 26-29) to inform healthcare decision-making in response to the current global pandemic.
+
+# @type: hasParts
+softwareSourceCodes:
+- name: RCode
+  codeRepository: https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine
+  version: "..."
+  programmingLanguage: R
+  maintainer: OHDSI
+
+# @type: hasParts
+softwareApplications:
+- name: Atlas
+  installURL: https://github.com/OHDSI/Atlas/wiki/Atlas-Setup-Guide
+  version: "..."
+  maintainer: OHDSI
+
+healthConditions:
+- name: Disease caused by severe acute respiratory syndrome coronavirus 2
+  codingSystem: Condition
+  inDefinedTermset: https://github.com/OHDSI/Vocabulary-v5.0
+  termCode: 37311061
+  id: Covid19
+  codeId: Covid19Code
+- name: 
+  codingSystem: 
+  inDefinedTermset: https://github.com/OHDSI/Vocabulary-v5.0
+  termCode: 1234567
+  id: conditionPH
+  codeId: codePH
+
+# URL
+license: http://www.encepp.eu/encepp_studies/index.shtml
+
+publication:
+  url: "https://pubmed.ncbi.nlm.nih.gov"
+
+result:
+  url: "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/"
+  id: Shiny
+
+studyDesign:
+  url: "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine/blob/master/documents/OHDSI%20COVID-19%20Studyathon_PLE_HCQ_Protocol_v1.4.pdf"
+  identifier: "..."
+  version: 1.4
+  dateModified: 01-04-2020
+  id: StudydesignHQC
+
+
+# Array @type: studySubject
+drugs: 
+- name: Amoxicillin
+  inDefinedTermset: https://github.com/OHDSI/Vocabulary-v5.0
+  termCode: 1713332
+- name: Hydroxychloroquine
+  inDefinedTermset: https://github.com/OHDSI/Vocabulary-v5.0
+  termCode: 1777087
+- name: Azithromycin
+  inDefinedTermset: https://github.com/OHDSI/Vocabulary-v5.0
+  termCode: 1734104
+- name: Sulfasalazine
+  inDefinedTermset: https://github.com/OHDSI/Vocabulary-v5.0
+  termCode: 964339
+
+# @type: subjectOf
 event:
-  - name: study-a-thon
-    location: virtual
-dataset:
-- name: AmbEMR
-- name: CCAE
-- name: CPRD
-- name: DA Germany
-- name: IMRD
-- name: IPCI
-- name: JMDC
-- name: MDCD
-- name: Open Claims
-- name: Optum
-- name: PanTher
-- name: SIDIAP
-- name: VA
+  name: COVID-19 virtual study-a-thon
+  location: Microsoft Teams
+  organizer: OHDSI
+  startDate: 26-03-2020
+  endDate: 29-03-2020
+  id: Covid19Studyathon
 
-#studyprotocol:
-#  - ID: XXX
-#    Date: "2020-03-26T00:00:00Z"
+citations:
+- articleTitle: Article title
+  url: "https://pubmed.ncbi.nlm.nih.gov"
+  datePublished: 01-01-1970
+  author: Author placeholder
+  id: referencePH2
+- articleTitle: Article title
+  url: "https://pubmed.ncbi.nlm.nih.gov"
+  datePublished: 01-01-1970
+  author: Author placeholder
+  id: referencePH
 
-- Rpackage:
-    - repository: https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine
-    - language: R
-    - version: 3.5.0
-    - maintainer: XXX
+omopDatabases:
+- THIN_OMOP
+- CPRD_OMOP
+- SIDIAP_OMOP
+- IPCI_OMOP
 
-# Optional external URL for project (replaces project detail page).
-external_link: ""
-
-image:
-  caption: Photo by rawpixel on Unsplash
-  focal_point: Smart
-
-links:
-- icon: globe
-  icon_pack: fas
-  name: OHDSI Forums discussion
-  url: https://forums.ohdsi.org/t/ohdsi-covid-19-review-on-the-effect-of-ace-inhibitors-and-angiotensin-receptor-blockers-on-covid-19-incidence-and-complication-rate/10071
-- icon: globe
-  icon_pack: fas
-  name: Results explorer
-  url: https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/
-url_code: "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine"
-url_pdf: "https://www.medrxiv.org/content/10.1101/2020.04.08.20054551v1.full.pdf"
-url_slides: ""
-url_video: ""
-
-# Slides (optional).
-#   Associate this project with Markdown slides.
-#   Simply enter your slide deck's filename without extension.
-#   E.g. `slides = "example-slides"` references `content/slides/example-slides.md`.
-#   Otherwise, set `slides = ""`.
-slides: example
+    
+sourceDatabases: 
+-  CPRD
+-  THIN
+-  SIDIAP
+-  IPCI
 ---
-
-
-
-

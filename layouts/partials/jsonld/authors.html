@@ -1,0 +1,58 @@
+{{- $page := .page }}
+{{ $summary := .summary }}
+{{ $params := $page.Params}}
+{{ $featured_image := ($page.Resources.ByType "image").GetMatch "*featured*" }}
+
+{{ $author := partial "functions/get_author_name" $page }}
+{{ $publisher := site.Params.org_name | default site.Title }}
+{{ $logo_url := partial "functions/get_logo_url" $page -}}
+
+<script type="application/ld+json">
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ohdsi": "http://ohdsi.data.org/",
+    "name": "http://schema.org/name",
+    "orcidIdentifier": "http://ohdsi.data.org/orcidIdentifier",
+    "honorificSuffix": "http://schema.org/honorificSuffix",
+    "honorificPrefix": "http://schema.org/honorificPrefix",
+    "worksFor": {
+      "@id": "http://schema.org/worksFor",
+      "@type": "@id"
+    },
+    "googlescholarId": "http://ohdsi.data.org/googlescholarId",
+    "forumName": "http://ohdsi.data.org/forumName",
+    "githubHandle": "http://ohdsi.data.org/githubHandle",
+    "jobTitle": "http://schema.org/jobTitle",
+    "ohdsiCollaborator": "http://ohdsi.data.org/ohdsiCollaborator",
+    "address": "http://schema.org/address",
+    "department": "http://schema.org/department"
+  },
+  "@id": "urn:x-arq:DefaultGraphNode",
+  "@graph": [
+    {
+      "@id": "ohdsi:{{$params.name}}",
+      "@type": "schema:Person",
+      "forumName": {{$params.accounts.forumname}},
+      "githubHandle": {{$params.accounts.githubHandle}},
+      "googlescholarId": {{$params.accounts.googlescholarId}},
+      "ohdsiCollaborator": {{$params.accounts.ohdsiCollaborator}},
+      "orcidIdentifier": {{$params.accounts.orcidIdentifier}},
+      "honorificPrefix": {{$params.honorificPrefix}},
+      "honorificSuffix": [{{ range $i, $e := $params.honorificSuffix }}{{ if $i }}, {{ end }}
+        {{$e}}{{end}}
+      ],
+      "jobTitle": {{$params.organization.jobTitle}},
+      "name": {{$params.title}},
+      "worksFor": "ohdsi:{{$params.organization.id}}"
+    },
+    {
+      "@id": "ohdsi:{{$params.organization.id}}",
+      "@type": "schema:Organization",
+      "address": {{$params.organization.address}},
+      "department": {{$params.organization.department}},
+      "name": {{$params.organization.name}}
+    }
+  ]
+}
+</script>
