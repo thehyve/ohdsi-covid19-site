@@ -1,6 +1,7 @@
 @prefix schema: <http://schema.org/> .
 @prefix ohdsi: <http://ohdsi.data.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
 
 ohdsi:Study_HQC a schema:MedicalObservationalStudy ;
 	schema:identifier "EUPAS34497" ;
@@ -30,57 +31,87 @@ ohdsi:StudydesignHQC a schema:MedicalObservationalStudyDesign ;
 
 ohdsi:Covid19 a schema:MedicalCondition ;
 	schema:name "Disease caused by severe acute respiratory syndrome coronavirus 2" ;
-	schema:code ohdsi:Covid19Code .
+	schema:code ohdsi:37311061, ohdsi:SNOMED84053900 .
 	
-ohdsi:Covid19code a schema:MedicalCode ;
-	schema:termCode "37311061"^^xsd:decimal ;
-	schema:codingSystem "Condition" ;
-	schema:inDefinedTermset "https://github.com/OHDSI/Vocabulary-v5.0" .
+ohdsi:37311061 a schema:MedicalCode ;
+	schema:codeValue "37311061"^^xsd:string ;
+	schema:codingSystem "OMOP Standardized Vocabularies" ;
+	owl:equivalentClass ohdsi:Snomed84053900 .
+
+ohdsi:SNOMED84053900 a schema:MedicalCode ;
+	schema:codeValue "84053900"^^xsd:string ;
+	schema:codingSystem "SNOMED CT" ;
+	schema:sameAs "" .
 
 ohdsi:conditionPH a schema:MedicalCondition ; #Add placeholder for when multiple Medical Conditions are being studied.
 	schema:name "" ;
-	schema:code "ohdsi:codePH" . 
+	schema:code "ohdsi:conceptPH", "ohdsi:sourcetermPH" . 
 	
-ohdsi:codePH a schema:MedicalCode ;
-	schema:termCode "1234567"^^xsd:decimal ;
+ohdsi:conceptPH a schema:MedicalCode ;
+	schema:codeValue "1234567"^^xsd:string ;
+	schema:codingSystem "OMOP Standardized Vocabularies" ;
+	owl:equivalentClass ohdsi:sourcetermPH .
+	
+ohdsi:sourcetermPH a schema:MedicalCode ;
+	schema:codeValue "9876"^^xsd:string ;
 	schema:codingSystem "" ;
-	schema:inDefinedTermset "https://github.com/OHDSI/Vocabulary-v5.0" .
+	schema:sameAs "" .
 		
 ohdsi:Hydroxychloroquine a schema:Drug;
 	schema:name "Hydroxychloroquine"; 
-	schema:code ohdsi:HydroxychloroquineCode .
+	schema:code ohdsi:1777087, ohdsi:Rx5521 .
 	
-ohdsi:HydroxychloroquineCode a schema:MedicalCode ;
-	schema:termCode "1777087"^^xsd:decimal ;
-	schema:codingSystem "Drug" ;
-	schema:inDefinedTermset "https://github.com/OHDSI/Vocabulary-v5.0" .
-	
+ohdsi:1777087 a schema:MedicalCode ;
+	schema:codeValue "1777087"^^xsd:string ;
+	schema:codingSystem "OMOP Standardized Vocabularies" ;
+	owl:equivalentClass ohdsi:Rx5521 .
+
+ohdsi:Rx5521 a schema:MedicalCode ;
+	schema:codeValue "5521"^^xsd:string ;
+	schema:codingSystem "RxNorm" ;
+	schema:sameAs "http://purl.bioontology.org/ontology/RXNORM/5521" .
+
 ohdsi:Sulfasalazine a schema:Drug ;
 	schema:name "Sulfasalazine" ;
-	schema:code ohdsi:SulfasalazineCode .
+	schema:code ohdsi:964339, ohdsi:Rx9524 .
 	
-ohdsi:SulfasalazineCod a schema:MedicalCode ;
-	schema:termCode "964339"^^xsd:decimal ;
-	schema:codingSystem "Drug" ;
-	schema:inDefinedTermset "https://github.com/OHDSI/Vocabulary-v5.0" .
+ohdsi:964339 a schema:MedicalCode ;
+	schema:codeValue "964339"^^xsd:string ;
+	schema:codingSystem "OMOP Standardized Vocabularies" ;
+	owl:equivalentClass ohdsi:Rx9524 .
+	
+ohdsi:Rx9524 a schema:MedicalCode ;
+	schema:codeValue "9524"^^xsd:string ;
+	schema:codingSystem "RxNorm" ;
+	schema:sameAs "http://purl.bioontology.org/ontology/RXNORM/9524" .
 
 ohdsi:Azithromycin a schema:Drug ;
 	schema:name "Azithromycin"; 
-	schema:code ohdsi:AzithromycineCode .
+	schema:code ohdsi:1734104, ohdsi:Rx18631 .
 	
-ohdsi:AzithromycinCode a schema:MedicalCode ;
-	schema:termCode "1734104"^^xsd:decimal ;
-	schema:codingSystem "Drug" ;
-	schema:inDefinedTermset "https://github.com/OHDSI/Vocabulary-v5.0" .
+ohdsi:1734104 a schema:MedicalCode ;
+	schema:codeValue "1734104"^^xsd:string ;
+	schema:codingSystem "OMOP Standardized Vocabularies" ;
+	owl:equivalentClass ohdsi:Rx18631 .
+	
+ohdsi:Rx18631 a schema:MedicalCode ;
+	schema:codeValue "18631"^^xsd:string ;
+	schema:codingSystem "RxNorm" ;
+	schema:sameAs "http://purl.bioontology.org/ontology/RXNORM/18631" .
 
 ohdsi:Amoxicillin a schema:Drug ;
 	schema:name "Amoxicillin"; 
-	schema:code ohdsi:AmoxicillinCode .
+	schema:code ohdsi:1713332, ohdsi:Rx723.
 	
-ohdsi:AmoxicillinCode a schema:MedicalCode ;
-	schema:termCode "1713332"^^xsd:decimal ;
-	schema:codingSystem "Drug" ;
-	schema:inDefinedTermset "https://github.com/OHDSI/Vocabulary-v5.0" .
+ohdsi:1713332 a schema:MedicalCode ;
+	schema:codeValue "1713332"^^xsd:string ;
+	schema:codingSystem "OMOP Standardized Vocablaries" ;
+	owl:equivalentClass ohdsi:Rx18631 .
+
+ohdsi:Rx723 a schema:MedicalCode ;
+	schema:codeValue "723"^^xsd:string ;
+	schema:codingSystem "RxNorm" ;
+	schema:sameAs "http://purl.bioontology.org/ontology/RXNORM/723" .
 
 ohdsi:Covid19Studyathon a schema:Event ;
 	schema:name "COVID-19 virtual study-a-thon" ;
