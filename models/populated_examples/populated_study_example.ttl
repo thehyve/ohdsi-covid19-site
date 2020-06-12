@@ -20,8 +20,7 @@ ohdsi:Study_HQC a schema:MedicalObservationalStudy ;
 	schema:result ohdsi:Shiny ; 
 	schema:publication ohdsi:StudyPublication ; #Placeholder for study publication, no publication available 
 	schema:hasPart ohdsi:Atlas, ohdsi:RCode ; 
-	ohdsi:omopDatabase ohdsi:SIDIAP_OMOP, ohdsi:THIN_OMOP, ohdsi:IPCI_OMOP, ohdsi:CPRD_OMOP ;
-	ohdsi:sourceDatabase ohdsi:SIDIAP, ohdsi:THIN, ohdsi:IPCI, ohdsi:CPRD .
+	ohdsi:database ohdsi:SIDIAP, ohdsi:THIN, ohdsi:IPCI, ohdsi:CPRD .
 	
 ohdsi:StudydesignHQC a schema:MedicalObservationalStudyDesign ;
 	schema:identifier "..." ; #There is no protocol identifier available for this study 
@@ -138,34 +137,18 @@ ohdsi:RCode a schema:SoftwareSourceCode ;
 	schema:version "..." ; #Not clear which version of Atlas is used 
 	schema:maintainer ohdsi:OHDSI .
 
-ohdsi:SIDIAP a ohdsi:SourceDatabase ;
+ohdsi:SIDIAP a ohdsi:Database ;
 	schema:identifier "SIDIAP" ; 
 	schema:name "The Information System for the Development of Research in Primary Care" .
 
-ohdsi:THIN a ohdsi:SourceDatabase ;
+ohdsi:THIN a ohdsi:Database ;
 	schema:identifier "THIN" ; 
 	schema:name "The Health Improvement Network" .
 
-ohdsi:IPCI a ohdsi:SourceDatabase ;
+ohdsi:IPCI a ohdsi:Database ;
 	schema:identifier "IPCI" ; 
 	schema:name "Integrated Primary Care Information" .
 
-ohdsi:CPRD a ohdsi:SourceDatabase ;
+ohdsi:CPRD a ohdsi:Database ;
 	schema:identifier "CPRD" ; 
-	schema:name "Clinical Practice Research Datalink" .	
-	
-ohdsi:SIDIAP_OMOP a ohdsi:OMOPDatabase ;
-	schema:identifier "SIDIAP_OMOP" ; 
-	schema:name "The Information System for the Development of Research in Primary Care" .
-
-ohdsi:THIN_OMOP a ohdsi:OMOPDatabase ;
-	schema:identifier "THIN_OMOP" ; 
-	schema:name "The Health Improvement Network" .
-
-ohdsi:IPCI_OMOP a ohdsi:OMOPDatabase ;
-	schema:identifier "IPCI_OMOP" ; 
-	schema:name "Integrated Primary Care Information" .
-
-ohdsi:CPRD_OMOP a ohdsi:OMOPDatabase ;
-	schema:identifier "CPRD_OMOP" ; 
 	schema:name "Clinical Practice Research Datalink" .	

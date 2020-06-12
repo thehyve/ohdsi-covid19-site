@@ -14,10 +14,6 @@
       "@id" : "http://schema.org/code",
       "@type" : "@id"
     },
-    "omopDatabase" : {
-      "@id" : "http://ohdsi.data.org/omopDatabase",
-      "@type" : "@id"
-    },
     "healthCondition" : {
       "@id" : "http://schema.org/healthCondition",
       "@type" : "@id"
@@ -39,8 +35,8 @@
       "@id" : "http://schema.org/result",
       "@type" : "@id"
     },
-    "sourceDatabase" : {
-      "@id" : "http://ohdsi.data.org/sourceDatabase",
+    "database" : {
+      "@id" : "http://ohdsi.data.org/database",
       "@type" : "@id"
     },
     "datePublished" : {
@@ -129,13 +125,8 @@
     "termCode" : "1734104"
   }, {
     "@id" : "ohdsi:CPRD",
-    "@type" : "ohdsi:SourceDatabase",
+    "@type" : "ohdsi:Database",
     "identifier" : "CPRD",
-    "name" : "Clinical Practice Research Datalink"
-  }, {
-    "@id" : "ohdsi:CPRD_OMOP",
-    "@type" : "ohdsi:OMOPDatabase",
-    "identifier" : "CPRD_OMOP",
     "name" : "Clinical Practice Research Datalink"
   }, {
     "@id" : "ohdsi:Covid19",
@@ -177,13 +168,8 @@
     "termCode" : "1777087"
   }, {
     "@id" : "ohdsi:IPCI",
-    "@type" : "ohdsi:SourceDatabase",
+    "@type" : "ohdsi:Database",
     "identifier" : "IPCI",
-    "name" : "Integrated Primary Care Information"
-  }, {
-    "@id" : "ohdsi:IPCI_OMOP",
-    "@type" : "ohdsi:OMOPDatabase",
-    "identifier" : "IPCI_OMOP",
     "name" : "Integrated Primary Care Information"
   }, {
     "@id" : "ohdsi:JamesWeaver",
@@ -210,13 +196,8 @@
     "schema:version" : "..."
   }, {
     "@id" : "ohdsi:SIDIAP",
-    "@type" : "ohdsi:SourceDatabase",
+    "@type" : "ohdsi:Database",
     "identifier" : "SIDIAP",
-    "name" : "The Information System for the Development of Research in Primary Care"
-  }, {
-    "@id" : "ohdsi:SIDIAP_OMOP",
-    "@type" : "ohdsi:OMOPDatabase",
-    "identifier" : "SIDIAP_OMOP",
     "name" : "The Information System for the Development of Research in Primary Care"
   }, {
     "@id" : "ohdsi:Shiny",
@@ -229,8 +210,7 @@
   }, {
     "@id" : "ohdsi:Study_HQC",
     "@type" : "schema:MedicalObservationalStudy",
-    "omopDatabase" : [ "ohdsi:THIN_OMOP", "ohdsi:CPRD_OMOP", "ohdsi:SIDIAP_OMOP", "ohdsi:IPCI_OMOP" ],
-    "sourceDatabase" : [ "ohdsi:CPRD", "ohdsi:THIN", "ohdsi:SIDIAP", "ohdsi:IPCI" ],
+    "database" : [ "ohdsi:CPRD", "ohdsi:THIN", "ohdsi:SIDIAP", "ohdsi:IPCI" ],
     "author" : [ "ohdsi:JenniferLane", "ohdsi:DanielPrietoAlhambra", "ohdsi:MartijnSchuemie", "ohdsi:JamesWeaver", "ohdsi:DanielMorales" ],
     "citation" : [ "ohdsi:referencePH2", "ohdsi:referencePH" ],
     "datePublished" : "02-04-2020",
@@ -268,13 +248,8 @@
     "termCode" : "964339"
   }, {
     "@id" : "ohdsi:THIN",
-    "@type" : "ohdsi:SourceDatabase",
+    "@type" : "ohdsi:Database",
     "identifier" : "THIN",
-    "name" : "The Health Improvement Network"
-  }, {
-    "@id" : "ohdsi:THIN_OMOP",
-    "@type" : "ohdsi:OMOPDatabase",
-    "identifier" : "THIN_OMOP",
     "name" : "The Health Improvement Network"
   }, {
     "@id" : "ohdsi:codePH",
