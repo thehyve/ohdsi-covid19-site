@@ -817,13 +817,6 @@ schema:dateModified  a    owl:datatypeProperty ;
                             owl:unionOf  ( schema:Date schema:DateTime )
                           ] .
 
-owl:equivalentClass a owl:ObjectProperty ; 
-    rdfs:label "equivalentClass" ;
-    rdfs:domain schema:MedicalCode ;
-    rdfs:range ohdsi:MedicalCode ;
-    rdfs:comment "The property that determines that two given classes are equivalent, and that is used to specify datatype definitions." .
-
-
 # Author extensions
 
 schema:orcidIdentifier a owl:ObjectProperty ;
