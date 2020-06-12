@@ -2,7 +2,7 @@
 @prefix ohdsi: <http://ohdsi.data.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ohdsi:Dataset_ARS a ohdsi:SourceDatabase ;
+ohdsi:Dataset_ARS a ohdsi:Database ;
     schema:identifier "ARS1" ;
     schema:name "Agenzia regionale di sanità della Toscana" ;
     schema:alternateName "ARS" ;
