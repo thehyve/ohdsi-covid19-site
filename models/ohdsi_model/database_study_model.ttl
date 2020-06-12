@@ -21,10 +21,10 @@
 
 # Classes
 
-schema:Dataset  a         owl:Class ;
+schema:Database  a         owl:Class ;
         rdfs:comment      "A body of structured information describing some topic(s) of interest."@en ;
         rdfs:isDefinedBy  <https://schema.org/Dataset> ;
-        rdfs:label        "Dataset"@en ;
+        rdfs:label        "Database"@en ;
         rdfs:subClassOf   schema:CreativeWork .
 
 schema:CreativeWork  a    owl:Class ;
@@ -632,16 +632,6 @@ ohdsi:databaseSystem a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:comment "The database management system used for the CDM database." .
 
-ohdsi:OMOPDatabase a owl:Class ; 
-    rdfs:label "OMOPDatabase" ;
-    rdfs:subClassOf schema:Dataset ;
-    rdfs:comment "The OMOP CDM database" .
-
-ohdsi:SourceDatabase a owl:Class ;
-    rdfs:label "SourceDatabase" ;
-    rdfs:subClassOf schema:Dataset ;
-    rdfs:comment "The source database." .
-
 schema:license  a         owl:ObjectProperty ;
         rdfs:comment      "A license document that applies to this content, typically indicated by URL."@en ;
         rdfs:domain       [ a            owl:Class ;
@@ -653,17 +643,11 @@ schema:license  a         owl:ObjectProperty ;
                             owl:unionOf  ( schema:URL schema:CreativeWork schema:Text schema:Role )
                           ] .
 
-ohdsi:omopDatabase a owl:ObjectProperty ; 
-    rdfs:label "omopDatabase" ;
+ohdsi:database a owl:ObjectProperty ; 
+    rdfs:label "database" ;
     rdfs:domain schema:MedicalObservationalStudy ;
-    rdfs:range ohdsi:OMOPDatabase ;
-    rdfs:comment "This is the associated OMOP database" .
-
-ohdsi:sourceDatabase a owl:ObjectProperty ; 
-    rdfs:label "sourceDatabase" ;
-    rdfs:domain schema:MedicalObservationalStudy ;
-    rdfs:range ohdsi:SourceDatabase ;
-    rdfs:comment "This is the associated source database" .
+    rdfs:range ohdsi:Database ;
+    rdfs:comment "This is the associated OMOP or source database" .
 
 schema:author  a          owl:ObjectProperty ;
         rdfs:comment      "The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably."@en ;
