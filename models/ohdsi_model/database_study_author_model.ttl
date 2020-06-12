@@ -465,17 +465,18 @@ schema:code  a            owl:ObjectProperty ;
         rdfs:range        [ a            owl:Class ;
                             owl:unionOf  ( schema:MedicalCode schema:Text schema:URL schema:Role )
                           ] .		
-
-schema:termCode  a        owl:ObjectProperty ;
-        rdfs:comment      "A code that identifies this <a class=\"localLink\" href=\"http://schema.org/DefinedTerm\">DefinedTerm</a> within a <a class=\"localLink\" href=\"http://schema.org/DefinedTermSet\">DefinedTermSet</a>"@en ;
-        rdfs:domain       [ a            owl:Class ;
-                            owl:unionOf  ( schema:DefinedTerm )
-                          ] ;
-        rdfs:isDefinedBy  <https://pending.schema.org/termCode> ;
-        rdfs:label        "termCode"@en ;
-        rdfs:range        [ a            owl:Class ;
-                            owl:unionOf  ( schema:Text schema:URL schema:Role )
-                          ] .						  
+						  
+schema:codeValue  a         owl:ObjectProperty ;
+        rdfs:comment        "A short textual code that uniquely identifies the value."@en ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( schema:MedicalCode schema:CategoryCode )
+                            ] ;
+        rdfs:isDefinedBy    <https://pending.schema.org/codeValue> ;
+        rdfs:label          "codeValue"@en ;
+        rdfs:range          [ a            owl:Class ;
+                              owl:unionOf  ( schema:Text schema:URL schema:Role )
+                            ] ;
+        rdfs:subPropertyOf  schema:termCode .
 
 schema:codingSystem  a    owl:ObjectProperty ;
         rdfs:comment      "The coding system, e.g. 'ICD-10'."@en ;
@@ -488,18 +489,16 @@ schema:codingSystem  a    owl:ObjectProperty ;
                             owl:unionOf  ( schema:Text schema:URL schema:Role )
                           ] .
 
-schema:inDefinedTermSet
-        a                   owl:ObjectProperty ;
-        rdfs:comment        "A <a class=\"localLink\" href=\"http://schema.org/DefinedTermSet\">DefinedTermSet</a> that contains this term."@en ;
-        rdfs:domain         [ a            owl:Class ;
-                              owl:unionOf  ( schema:DefinedTerm )
-                            ] ;
-        rdfs:isDefinedBy    <https://pending.schema.org/inDefinedTermSet> ;
-        rdfs:label          "inDefinedTermSet"@en ;
-        rdfs:range          [ a            owl:Class ;
-                              owl:unionOf  ( schema:DefinedTermSet schema:URL schema:Text schema:Role )
-                            ] ;
-        rdfs:subPropertyOf  schema:isPartOf .
+schema:sameAs  a          owl:ObjectProperty ;
+        rdfs:comment      "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website."@en ;
+        rdfs:domain       [ a            owl:Class ;
+                            owl:unionOf  ( schema:Thing )
+                          ] ;
+        rdfs:isDefinedBy  <https://schema.org/sameAs> ;
+        rdfs:label        "sameAs"@en ;
+        rdfs:range        [ a            owl:Class ;
+                            owl:unionOf  ( schema:URL schema:Text schema:Role )
+                          ] .
 
 schema:location  a        owl:ObjectProperty ;
         rdfs:comment      "The location of for example where the event is happening, an organization is located, or where an action takes place."@en ;
@@ -646,8 +645,7 @@ schema:worksFor  a        owl:ObjectProperty ;
                             owl:unionOf  ( schema:Organization schema:Text schema:URL schema:Role )
                           ] .
 						  
-						  
-		
+						  		
 ## Extension
 
 # Database extensions
@@ -808,6 +806,24 @@ schema:dateModified  a    owl:datatypeProperty ;
                             owl:unionOf  ( schema:Date schema:DateTime )
                           ] .
 
+schema:dateModified  a    owl:datatypeProperty ;
+        rdfs:comment      "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed."@en ;
+        rdfs:domain       [ a            owl:Class ;
+                            owl:unionOf  ( schema:CreativeWork schema:DataFeedItem schema:MedicalObservationalStudyDesign )
+                          ] ;
+        rdfs:isDefinedBy  <https://schema.org/dateModified> ;
+        rdfs:label        "dateModified"@en ;
+        rdfs:range        [ a            owl:Class ;
+                            owl:unionOf  ( schema:Date schema:DateTime )
+                          ] .
+
+owl:equivalentClass a owl:ObjectProperty ; 
+    rdfs:label "equivalentClass" ;
+    rdfs:domain schema:MedicalCode ;
+    rdfs:range ohdsi:MedicalCode ;
+    rdfs:comment "The property that determines that two given classes are equivalent, and that is used to specify datatype definitions." .
+
+
 # Author extensions
 
 schema:orcidIdentifier a owl:ObjectProperty ;
@@ -822,7 +838,9 @@ schema:forumName  a		owl:ObjectProperty ;
         rdfs:label        "forumName" ;
         rdfs:comment      "The name of a person as showed on the OHDSI forum" ;
         rdfs:domain       schema:Person ; 
-        rdfs:range        schema:Text .
+        rdfs:range        [ a            owl:Class ;
+                            owl:unionOf  ( schema:Text schema:URL )
+                          ] .
 		
 schema:ohdsiCollaborator a owl:ObjectProperty ;
         rdfs:label        "ohdsiCollaborator" ;
@@ -834,10 +852,14 @@ schema:githubHandle a owl:ObjectProperty ;
         rdfs:label        "githubHandle" ;
         rdfs:comment      "GitHub username of a person" ;
         rdfs:domain       schema:Person ; 
-        rdfs:range        schema:Text .		
+        rdfs:range        [ a            owl:Class ;
+                            owl:unionOf  ( schema:Text schema:URL )
+                          ] .		
 
 schema:googlescholarId a owl:ObjectProperty ;
         rdfs:label        "googlescholarId" ;
         rdfs:comment      "Google Scholar ID of a person" ;
         rdfs:domain       schema:Person ; 
-        rdfs:range        schema:Text .				
+        rdfs:range        [ a            owl:Class ;
+                            owl:unionOf  ( schema:Text schema:URL )
+                          ] .				
