@@ -17,14 +17,11 @@ organization:
 
 # Academic Networking
 accounts:
-  forumName: 
-  # https://github.com/USERNAME
-  githubHandle: USERNAME
-  # https://scholar.google.com/citations?user=PERSON-ID
-  googlescholarId: PERSON-ID
-  # OHDSI Collaborator URL
-  ohdsiCollaborator: 
-  orcidIdentifier:
+  forumName: "https://forums.ohdsi.org/u/forumName/"
+  githubHandle: "https://github.com/githubHandle"
+  googlescholarId: "https://scholar.google.co.kr/citations?user=DDKRubAAAAAJ"
+  ohdsiCollaborator: "https://www.ohdsi.org/who-we-are/collaborators/ohdsiCollaborator/"
+  orcidIdentifier: "https://orcid.org/0000-0002-5052-6399"
 
 social:
 # - icon: envelope
