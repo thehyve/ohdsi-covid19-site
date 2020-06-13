@@ -91,11 +91,11 @@
       <div class="col-md-12">
         <h3>Social Accounts</h3>
         <ul class="ul-organization">
-          {{ with .forumName }}<li><b>Forum Name: {{ . }}</b></li>{{end}}
-          {{ with .githubHandle }}<li><b>Github Handle:</b> {{ . }}</li>{{end}}
-          {{ with .googlescholarId }}<li><b>Google Scholar ID:</b> {{ . }}</li>{{end}}
-          {{ with .ohdsiCollaborator }}<li><b>OHDSI Collaborator:</b> {{ . }}</li>{{end}}
-          {{ with .orcidIdentifier }}<li><b>Orcid Identifier:</b> {{ . }}</li>{{end}}
+          {{ with .forumName }}<li><b>OHDSI Forum:</b> <a href="{{ . }}" target="_blank">{{ . }}</a></b></li>{{end}}
+          {{ with .githubHandle }}<li><b>Github:</b> <a href="{{ . }}" target="_blank">{{ . }}</a></li>{{end}}
+          {{ with .googlescholarId }}<li><b>Google Scholar:</b> <a href="{{ . }}" target="_blank">{{ . }}</a></li>{{end}}
+          {{ with .ohdsiCollaborator }}<li><b>OHDSI Collaborators:</b> <a href="{{ . }}" target="_blank">{{ . }}</a></li>{{end}}
+          {{ with .orcidIdentifier }}<li><b>Orcid:</b> <a href="{{ . }}" target="_blank">{{ . }}</a></li>{{end}}
         </ul>
       </div>
       {{ end }}
