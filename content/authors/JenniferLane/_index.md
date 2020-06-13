@@ -17,14 +17,11 @@ organization:
 
 # Academic Networking
 accounts:
-  forumName: jenniferlane
-  # https://github.com/USERNAME
-  githubHandle: 
-  # https://scholar.google.com/citations?user=PERSON-ID
-  googlescholarId: DDKRubAAAAAJ
-  # OHDSI Collaborator URL
-  ohdsiCollaborator: https://www.ohdsi.org/who-we-are/collaborators/jennifer-lane/
-  orcidIdentifier: 0000-0002-5052-6399
+  forumName : "https://forums.ohdsi.org/u/jenniferlane/"
+  githubHandle : "https://github.com/examplehandle"
+  googlescholarId : "https://scholar.google.co.kr/citations?user=DDKRubAAAAAJ"
+  ohdsiCollaborator : "https://www.ohdsi.org/who-we-are/collaborators/jennifer-lane/"
+  orcidIdentifier : "https://orcid.org/0000-0002-5052-6399"
 
 social:
 # - icon: envelope
