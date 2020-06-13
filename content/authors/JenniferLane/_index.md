@@ -32,16 +32,16 @@ social:
 #   link: https://twitter.com/GeorgeCushen
 - icon: comments
   icon_pack: fas
-  link: jenniferlane
+  link: https://forums.ohdsi.org/u/jenniferlane/
 - icon: google-scholar
   icon_pack: ai
-  link: https://scholar.google.co.uk/citations?user=DDKRubAAAAAJ
+  link: https://scholar.google.co.kr/citations?user=DDKRubAAAAAJ
 - icon: github
   icon_pack: fab
-  link: https://github.com/
+  link: https://github.com/examplehandle
 - icon: orcid
   icon_pack: ai
-  link: 0000-0002-5052-6399
+  link: https://orcid.org/0000-0002-5052-6399
 
 
 honorificPrefix:
