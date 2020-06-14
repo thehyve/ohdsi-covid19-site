@@ -44,7 +44,7 @@
         "description": {{$params.description}},
         "identifier": {{$params.identifier}},
         "license": {{$params.license}},
-        "name": {{$params.name}},
+        "name": {{$params.Title}},
         "publication": "ohdsi:{{$params.publication.id}}",
         "spatialCoverage": {{$params.spatialCoverage}},
         "temporalCoverage": {{$params.temporalCoverage}},
@@ -58,31 +58,31 @@
         "email": {{$params.administrativeContact.email}},
         "name": {{$params.administrativeContact.name}},
         "telephone": {{$params.administrativeContact.telephone}}
-      },
-      {
+      }
+      {{ if ne $params.principalInvestigator.id $params.administrativeContact.id}},{
         "@id": "ohdsi:{{$params.principalInvestigator.id}}",
         "@type": "schema:Person",
         "address": {{$params.principalInvestigator.address}},
         "email": {{$params.principalInvestigator.email}},
         "name": {{$params.principalInvestigator.name}},
         "telephone": {{$params.principalInvestigator.telephone}}
-      },
-      {
+      }{{end}}
+      {{ if ne $params.scientificContact.id $params.administrativeContact.id }}{{ if ne $params.scientificContact.id $params.principalInvestigator.id }},{
         "@id": "ohdsi:{{$params.scientificContact.id}}",
         "@type": "schema:Person",
         "address": {{$params.scientificContact.address}},
         "email": {{$params.scientificContact.email}},
         "name": {{$params.scientificContact.name}},
         "telephone": {{$params.scientificContact.telephone}}
-      },
-      {
+      }{{ end }}{{ end }}
+      {{ if ne $params.technicalContact.id $params.administrativeContact.id }}{{ if ne $params.technicalContact.id $params.principalInvestigator.id }}{{ if ne $params.technicalContact.id $params.scientificContact.id }},{
         "@id": "ohdsi:{{$params.technicalContact.id}}",
         "@type": "schema:Person",
         "address": {{$params.technicalContact.address}},
         "email": {{$params.technicalContact.email}},
         "name": {{$params.technicalContact.name}},
         "telephone": {{$params.technicalContact.telephone}}
-      }
+      }{{ end }}{{ end }}{{ end }}
     ],
     "@id": "urn:x-arq:DefaultGraphNode",
     "@context": {
