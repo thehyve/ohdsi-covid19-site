@@ -80,17 +80,53 @@ studyDesign:
 # Array @type: studySubject
 drugs: 
 - name: Amoxicillin
-  inDefinedTermset: https://github.com/OHDSI/Vocabulary-v5.0
-  termCode: 1713332
+  code:
+  - id: Rx723
+    codeValue: 723
+    codingSystem: RxNorm
+    sameAs: http://purl.bioontology.org/ontology/RXNORM/723
+    equivalentClass: 
+  - id: 1713332
+    codeValue: 1713332
+    codingSystem: OMOP Standardized Vocablaries
+    sameAs: 
+    equivalentClass: Rx18631
 - name: Hydroxychloroquine
-  inDefinedTermset: https://github.com/OHDSI/Vocabulary-v5.0
-  termCode: 1777087
+  code:
+  - id: Rx5521
+    codeValue: 5521
+    codingSystem: RxNorm
+    sameAs: http://purl.bioontology.org/ontology/RXNORM/5521
+    equivalentClass: 
+  - id: 1777087
+    codeValue: 1777087
+    codingSystem: OMOP Standardized Vocablaries
+    sameAs: 
+    equivalentClass: Rx5521
 - name: Azithromycin
-  inDefinedTermset: https://github.com/OHDSI/Vocabulary-v5.0
-  termCode: 1734104
+  code:
+  - id: Rx18631
+    codeValue: 18631
+    codingSystem: RxNorm
+    sameAs: http://purl.bioontology.org/ontology/RXNORM/18631
+    equivalentClass: 
+  - id: 1734104
+    codeValue: 1734104
+    codingSystem: OMOP Standardized Vocablaries
+    sameAs: 
+    equivalentClass: Rx18631
 - name: Sulfasalazine
-  inDefinedTermset: https://github.com/OHDSI/Vocabulary-v5.0
-  termCode: 964339
+  code:
+  - id: Rx9524
+    codeValue: 9524
+    codingSystem: RxNorm
+    sameAs: http://purl.bioontology.org/ontology/RXNORM/9524
+    equivalentClass: 
+  - id: 964339
+    codeValue: 964339
+    codingSystem: OMOP Standardized Vocablaries
+    sameAs: 
+    equivalentClass: Rx9524
 
 # @type: subjectOf
 event:
@@ -113,14 +149,7 @@ citations:
   author: Author placeholder
   id: referencePH
 
-omopDatabases:
-- THIN_OMOP
-- CPRD_OMOP
-- SIDIAP_OMOP
-- IPCI_OMOP
-
-    
-sourceDatabases: 
+databases: 
 -  CPRD
 -  THIN
 -  SIDIAP

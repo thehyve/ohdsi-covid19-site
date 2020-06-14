@@ -13,20 +13,21 @@
   "@context": {
     "schema": "http://schema.org/",
     "ohdsi": "http://ohdsi.data.org/",
-    "inDefinedTermset": "http://schema.org/inDefinedTermset",
-    "codingSystem": "http://schema.org/codingSystem",
-    "termCode": {
-      "@id": "http://schema.org/termCode",
-      "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "equivalentClass": {
+      "@id": "http://www.w3.org/2002/07/owl#equivalentClass",
+      "@type": "@id"
     },
+    "codingSystem": "http://schema.org/codingSystem",
+    "codeValue": {
+      "@id": "http://schema.org/codeValue",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "sameAs": "http://schema.org/sameAs",
     "name": "http://schema.org/name",
     "identifier": "http://schema.org/identifier",
     "code": {
       "@id": "http://schema.org/code",
-      "@type": "@id"
-    },
-    "omopDatabase": {
-      "@id": "http://ohdsi.data.org/omopDatabase",
       "@type": "@id"
     },
     "healthCondition": {
@@ -50,8 +51,8 @@
       "@id": "http://schema.org/result",
       "@type": "@id"
     },
-    "sourceDatabase": {
-      "@id": "http://ohdsi.data.org/sourceDatabase",
+    "database": {
+      "@id": "http://ohdsi.data.org/database",
       "@type": "@id"
     },
     "datePublished": {
@@ -113,24 +114,20 @@
     {{ range $i, $e := $params.drugs }}{
       "@id": "ohdsi:{{.name}}",
       "@type": "schema:Drug",
-      "code": "ohdsi:{{.name}}Code",
+      "code": [{{ range $j, $v := .code }}{{ if $j }}, {{ end }}
+      "ohdsi:{{ $v.id }}"{{ end }}
+      ],
       "name": {{.name}}
-    },{
-      "@id": "ohdsi:{{.name}}code",
-      "@type": "schema:MedicalCode",
-      "codingSystem": "Drug",
-      "inDefinedTermset": {{.inDefinedTermset}},
-      "termCode": "{{.termCode}}"
     },{{end}}
-    {
-      "@id": "ohdsi:{{$params.event.id}}",
-      "@type": "schema:Event",
-      "endDate": {{$params.event.endDate}},
-      "location": {{$params.event.location}},
-      "name": {{$params.event.name}},
-      "organizer": "ohdsi:{{$params.event.organizer}}",
-      "startDate": {{$params.event.startDate}}
-    },
+    {{ range $i, $e := $params.drugs }}
+      {{ range $j, $v := .code }}{
+        "@id": "ohdsi:{{ .id }}",
+        "@type": "schema:MedicalCode",
+        "codeValue": "{{.codeValue}}",
+        {{ with .sameAs}}"sameAs": {{ . }},{{ end }}
+        {{ with .equivalentClass }}"equivalentClass": "ohdsi:{{ . }}",{{ end }}
+        "codingSystem": {{ .codingSystem }}
+      },{{end}}{{end}}
     {{ range $i, $e := $params.healthConditions }}{
       "@id": "ohdsi:{{.codeId}}",
       "@type": "schema:MedicalCode",
@@ -170,17 +167,10 @@
       "name": {{.name}},
       "softwareVersion": {{.version}}
     },{{end}}
-    {{range $i, $e := $params.sourceDatabases}}{{- $db_page := site.GetPage (printf "/database/%s" $e) -}}
+    {{range $i, $e := $params.databases}}{{- $db_page := site.GetPage (printf "/database/%s" $e) -}}
     {
       "@id": "ohdsi:{{$e}}",
-      "@type": "ohdsi:SourceDatabase",
-      "identifier": {{$e}},
-      "name": {{$db_page.Params.title}}
-    },{{end}}
-    {{range $i, $e := $params.omopDatabases}}{{- $db_page := site.GetPage (printf "/database/%s" $e) -}}
-    {
-      "@id": "ohdsi:{{$e}}",
-      "@type": "ohdsi:OMOPDatabase",
+      "@type": "ohdsi:Database",
       "identifier": {{$e}},
       "name": {{$db_page.Params.title}}
     },{{end}}
@@ -202,6 +192,15 @@
       "url": {{$params.studyDesign.url}},
       "version": "{{$params.studyDesign.version}}"
     },
+    {
+      "@id": "ohdsi:{{ $params.event.id }}",
+      "@type": "schema:Event",
+      "endDate": {{ $params.event.endDate }},
+      "location": {{ $params.event.location }},
+      "name": {{ $params.event.name }},
+      "organizer": "ohdsi:{{$params.event.organizer }}",
+      "startDate": {{$params.event.startDate }}
+    },
     {{ range $i, $e := $params.citations }}{
       "@id": "ohdsi:{{.id}}",
       "@type": "schema:ScholarlyArticle",
@@ -213,10 +212,7 @@
     {
       "@id": "ohdsi:{{ $params.id}}",
       "@type": "schema:MedicalObservationalStudy",
-      "omopDatabase": [{{ range $i, $e := $params.omopDatabases }}{{ if $i }}, {{ end }}
-        "ohdsi:{{$e}}"{{end}}
-      ],
-      "sourceDatabase": [{{ range $i, $e := $params.sourceDatabases }}{{ if $i }}, {{ end }}
+      "database": [{{ range $i, $e := $params.databases }}{{ if $i }}, {{ end }}
         "ohdsi:{{$e}}"{{end}}
       ],
       "author": [{{ range $i, $e := $params.authors }}{{ if $i }}, {{ end }}

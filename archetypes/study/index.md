@@ -68,8 +68,12 @@ studyDesign:
 # @type: studySubject
 drugs: 
 - name:
-  inDefinedTermset:
-  termCode:
+  code:
+  - id:
+    codeValue:
+    codingSystem:
+    sameAs:
+    equivalentClass:
 
 # @type: subjectOf
 event:
@@ -87,7 +91,5 @@ citations:
   author:
   id:
 
-omopDatabases: []
-    
-sourceDatabases: []
+databases: []
 ---

@@ -59,17 +59,11 @@
 
         </div>
         <div class="tab-pane fade" id="databases" role="tabpanel" aria-labelledby="databases-tab">
-          <b>Source Databases:</b> <ul>{{range $i, $e := .Params.sourceDatabases}}
+          <b>Databases:</b> <ul>{{range $i, $e := .Params.databases}}
           {{- $db_page := site.GetPage (printf "/database/%s" $e) -}}
           <li><a href="{{$db_page.URL}}">{{$db_page.Params.title}}</a></li>
           {{end}}
           </ul>
-          <b>OMOP Databases:</b> <ul>{{range $i, $e := .Params.omopDatabases}}
-            {{- $db_page := site.GetPage (printf "/database/%s" $e) -}}
-            <li><a href="{{$db_page.URL}}">{{$db_page.Params.title}}</a></li>
-            {{end}}
-        </ul>
-          
         </div>
         <div class="tab-pane fade" id="citations" role="tabpanel" aria-labelledby="citations-tab">
           <ul>
