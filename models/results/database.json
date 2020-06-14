@@ -1,0 +1,119 @@
+{
+  "@graph": [
+    {
+      "@id": "ohdsi:27014709",
+      "@type": "schema:Article",
+      "author": "Gini R",
+      "dateCreated": "2016-02-08",
+      "identifier": {
+        "@id": "https://pubmed.ncbi.nlm.nih.gov/27014709/"
+      },
+      "name": "Data Extraction and Management in Networks of Observational Health Care Databases for Scientific Research: A Comparison of EU-ADR, OMOP, Mini-Sentinel and MATRICE Strategies",
+      "publisher": "EGEMS (Washington, DC)"
+    },
+    {
+      "@id": "ohdsi:ARSToscana",
+      "@type": "schema:Organization",
+      "name": "Agenzia regionale di sanità della Toscana"
+    },
+    {
+      "@id": "ohdsi:Dataset_ARS",
+      "@type": "ohdsi:SourceDatabase",
+      "administrativeContact": "ohdsi:RosaGini",
+      "associatedInstitution": "ohdsi:ARSToscana",
+      "databaseSystem": "PostgreSQL",
+      "fundingType": [
+        "European Public Funding",
+        "Funding From Industry / Contract Research"
+      ],
+      "ohdsi:populationSize": 5000000,
+      "principalInvestigator": "ohdsi:RosaGini",
+      "scientificContact": "ohdsi:RosaGini",
+      "technicalContact": "ohdsi:RosaGini",
+      "alternateName": "ARS",
+      "dateCreated": "1996-01-01",
+      "dateModified": "2020-05-15",
+      "description": "Italy has a national health care system, funded by national tax but organised at a regional level: each region receives money from the central government and must pay for the healthcare of its inhabitants. Administrative data of healthcare purchased (or administered) by each region are collected with the same national data model. ARS has a copy of the administrative data of the Tuscany region. Moreover ARS has a copy of the death and birth registry and of the malformation registry, and they can be linked at an individual level with the other health data available. The core of the system is the inhabitant registry.",
+      "identifier": "ARS1",
+      "license": "open-source",
+      "name": "Clinical Practice Research Datalink",
+      "publication": "ohdsi:27014709",
+      "spatialCoverage": "Firenze",
+      "temporalCoverage": "P2Y6M5D",
+      "url": "https://www.ars.toscana.it/it/",
+      "version": "5.4"
+    },
+    {
+      "@id": "ohdsi:RosaGini",
+      "@type": "schema:Person",
+      "address": "via Dazzi 1, 50141 Firenze, Italy",
+      "email": "rosa.gini@ars.toscana.it",
+      "name": "Rosa Gini",
+      "telephone": "+393357757388"
+    }
+  ],
+  "@id": "urn:x-arq:DefaultGraphNode",
+  "@context": {
+    "telephone": "http://schema.org/telephone",
+    "email": "http://schema.org/email",
+    "address": "http://schema.org/address",
+    "name": "http://schema.org/name",
+    "dateCreated": {
+      "@id": "http://schema.org/dateCreated",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "fundingType": "http://ohdsi.data.org/fundingType",
+    "dateModified": {
+      "@id": "http://schema.org/dateModified",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "temporalCoverage": {
+      "@id": "http://schema.org/temporalCoverage",
+      "@type": "http://www.w3.org/2001/XMLSchema#duration"
+    },
+    "spatialCoverage": "http://schema.org/spatialCoverage",
+    "populationSize": {
+      "@id": "http://ohdsi.data.org/populationSize",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "identifier": "http://schema.org/identifier",
+    "associatedInstitution": {
+      "@id": "http://ohdsi.data.org/associatedInstitution",
+      "@type": "@id"
+    },
+    "alternateName": "http://schema.org/alternateName",
+    "version": {
+      "@id": "http://schema.org/version",
+      "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+    },
+    "administrativeContact": {
+      "@id": "http://ohdsi.data.org/administrativeContact",
+      "@type": "@id"
+    },
+    "url": "http://schema.org/url",
+    "description": "http://schema.org/description",
+    "databaseSystem": "http://ohdsi.data.org/databaseSystem",
+    "scientificContact": {
+      "@id": "http://ohdsi.data.org/scientificContact",
+      "@type": "@id"
+    },
+    "publication": {
+      "@id": "http://schema.org/publication",
+      "@type": "@id"
+    },
+    "principalInvestigator": {
+      "@id": "http://ohdsi.data.org/principalInvestigator",
+      "@type": "@id"
+    },
+    "license": "http://schema.org/license",
+    "technicalContact": {
+      "@id": "http://ohdsi.data.org/technicalContact",
+      "@type": "@id"
+    },
+    "publisher": "http://schema.org/publisher",
+    "author": "http://schema.org/author",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "ohdsi": "http://ohdsi.data.org/"
+  }
+}
