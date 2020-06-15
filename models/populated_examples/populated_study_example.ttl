@@ -13,7 +13,7 @@ ohdsi:Study_HQC a schema:MedicalObservationalStudy ;
 	schema:healthCondition ohdsi:Covid19, ohdsi:conditionPH ; #Add extra placeholder, in case of multiple health conditions
 	schema:studySubject ohdsi:Hydroxychloroquine, ohdsi:Sulfasalazine, ohdsi:Azithromycin, ohdsi:Amoxicillin ;
 	schema:subjectOf ohdsi:Covid19Studyathon ;
-	schema:author ohdsi:JenniferLane, ohdsi:JamesWeaver, ohdsi:DanielPrietoAlhambra, ohdsi:DanielMorales, ohdsi:MartijnSchuemie ;
+	schema:author ohdsi:JenniferLane, ohdsi:JamesWeaver, ohdsi:DanielPrietoAlhambra, ohdsi:MartijnSchuemie ;
 	schema:datePublished "02-04-2020"^^xsd:date ;
 	schema:license "http://www.encepp.eu/encepp_studies/index.shtml" ;
 	schema:citation ohdsi:referencePH, ohdsi:referencePH2 ; #Multiple placeholders for multiple health conditions ;
@@ -124,19 +124,67 @@ ohdsi:OHDSI a schema:Organization ;
 	schema:name "OHDSI" .
 
 ohdsi:JenniferLane a schema:Person ;
-	schema:name "Jennifer Lane" .
+	schema:name "Jennifer Lane" ;
+	schema:honorificPrefix "" ; 
+	schema:honorificSuffix "M.D.", "" ;
+	schema:jobTitle "Versus Arthritis Clinical Research Fellow in Orthopaedic Surgery" ;
+	schema:worksFor ohdsi:UniversityOxfordTOS ;
+	ohdsi:orcidIdentifier "" ;
+	ohdsi:forumName "https://forums.ohdsi.org/u/jenniferlane" ;
+	ohdsi:ohdsiCollaborator "https://www.ohdsi.org/who-we-are/collaborators/jennifer-lane/" ;
+	ohdsi:githubHandle "" ;
+	ohdsi:googlescholarId "" .
+	
+ohdsi:UniversityOxfordTOS a schema:Organization ;
+	schema:name "University of Oxford" ;
+	schema:department "Trauma and Orthopaedic Surgery" ;
+	schema:address "Windmill Road, Headington, Oxford, OX3 7HE, UK" .
 	
 ohdsi:JamesWeaver a schema:Person ;
-	schema:name "James Weaver" .
+	schema:name "James Weaver" ;
+	schema:honorificPrefix "" ; 
+	schema:honorificSuffix "MPH", "" ;
+	schema:jobTitle "Associate Director of Epidemiology Analytics" ;
+	schema:worksFor ohdsi:JJ ;
+	ohdsi:orcidIdentifier "" ;
+	ohdsi:forumName "https://forums.ohdsi.org/u/jweave17" ;
+	ohdsi:ohdsiCollaborator "https://www.ohdsi.org/who-we-are/collaborators/james-weaver/" ;
+	ohdsi:githubHandle "https://github.com/jamieweaver" ;
+	ohdsi:googlescholarId "" .
+	
+ohdsi:JJ a schema:Organization ;
+	schema:name "Johnson & Johnson" ;
+	schema:department "Epidemiology analytics" ;
+	schema:address "" .
 	
 ohdsi:DanielPrietoAlhambra a schema:Person ;
-	schema:name "Daniel Prieto-Alhambra" .
-	
-ohdsi:DanielMorales a schema:Person ;
-	schema:name "Daniel Morales" .
+	schema:name "Daniel Prieto-Alhambra" ;
+	schema:honorificPrefix "" ; 
+	schema:honorificSuffix "M.D.", "MSc", "PhD" ;
+	schema:jobTitle "Associate Director of Epidemiology Analytics" ;
+	schema:worksFor ohdsi:UniversityOxfordCSM ;
+	ohdsi:orcidIdentifier "https://orcid.org/0000-0002-3950-6346" ;
+	ohdsi:forumName "https://forums.ohdsi.org/u/daniel_prieto" ;
+	ohdsi:ohdsiCollaborator "https://www.ohdsi.org/who-we-are/collaborators/dani-prieto-alhambra/" ;
+	ohdsi:githubHandle "" ;
+	ohdsi:googlescholarId "https://scholar.google.com/citations?user=hiBxiTYAAAAJ" .
+
+ohdsi:UniversityOxfordCSM a schema:Organization ;
+	schema:name "University of Oxford" ;
+	schema:department "Centre for Statistics in Medicine" ;
+	schema:address "Windmill Road, Headington, Oxford, OX3 7HE, UK" .
 	
 ohdsi:MartijnSchuemie a schema:Person ;
-	schema:name "Martijn Schuemie" .
+	schema:name "Martijn Schuemie" ;
+	schema:honorificPrefix "" ; 
+	schema:honorificSuffix "PhD", "" ;
+	schema:jobTitle "Research Fellow, Epidemiology Analyics" ;
+	schema:worksFor ohdsi:JJ ;
+	ohdsi:orcidIdentifier "https://orcid.org/0000-0002-0817-5361" ;
+	ohdsi:forumName "https://forums.ohdsi.org/u/schuemie" ;
+	ohdsi:ohdsiCollaborator "https://www.ohdsi.org/who-we-are/collaborators/martijn-schuemie/" ;
+	ohdsi:githubHandle "https://github.com/schuemie" ;
+	ohdsi:googlescholarId "https://scholar.google.com/citations?user=oxWLqMkAAAAJ" .
 
 ohdsi:referencePH a schema:ScholarlyArticle ;  #There are no citations available for this study this is a placeholder
 	schema:url "https://pubmed.ncbi.nlm.nih.gov" ;
