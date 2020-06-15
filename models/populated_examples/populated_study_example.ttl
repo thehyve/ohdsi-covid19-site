@@ -1,6 +1,7 @@
 @prefix schema: <http://schema.org/> .
 @prefix ohdsi: <http://ohdsi.data.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
 
 ohdsi:Study_HQC a schema:MedicalObservationalStudy ;
 	schema:identifier "EUPAS34497" ;
@@ -12,7 +13,7 @@ ohdsi:Study_HQC a schema:MedicalObservationalStudy ;
 	schema:healthCondition ohdsi:Covid19, ohdsi:conditionPH ; #Add extra placeholder, in case of multiple health conditions
 	schema:studySubject ohdsi:Hydroxychloroquine, ohdsi:Sulfasalazine, ohdsi:Azithromycin, ohdsi:Amoxicillin ;
 	schema:subjectOf ohdsi:Covid19Studyathon ;
-	schema:author ohdsi:JenniferLane, ohdsi:JamesWeaver, ohdsi:DanielPrietoAlhambra, ohdsi:DanielMorales, ohdsi:MartijnSchuemie ;
+	schema:author ohdsi:JenniferLane, ohdsi:JamesWeaver, ohdsi:DanielPrietoAlhambra, ohdsi:MartijnSchuemie ;
 	schema:datePublished "02-04-2020"^^xsd:date ;
 	schema:license "http://www.encepp.eu/encepp_studies/index.shtml" ;
 	schema:citation ohdsi:referencePH, ohdsi:referencePH2 ; #Multiple placeholders for multiple health conditions ;
@@ -20,8 +21,7 @@ ohdsi:Study_HQC a schema:MedicalObservationalStudy ;
 	schema:result ohdsi:Shiny ; 
 	schema:publication ohdsi:StudyPublication ; #Placeholder for study publication, no publication available 
 	schema:hasPart ohdsi:Atlas, ohdsi:RCode ; 
-	ohdsi:omopDatabase ohdsi:SIDIAP_OMOP, ohdsi:THIN_OMOP, ohdsi:IPCI_OMOP, ohdsi:CPRD_OMOP ;
-	ohdsi:sourceDatabase ohdsi:SIDIAP, ohdsi:THIN, ohdsi:IPCI, ohdsi:CPRD .
+	ohdsi:database ohdsi:SIDIAP, ohdsi:THIN, ohdsi:IPCI, ohdsi:CPRD .
 	
 ohdsi:StudydesignHQC a schema:MedicalObservationalStudyDesign ;
 	schema:identifier "..." ; #There is no protocol identifier available for this study 
@@ -31,57 +31,87 @@ ohdsi:StudydesignHQC a schema:MedicalObservationalStudyDesign ;
 
 ohdsi:Covid19 a schema:MedicalCondition ;
 	schema:name "Disease caused by severe acute respiratory syndrome coronavirus 2" ;
-	schema:code ohdsi:Covid19Code .
+	schema:code ohdsi:37311061, ohdsi:SNOMED84053900 .
 	
-ohdsi:Covid19code a schema:MedicalCode ;
-	schema:termCode "37311061"^^xsd:decimal ;
-	schema:codingSystem "Condition" ;
-	schema:inDefinedTermset "https://github.com/OHDSI/Vocabulary-v5.0" .
+ohdsi:37311061 a schema:MedicalCode ;
+	schema:codeValue "37311061"^^xsd:string ;
+	schema:codingSystem "OMOP Standardized Vocabularies" ;
+	owl:equivalentClass ohdsi:Snomed84053900 .
+
+ohdsi:SNOMED84053900 a schema:MedicalCode ;
+	schema:codeValue "84053900"^^xsd:string ;
+	schema:codingSystem "SNOMED CT" ;
+	schema:sameAs "" .
 
 ohdsi:conditionPH a schema:MedicalCondition ; #Add placeholder for when multiple Medical Conditions are being studied.
 	schema:name "" ;
-	schema:code "ohdsi:codePH" . 
+	schema:code "ohdsi:conceptPH", "ohdsi:sourcetermPH" . 
 	
-ohdsi:codePH a schema:MedicalCode ;
-	schema:termCode "1234567"^^xsd:decimal ;
+ohdsi:conceptPH a schema:MedicalCode ;
+	schema:codeValue "1234567"^^xsd:string ;
+	schema:codingSystem "OMOP Standardized Vocabularies" ;
+	owl:equivalentClass ohdsi:sourcetermPH .
+	
+ohdsi:sourcetermPH a schema:MedicalCode ;
+	schema:codeValue "9876"^^xsd:string ;
 	schema:codingSystem "" ;
-	schema:inDefinedTermset "https://github.com/OHDSI/Vocabulary-v5.0" .
+	schema:sameAs "" .
 		
 ohdsi:Hydroxychloroquine a schema:Drug;
 	schema:name "Hydroxychloroquine"; 
-	schema:code ohdsi:HydroxychloroquineCode .
+	schema:code ohdsi:1777087, ohdsi:Rx5521 .
 	
-ohdsi:HydroxychloroquineCode a schema:MedicalCode ;
-	schema:termCode "1777087"^^xsd:decimal ;
-	schema:codingSystem "Drug" ;
-	schema:inDefinedTermset "https://github.com/OHDSI/Vocabulary-v5.0" .
-	
+ohdsi:1777087 a schema:MedicalCode ;
+	schema:codeValue "1777087"^^xsd:string ;
+	schema:codingSystem "OMOP Standardized Vocabularies" ;
+	owl:equivalentClass ohdsi:Rx5521 .
+
+ohdsi:Rx5521 a schema:MedicalCode ;
+	schema:codeValue "5521"^^xsd:string ;
+	schema:codingSystem "RxNorm" ;
+	schema:sameAs "http://purl.bioontology.org/ontology/RXNORM/5521" .
+
 ohdsi:Sulfasalazine a schema:Drug ;
 	schema:name "Sulfasalazine" ;
-	schema:code ohdsi:SulfasalazineCode .
+	schema:code ohdsi:964339, ohdsi:Rx9524 .
 	
-ohdsi:SulfasalazineCod a schema:MedicalCode ;
-	schema:termCode "964339"^^xsd:decimal ;
-	schema:codingSystem "Drug" ;
-	schema:inDefinedTermset "https://github.com/OHDSI/Vocabulary-v5.0" .
+ohdsi:964339 a schema:MedicalCode ;
+	schema:codeValue "964339"^^xsd:string ;
+	schema:codingSystem "OMOP Standardized Vocabularies" ;
+	owl:equivalentClass ohdsi:Rx9524 .
+	
+ohdsi:Rx9524 a schema:MedicalCode ;
+	schema:codeValue "9524"^^xsd:string ;
+	schema:codingSystem "RxNorm" ;
+	schema:sameAs "http://purl.bioontology.org/ontology/RXNORM/9524" .
 
 ohdsi:Azithromycin a schema:Drug ;
 	schema:name "Azithromycin"; 
-	schema:code ohdsi:AzithromycineCode .
+	schema:code ohdsi:1734104, ohdsi:Rx18631 .
 	
-ohdsi:AzithromycinCode a schema:MedicalCode ;
-	schema:termCode "1734104"^^xsd:decimal ;
-	schema:codingSystem "Drug" ;
-	schema:inDefinedTermset "https://github.com/OHDSI/Vocabulary-v5.0" .
+ohdsi:1734104 a schema:MedicalCode ;
+	schema:codeValue "1734104"^^xsd:string ;
+	schema:codingSystem "OMOP Standardized Vocabularies" ;
+	owl:equivalentClass ohdsi:Rx18631 .
+	
+ohdsi:Rx18631 a schema:MedicalCode ;
+	schema:codeValue "18631"^^xsd:string ;
+	schema:codingSystem "RxNorm" ;
+	schema:sameAs "http://purl.bioontology.org/ontology/RXNORM/18631" .
 
 ohdsi:Amoxicillin a schema:Drug ;
 	schema:name "Amoxicillin"; 
-	schema:code ohdsi:AmoxicillinCode .
+	schema:code ohdsi:1713332, ohdsi:Rx723.
 	
-ohdsi:AmoxicillinCode a schema:MedicalCode ;
-	schema:termCode "1713332"^^xsd:decimal ;
-	schema:codingSystem "Drug" ;
-	schema:inDefinedTermset "https://github.com/OHDSI/Vocabulary-v5.0" .
+ohdsi:1713332 a schema:MedicalCode ;
+	schema:codeValue "1713332"^^xsd:string ;
+	schema:codingSystem "OMOP Standardized Vocablaries" ;
+	owl:equivalentClass ohdsi:Rx18631 .
+
+ohdsi:Rx723 a schema:MedicalCode ;
+	schema:codeValue "723"^^xsd:string ;
+	schema:codingSystem "RxNorm" ;
+	schema:sameAs "http://purl.bioontology.org/ontology/RXNORM/723" .
 
 ohdsi:Covid19Studyathon a schema:Event ;
 	schema:name "COVID-19 virtual study-a-thon" ;
@@ -94,19 +124,67 @@ ohdsi:OHDSI a schema:Organization ;
 	schema:name "OHDSI" .
 
 ohdsi:JenniferLane a schema:Person ;
-	schema:name "Jennifer Lane" .
+	schema:name "Jennifer Lane" ;
+	schema:honorificPrefix "" ; 
+	schema:honorificSuffix "M.D.", "" ;
+	schema:jobTitle "Versus Arthritis Clinical Research Fellow in Orthopaedic Surgery" ;
+	schema:worksFor ohdsi:UniversityOxfordTOS ;
+	ohdsi:orcidIdentifier "" ;
+	ohdsi:forumName "https://forums.ohdsi.org/u/jenniferlane" ;
+	ohdsi:ohdsiCollaborator "https://www.ohdsi.org/who-we-are/collaborators/jennifer-lane/" ;
+	ohdsi:githubHandle "" ;
+	ohdsi:googlescholarId "" .
+	
+ohdsi:UniversityOxfordTOS a schema:Organization ;
+	schema:name "University of Oxford" ;
+	schema:department "Trauma and Orthopaedic Surgery" ;
+	schema:address "Windmill Road, Headington, Oxford, OX3 7HE, UK" .
 	
 ohdsi:JamesWeaver a schema:Person ;
-	schema:name "James Weaver" .
+	schema:name "James Weaver" ;
+	schema:honorificPrefix "" ; 
+	schema:honorificSuffix "MPH", "" ;
+	schema:jobTitle "Associate Director of Epidemiology Analytics" ;
+	schema:worksFor ohdsi:JJ ;
+	ohdsi:orcidIdentifier "" ;
+	ohdsi:forumName "https://forums.ohdsi.org/u/jweave17" ;
+	ohdsi:ohdsiCollaborator "https://www.ohdsi.org/who-we-are/collaborators/james-weaver/" ;
+	ohdsi:githubHandle "https://github.com/jamieweaver" ;
+	ohdsi:googlescholarId "" .
+	
+ohdsi:JJ a schema:Organization ;
+	schema:name "Johnson & Johnson" ;
+	schema:department "Epidemiology analytics" ;
+	schema:address "" .
 	
 ohdsi:DanielPrietoAlhambra a schema:Person ;
-	schema:name "Daniel Prieto-Alhambra" .
-	
-ohdsi:DanielMorales a schema:Person ;
-	schema:name "Daniel Morales" .
+	schema:name "Daniel Prieto-Alhambra" ;
+	schema:honorificPrefix "" ; 
+	schema:honorificSuffix "M.D.", "MSc", "PhD" ;
+	schema:jobTitle "Associate Director of Epidemiology Analytics" ;
+	schema:worksFor ohdsi:UniversityOxfordCSM ;
+	ohdsi:orcidIdentifier "https://orcid.org/0000-0002-3950-6346" ;
+	ohdsi:forumName "https://forums.ohdsi.org/u/daniel_prieto" ;
+	ohdsi:ohdsiCollaborator "https://www.ohdsi.org/who-we-are/collaborators/dani-prieto-alhambra/" ;
+	ohdsi:githubHandle "" ;
+	ohdsi:googlescholarId "https://scholar.google.com/citations?user=hiBxiTYAAAAJ" .
+
+ohdsi:UniversityOxfordCSM a schema:Organization ;
+	schema:name "University of Oxford" ;
+	schema:department "Centre for Statistics in Medicine" ;
+	schema:address "Windmill Road, Headington, Oxford, OX3 7HE, UK" .
 	
 ohdsi:MartijnSchuemie a schema:Person ;
-	schema:name "Martijn Schuemie" .
+	schema:name "Martijn Schuemie" ;
+	schema:honorificPrefix "" ; 
+	schema:honorificSuffix "PhD", "" ;
+	schema:jobTitle "Research Fellow, Epidemiology Analyics" ;
+	schema:worksFor ohdsi:JJ ;
+	ohdsi:orcidIdentifier "https://orcid.org/0000-0002-0817-5361" ;
+	ohdsi:forumName "https://forums.ohdsi.org/u/schuemie" ;
+	ohdsi:ohdsiCollaborator "https://www.ohdsi.org/who-we-are/collaborators/martijn-schuemie/" ;
+	ohdsi:githubHandle "https://github.com/schuemie" ;
+	ohdsi:googlescholarId "https://scholar.google.com/citations?user=oxWLqMkAAAAJ" .
 
 ohdsi:referencePH a schema:ScholarlyArticle ;  #There are no citations available for this study this is a placeholder
 	schema:url "https://pubmed.ncbi.nlm.nih.gov" ;
@@ -138,34 +216,18 @@ ohdsi:RCode a schema:SoftwareSourceCode ;
 	schema:version "..." ; #Not clear which version of Atlas is used 
 	schema:maintainer ohdsi:OHDSI .
 
-ohdsi:SIDIAP a ohdsi:SourceDatabase ;
+ohdsi:SIDIAP a ohdsi:Database ;
 	schema:identifier "SIDIAP" ; 
 	schema:name "The Information System for the Development of Research in Primary Care" .
 
-ohdsi:THIN a ohdsi:SourceDatabase ;
+ohdsi:THIN a ohdsi:Database ;
 	schema:identifier "THIN" ; 
 	schema:name "The Health Improvement Network" .
 
-ohdsi:IPCI a ohdsi:SourceDatabase ;
+ohdsi:IPCI a ohdsi:Database ;
 	schema:identifier "IPCI" ; 
 	schema:name "Integrated Primary Care Information" .
 
-ohdsi:CPRD a ohdsi:SourceDatabase ;
+ohdsi:CPRD a ohdsi:Database ;
 	schema:identifier "CPRD" ; 
-	schema:name "Clinical Practice Research Datalink" .	
-	
-ohdsi:SIDIAP_OMOP a ohdsi:OMOPDatabase ;
-	schema:identifier "SIDIAP_OMOP" ; 
-	schema:name "The Information System for the Development of Research in Primary Care" .
-
-ohdsi:THIN_OMOP a ohdsi:OMOPDatabase ;
-	schema:identifier "THIN_OMOP" ; 
-	schema:name "The Health Improvement Network" .
-
-ohdsi:IPCI_OMOP a ohdsi:OMOPDatabase ;
-	schema:identifier "IPCI_OMOP" ; 
-	schema:name "Integrated Primary Care Information" .
-
-ohdsi:CPRD_OMOP a ohdsi:OMOPDatabase ;
-	schema:identifier "CPRD_OMOP" ; 
 	schema:name "Clinical Practice Research Datalink" .	

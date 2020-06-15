@@ -1,21 +1,37 @@
 {
   "@context" : {
 	"schema" : "http://schema.org/",
-    "ohdsi" : "http://ohdsi.data.org/",	
-    "inDefinedTermset" : "http://schema.org/inDefinedTermset",
-    "codingSystem" : "http://schema.org/codingSystem",
-    "termCode" : {
-      "@id" : "http://schema.org/termCode",
-      "@type" : "http://www.w3.org/2001/XMLSchema#decimal"
+    "ohdsi" : "http://ohdsi.data.org/",
+	"owl" : "http://www.w3.org/2002/07/owl#",
+    
+	"address" : "http://schema.org/address",
+    "department" : "http://schema.org/department",
+	"orcidIdentifier" : "http://ohdsi.data.org/orcidIdentifier",
+	"forumName" : "http://ohdsi.data.org/forumName",
+    "honorificSuffix" : "http://schema.org/honorificSuffix",
+    "jobTitle" : "http://schema.org/jobTitle",
+    "githubHandle" : "http://ohdsi.data.org/githubHandle",
+    "googlescholarId" : "http://ohdsi.data.org/googlescholarId",
+    "worksFor" : {
+      "@id" : "http://schema.org/worksFor",
+      "@type" : "@id"
     },
+    "ohdsiCollaborator" : "http://ohdsi.data.org/ohdsiCollaborator",
+    "honorificPrefix" : "http://schema.org/honorificPrefix",
+	"equivalentClass" : {
+      "@id" : "http://www.w3.org/2002/07/owl#equivalentClass",
+      "@type" : "@id"
+    },
+    "codingSystem" : "http://schema.org/codingSystem",
+    "codeValue" : {
+      "@id" : "http://schema.org/codeValue",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
+    },
+	"sameAs" : "http://schema.org/sameAs",
     "name" : "http://schema.org/name",
     "identifier" : "http://schema.org/identifier",
     "code" : {
       "@id" : "http://schema.org/code",
-      "@type" : "@id"
-    },
-    "omopDatabase" : {
-      "@id" : "http://ohdsi.data.org/omopDatabase",
       "@type" : "@id"
     },
     "healthCondition" : {
@@ -39,8 +55,8 @@
       "@id" : "http://schema.org/result",
       "@type" : "@id"
     },
-    "sourceDatabase" : {
-      "@id" : "http://ohdsi.data.org/sourceDatabase",
+    "database" : {
+      "@id" : "http://ohdsi.data.org/database",
       "@type" : "@id"
     },
     "datePublished" : {
@@ -99,16 +115,40 @@
   },
   "@id" : "urn:x-arq:DefaultGraphNode",
   "@graph" : [ {
+    "@id" : "ohdsi:1713332",
+    "@type" : "schema:MedicalCode",
+    "codeValue" : "1713332",
+    "codingSystem" : "OMOP Standardized Vocablaries",
+    "equivalentClass" : "ohdsi:Rx18631"
+  }, {
+    "@id" : "ohdsi:1734104",
+    "@type" : "schema:MedicalCode",
+    "codeValue" : "1734104",
+    "codingSystem" : "OMOP Standardized Vocabularies",
+    "equivalentClass" : "ohdsi:Rx18631"
+  }, {
+    "@id" : "ohdsi:1777087",
+    "@type" : "schema:MedicalCode",
+    "codeValue" : "1777087",
+    "codingSystem" : "OMOP Standardized Vocabularies",
+    "equivalentClass" : "ohdsi:Rx5521"
+  }, {
+    "@id" : "ohdsi:37311061",
+    "@type" : "schema:MedicalCode",
+    "codeValue" : "37311061",
+    "codingSystem" : "OMOP Standardized Vocabularies",
+    "equivalentClass" : "ohdsi:Snomed84053900"
+  },  {
+    "@id" : "ohdsi:964339",
+    "@type" : "schema:MedicalCode",
+    "codeValue" : "964339",
+    "codingSystem" : "OMOP Standardized Vocabularies",
+    "equivalentClass" : "ohdsi:Rx9524"
+  }, {
     "@id" : "ohdsi:Amoxicillin",
     "@type" : "schema:Drug",
-    "code" : "ohdsi:AmoxicillinCode",
+    "code" : [ "ohdsi:Rx723", "ohdsi:1713332" ],
     "name" : "Amoxicillin"
-  }, {
-    "@id" : "ohdsi:AmoxicillinCode",
-    "@type" : "schema:MedicalCode",
-    "codingSystem" : "Drug",
-    "inDefinedTermset" : "https://github.com/OHDSI/Vocabulary-v5.0",
-    "termCode" : "1713332"
   }, {
     "@id" : "ohdsi:Atlas",
     "@type" : "schema:SoftwareApplication",
@@ -119,28 +159,17 @@
   }, {
     "@id" : "ohdsi:Azithromycin",
     "@type" : "schema:Drug",
-    "code" : "ohdsi:AzithromycineCode",
+    "code" : [ "ohdsi:Rx18631", "ohdsi:1734104" ],
     "name" : "Azithromycin"
   }, {
-    "@id" : "ohdsi:AzithromycinCode",
-    "@type" : "schema:MedicalCode",
-    "codingSystem" : "Drug",
-    "inDefinedTermset" : "https://github.com/OHDSI/Vocabulary-v5.0",
-    "termCode" : "1734104"
-  }, {
     "@id" : "ohdsi:CPRD",
-    "@type" : "ohdsi:SourceDatabase",
+    "@type" : "ohdsi:Database",
     "identifier" : "CPRD",
-    "name" : "Clinical Practice Research Datalink"
-  }, {
-    "@id" : "ohdsi:CPRD_OMOP",
-    "@type" : "ohdsi:OMOPDatabase",
-    "identifier" : "CPRD_OMOP",
     "name" : "Clinical Practice Research Datalink"
   }, {
     "@id" : "ohdsi:Covid19",
     "@type" : "schema:MedicalCondition",
-    "code" : "ohdsi:Covid19Code",
+    "code" : [ "ohdsi:SNOMED84053900", "ohdsi:37311061" ],
     "name" : "Disease caused by severe acute respiratory syndrome coronavirus 2"
   }, {
     "@id" : "ohdsi:Covid19Studyathon",
@@ -151,52 +180,73 @@
     "organizer" : "ohdsi:OHDSI",
     "startDate" : "26-03-2020"
   }, {
-    "@id" : "ohdsi:Covid19code",
-    "@type" : "schema:MedicalCode",
-    "codingSystem" : "Condition",
-    "inDefinedTermset" : "https://github.com/OHDSI/Vocabulary-v5.0",
-    "termCode" : "37311061"
-  }, {
-    "@id" : "ohdsi:DanielMorales",
-    "@type" : "schema:Person",
-    "name" : "Daniel Morales"
-  }, {
     "@id" : "ohdsi:DanielPrietoAlhambra",
     "@type" : "schema:Person",
-    "name" : "Daniel Prieto-Alhambra"
+    "forumName" : "https://forums.ohdsi.org/u/daniel_prieto",
+    "githubHandle" : "",
+    "googlescholarId" : "https://scholar.google.com/citations?user=hiBxiTYAAAAJ",
+    "ohdsiCollaborator" : "https://www.ohdsi.org/who-we-are/collaborators/dani-prieto-alhambra/",
+    "orcidIdentifier" : "https://orcid.org/0000-0002-3950-6346",
+    "honorificPrefix" : "",
+    "honorificSuffix" : [ "PhD", "M.D.", "MSc" ],
+    "jobTitle" : "Associate Director of Epidemiology Analytics",
+    "name" : "Daniel Prieto-Alhambra",
+    "worksFor" : "ohdsi:UniversityOxfordCSM"
   }, {
     "@id" : "ohdsi:Hydroxychloroquine",
     "@type" : "schema:Drug",
-    "code" : "ohdsi:HydroxychloroquineCode",
+    "code" : [ "ohdsi:Rx5521", "ohdsi:1777087" ],
     "name" : "Hydroxychloroquine"
   }, {
-    "@id" : "ohdsi:HydroxychloroquineCode",
-    "@type" : "schema:MedicalCode",
-    "codingSystem" : "Drug",
-    "inDefinedTermset" : "https://github.com/OHDSI/Vocabulary-v5.0",
-    "termCode" : "1777087"
-  }, {
     "@id" : "ohdsi:IPCI",
-    "@type" : "ohdsi:SourceDatabase",
+    "@type" : "ohdsi:Database",
     "identifier" : "IPCI",
     "name" : "Integrated Primary Care Information"
-  }, {
-    "@id" : "ohdsi:IPCI_OMOP",
-    "@type" : "ohdsi:OMOPDatabase",
-    "identifier" : "IPCI_OMOP",
-    "name" : "Integrated Primary Care Information"
-  }, {
+  },  {
+    "@id" : "ohdsi:JJ",
+    "@type" : "schema:Organization",
+    "address" : "",
+    "department" : "Epidemiology analytics",
+    "name" : "Johnson & Johnson"
+  },  {
     "@id" : "ohdsi:JamesWeaver",
     "@type" : "schema:Person",
-    "name" : "James Weaver"
+    "forumName" : "https://forums.ohdsi.org/u/jweave17",
+    "githubHandle" : "https://github.com/jamieweaver",
+    "googlescholarId" : "",
+    "ohdsiCollaborator" : "https://www.ohdsi.org/who-we-are/collaborators/james-weaver/",
+    "orcidIdentifier" : "",
+    "honorificPrefix" : "",
+    "honorificSuffix" : [ "", "MPH" ],
+    "jobTitle" : "Associate Director of Epidemiology Analytics",
+    "name" : "James Weaver",
+    "worksFor" : "ohdsi:JJ"
   }, {
     "@id" : "ohdsi:JenniferLane",
     "@type" : "schema:Person",
-    "name" : "Jennifer Lane"
+    "forumName" : "https://forums.ohdsi.org/u/jenniferlane",
+    "githubHandle" : "",
+    "googlescholarId" : "",
+    "ohdsiCollaborator" : "https://www.ohdsi.org/who-we-are/collaborators/jennifer-lane/",
+    "orcidIdentifier" : "",
+    "honorificPrefix" : "",
+    "honorificSuffix" : [ "M.D.", "" ],
+    "jobTitle" : "Versus Arthritis Clinical Research Fellow in Orthopaedic Surgery",
+    "name" : "Jennifer Lane",
+    "worksFor" : "ohdsi:UniversityOxfordTOS"
   }, {
     "@id" : "ohdsi:MartijnSchuemie",
     "@type" : "schema:Person",
-    "name" : "Martijn Schuemie"
+    "forumName" : "https://forums.ohdsi.org/u/schuemie",
+    "githubHandle" : "https://github.com/schuemie",
+    "googlescholarId" : "https://scholar.google.com/citations?user=oxWLqMkAAAAJ",
+    "ohdsiCollaborator" : "https://www.ohdsi.org/who-we-are/collaborators/martijn-schuemie/",
+    "orcidIdentifier" : "https://orcid.org/0000-0002-0817-5361",
+    "honorificPrefix" : "",
+    "honorificSuffix" : [ "PhD", "" ],
+    "jobTitle" : "Research Fellow, Epidemiology Analyics",
+    "name" : "Martijn Schuemie",
+    "worksFor" : "ohdsi:JJ"
   }, {
     "@id" : "ohdsi:OHDSI",
     "@type" : "schema:Organization",
@@ -209,15 +259,40 @@
     "programmingLanguage" : "R",
     "schema:version" : "..."
   }, {
+    "@id" : "ohdsi:Rx18631",
+    "@type" : "schema:MedicalCode",
+    "codeValue" : "18631",
+    "codingSystem" : "RxNorm",
+    "sameAs" : "http://purl.bioontology.org/ontology/RXNORM/18631"
+  }, {
+    "@id" : "ohdsi:Rx5521",
+    "@type" : "schema:MedicalCode",
+    "codeValue" : "5521",
+    "codingSystem" : "RxNorm",
+    "sameAs" : "http://purl.bioontology.org/ontology/RXNORM/5521"
+  }, {
+    "@id" : "ohdsi:Rx723",
+    "@type" : "schema:MedicalCode",
+    "codeValue" : "723",
+    "codingSystem" : "RxNorm",
+    "sameAs" : "http://purl.bioontology.org/ontology/RXNORM/723"
+  }, {
+    "@id" : "ohdsi:Rx9524",
+    "@type" : "schema:MedicalCode",
+    "codeValue" : "9524",
+    "codingSystem" : "RxNorm",
+    "sameAs" : "http://purl.bioontology.org/ontology/RXNORM/9524"
+  },{
     "@id" : "ohdsi:SIDIAP",
-    "@type" : "ohdsi:SourceDatabase",
+    "@type" : "ohdsi:Database",
     "identifier" : "SIDIAP",
     "name" : "The Information System for the Development of Research in Primary Care"
   }, {
-    "@id" : "ohdsi:SIDIAP_OMOP",
-    "@type" : "ohdsi:OMOPDatabase",
-    "identifier" : "SIDIAP_OMOP",
-    "name" : "The Information System for the Development of Research in Primary Care"
+    "@id" : "ohdsi:SNOMED84053900",
+    "@type" : "schema:MedicalCode",
+    "codeValue" : "84053900",
+    "codingSystem" : "SNOMED CT",
+    "sameAs" : ""
   }, {
     "@id" : "ohdsi:Shiny",
     "@type" : "schema:WebApplication",
@@ -229,9 +304,8 @@
   }, {
     "@id" : "ohdsi:Study_HQC",
     "@type" : "schema:MedicalObservationalStudy",
-    "omopDatabase" : [ "ohdsi:THIN_OMOP", "ohdsi:CPRD_OMOP", "ohdsi:SIDIAP_OMOP", "ohdsi:IPCI_OMOP" ],
-    "sourceDatabase" : [ "ohdsi:CPRD", "ohdsi:THIN", "ohdsi:SIDIAP", "ohdsi:IPCI" ],
-    "author" : [ "ohdsi:JenniferLane", "ohdsi:DanielPrietoAlhambra", "ohdsi:MartijnSchuemie", "ohdsi:JamesWeaver", "ohdsi:DanielMorales" ],
+    "database" : [ "ohdsi:CPRD", "ohdsi:THIN", "ohdsi:SIDIAP", "ohdsi:IPCI" ],
+    "author" : [ "ohdsi:JenniferLane", "ohdsi:DanielPrietoAlhambra", "ohdsi:MartijnSchuemie", "ohdsi:JamesWeaver" ],
     "citation" : [ "ohdsi:referencePH2", "ohdsi:referencePH" ],
     "datePublished" : "02-04-2020",
     "description" : "Retrospective, real-world, observational study to estimate the population-level effects of hydroxychloroquine among patients with rheumatoid arthritis. Designed and executed during the OHDSI community COVID-19 virtual study-a-thon (March 26-29) to inform healthcare decision-making in response to the current global pandemic.",
@@ -258,39 +332,40 @@
   }, {
     "@id" : "ohdsi:Sulfasalazine",
     "@type" : "schema:Drug",
-    "code" : "ohdsi:SulfasalazineCode",
+    "code" : [ "ohdsi:Rx9524", "ohdsi:964339" ],
     "name" : "Sulfasalazine"
   }, {
-    "@id" : "ohdsi:SulfasalazineCod",
-    "@type" : "schema:MedicalCode",
-    "codingSystem" : "Drug",
-    "inDefinedTermset" : "https://github.com/OHDSI/Vocabulary-v5.0",
-    "termCode" : "964339"
-  }, {
     "@id" : "ohdsi:THIN",
-    "@type" : "ohdsi:SourceDatabase",
+    "@type" : "ohdsi:Database",
     "identifier" : "THIN",
     "name" : "The Health Improvement Network"
   }, {
-    "@id" : "ohdsi:THIN_OMOP",
-    "@type" : "ohdsi:OMOPDatabase",
-    "identifier" : "THIN_OMOP",
-    "name" : "The Health Improvement Network"
+    "@id" : "ohdsi:UniversityOxfordCSM",
+    "@type" : "schema:Organization",
+    "address" : "Windmill Road, Headington, Oxford, OX3 7HE, UK",
+    "department" : "Centre for Statistics in Medicine",
+    "name" : "University of Oxford"
   }, {
-    "@id" : "ohdsi:codePH",
+    "@id" : "ohdsi:UniversityOxfordTOS",
+    "@type" : "schema:Organization",
+    "address" : "Windmill Road, Headington, Oxford, OX3 7HE, UK",
+    "department" : "Trauma and Orthopaedic Surgery",
+    "name" : "University of Oxford"
+  }, {
+    "@id" : "ohdsi:conceptPH",
     "@type" : "schema:MedicalCode",
-    "codingSystem" : "",
-    "inDefinedTermset" : "https://github.com/OHDSI/Vocabulary-v5.0",
-    "termCode" : "1234567"
+    "code:Value" : "1234567",
+    "codingSystem" : "OMOP Standardized Vocabularies",
+    "equivalentClass" : "ohdsi:sourcetermPH"
   }, {
     "@id" : "ohdsi:conditionPH",
     "@type" : "schema:MedicalCondition",
-    "schema:code" : "ohdsi:codePH",
+    "schema:code" : [ "ohdsi:sourcetermPH", "ohdsi:conceptPH" ],
     "name" : ""
   }, {
     "@id" : "ohdsi:referencePH",
     "@type" : "schema:ScholarlyArticle",
-    "schema:author" : "Author placeholder",
+    "author" : "Author placeholder",
     "datePublished" : "01-01-1970",
     "name" : "Article title",
     "url" : "https://pubmed.ncbi.nlm.nih.gov"
@@ -301,5 +376,11 @@
     "datePublished" : "01-01-1970",
     "name" : "Article title",
     "url" : "https://pubmed.ncbi.nlm.nih.gov"
+  }, {
+    "@id" : "ohdsi:sourcetermPH",
+    "@type" : "schema:MedicalCode",
+    "codeValue" : "9876",
+    "codingSystem" : "",
+    "sameAs" : ""
   } ]
 }
