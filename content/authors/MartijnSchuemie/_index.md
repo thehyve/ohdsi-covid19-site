@@ -13,27 +13,24 @@ bio:
 
 # Organization/Affiliation
 organization:
-  id:
-  name:
-  address:
-  department:
-  jobTitle: 
+  id: "JJ"
+  name: "Johnson & Johnson"
+  address: ""
+  department: "Epidemiology analytics"
+  jobTitle: "Research Fellow, Epidemiology Analyics"
 
 # Academic Networking
 accounts:
-  forumName: 
-  # https://github.com/USERNAME
-  githubHandle: USERNAME
-  # https://scholar.google.com/citations?user=PERSON-ID
-  googlescholarId: PERSON-ID
-  # OHDSI Collaborator URL
-  ohdsiCollaborator: 
-  orcidIdentifier:
+  forumName: "https://forums.ohdsi.org/u/schuemie"
+  githubHandle: "https://github.com/schuemie"
+  googlescholarId: "https://scholar.google.com/citations?user=oxWLqMkAAAAJ"
+  ohdsiCollaborator: "https://www.ohdsi.org/who-we-are/collaborators/martijn-schuemie/"
+  orcidIdentifier: "https://orcid.org/0000-0002-0817-5361"
 
-honorificPrefix:
+honorificPrefix: ""
 
 # Array of suffixes (e.g. M.D.)
-honorificSuffix: []
+honorificSuffix: ["PhD"]
 ---
 
 

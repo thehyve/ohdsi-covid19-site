@@ -10,30 +10,30 @@ authors:
 
 # Short bio
 bio: 
-
+      
 # Organization/Affiliation
 organization:
-  id:
-  name:
-  address:
-  department:
-  jobTitle: 
+  id: "JJ"
+  name: "Johnson & Johnson"
+  address: ""
+  department: "Epidemiology analytics"
+  jobTitle: "Associate Director of Epidemiology Analytics"
 
 # Academic Networking
 accounts:
-  forumName: 
-  # https://github.com/USERNAME
-  githubHandle: USERNAME
-  # https://scholar.google.com/citations?user=PERSON-ID
-  googlescholarId: PERSON-ID
-  # OHDSI Collaborator URL
-  ohdsiCollaborator: 
-  orcidIdentifier:
+  forumName: "https://forums.ohdsi.org/u/jweave17"
+  githubHandle: "https://github.com/jamieweaver"
+  googlescholarId: ""
+  ohdsiCollaborator: "https://www.ohdsi.org/who-we-are/collaborators/james-weaver/"
+  orcidIdentifier: ""
 
-honorificPrefix:
+honorificPrefix: ""
 
 # Array of suffixes (e.g. M.D.)
-honorificSuffix: []
+honorificSuffix: [
+  "",
+  "MPH"
+]
 ---
 
 
