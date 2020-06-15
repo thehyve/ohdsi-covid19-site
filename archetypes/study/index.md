@@ -1,6 +1,6 @@
 ---
 # Display Name
-title: 
+title: ""
 tags: []
 categories: []
 date: {{ .Date }}
@@ -8,88 +8,89 @@ lastmod: {{ .Date }}
 featured: false
 draft: false
 
-id: 
-identifier:
+id: ""
+identifier: ""
 
 # Author ID
 authors: []
 
 # Date format
-datePublished: 
+datePublished: "" 
 
-studyType:
+studyType: ""
 
-studyUrl: 
+studyUrl: "" 
 
-discussionUrl:
+discussionUrl: ""
 
-description: 
+description: "" 
 
 # @type: hasParts
 softwareSourceCodes:
-- name:
-  codeRepository:
-  version:
-  programmingLanguage:
-  maintainer:
+- name: ""
+  codeRepository: ""
+  version: ""
+  programmingLanguage: ""
+  maintainer: ""
 
 # @type: hasParts
 softwareApplications:
-- name:
-  installURL:
-  version:
-  maintainer:
+- name: ""
+  installURL: ""
+  version: ""
+  maintainer: ""
 
 healthConditions:
-- name:
-  codingSystem:
-  inDefinedTermset:
-  termCode:
-  id:
-  codeId:
+- name: ""
+  id: ""
+  code: 
+  - id: ""
+    codeValue: ""
+    codingSystem: ""
+    sameAs: ""
 
 # URL
-license: 
+license: ""
 
 publication:
-  url:
+  url: ""
 
 result:
-  url:
-  id:
+  url: ""
+  id: ""
 
 studyDesign:
-  url:
-  identifier:
-  version:
-  dateModified:
-  id:
+  url: ""
+  identifier: ""
+  version: ""
+  dateModified: ""
+  id: ""
 
 # @type: studySubject
 drugs: 
-- name:
+- name: ""
   code:
-  - id:
-    codeValue:
-    codingSystem:
-    sameAs:
-    equivalentClass:
+  - id: ""
+    codeValue: ""
+    codingSystem: ""
+    sameAs: ""
+    equivalentClass: ""
 
 # @type: subjectOf
 event:
-  name:
-  location:
-  organizer: 
-  startDate:
-  endDate:
-  id:
+  name: ""
+  location: ""
+  organizer: ""
+  startDate: ""
+  endDate: ""
+  id: ""
 
 citations:
-- articleTitle:
-  url:
-  datePublished:
-  author:
-  id:
+- articleTitle: ""
+  url: ""
+  datePublished: ""
+  author: ""
+  id: ""
 
 databases: []
 ---

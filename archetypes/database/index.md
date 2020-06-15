@@ -9,75 +9,75 @@ lastmod: {{ .Date }}
 featured: false
 draft: false
 
-alternateName: 
+alternateName: ""
 
-identifier: 
+identifier: ""
 
-id: 
-
-# date format
-dateCreated: 
+id: ""
 
 # date format
-dateModified: 
+dateCreated: ""
 
-databaseSystem: 
+# date format
+dateModified: ""
 
-description: 
+databaseSystem: ""
 
-databaseUrl: 
+description: ""
 
-version: 
+databaseUrl: ""
 
-license: 
+version: ""
+
+license: ""
 
 associatedInstitution: 
-  id: 
-  name: 
+  id: ""
+  name: ""
 
 publication: 
-  id: 
-  name: 
-  author: 
-  publisher: 
-  dateCreated: 
-  identifier: 
+  id: ""
+  name: ""
+  author: ""
+  publisher: "" 
+  dateCreated: ""
+  identifier: ""
 
-spatialCoverage: 
-
-temporalCoverage: 
+spatialCoverage: "" 
+ 
+temporalCoverage: ""
 
 # Array
 fundingTypes: []
 
 # ohdsi:populationSize
-populationSize: 
+populationSize: ""
 
 administrativeContact:
-  id: 
-  name: 
-  email: 
-  telephone: 
-  address: 
+  id: ""
+  name: ""
+  email: ""
+  telephone: "" 
+  address: ""
 
 principalInvestigator:
-  id: 
-  name: 
-  email: 
-  telephone: 
-  address: 
+  id: ""
+  name: ""
+  email: ""
+  telephone: ""
+  address: ""
 
 scientificContact:
-  id: 
-  name: 
-  email: 
-  telephone: 
-  address: 
+  id: ""
+  name: ""
+  email: ""
+  telephone: ""
+  address: ""
 
 technicalContact:
-  id: 
-  name: 
-  email: 
-  telephone: 
-  address: 
+  id: ""
+  name: ""
+  email: ""
+  telephone: "" 
+  address: ""
 ---

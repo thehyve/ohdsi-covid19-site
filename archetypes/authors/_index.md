@@ -9,11 +9,11 @@ authors:
 
 # Organization/Affiliation
 organization:
-  id:
-  name:
-  address:
-  department:
-  jobTitle: 
+  id: ""
+  name: ""
+  address: ""
+  department: ""
+  jobTitle: ""
 
 # Academic Networking
 accounts:
@@ -44,7 +44,7 @@ social:
   link: 
 
 
-honorificPrefix:
+honorificPrefix: ""
 
 # Array of suffixes (e.g. "M.D." , "...")
 honorificSuffix: []
