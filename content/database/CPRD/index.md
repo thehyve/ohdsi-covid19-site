@@ -53,7 +53,7 @@ fundingTypes:
 - "Funding From Industry / Contract Research" 
 
 # ohdsi:populationSize
-populationSize: 5000000
+populationSize: "5000000"
 
 administrativeContact:
   id: "RosaGini"

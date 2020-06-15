@@ -15,7 +15,6 @@ identifier: EUPAS34497
 authors:
 - JenniferLane
 - DanielPrietoAlhambra
-- DanielMorales
 - MartijnSchuemie
 - JamesWeaver
 
@@ -46,18 +45,28 @@ softwareApplications:
   maintainer: OHDSI
 
 healthConditions:
-- name: Disease caused by severe acute respiratory syndrome coronavirus 2
-  codingSystem: Condition
-  inDefinedTermset: https://github.com/OHDSI/Vocabulary-v5.0
-  termCode: 37311061
-  id: Covid19
-  codeId: Covid19Code
-- name: 
-  codingSystem: 
-  inDefinedTermset: https://github.com/OHDSI/Vocabulary-v5.0
-  termCode: 1234567
-  id: conditionPH
-  codeId: codePH
+- name: "Disease caused by severe acute respiratory syndrome coronavirus 2"
+  id: "Covid19"
+  code: 
+  - id: "SNOMED84053900"
+    codeValue: "84053900"
+    codingSystem: "SNOMED CT"
+    sameAs: ""
+  - id: "37311061"
+    codeValue: "37311061"
+    codingSystem: "OMOP Standardized Vocabularies"
+    equivalentClass: "Snomed84053900"
+- name: ""
+  id: "conditionPH"
+  code:
+  - id: "sourcetermPH"
+    codeValue: "9876"
+    codingSystem: "" 
+    sameAs: ""
+  - id: "conceptPH"
+    codeValue: "1234567"
+    codingSystem: "OMOP Standardized Vocabularies"
+    equivalentClass: "sourcetermPH"
 
 # URL
 license: http://www.encepp.eu/encepp_studies/index.shtml
@@ -88,7 +97,7 @@ drugs:
     equivalentClass: 
   - id: 1713332
     codeValue: 1713332
-    codingSystem: OMOP Standardized Vocablaries
+    codingSystem: OMOP Standardized Vocabularies
     sameAs: 
     equivalentClass: Rx18631
 - name: Hydroxychloroquine
@@ -100,7 +109,7 @@ drugs:
     equivalentClass: 
   - id: 1777087
     codeValue: 1777087
-    codingSystem: OMOP Standardized Vocablaries
+    codingSystem: OMOP Standardized Vocabularies
     sameAs: 
     equivalentClass: Rx5521
 - name: Azithromycin
@@ -112,7 +121,7 @@ drugs:
     equivalentClass: 
   - id: 1734104
     codeValue: 1734104
-    codingSystem: OMOP Standardized Vocablaries
+    codingSystem: OMOP Standardized Vocabularies
     sameAs: 
     equivalentClass: Rx18631
 - name: Sulfasalazine
@@ -124,7 +133,7 @@ drugs:
     equivalentClass: 
   - id: 964339
     codeValue: 964339
-    codingSystem: OMOP Standardized Vocablaries
+    codingSystem: OMOP Standardized Vocabularies
     sameAs: 
     equivalentClass: Rx9524
 
