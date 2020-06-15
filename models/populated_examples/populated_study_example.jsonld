@@ -3,8 +3,22 @@
 	"schema" : "http://schema.org/",
     "ohdsi" : "http://ohdsi.data.org/",
 	"owl" : "http://www.w3.org/2002/07/owl#",
-		
-    "equivalentClass" : {
+    
+	"address" : "http://schema.org/address",
+    "department" : "http://schema.org/department",
+	"orcidIdentifier" : "http://ohdsi.data.org/orcidIdentifier",
+	"forumName" : "http://ohdsi.data.org/forumName",
+    "honorificSuffix" : "http://schema.org/honorificSuffix",
+    "jobTitle" : "http://schema.org/jobTitle",
+    "githubHandle" : "http://ohdsi.data.org/githubHandle",
+    "googlescholarId" : "http://ohdsi.data.org/googlescholarId",
+    "worksFor" : {
+      "@id" : "http://schema.org/worksFor",
+      "@type" : "@id"
+    },
+    "ohdsiCollaborator" : "http://ohdsi.data.org/ohdsiCollaborator",
+    "honorificPrefix" : "http://schema.org/honorificPrefix",
+	"equivalentClass" : {
       "@id" : "http://www.w3.org/2002/07/owl#equivalentClass",
       "@type" : "@id"
     },
@@ -155,7 +169,7 @@
   }, {
     "@id" : "ohdsi:Covid19",
     "@type" : "schema:MedicalCondition",
-    "code" : "ohdsi:Covid19Code",
+    "code" : [ "ohdsi:SNOMED84053900", "ohdsi:37311061" ],
     "name" : "Disease caused by severe acute respiratory syndrome coronavirus 2"
   }, {
     "@id" : "ohdsi:Covid19Studyathon",
@@ -166,13 +180,18 @@
     "organizer" : "ohdsi:OHDSI",
     "startDate" : "26-03-2020"
   }, {
-    "@id" : "ohdsi:DanielMorales",
-    "@type" : "schema:Person",
-    "name" : "Daniel Morales"
-  }, {
     "@id" : "ohdsi:DanielPrietoAlhambra",
     "@type" : "schema:Person",
-    "name" : "Daniel Prieto-Alhambra"
+    "forumName" : "https://forums.ohdsi.org/u/daniel_prieto",
+    "githubHandle" : "",
+    "googlescholarId" : "https://scholar.google.com/citations?user=hiBxiTYAAAAJ",
+    "ohdsiCollaborator" : "https://www.ohdsi.org/who-we-are/collaborators/dani-prieto-alhambra/",
+    "orcidIdentifier" : "https://orcid.org/0000-0002-3950-6346",
+    "honorificPrefix" : "",
+    "honorificSuffix" : [ "PhD", "M.D.", "MSc" ],
+    "jobTitle" : "Associate Director of Epidemiology Analytics",
+    "name" : "Daniel Prieto-Alhambra",
+    "worksFor" : "ohdsi:UniversityOxfordCSM"
   }, {
     "@id" : "ohdsi:Hydroxychloroquine",
     "@type" : "schema:Drug",
@@ -183,18 +202,51 @@
     "@type" : "ohdsi:Database",
     "identifier" : "IPCI",
     "name" : "Integrated Primary Care Information"
-  }, {
+  },  {
+    "@id" : "ohdsi:JJ",
+    "@type" : "schema:Organization",
+    "address" : "",
+    "department" : "Epidemiology analytics",
+    "name" : "Johnson & Johnson"
+  },  {
     "@id" : "ohdsi:JamesWeaver",
     "@type" : "schema:Person",
-    "name" : "James Weaver"
+    "forumName" : "https://forums.ohdsi.org/u/jweave17",
+    "githubHandle" : "https://github.com/jamieweaver",
+    "googlescholarId" : "",
+    "ohdsiCollaborator" : "https://www.ohdsi.org/who-we-are/collaborators/james-weaver/",
+    "orcidIdentifier" : "",
+    "honorificPrefix" : "",
+    "honorificSuffix" : [ "", "MPH" ],
+    "jobTitle" : "Associate Director of Epidemiology Analytics",
+    "name" : "James Weaver",
+    "worksFor" : "ohdsi:JJ"
   }, {
     "@id" : "ohdsi:JenniferLane",
     "@type" : "schema:Person",
-    "name" : "Jennifer Lane"
+    "forumName" : "https://forums.ohdsi.org/u/jenniferlane",
+    "githubHandle" : "",
+    "googlescholarId" : "",
+    "ohdsiCollaborator" : "https://www.ohdsi.org/who-we-are/collaborators/jennifer-lane/",
+    "orcidIdentifier" : "",
+    "honorificPrefix" : "",
+    "honorificSuffix" : [ "M.D.", "" ],
+    "jobTitle" : "Versus Arthritis Clinical Research Fellow in Orthopaedic Surgery",
+    "name" : "Jennifer Lane",
+    "worksFor" : "ohdsi:UniversityOxfordTOS"
   }, {
     "@id" : "ohdsi:MartijnSchuemie",
     "@type" : "schema:Person",
-    "name" : "Martijn Schuemie"
+    "forumName" : "https://forums.ohdsi.org/u/schuemie",
+    "githubHandle" : "https://github.com/schuemie",
+    "googlescholarId" : "https://scholar.google.com/citations?user=oxWLqMkAAAAJ",
+    "ohdsiCollaborator" : "https://www.ohdsi.org/who-we-are/collaborators/martijn-schuemie/",
+    "orcidIdentifier" : "https://orcid.org/0000-0002-0817-5361",
+    "honorificPrefix" : "",
+    "honorificSuffix" : [ "PhD", "" ],
+    "jobTitle" : "Research Fellow, Epidemiology Analyics",
+    "name" : "Martijn Schuemie",
+    "worksFor" : "ohdsi:JJ"
   }, {
     "@id" : "ohdsi:OHDSI",
     "@type" : "schema:Organization",
@@ -253,7 +305,7 @@
     "@id" : "ohdsi:Study_HQC",
     "@type" : "schema:MedicalObservationalStudy",
     "database" : [ "ohdsi:CPRD", "ohdsi:THIN", "ohdsi:SIDIAP", "ohdsi:IPCI" ],
-    "author" : [ "ohdsi:JenniferLane", "ohdsi:DanielPrietoAlhambra", "ohdsi:MartijnSchuemie", "ohdsi:JamesWeaver", "ohdsi:DanielMorales" ],
+    "author" : [ "ohdsi:JenniferLane", "ohdsi:DanielPrietoAlhambra", "ohdsi:MartijnSchuemie", "ohdsi:JamesWeaver" ],
     "citation" : [ "ohdsi:referencePH2", "ohdsi:referencePH" ],
     "datePublished" : "02-04-2020",
     "description" : "Retrospective, real-world, observational study to estimate the population-level effects of hydroxychloroquine among patients with rheumatoid arthritis. Designed and executed during the OHDSI community COVID-19 virtual study-a-thon (March 26-29) to inform healthcare decision-making in response to the current global pandemic.",
@@ -288,15 +340,32 @@
     "identifier" : "THIN",
     "name" : "The Health Improvement Network"
   }, {
+    "@id" : "ohdsi:UniversityOxfordCSM",
+    "@type" : "schema:Organization",
+    "address" : "Windmill Road, Headington, Oxford, OX3 7HE, UK",
+    "department" : "Centre for Statistics in Medicine",
+    "name" : "University of Oxford"
+  }, {
+    "@id" : "ohdsi:UniversityOxfordTOS",
+    "@type" : "schema:Organization",
+    "address" : "Windmill Road, Headington, Oxford, OX3 7HE, UK",
+    "department" : "Trauma and Orthopaedic Surgery",
+    "name" : "University of Oxford"
+  }, {
     "@id" : "ohdsi:conceptPH",
     "@type" : "schema:MedicalCode",
-    "codeValue" : "1234567",
+    "code:Value" : "1234567",
     "codingSystem" : "OMOP Standardized Vocabularies",
     "equivalentClass" : "ohdsi:sourcetermPH"
   }, {
+    "@id" : "ohdsi:conditionPH",
+    "@type" : "schema:MedicalCondition",
+    "schema:code" : [ "ohdsi:sourcetermPH", "ohdsi:conceptPH" ],
+    "name" : ""
+  }, {
     "@id" : "ohdsi:referencePH",
     "@type" : "schema:ScholarlyArticle",
-    "schema:author" : "Author placeholder",
+    "author" : "Author placeholder",
     "datePublished" : "01-01-1970",
     "name" : "Article title",
     "url" : "https://pubmed.ncbi.nlm.nih.gov"
