@@ -10,106 +10,121 @@
 
 <script type="application/ld+json">
 {
-  "@context": {
-    "schema": "http://schema.org/",
-    "ohdsi": "http://ohdsi.data.org/",
-    "owl": "http://www.w3.org/2002/07/owl#",
-    "equivalentClass": {
-      "@id": "http://www.w3.org/2002/07/owl#equivalentClass",
-      "@type": "@id"
+  "@context" : {
+    "schema" : "http://schema.org/",
+    "ohdsi" : "http://ohdsi.data.org/",
+    "owl" : "http://www.w3.org/2002/07/owl#",
+    
+    "address" : "http://schema.org/address",
+    "department" : "http://schema.org/department",
+    "orcidIdentifier" : "http://ohdsi.data.org/orcidIdentifier",
+    "forumName" : "http://ohdsi.data.org/forumName",
+    "honorificSuffix" : "http://schema.org/honorificSuffix",
+    "jobTitle" : "http://schema.org/jobTitle",
+    "githubHandle" : "http://ohdsi.data.org/githubHandle",
+    "googlescholarId" : "http://ohdsi.data.org/googlescholarId",
+    "worksFor" : {
+      "@id" : "http://schema.org/worksFor",
+      "@type" : "@id"
     },
-    "codingSystem": "http://schema.org/codingSystem",
-    "codeValue": {
-      "@id": "http://schema.org/codeValue",
-      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    "ohdsiCollaborator" : "http://ohdsi.data.org/ohdsiCollaborator",
+    "honorificPrefix" : "http://schema.org/honorificPrefix",
+    "equivalentClass" : {
+      "@id" : "http://www.w3.org/2002/07/owl#equivalentClass",
+      "@type" : "@id"
     },
-    "sameAs": "http://schema.org/sameAs",
-    "name": "http://schema.org/name",
-    "identifier": "http://schema.org/identifier",
-    "code": {
-      "@id": "http://schema.org/code",
-      "@type": "@id"
+    "codingSystem" : "http://schema.org/codingSystem",
+    "codeValue" : {
+      "@id" : "http://schema.org/codeValue",
+      "@type" : "http://www.w3.org/2001/XMLSchema#string"
     },
-    "healthCondition": {
-      "@id": "http://schema.org/healthCondition",
-      "@type": "@id"
+    "sameAs" : "http://schema.org/sameAs",
+    "name" : "http://schema.org/name",
+    "identifier" : "http://schema.org/identifier",
+    "code" : {
+      "@id" : "http://schema.org/code",
+      "@type" : "@id"
     },
-    "author": {
-      "@id": "http://schema.org/author",
-      "@type": "@id"
+    "healthCondition" : {
+      "@id" : "http://schema.org/healthCondition",
+      "@type" : "@id"
     },
-    "studyType": "http://schema.org/studyType",
-    "studySubject": {
-      "@id": "http://schema.org/studySubject",
-      "@type": "@id"
+    "author" : {
+      "@id" : "http://schema.org/author",
+      "@type" : "@id"
     },
-    "hasPart": {
-      "@id": "http://schema.org/hasPart",
-      "@type": "@id"
+    "studyType" : "http://schema.org/studyType",
+    "studySubject" : {
+      "@id" : "http://schema.org/studySubject",
+      "@type" : "@id"
     },
-    "result": {
-      "@id": "http://schema.org/result",
-      "@type": "@id"
+    "hasPart" : {
+      "@id" : "http://schema.org/hasPart",
+      "@type" : "@id"
     },
-    "database": {
-      "@id": "http://ohdsi.data.org/database",
-      "@type": "@id"
+    "result" : {
+      "@id" : "http://schema.org/result",
+      "@type" : "@id"
     },
-    "datePublished": {
-      "@id": "http://schema.org/datePublished",
-      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    "database" : {
+      "@id" : "http://ohdsi.data.org/database",
+      "@type" : "@id"
     },
-    "publication": {
-      "@id": "http://schema.org/publication",
-      "@type": "@id"
+    "datePublished" : {
+      "@id" : "http://schema.org/datePublished",
+      "@type" : "http://www.w3.org/2001/XMLSchema#date"
     },
-    "citation": {
-      "@id": "http://schema.org/citation",
-      "@type": "@id"
+    "publication" : {
+      "@id" : "http://schema.org/publication",
+      "@type" : "@id"
     },
-    "license": "http://schema.org/license",
-    "subjectOf": {
-      "@id": "http://schema.org/subjectOf",
-      "@type": "@id"
+    "citation" : {
+      "@id" : "http://schema.org/citation",
+      "@type" : "@id"
     },
-    "description": "http://schema.org/description",
-    "discussionUrl": "http://schema.org/discussionUrl",
-    "url": "http://schema.org/url",
-    "studyDesign": {
-      "@id": "http://schema.org/studyDesign",
-      "@type": "@id"
+    "license" : "http://schema.org/license",
+    "subjectOf" : {
+      "@id" : "http://schema.org/subjectOf",
+      "@type" : "@id"
     },
-    "endDate": {
-      "@id": "http://schema.org/endDate",
-      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    "description" : "http://schema.org/description",
+    "discussionUrl" : "http://schema.org/discussionUrl",
+    "url" : "http://schema.org/url",
+    "studyDesign" : {
+      "@id" : "http://schema.org/studyDesign",
+      "@type" : "@id"
     },
-    "startDate": {
-      "@id": "http://schema.org/startDate",
-      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    "endDate" : {
+      "@id" : "http://schema.org/endDate",
+      "@type" : "http://www.w3.org/2001/XMLSchema#date"
     },
-    "location": "http://schema.org/location",
-    "organizer": {
-      "@id": "http://schema.org/organizer",
-      "@type": "@id"
+    "startDate" : {
+      "@id" : "http://schema.org/startDate",
+      "@type" : "http://www.w3.org/2001/XMLSchema#date"
     },
-    "dateModified": {
-      "@id": "http://schema.org/dateModified",
-      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    "location" : "http://schema.org/location",
+    "organizer" : {
+      "@id" : "http://schema.org/organizer",
+      "@type" : "@id"
     },
-    "version": {
-      "@id": "http://schema.org/version",
-      "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+    "dateModified" : {
+      "@id" : "http://schema.org/dateModified",
+      "@type" : "http://www.w3.org/2001/XMLSchema#date"
     },
-    "maintainer": {
-      "@id": "http://schema.org/maintainer",
-      "@type": "@id"
+    "version" : {
+      "@id" : "http://schema.org/version",
+      "@type" : "http://www.w3.org/2001/XMLSchema#decimal"
     },
-    "softwareVersion": "http://schema.org/softwareVersion",
-    "installURL": "http://schema.org/installURL",
-    "programmingLanguage": "http://schema.org/programmingLanguage",
-    "codeRepository": "http://schema.org/codeRepository"
+    "maintainer" : {
+      "@id" : "http://schema.org/maintainer",
+      "@type" : "@id"
+    },
+    "softwareVersion" : "http://schema.org/softwareVersion",
+    "installURL" : "http://schema.org/installURL",
+    "programmingLanguage" : "http://schema.org/programmingLanguage",
+    "codeRepository" : "http://schema.org/codeRepository"
   },
-  "@id": "urn:x-arq:DefaultGraphNode",
+  "@id" : "urn:x-arq:DefaultGraphNode",
   "@graph": [
     {{ range $i, $e := $params.drugs }}{
       "@id": "ohdsi:{{.name}}",
@@ -124,49 +139,75 @@
         "@id": "ohdsi:{{ .id }}",
         "@type": "schema:MedicalCode",
         "codeValue": "{{.codeValue}}",
-        {{ with .sameAs}}"sameAs": {{ . }},{{ end }}
-        {{ with .equivalentClass }}"equivalentClass": "ohdsi:{{ . }}",{{ end }}
-        "codingSystem": {{ .codingSystem }}
+        "codingSystem": {{ .codingSystem }}{{ with .sameAs}},
+        "sameAs": {{ . }}{{ end }}{{ with .equivalentClass }},"equivalentClass": "ohdsi:{{ . }}"{{ end }}
       },{{end}}{{end}}
     {{ range $i, $e := $params.healthConditions }}{
-      "@id": "ohdsi:{{.codeId}}",
-      "@type": "schema:MedicalCode",
-      "codingSystem": {{.codingSystem}},
-      "inDefinedTermset": {{.inDefinedTermset}},
-      "termCode": "{{.termCode}}"
-    },{
       "@id": "ohdsi:{{.id}}",
       "@type": "schema:MedicalCondition",
-      "code": "ohdsi:{{.codeId}}",
+      "code": [{{ range $j, $v := .code }}{{ if $j }}, {{ end }}
+      "ohdsi:{{ $v.id }}"{{ end }}
+      ],
       "name": {{.name}}
     },{{end}}
+    {{ range $i, $e := $params.healthConditions }}
+      {{ range $j, $v := .code }}{
+        "@id": "ohdsi:{{ .id }}",
+        "@type": "schema:MedicalCode",
+        "codeValue": "{{.codeValue}}",
+        "codingSystem": {{ .codingSystem }}{{ with .sameAs}},
+        "sameAs": {{ . }}{{ end }}{{ with .equivalentClass }},
+        "equivalentClass": "ohdsi:{{ . }}"{{ end }}
+      },{{end}}{{end}}
     {{range $i, $e := $params.authors}}{{- $profile_page := site.GetPage (printf "/authors/%s" $e) -}}
     {
       "@id": "ohdsi:{{$e}}",
       "@type": "schema:Person",
-      "name": {{$profile_page.Params.title}}
+      "forumName": {{$profile_page.Params.accounts.forumName}},
+      "githubHandle": {{$profile_page.Params.accounts.githubHandle}},
+      "googlescholarId": {{$profile_page.Params.accounts.googlescholarId}},
+      "ohdsiCollaborator": {{$profile_page.Params.accounts.ohdsiCollaborator}},
+      "orcidIdentifier": {{$profile_page.Params.accounts.orcidIdentifier}},
+      "honorificPrefix": {{$profile_page.Params.honorificPrefix}},
+      "honorificSuffix": [{{ range $j, $v := $profile_page.Params.honorificSuffix }}{{ if $j }}, {{ end }}
+        {{ . }}{{ end }}
+      ],
+      "jobTitle": {{$profile_page.Params.organization.jobTitle}},
+      "name": {{$profile_page.Params.title}},
+      "worksFor": "ohdsi:{{$profile_page.Params.organization.id}}"
     },{{end}}
+    {{- $arr := slice "" -}}
+    {{- range $i, $e := $params.authors -}}{{- $profile_page := site.GetPage (printf "/authors/%s" $e) -}}
+      {{- if in $arr $profile_page.Params.organization.id -}}{{- else -}}
+        {{- $arr = $arr | append (slice $profile_page.Params.organization.id) -}}
+    {
+      "@id": "ohdsi:{{$profile_page.Params.organization.id}}",
+      "@type": "schema:Organization",
+      "address": {{$profile_page.Params.organization.address}},
+      "department": {{$profile_page.Params.organization.department}},
+      "name": {{$profile_page.Params.organization.name}}
+    },{{- end -}}{{- end -}}
     {
       "@id": "ohdsi:{{$params.event.organizer}}",
       "@type": "schema:Organization",
       "name": {{$params.event.organizer}}
     },
-    {{ range $i, $e := $params.softwareSourceCodes }}{
+    {{- range $i, $e := $params.softwareSourceCodes -}}{
       "@id": "ohdsi:{{.name}}",
       "@type": "schema:SoftwareSourceCode",
       "codeRepository": {{.codeRepository}},
       "maintainer": "ohdsi:{{.maintainer}}",
       "programmingLanguage": {{.programmingLanguage}},
       "schema:version": {{.version}}
-    },{{end}}
-    {{ range $i, $e := $params.softwareApplications }}{
+    },{{- end -}}
+    {{- range $i, $e := $params.softwareApplications -}}{
       "@id": "ohdsi:{{.name}}",
       "@type": "schema:SoftwareApplication",
       "installURL": {{.installURL}},
       "maintainer": "ohdsi:{{.maintainer}}",
       "name": {{.name}},
       "softwareVersion": {{.version}}
-    },{{end}}
+    },{{- end -}}
     {{range $i, $e := $params.databases}}{{- $db_page := site.GetPage (printf "/database/%s" $e) -}}
     {
       "@id": "ohdsi:{{$e}}",
@@ -204,7 +245,7 @@
     {{ range $i, $e := $params.citations }}{
       "@id": "ohdsi:{{.id}}",
       "@type": "schema:ScholarlyArticle",
-      "schema:author": {{.author}},
+      "author": {{.author}},
       "datePublished": {{.datePublished}},
       "name": {{.articleTitle}},
       "url": {{.url}}
