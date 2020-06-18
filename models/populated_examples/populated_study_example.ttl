@@ -2,19 +2,21 @@
 @prefix ohdsi: <http://ohdsi.data.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix epid: <http://pid.ehden.eu/> .
+@prefix snomed: <http://snomed.info/id/> .
 
-ohdsi:Study_HQC a schema:MedicalObservationalStudy ;
-	schema:identifier "EUPAS34497" ;
-	schema:url "http://www.encepp.eu/encepp/viewResource.htm?id=34498" ; 
+epid:0001 a schema:MedicalObservationalStudy ;
+	schema:identifier "EUPAS34497" , "0001" ;
 	schema:name "Risk of hydroxychloroquine, alone and in combination with azithromycin: a multi-national study" ; 
 	schema:description "Retrospective, real-world, observational study to estimate the population-level effects of hydroxychloroquine among patients with rheumatoid arthritis. Designed and executed during the OHDSI community COVID-19 virtual study-a-thon (March 26-29) to inform healthcare decision-making in response to the current global pandemic." ;
-	schema:studyType "Estimation study" ;
+	ohdsi:studyType "Estimation study" ;
+	schema:mainEntityOfPage <http://www.encepp.eu/encepp/viewResource.htm?id=34498> ;
 	schema:studyDesign ohdsi:StudydesignHQC ;
 	schema:healthCondition ohdsi:Covid19, ohdsi:conditionPH ; #Add extra placeholder, in case of multiple health conditions
 	schema:studySubject ohdsi:Hydroxychloroquine, ohdsi:Sulfasalazine, ohdsi:Azithromycin, ohdsi:Amoxicillin ;
 	schema:subjectOf ohdsi:Covid19Studyathon ;
 	schema:author ohdsi:JenniferLane, ohdsi:JamesWeaver, ohdsi:DanielPrietoAlhambra, ohdsi:MartijnSchuemie ;
-	schema:datePublished "02-04-2020"^^xsd:date ;
+	schema:datePublished "2020-04-02"^^xsd:date ;
 	schema:license "http://www.encepp.eu/encepp_studies/index.shtml" ;
 	schema:citation ohdsi:referencePH, ohdsi:referencePH2 ; #Multiple placeholders for multiple health conditions ;
 	schema:discussionUrl "https://forums.ohdsi.org/" ; #Link to discussions on forum needed ;
@@ -26,7 +28,7 @@ ohdsi:Study_HQC a schema:MedicalObservationalStudy ;
 ohdsi:StudydesignHQC a schema:MedicalObservationalStudyDesign ;
 	schema:identifier "..." ; #There is no protocol identifier available for this study 
 	schema:version "1.4"^^xsd:decimal ;
-	schema:dateModified "01-04-2020"^^xsd:date ;
+	schema:dateModified "2020-04-01"^^xsd:date ;
 	schema:url "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine/blob/master/documents/OHDSI%20COVID-19%20Studyathon_PLE_HCQ_Protocol_v1.4.pdf" .
 
 ohdsi:Covid19 a schema:MedicalCondition ;
@@ -117,8 +119,8 @@ ohdsi:Covid19Studyathon a schema:Event ;
 	schema:name "COVID-19 virtual study-a-thon" ;
 	schema:organizer ohdsi:OHDSI ;
 	schema:location "Microsoft Teams" ;
-	schema:startDate "26-03-2020"^^xsd:date ;
-	schema:endDate "29-03-2020"^^xsd:date .
+	schema:startDate "2020-03-26"^^xsd:date ;
+	schema:endDate "2020-03-29"^^xsd:date .
 
 ohdsi:OHDSI a schema:Organization ;
 	schema:name "OHDSI" .
@@ -190,13 +192,13 @@ ohdsi:referencePH a schema:ScholarlyArticle ;  #There are no citations available
 	schema:url "https://pubmed.ncbi.nlm.nih.gov" ;
 	schema:name "Article title" ;
 	schema:author "Author placeholder" ; #Store as Person class
-	schema:datePublished "01-01-1970"^^xsd:date . 
+	schema:datePublished "1970-01-01"^^xsd:date . 
 	
 ohdsi:referencePH2 a schema:ScholarlyArticle ;  #There are no citations available for this study this is a placeholder
 	schema:url "https://pubmed.ncbi.nlm.nih.gov" ;
 	schema:name "Article title" ;
 	schema:author "Author placeholder" ; #Store as Person class
-	schema:datePublished "01-01-1970"^^xsd:date .
+	schema:datePublished "1970-01-01"^^xsd:date .
 	
 ohdsi:Shiny	a schema:WebApplication ;
 	schema:url "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/" .
