@@ -17,7 +17,6 @@ epid:0001 a schema:MedicalObservationalStudy ;
 	schema:subjectOf ohdsi:Covid19Studyathon ;
 	schema:author ohdsi:JenniferLane, ohdsi:JamesWeaver, ohdsi:DanielPrietoAlhambra, ohdsi:MartijnSchuemie ;
 	schema:datePublished "2020-04-02"^^xsd:date ;
-	schema:license "http://www.encepp.eu/encepp_studies/index.shtml" ;
 	schema:citation ohdsi:referencePH, ohdsi:referencePH2 ; #Multiple placeholders for multiple health conditions ;
 	schema:discussionUrl "https://forums.ohdsi.org/" ; #Link to discussions on forum needed ;
 	schema:result ohdsi:Shiny ; 
@@ -29,7 +28,8 @@ ohdsi:StudydesignHQC a schema:MedicalObservationalStudyDesign ;
 	schema:identifier "..." ; #There is no protocol identifier available for this study 
 	schema:version "1.4"^^xsd:decimal ;
 	schema:dateModified "2020-04-01"^^xsd:date ;
-	schema:url "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine/blob/master/documents/OHDSI%20COVID-19%20Studyathon_PLE_HCQ_Protocol_v1.4.pdf" .
+	schema:url "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine/blob/master/documents/OHDSI%20COVID-19%20Studyathon_PLE_HCQ_Protocol_v1.4.pdf" ;
+	schema:license "". #Placeholder for protocol license
 
 ohdsi:Covid19 a schema:MedicalCondition ;
 	schema:name "Disease caused by severe acute respiratory syndrome coronavirus 2" ;

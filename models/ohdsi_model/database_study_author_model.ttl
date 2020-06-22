@@ -703,7 +703,7 @@ ohdsi:databaseSystem a owl:DatatypeProperty ;
 schema:license  a         owl:ObjectProperty ;
         rdfs:comment      "A license document that applies to this content, typically indicated by URL."@en ;
         rdfs:domain       [ a            owl:Class ;
-                            owl:unionOf  ( schema:CreativeWork schema:MedicalObservationalStudy )
+                            owl:unionOf  ( schema:CreativeWork schema:MedicalObservationalStudyDesign )
                           ] ;
         rdfs:isDefinedBy  <https://schema.org/license> ;
         rdfs:label        "license"@en ;
