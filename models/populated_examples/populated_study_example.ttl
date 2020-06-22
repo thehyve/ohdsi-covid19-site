@@ -1,5 +1,5 @@
 @prefix schema: <http://schema.org/> .
-@prefix ohdsi: <http://ohdsi.data.org/> .
+@prefix ohdsi: <http://data.ohdsi.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix epid: <http://pid.ehden.eu/> .

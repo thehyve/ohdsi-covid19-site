@@ -1,22 +1,22 @@
 {
   "@context" : {
 	"schema" : "http://schema.org/",
-    "ohdsi" : "http://ohdsi.data.org/",
+    "ohdsi" : "http://data.ohdsi.org/",
 	"owl" : "http://www.w3.org/2002/07/owl#",
     
 	"address" : "http://schema.org/address",
     "department" : "http://schema.org/department",
-	"orcidIdentifier" : "http://ohdsi.data.org/orcidIdentifier",
-	"forumName" : "http://ohdsi.data.org/forumName",
+	"orcidIdentifier" : "http://data.ohdsi.org/orcidIdentifier",
+	"forumName" : "http://data.ohdsi.org/forumName",
     "honorificSuffix" : "http://schema.org/honorificSuffix",
     "jobTitle" : "http://schema.org/jobTitle",
-    "githubHandle" : "http://ohdsi.data.org/githubHandle",
-    "googlescholarId" : "http://ohdsi.data.org/googlescholarId",
+    "githubHandle" : "http://data.ohdsi.org/githubHandle",
+    "googlescholarId" : "http://data.ohdsi.org/googlescholarId",
     "worksFor" : {
       "@id" : "http://schema.org/worksFor",
       "@type" : "@id"
     },
-    "ohdsiCollaborator" : "http://ohdsi.data.org/ohdsiCollaborator",
+    "ohdsiCollaborator" : "http://data.ohdsi.org/ohdsiCollaborator",
     "honorificPrefix" : "http://schema.org/honorificPrefix",
 	"equivalentClass" : {
       "@id" : "http://www.w3.org/2002/07/owl#equivalentClass",
@@ -56,7 +56,7 @@
       "@type" : "@id"
     },
     "database" : {
-      "@id" : "http://ohdsi.data.org/database",
+      "@id" : "http://data.ohdsi.org/database",
       "@type" : "@id"
     },
     "datePublished" : {
