@@ -1,7 +1,7 @@
 ---
 # Display name
 title: "Jennifer Lane"
-name: "JenniferLane"
+name: "Jennifer Lane"
 
 # Username (this should match the folder name and the author name on other pages)
 authors:
@@ -49,8 +49,3 @@ honorificPrefix: ""
 # Array of suffixes (e.g. M.D.)
 honorificSuffix: [ "M.D.", "" ]
 ---
-
-
-
-
-
