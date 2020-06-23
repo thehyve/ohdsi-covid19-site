@@ -1,0 +1,292 @@
+{{- define "main" -}}
+
+<article class="article article-project">
+  {{ partial "page_header" . }}
+
+  <div class="article-container">
+    <div class="article-meta mb-3">
+      <button type="button" class="btn btn-outline-secondary my-1">{{.Params.databaseSystem}}</button>
+      <button type="button" class="btn btn-outline-secondary my-1">Alternate Name: {{.Params.alternateName}}</button>
+      <button type="button" class="btn btn-outline-secondary my-1">Version: {{.Params.version}}</button>
+      <button type="button" class="btn btn-outline-secondary my-1">License: {{.Params.license}}</button>
+      <a type="button" class="btn btn-outline-primary my-1" href="{{.Params.databaseUrl}}"><i class="fas fa-link mr-1"></i>URL</a>
+    </div>
+    <div class="article-style">
+
+      <!-- <p>{{ .Summary }}</p> -->
+      <p>{{ .Description }}</p>
+      
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="details-tab" data-toggle="tab" href="#details" role="tab" aria-controls="details" aria-selected="true">Details</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
+          <p><b>Database URL:</b> <a href="{{ .Params.databaseUrl }}">{{ .Params.databaseUrl}}</a></p>
+          <p><b>Database System:</b> {{ .Params.databaseSystem }}</p>
+          <p><b>Database Alternate Name:</b> {{ .Params.alternateName }}</p>
+          <p><b>Database Version:</b> {{ .Params.version }}</p>
+          <p><b>License:</b> {{ .Params.license }}</p>
+          <p><b>Date Created:</b> {{ .Params.dateCreated }}</p>
+          <p><b>Date Modified:</b> {{ .Params.dateModified }}</p>
+          <p><b>Spatial Coverage:</b> {{ .Params.spatialCoverage }}</p>
+          <p><b>Temporal Coverage:</b> {{ .Params.temporalCoverage }}</p>
+          <p><b>Population Size:</b> {{ .Params.populationSize }}</p>
+          <p><b>Funding Types:</b> <ul>
+            {{range .Params.fundingTypes}}
+            <li>{{.}}</li>
+            {{end}}
+          </ul></p>
+          <p><b>Associated Institution:</b> {{ .Params.associatedInstitution.name }}</p>
+          <p><b>Publication:</b> {{.Params.publication.author}}. <a href="{{.Params.publication.identifier}}"><i>{{ .Params.publication.name }}</i>.</a> {{.Params.publication.publisher}}, {{.Params.publication.dateCreated}}</p>
+        </div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+          <b>Administrative Contact:</b>
+          <ul>
+            <li><b>Name:</b> {{.Params.administrativeContact.name}}</li>
+            <li><b>Email:</b> <a href="mailto:{{.Params.administrativeContact.email}}">{{.Params.administrativeContact.email}}</a></li>
+            <li><b>Telephone:</b> {{.Params.administrativeContact.telephone}}</li>
+            <li><b>Address:</b> {{.Params.administrativeContact.address}}</li>
+          </ul>
+          <b>Principal Investigator Contact:</b>
+          <ul>
+            <li><b>Name:</b> {{.Params.principalInvestigator.name}}</li>
+            <li><b>Email:</b> <a href="mailto:{{.Params.principalInvestigator.email}}">{{.Params.principalInvestigator.email}}</a></li>
+            <li><b>Telephone:</b> {{.Params.principalInvestigator.telephone}}</li>
+            <li><b>Address:</b> {{.Params.principalInvestigator.address}}</li>
+          </ul>
+          <b>Scientific Contact:</b>
+          <ul>
+            <li><b>Name:</b> {{.Params.scientificContact.name}}</li>
+            <li><b>Email:</b> <a href="mailto:{{.Params.scientificContact.email}}">{{.Params.scientificContact.email}}</a></li>
+            <li><b>Telephone:</b> {{.Params.scientificContact.telephone}}</li>
+            <li><b>Address:</b> {{.Params.scientificContact.address}}</li>
+          </ul>
+          <b>Technical Contact:</b>
+          <ul>
+            <li><b>Name:</b> {{.Params.technicalContact.name}}</li>
+            <li><b>Email:</b> <a href="mailto:{{.Params.technicalContact.email}}">{{.Params.technicalContact.email}}</a></li>
+            <li><b>Telephone:</b> {{.Params.technicalContact.telephone}}</li>
+            <li><b>Address:</b> {{.Params.technicalContact.address}}</li>
+          </ul>
+        </div>
+      </div>
+    
+        
+        {{if ne .Params.contributor nil}}
+          {{if (gt (len .Params.contributor) 1)}}
+            <dt>Contributors</dt>
+          {{else}}
+            <dt>Contributor</dt>
+          {{end}}
+          <dd>
+            <ol>
+            {{ range .Params.contributor }}
+            <li>{{ .name }}</li>
+            {{ end }}
+            </ol>
+          </dd>
+        {{end}}
+        
+        
+        
+        {{if ne .Params.healthCondition nil}}
+          {{if (gt (len .Params.healthCondition) 1)}}
+            <dt>Health Conditions</dt>
+          {{else}}
+            <dt>Health Condition</dt>
+          {{end}}
+          <dd>
+            <ol>
+            {{ range .Params.healthCondition }}
+            <li>
+              <dl>
+                <dt>Type</dt><dd>Medical Condition</dd>
+                <dt>Name</dt><dd>{{ .name }}</dd>
+                <dt>Code</dt><dd>
+                  <dl>
+                    <dt>Type</dt><dd>MedicalCode</dd>
+                    <dt>Term Code</dt><dd>{{.code.termCode}}</dd>
+                    <dt>Coding System</dt><dd>{{.code.codingSystem}}</dd>
+                    <dt>In Defined Termset</dt><dd><a href={{.code.inDefinedTermset}}>{{.code.inDefinedTermset}}</a></dd>
+                  </dl>
+                </dd>
+              </dl>
+            </li>
+            {{ end }}
+            </ol>
+          </dd>
+        {{end}}
+
+        {{if ne .Params.studySubject nil}}
+          {{if (gt (len .Params.studySubject) 1)}}
+            <dt>Study Subjects</dt>
+          {{else}}
+            <dt>Study Subject</dt>
+          {{end}}
+          <dd>
+            <ol>
+            {{ range .Params.studySubject }}
+            <li>
+              <dl>
+                <dt>Type</dt><dd>Drug</dd>
+                <dt>Name</dt><dd>{{ .name }}</dd>
+                <dt>Code</dt><dd>
+                  <dl>
+                    <dt>Type</dt><dd>MedicalCode</dd>
+                    <dt>Term Code</dt><dd>{{.code.termCode}}</dd>
+                    <dt>Coding System</dt><dd>{{.code.codingSystem}}</dd>
+                    <dt>In Defined Termset</dt><dd><a href={{.code.inDefinedTermset}}>{{.code.inDefinedTermset}}</a></dd>
+                  </dl>
+                </dd>
+              </dl>
+            </li>
+            {{ end }}
+            </ol>
+          </dd>
+        {{end}}
+
+        {{if ne .Params.subjectOf nil}}
+          <dt>Subject Of</dt>
+          <dd>
+            <dl>
+              <dt>Type</dt><dd>Event</dd>
+              <dt>Name</dt><dd>{{.Params.subjectOf.name}}</dd>
+              <dt>Organizer</dt><dd>
+                <dl>
+                  <dt>Type</dt><dd>Organization</dd>
+                  <dt>Name</dt><dd>{{.Params.subjectOf.organizer.name}}</dd>
+                </dl>
+              </dd>
+              <dt>Location</dt><dd>{{.Params.subjectOf.location}}</dd>
+              <dt>Start Date</dt><dd>{{.Params.subjectOf.startDate}}</dd>
+              <dt>End Date</dt><dd>{{.Params.subjectOf.endDate}}</dd>
+              <dt></dt><dd></dd>
+              <dt></dt><dd></dd>
+              <dt></dt><dd></dd>
+            </dl>
+          </dd>
+        {{end}}
+        
+        
+
+        {{if ne .Params.hasPart nil}}
+          {{if (gt (len .Params.hasPart) 1)}}
+            <dt>Has Parts</dt>
+          {{else}}
+            <dt>Has Part</dt>
+          {{end}}
+          <ol>
+            {{ range .Params.hasPart }}
+            <li>
+              <dl>
+                {{ range $key, $value := . }}
+                {{ with (eq $key "@type") }}<dt>Type</dt><dd>{{$value}}</dd>{{end}}
+                {{ with (eq $key "name") }}<dt>Name</dt><dd>{{$value}}</dd>{{end}}
+                {{ with (eq $key "codeRepository") }}<dt>Code Repository</dt><dd><a href={{$value}}>{{$value}}</a></dd>{{end}}
+                {{ with (eq $key "installURL") }}<dt>Install URL</dt><dd><a href={{$value}}>{{$value}}</a></dd>{{end}}
+                {{ with (eq $key "softwareVersion") }}<dt>Software Version</dt><dd>{{$value}}</dd>{{end}}
+                {{ with (eq $key "programmingLanguage") }}<dt>Programming Language</dt><dd>{{$value}}</dd>{{end}}
+                {{ with (eq $key "version") }}<dt>Version</dt><dd>{{$value}}</dd>{{end}}
+                {{ with (eq $key "maintainer") }}<dt>Maintainer</dt><dd>
+                  <dl>
+                    <dt>Type</dt><dd>Organization</dd>
+                    <dt>Name</dt><dd>{{$value.name}}</dd>
+                  </dl>{{end}}
+                {{end}}
+              </dl>
+            </li>
+            {{ end }}
+            </ol>
+          </dd>
+        {{end}}
+        
+        {{if ne .Params.citation nil}}
+          {{if (gt (len .Params.citation) 1)}}
+            <dt>Citations</dt>
+          {{else}}
+            <dt>Citation</dt>
+          {{end}}
+          <dd>
+            <ol>
+            {{ range .Params.citation }}
+            <li>
+              <dl>
+                <dt>Type</dt><dd>Scholarly Article</dd>
+                <dt>Url</dt><dd><a href={{.Params.citation.url}}>{{.Params.citation.url}}</a></dd>
+                <dt>Author</dt><dd>{{.Params.citation.author}}</dd>
+                <dt>Date Published</dt><dd>{{.Params.citation.datePublished}}</dd>
+                <dt>Headline</dt><dd>{{.Params.citation.headline}}</dd>
+                <dt>Publisher</dt><dd>{{.Params.citation.publisher}}</dd>
+              </dl>
+            </li>
+            {{ end }}
+            </ol>
+          </dd>
+        {{end}}
+      </dl>
+      {{ .Content }}
+    </div>
+
+    {{ partial "page_footer" . }}
+
+    <div class="project-related-pages content-widget-hr">
+      {{ $page := . }}
+      {{ $project := .File.ContentBaseName }}
+
+      {{ $items := where (where site.RegularPages "Type" "post") ".Params.projects" "intersect" (slice $project) }}
+      {{ $count := len $items }}
+      {{ if ge $count 1 }}
+      <h2>{{ (i18n "posts") }}</h2>
+      {{ range $items }}
+      {{ if eq site.Params.projects.post_view 1 }}
+      {{ partial "li_list" . }}
+      {{ else if eq site.Params.projects.post_view 3 }}
+      {{ partial "li_card" . }}
+      {{ else }}
+      {{ partial "li_compact" . }}
+      {{ end }}
+      {{ end }}
+      {{ end }}
+
+      {{ $items := where (where site.RegularPages "Type" "publication") ".Params.projects" "intersect" (slice $project) }}
+      {{ $pubs_len := len $items }}
+      {{ if ge $pubs_len 1 }}
+      <h2>{{ (i18n "publications") }}</h2>
+      {{ range $items }}
+      {{ if eq site.Params.projects.publication_view 1 }}
+      {{ partial "li_list" . }}
+      {{ else if eq site.Params.projects.publication_view 3 }}
+      {{ partial "li_card" . }}
+      {{ else if eq site.Params.projects.publication_view 4 }}
+      {{ partial "li_citation" . }}
+      {{ else }}
+      {{ partial "li_compact" . }}
+      {{ end }}
+      {{ end }}
+      {{ end }}
+
+      {{ $items := where (where site.RegularPages "Type" "talk") ".Params.projects" "intersect" (slice $project) }}
+      {{ $talks_len := len $items }}
+      {{ if ge $talks_len 1 }}
+      <h2>{{ (i18n "talks") }}</h2>
+      {{ range $items }}
+      {{ if eq site.Params.projects.talk_view 1 }}
+      {{ partial "li_list" . }}
+      {{ else if eq site.Params.projects.talk_view 3 }}
+      {{ partial "li_card" . }}
+      {{ else }}
+      {{ partial "li_compact" . }}
+      {{ end }}
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</article>
+
+
+{{- end -}}
