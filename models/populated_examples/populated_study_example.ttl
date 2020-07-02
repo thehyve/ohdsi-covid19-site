@@ -2,20 +2,23 @@
 @prefix ohdsi: <http://data.ohdsi.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
-@prefix epid: <http://pid.ehden.eu/> .
 @prefix snomed: <http://snomed.info/id/> .
+@prefix person: <http://data.ohdsi.org/person/> .
+@prefix concept: <http://data.ohdsi.org/concept/> .
 
-epid:0001 a schema:MedicalObservationalStudy ;
-	schema:identifier "EUPAS34497" , "0001" ;
+<http://data.ohdsi.org/study/hcq> a schema:MedicalObservationalStudy ;
+	schema:identifier "EUPAS34497" ;
 	schema:name "Risk of hydroxychloroquine, alone and in combination with azithromycin: a multi-national study" ; 
 	schema:description "Retrospective, real-world, observational study to estimate the population-level effects of hydroxychloroquine among patients with rheumatoid arthritis. Designed and executed during the OHDSI community COVID-19 virtual study-a-thon (March 26-29) to inform healthcare decision-making in response to the current global pandemic." ;
-	ohdsi:studyType "Estimation study" ;
+	ohdsi:studyType "Clinical application" ;
+	ohdsi:analyticsUseCase "Population level estimation" ;
 	schema:mainEntityOfPage <http://www.encepp.eu/encepp/viewResource.htm?id=34498> ;
-	schema:studyDesign ohdsi:StudydesignHQC ;
+	schema:studyDesign ohdsi:StudydesignHCQ ;
+	schema:status ohdsi:ResultsAvailable ;
 	schema:healthCondition ohdsi:Covid19, ohdsi:conditionPH ; #Add extra placeholder, in case of multiple health conditions
-	schema:studySubject ohdsi:Hydroxychloroquine, ohdsi:Sulfasalazine, ohdsi:Azithromycin, ohdsi:Amoxicillin ;
+	schema:studySubject concept:1777087, ohdsi:Sulfasalazine, ohdsi:Azithromycin, ohdsi:Amoxicillin ;
 	schema:subjectOf ohdsi:Covid19Studyathon ;
-	schema:author ohdsi:JenniferLane, ohdsi:JamesWeaver, ohdsi:DanielPrietoAlhambra, ohdsi:MartijnSchuemie ;
+	schema:author person:JenniferLane, person:JamesWeaver, person:DanielPrietoAlhambra, person:MartijnSchuemie ;
 	schema:datePublished "2020-04-02"^^xsd:date ;
 	schema:citation ohdsi:referencePH, ohdsi:referencePH2 ; #Multiple placeholders for multiple health conditions ;
 	schema:discussionUrl "https://forums.ohdsi.org/" ; #Link to discussions on forum needed ;
@@ -24,7 +27,7 @@ epid:0001 a schema:MedicalObservationalStudy ;
 	schema:hasPart ohdsi:Atlas, ohdsi:RCode ; 
 	ohdsi:database ohdsi:SIDIAP, ohdsi:THIN, ohdsi:IPCI, ohdsi:CPRD .
 	
-ohdsi:StudydesignHQC a schema:MedicalObservationalStudyDesign ;
+ohdsi:StudydesignHCQ a schema:MedicalObservationalStudyDesign ;
 	schema:identifier "..." ; #There is no protocol identifier available for this study 
 	schema:version "1.4"^^xsd:decimal ;
 	schema:dateModified "2020-04-01"^^xsd:date ;
@@ -59,17 +62,13 @@ ohdsi:sourcetermPH a schema:MedicalCode ;
 	schema:codingSystem "" ;
 	schema:sameAs "" .
 		
-ohdsi:Hydroxychloroquine a schema:Drug;
-	schema:name "Hydroxychloroquine"; 
-	schema:code ohdsi:1777087, ohdsi:Rx5521 .
+concept:1777087 a schema:Drug ;
+	schema:name "Hydroxychloroquine" ; 
+	schema:identifier "1777087" ;
+	schema:code _:5521 ;
 	
-ohdsi:1777087 a schema:MedicalCode ;
-	schema:codeValue "1777087"^^xsd:string ;
-	schema:codingSystem "OMOP Standardized Vocabularies" ;
-	owl:equivalentClass ohdsi:Rx5521 .
-
-ohdsi:Rx5521 a schema:MedicalCode ;
-	schema:codeValue "5521"^^xsd:string ;
+_:5521 a schema:MedicalCode ;
+	schema:codeValue "5521" ;
 	schema:codingSystem "RxNorm" ;
 	schema:sameAs "http://purl.bioontology.org/ontology/RXNORM/5521" .
 
@@ -125,7 +124,7 @@ ohdsi:Covid19Studyathon a schema:Event ;
 ohdsi:OHDSI a schema:Organization ;
 	schema:name "OHDSI" .
 
-ohdsi:JenniferLane a schema:Person ;
+person:JenniferLane a schema:Person ;
 	schema:name "Jennifer Lane" ;
 	schema:honorificPrefix "" ; 
 	schema:honorificSuffix "M.D.", "" ;
@@ -142,7 +141,7 @@ ohdsi:UniversityOxfordTOS a schema:Organization ;
 	schema:department "Trauma and Orthopaedic Surgery" ;
 	schema:address "Windmill Road, Headington, Oxford, OX3 7HE, UK" .
 	
-ohdsi:JamesWeaver a schema:Person ;
+person:JamesWeaver a schema:Person ;
 	schema:name "James Weaver" ;
 	schema:honorificPrefix "" ; 
 	schema:honorificSuffix "MPH", "" ;
@@ -159,7 +158,7 @@ ohdsi:JJ a schema:Organization ;
 	schema:department "Epidemiology analytics" ;
 	schema:address "" .
 	
-ohdsi:DanielPrietoAlhambra a schema:Person ;
+person:DanielPrietoAlhambra a schema:Person ;
 	schema:name "Daniel Prieto-Alhambra" ;
 	schema:honorificPrefix "" ; 
 	schema:honorificSuffix "M.D.", "MSc", "PhD" ;
@@ -176,7 +175,7 @@ ohdsi:UniversityOxfordCSM a schema:Organization ;
 	schema:department "Centre for Statistics in Medicine" ;
 	schema:address "Windmill Road, Headington, Oxford, OX3 7HE, UK" .
 	
-ohdsi:MartijnSchuemie a schema:Person ;
+person:MartijnSchuemie a schema:Person ;
 	schema:name "Martijn Schuemie" ;
 	schema:honorificPrefix "" ; 
 	schema:honorificSuffix "PhD", "" ;

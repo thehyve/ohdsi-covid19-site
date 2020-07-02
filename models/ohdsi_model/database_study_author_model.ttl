@@ -21,12 +21,6 @@
 
 ## Classes
 
-schema:Database  a         owl:Class ;
-        rdfs:comment      "A body of structured information describing some topic(s) of interest."@en ;
-        rdfs:isDefinedBy  <https://schema.org/Dataset> ;
-        rdfs:label        "Database"@en ;
-        rdfs:subClassOf   schema:CreativeWork .
-
 schema:CreativeWork  a    owl:Class ;
         rdfs:comment      "The most generic kind of creative work, including books, movies, photographs, software programs, etc."@en ;
         rdfs:isDefinedBy  <https://schema.org/CreativeWork> ;
@@ -183,6 +177,17 @@ schema:Substance  a       owl:Class ;
         rdfs:subClassOf   schema:MedicalEntity .		
 
 ## Properties
+
+schema:status  a          owl:ObjectProperty ;
+        rdfs:comment      "The status of the study (enumerated)."@en ;
+        rdfs:domain       [ a            owl:Class ;
+                            owl:unionOf  ( schema:MedicalStudy schema:MedicalProcedure schema:MedicalCondition )
+                          ] ;
+        rdfs:isDefinedBy  <https://health-lifesci.schema.org/status> ;
+        rdfs:label        "status"@en ;
+        rdfs:range        [ a            owl:Class ;
+                            owl:unionOf  ( schema:Text schema:MedicalStudyStatus schema:EventStatusType schema:URL schema:Role )
+                          ] .
 		
 schema:author  a          owl:ObjectProperty ;
         rdfs:comment      "The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably."@en ;
@@ -340,19 +345,7 @@ schema:spatialCoverage
         rdfs:range          [ a            owl:Class ;
                               owl:unionOf  ( schema:Place schema:Text schema:URL schema:Role )
                             ] ;
-        rdfs:subPropertyOf  schema:contentLocation .
-
-schema:temporalCoverage
-        a                 owl:ObjectProperty ;
-        rdfs:comment      "The temporalCoverage of a CreativeWork indicates the period that the content applies to, i.e. that it describes, either as a DateTime or as a textual string indicating a time period in <a href=\"https://en.wikipedia.org/wiki/ISO_8601#Time_intervals\">ISO 8601 time interval format</a>. In\n      the case of a Dataset it will typically indicate the relevant time period in a precise notation (e.g. for a 2011 census dataset, the year 2011 would be written \"2011/2012\"). Other forms of content e.g. ScholarlyArticle, Book, TVSeries or TVEpisode may indicate their temporalCoverage in broader terms - textually or via well-known URL.\n      Written works such as books may sometimes have precise temporal coverage too, e.g. a work set in 1939 - 1945 can be indicated in ISO 8601 interval format format via \"1939/1945\".<br/><br/>\n\nOpen-ended date ranges can be written with \"..\" in place of the end date. For example, \"2015-11/..\" indicates a range beginning in November 2015 and with no specified final date. This is tentative and might be updated in future when ISO 8601 is officially updated."@en ;
-        rdfs:domain       [ a            owl:Class ;
-                            owl:unionOf  ( schema:CreativeWork )
-                          ] ;
-        rdfs:isDefinedBy  <https://schema.org/temporalCoverage> ;
-        rdfs:label        "temporalCoverage"@en ;
-        rdfs:range        [ a            owl:Class ;
-                            owl:unionOf  ( schema:DateTime schema:URL schema:Text schema:Role )
-                          ] .
+        rdfs:subPropertyOf  schema:contentLocation .              
 
 schema:version  a         owl:ObjectProperty ;
         rdfs:comment      "The version of the CreativeWork embodied by a specified resource."@en ;
@@ -650,55 +643,108 @@ schema:worksFor  a        owl:ObjectProperty ;
 
 # Database extensions
 
+ohdsi:Database  a         owl:Class ;
+        rdfs:comment      "A body of structured information describing some topic(s) of interest."@en ;
+        rdfs:label        "Database"@en ;
+        rdfs:subClassOf   schema:Dataset .
+
 ohdsi:associatedInstitution a owl:ObjectProperty ;
     rdfs:label "associatedInsitution" ;
-    rdfs:domain schema:Dataset ;
+    rdfs:domain ohdsi:Database ;
     rdfs:range schema:Organization ;
     rdfs:comment "The institution associated with the database." .
 
 ohdsi:principalInvestigator a owl:ObjectProperty;
     rdfs:label "principalInvestigator" ;
-    rdfs:domain schema:Dataset ;
+    rdfs:domain ohdsi:Database ;
     rdfs:range schema:Person ;
     rdfs:comment "The Principal Investigator associated with the database" .
 
 ohdsi:scientificContact a owl:ObjectProperty ;
     rdfs:label "scientificContact" ;
-    rdfs:domain schema:Dataset ;
+    rdfs:domain ohdsi:Database ;
     rdfs:range schema:Person ;
     rdfs:comment "The scientific contact for the database" .
 
 ohdsi:administrativeContact a owl:ObjectProperty ;
     rdfs:label "administrativeContact" ;
-    rdfs:domain schema:Dataset ;
+    rdfs:domain ohdsi:Database ;
     rdfs:range schema:Person ;
     rdfs:comment "The administrative contact for the database" .
 
 ohdsi:technicalContact a owl:ObjectProperty ;
     rdfs:label "technicalContact" ;
-    rdfs:domain schema:Dataset ;
+    rdfs:domain ohdsi:Database ;
     rdfs:range schema:Person ;
     rdfs:comment "The technical contact for the database" .
 
-ohdsi:fundingType a owl:DatatypeProperty ;
-    rdfs:label "fundingType" ;
-    rdfs:domain schema:Dataset ;
-    rdfs:range xsd:string ;
-    rdfs:comment "The main source of funding for the database in the last 3 years." .
-
 ohdsi:populationSize a owl:DatatypeProperty ;
     rdfs:label "populationSize" ;
-    rdfs:domain schema:Dataset ;
+    rdfs:domain ohdsi:Database ;
     rdfs:range xsd:integer ;
     rdfs:comment "The total number of involved subjects in your cohort." .
 
 ohdsi:databaseSystem a owl:DatatypeProperty ;
     rdfs:label "databaseSystem" ;
-    rdfs:domain schema:Dataset ;
+    rdfs:domain ohdsi:Database ;
     rdfs:range xsd:string ;
     rdfs:comment "The database management system used for the CDM database." .
 
+ohdsi:databaseCharacteristics a owl:DatatypeProperty ;
+    rdfs:label "databaseCharacteristics" ;
+    rdfs:domain ohdsi:Database ;
+    rdfs:range xsd:string ;
+    rdfs:comment "As specified in the EMIF catalogue, the database characteristics. This defines the type of database, like EHR, registry, claims, etc." .
+
+schema:startDate  a       owl:datatypeProperty ;
+        rdfs:comment      "The start date and time of the item (in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 date format</a>)."@en ;
+        rdfs:domain       [ a            owl:Class ;
+                            owl:unionOf  ( schema:Role schema:EducationalOccupationalProgram schema:Event schema:DatedMoneySpecification schema:Schedule schema:CreativeWorkSeries schema:CreativeWorkSeason ohdsi:Database )
+                          ] ;
+        rdfs:isDefinedBy  <https://schema.org/startDate> ;
+        rdfs:label        "startDate"@en ;
+        rdfs:range        [ a            owl:Class ;
+                            owl:unionOf  ( schema:Date schema:DateTime )
+                          ] .
+
+schema:endDate  a         owl:datatypeProperty ;
+        rdfs:comment      "The end date and time of the item (in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 date format</a>)."@en ;
+        rdfs:domain       [ a            owl:Class ;
+                            owl:unionOf  ( schema:Role schema:EducationalOccupationalProgram schema:Event schema:DatedMoneySpecification schema:Schedule schema:CreativeWorkSeason schema:CreativeWorkSeries ohdsi:Database )
+                          ] ;
+        rdfs:isDefinedBy  <https://schema.org/endDate> ;
+        rdfs:label        "endDate"@en ;
+        rdfs:range        [ a            owl:Class ;
+                            owl:unionOf  ( schema:DateTime schema:Date )
+                          ] . 
+
 # Study extensions
+
+ohdsi:Started a schema:MedicalStudyStatus ;
+        rdfs:label "Started" ;
+        rdfs:comment "Design of medical study has commenced" .
+
+ohdsi:DesignFinalized a schema:MedicalStudyStatus ;
+        rdfs:label "DesignFinalized" ;
+        rdfs:comment "Design of medical study has been finalized" .
+
+ohdsi:ResultsAvailable a schema:MedicalStudyStatus ;
+        rdfs:label "ResultsAvailable" ;
+        rdfs:comment "Study has been run, results are available and data analysis has been started" .
+
+ohdsi:Complete a schema:MedicalStudyStatus ;
+        rdfs:label "Complete" ;
+        rdfs:comment "Study is complete" .
+
+ohdsi:Discontinued a schema:MedicalStudyStatus ;
+        rdfs:label "Discontinued" ;
+        rdfs:comment "Study has been discontinued" .
+
+ohdsi:analyticsUseCase a owl:DatatypeProperty ;
+        rdfs:label "analyticsUseCase" ;
+        rdfs:domain schema:MedicalObservationalStudy ;
+        rdfs:range schema:Text ;
+        rdfs:comment "The use case of the study" .
 
 schema:license  a         owl:ObjectProperty ;
         rdfs:comment      "A license document that applies to this content, typically indicated by URL."@en ;
