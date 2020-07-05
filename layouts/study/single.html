@@ -2,19 +2,7 @@
 
 <article class="article article-project">
   {{ partial "page_header" . }}
-  {{/* $resource := site.Data.studies.ace */}}
 
-  {{/* $resource := (.Resources.GetMatch "ace.json").RelPermalink */}}
-  
-  {{/* $data */}}
-
-  {{/* $resource := (.Resources.GetMatch "ace.json") */}}
-  {{/* with $resource }}
-    {{ $data := getJSON "content" $resource }}
-    {{ $data }}
-  {{ end }}
-  {{ $resource */}}
-  
   <div class="article-container">
     <div class="article-meta mb-3">
       <button type="button" class="btn btn-outline-secondary">Identifier: {{.Params.identifier}}</button>
