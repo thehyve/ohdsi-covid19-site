@@ -21,13 +21,14 @@
 <div class="row">
   <div class="col-12 col-lg-4">
     <div id="profile">
+      {{ partial "avatar" (dict "person" $person)}}
 
-      {{ if site.Params.avatar.gravatar }}
+      {{/* if site.Params.avatar.gravatar }}
       <img class="avatar {{if eq $avatar_shape "square"}}avatar-square{{else}}avatar-circle{{end}}" src="https://s.gravatar.com/avatar/{{ md5 $person.email }}?s=270')" alt="{{$person.name}}">
       {{ else if $avatar }}
       {{ $avatar_image := $avatar.Fill "270x270 Center" }}
       <img class="avatar {{if eq $avatar_shape "square"}}avatar-square{{else}}avatar-circle{{end}}" src="{{ $avatar_image.RelPermalink }}" alt="{{$person.name}}">
-      {{ end }}
+      {{ end */}}
 
       <div class="portrait-title">
         <h2>{{ $person.title }}</h2>
@@ -41,6 +42,8 @@
         </h3>
         {{ end }}
       </div>
+
+      {{ partial "social_links" (dict "social" $person.social "big_icon" "true") }}
 
       <ul class="network-icon" aria-hidden="true">
         {{ range $person.social }}
