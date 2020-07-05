@@ -9,6 +9,8 @@ lastmod: 2020-06-17T17:50:47+02:00
 featured: false
 draft: false
 
+readmeurl: "https://raw.githubusercontent.com/ohdsi-studies/Covid19Icarius/master/README.md"
+
 # what does this ID mean?
 id: Study_ACE
 # encepp ID

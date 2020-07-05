@@ -9,6 +9,8 @@ lastmod: 2020-05-22T14:21:00+02:00
 featured: false
 draft: false
 
+readmeurl: "https://raw.githubusercontent.com/ohdsi-studies/Covid19EstimationHydroxychloroquine2/master/README.md"
+
 # what does this ID mean?
 id: Study_HQC
 # encepp ID
