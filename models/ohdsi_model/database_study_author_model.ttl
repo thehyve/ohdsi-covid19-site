@@ -61,19 +61,19 @@ schema:MedicalObservationalStudy  a		owl:Class ;
         rdfs:isDefinedBy  <https://health-lifesci.schema.org/MedicalObservationalStudy> ;
         rdfs:label        "MedicalObservationalStudy"@en ;
         rdfs:subClassOf   schema:MedicalStudy .
-		
+
 schema:MedicalStudy  a    owl:Class ;
         rdfs:comment      "A medical study is an umbrella type covering all kinds of research studies relating to human medicine or health, including observational studies and interventional trials and registries, randomized, controlled or not. When the specific type of study is known, use one of the extensions of this type, such as MedicalTrial or MedicalObservationalStudy. Also, note that this type should be used to mark up data that describes the study itself; to tag an article that publishes the results of a study, use MedicalScholarlyArticle. Note: use the code property of MedicalEntity to store study IDs, e.g. clinicaltrials.gov ID."@en ;
         rdfs:isDefinedBy  <https://health-lifesci.schema.org/MedicalStudy> ;
         rdfs:label        "MedicalStudy"@en ;
         rdfs:subClassOf   schema:MedicalEntity .
-		
+
 schema:MedicalEntity  a   owl:Class ;
         rdfs:comment      "The most generic type of entity related to health and the practice of medicine."@en ;
         rdfs:isDefinedBy  <https://health-lifesci.schema.org/MedicalEntity> ;
         rdfs:label        "MedicalEntity"@en ;
         rdfs:subClassOf   schema:Thing .
-		
+
 schema:MedicalObservationalStudyDesign  a		owl:NamedIndividual , owl:Class ;
         rdfs:comment      "Design models for observational medical studies. Enumerated type."@en ;
         rdfs:isDefinedBy  <https://health-lifesci.schema.org/MedicalObservationalStudyDesign> ;
@@ -91,7 +91,7 @@ schema:Enumeration  a     owl:Class ;
         rdfs:isDefinedBy  <https://schema.org/Enumeration> ;
         rdfs:label        "Enumeration"@en ;
         rdfs:subClassOf   schema:Intangible .
-		
+
 schema:Intangible  a      owl:Class ;
         rdfs:comment      "A utility class that serves as the umbrella for a number of 'intangible' things such as quantities, structured values, etc."@en ;
         rdfs:isDefinedBy  <https://schema.org/Intangible> ;
@@ -108,7 +108,7 @@ schema:MedicalCode  a     owl:Class ;
         rdfs:comment      "A code for a medical entity."@en ;
         rdfs:isDefinedBy  <https://health-lifesci.schema.org/MedicalCode> ;
         rdfs:label        "MedicalCode"@en ;
-        rdfs:subClassOf   schema:CategoryCode , schema:MedicalIntangible .	
+        rdfs:subClassOf   schema:CategoryCode , schema:MedicalIntangible .
 
 schema:CategoryCode  a    owl:Class ;
         rdfs:comment      "A Category Code."@en ;
@@ -132,7 +132,7 @@ schema:Drug  a            owl:Class ;
         rdfs:comment      "A chemical or biologic substance, used as a medical therapy, that has a physiological effect on an organism. Here the term drug is used interchangeably with the term medicine although clinical knowledge make a clear difference between them."@en ;
         rdfs:isDefinedBy  <https://health-lifesci.schema.org/Drug> ;
         rdfs:label        "Drug"@en ;
-        rdfs:subClassOf   schema:Substance .	
+        rdfs:subClassOf   schema:Substance .
 
 schema:Event  a           owl:Class ;
         rdfs:comment      "An event happening at a certain time and location, such as a concert, lecture, or festival. Ticketing information may be added via the <a class=\"localLink\" href=\"http://schema.org/offers\">offers</a> property. Repeated events may be structured as separate Event objects."@en ;
@@ -144,13 +144,13 @@ schema:MedicalScholarlyArticle  a		owl:Class ;
         rdfs:comment      "A scholarly article in the medical domain."@en ;
         rdfs:isDefinedBy  <https://health-lifesci.schema.org/MedicalScholarlyArticle> ;
         rdfs:label        "MedicalScholarlyArticle"@en ;
-        rdfs:subClassOf   schema:ScholarlyArticle .	
-		
+        rdfs:subClassOf   schema:ScholarlyArticle .
+
 schema:ScholarlyArticle  a		owl:Class ;
         rdfs:comment      "A scholarly article."@en ;
         rdfs:isDefinedBy  <https://schema.org/ScholarlyArticle> ;
         rdfs:label        "ScholarlyArticle"@en ;
-        rdfs:subClassOf   schema:Article .	
+        rdfs:subClassOf   schema:Article .
 
 schema:WebApplication  a		owl:Class ;
         rdfs:comment      "Web applications."@en ;
@@ -162,19 +162,19 @@ schema:SoftwareApplication  a		owl:Class ;
         rdfs:comment      "A software application."@en ;
         rdfs:isDefinedBy  <https://schema.org/SoftwareApplication> ;
         rdfs:label        "SoftwareApplication"@en ;
-        rdfs:subClassOf   schema:CreativeWork .	
+        rdfs:subClassOf   schema:CreativeWork .
 
 schema:SoftwareSourceCode  a		owl:Class ;
         rdfs:comment      "Computer programming source code. Example: Full (compile ready) solutions, code snippet samples, scripts, templates."@en ;
         rdfs:isDefinedBy  <https://schema.org/SoftwareSourceCode> ;
         rdfs:label        "SoftwareSourceCode"@en ;
-        rdfs:subClassOf   schema:CreativeWork .	
+        rdfs:subClassOf   schema:CreativeWork .
 
 schema:Substance  a       owl:Class ;
         rdfs:comment      "Any matter of defined composition that has discrete existence, whose origin may be biological, mineral or chemical."@en ;
         rdfs:isDefinedBy  <https://health-lifesci.schema.org/Substance> ;
         rdfs:label        "Substance"@en ;
-        rdfs:subClassOf   schema:MedicalEntity .		
+        rdfs:subClassOf   schema:MedicalEntity .
 
 ## Properties
 
@@ -188,7 +188,7 @@ schema:status  a          owl:ObjectProperty ;
         rdfs:range        [ a            owl:Class ;
                             owl:unionOf  ( schema:Text schema:MedicalStudyStatus schema:EventStatusType schema:URL schema:Role )
                           ] .
-		
+
 schema:author  a          owl:ObjectProperty ;
         rdfs:comment      "The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably."@en ;
         rdfs:domain       [ a            owl:Class ;
@@ -345,7 +345,7 @@ schema:spatialCoverage
         rdfs:range          [ a            owl:Class ;
                               owl:unionOf  ( schema:Place schema:Text schema:URL schema:Role )
                             ] ;
-        rdfs:subPropertyOf  schema:contentLocation .              
+        rdfs:subPropertyOf  schema:contentLocation .
 
 schema:version  a         owl:ObjectProperty ;
         rdfs:comment      "The version of the CreativeWork embodied by a specified resource."@en ;
@@ -391,7 +391,7 @@ schema:subjectOf  a       owl:ObjectProperty ;
                             owl:unionOf  ( schema:CreativeWork schema:Event schema:Text schema:URL schema:Role )
                           ] ;
         owl:inverseOf     schema:about .
-		
+
 schema:disambiguatingDescription  a		owl:ObjectProperty ;
         rdfs:comment        "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation."@en ;
         rdfs:domain         [ a            owl:Class ;
@@ -403,7 +403,7 @@ schema:disambiguatingDescription  a		owl:ObjectProperty ;
                               owl:unionOf  ( schema:Text schema:URL schema:Role )
                             ] ;
         rdfs:subPropertyOf  schema:description .
-		
+
 schema:studyDesign  a     owl:ObjectProperty ;
         rdfs:comment      "Specifics about the observational study design (enumerated)."@en ;
         rdfs:domain       [ a            owl:Class ;
@@ -414,7 +414,7 @@ schema:studyDesign  a     owl:ObjectProperty ;
         rdfs:range        [ a            owl:Class ;
                             owl:unionOf  ( schema:MedicalObservationalStudyDesign schema:Text schema:URL schema:Role )
                           ] .
-					
+
 schema:healthCondition  a		owl:ObjectProperty ;
         rdfs:comment      "Specifying the health condition(s) of a patient, medical study, or other target audience."@en ;
         rdfs:domain       [ a            owl:Class ;
@@ -425,7 +425,7 @@ schema:healthCondition  a		owl:ObjectProperty ;
         rdfs:range        [ a            owl:Class ;
                             owl:unionOf  ( schema:MedicalCondition schema:Text schema:URL schema:Role )
                           ] .
-						  
+
 schema:studySubject  a    owl:ObjectProperty ;
         rdfs:comment      "A subject of the study, i.e. one of the medical conditions, therapies, devices, drugs, etc. investigated by the study."@en ;
         rdfs:domain       [ a            owl:Class ;
@@ -447,7 +447,7 @@ schema:url  a             owl:ObjectProperty ;
         rdfs:range        [ a            owl:Class ;
                             owl:unionOf  ( schema:URL schema:Text schema:Role )
                           ] .
-						  
+
 schema:code  a            owl:ObjectProperty ;
         rdfs:comment      "A medical code for the entity, taken from a controlled vocabulary or ontology such as ICD-9, DiseasesDB, MeSH, SNOMED-CT, RxNorm, etc."@en ;
         rdfs:domain       [ a            owl:Class ;
@@ -457,8 +457,8 @@ schema:code  a            owl:ObjectProperty ;
         rdfs:label        "code"@en ;
         rdfs:range        [ a            owl:Class ;
                             owl:unionOf  ( schema:MedicalCode schema:Text schema:URL schema:Role )
-                          ] .		
-						  
+                          ] .
+
 schema:codeValue  a         owl:ObjectProperty ;
         rdfs:comment        "A short textual code that uniquely identifies the value."@en ;
         rdfs:domain         [ a            owl:Class ;
@@ -503,7 +503,7 @@ schema:location  a        owl:ObjectProperty ;
         rdfs:range        [ a            owl:Class ;
                             owl:unionOf  ( schema:VirtualLocation schema:PostalAddress schema:Place schema:Text schema:URL schema:Role )
                           ] .
-						  
+
 schema:startDate  a       owl:datatypeProperty ;
         rdfs:comment      "The start date and time of the item (in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 date format</a>)."@en ;
         rdfs:domain       [ a            owl:Class ;
@@ -525,7 +525,7 @@ schema:endDate  a         owl:datatypeProperty ;
         rdfs:range        [ a            owl:Class ;
                             owl:unionOf  ( schema:DateTime schema:Date )
                           ] .
-						  
+
 schema:organizer  a       owl:ObjectProperty ;
         rdfs:comment      "An organizer of an Event."@en ;
         rdfs:domain       [ a            owl:Class ;
@@ -548,7 +548,7 @@ schema:codeRepository
         rdfs:range        [ a            owl:Class ;
                             owl:unionOf  ( schema:URL schema:Text schema:Role )
                           ] .
-						  
+
 schema:programmingLanguage
         a                 owl:ObjectProperty ;
         rdfs:comment      "The computer programming language."@en ;
@@ -560,7 +560,7 @@ schema:programmingLanguage
         rdfs:range        [ a            owl:Class ;
                             owl:unionOf  ( schema:ComputerLanguage schema:Text schema:URL schema:Role )
                           ] .
-						  
+
 schema:maintainer  a      owl:ObjectProperty ;
         rdfs:comment      "A maintainer of a <a class=\"localLink\" href=\"http://schema.org/Dataset\">Dataset</a>, software package (<a class=\"localLink\" href=\"http://schema.org/SoftwareApplication\">SoftwareApplication</a>), or other <a class=\"localLink\" href=\"http://schema.org/Project\">Project</a>. A maintainer is a <a class=\"localLink\" href=\"http://schema.org/Person\">Person</a> or <a class=\"localLink\" href=\"http://schema.org/Organization\">Organization</a> that manages contributions to, and/or publication of, some (typically complex) artifact. It is common for distributions of software and data to be based on \"upstream\" sources. When <a class=\"localLink\" href=\"http://schema.org/maintainer\">maintainer</a> is applied to a specific version of something e.g. a particular version or packaging of a <a class=\"localLink\" href=\"http://schema.org/Dataset\">Dataset</a>, it is always  possible that the upstream source has a different maintainer. The <a class=\"localLink\" href=\"http://schema.org/isBasedOn\">isBasedOn</a> property can be used to indicate such relationships between datasets to make the different maintenance roles clear. Similarly in the case of software, a package may have dedicated maintainers working on integration into software distributions such as Ubuntu, as well as upstream maintainers of the underlying work."@en ;
         rdfs:domain       [ a            owl:Class ;
@@ -570,7 +570,7 @@ schema:maintainer  a      owl:ObjectProperty ;
         rdfs:label        "maintainer"@en ;
         rdfs:range        [ a            owl:Class ;
                             owl:unionOf  ( schema:Organization schema:Person schema:Text schema:URL schema:Role )
-                          ] .						  
+                          ] .
 
 schema:installUrl  a      owl:ObjectProperty ;
         rdfs:comment      "URL at which the app may be installed, if different from the URL of the item."@en ;
@@ -637,8 +637,8 @@ schema:worksFor  a        owl:ObjectProperty ;
         rdfs:range        [ a            owl:Class ;
                             owl:unionOf  ( schema:Organization schema:Text schema:URL schema:Role )
                           ] .
-						  
-						  		
+
+
 ## Extension
 
 # Database extensions
@@ -716,7 +716,7 @@ schema:endDate  a         owl:datatypeProperty ;
         rdfs:label        "endDate"@en ;
         rdfs:range        [ a            owl:Class ;
                             owl:unionOf  ( schema:DateTime schema:Date )
-                          ] . 
+                          ] .
 
 # Study extensions
 
@@ -740,6 +740,12 @@ ohdsi:Discontinued a schema:MedicalStudyStatus ;
         rdfs:label "Discontinued" ;
         rdfs:comment "Study has been discontinued" .
 
+ohdsi:studyType a owl:DatatypeProperty ;
+	   rdfs:label "studyType" ;
+	   rdfs:domain schema:MedicalObservationalStudy ;
+	   rdfs:range schema:Text ;
+	   rdfs:comment "The type of the study" .
+
 ohdsi:analyticsUseCase a owl:DatatypeProperty ;
         rdfs:label "analyticsUseCase" ;
         rdfs:domain schema:MedicalObservationalStudy ;
@@ -757,12 +763,12 @@ schema:license  a         owl:ObjectProperty ;
                             owl:unionOf  ( schema:URL schema:CreativeWork schema:Text schema:Role )
                           ] .
 
-ohdsi:database a owl:ObjectProperty ; 
+ohdsi:database a owl:ObjectProperty ;
     rdfs:label "database" ;
     rdfs:domain schema:MedicalObservationalStudy ;
     rdfs:range ohdsi:Database ;
     rdfs:comment "This is the associated OMOP oe source database" .
-	
+
 schema:contributor  a     owl:ObjectProperty ;
         rdfs:comment      "A secondary contributor to the CreativeWork or Event."@en ;
         rdfs:domain       [ a            owl:Class ;
@@ -818,7 +824,7 @@ schema:hasPart  a         owl:ObjectProperty ;
                             owl:unionOf  ( schema:CreativeWork schema:Text schema:URL schema:Role )
                           ] ;
         owl:inverseOf     schema:isPartOf .
-		
+
 schema:citation  a        owl:ObjectProperty ;
         rdfs:comment      "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc."@en ;
         rdfs:domain       [ a            owl:Class ;
@@ -829,7 +835,7 @@ schema:citation  a        owl:ObjectProperty ;
         rdfs:range        [ a            owl:Class ;
                             owl:unionOf  ( schema:Text schema:CreativeWork schema:URL schema:Role )
 						  ] .
-						  
+
 schema:version  a         owl:ObjectProperty ;
         rdfs:comment      "The version of the CreativeWork embodied by a specified resource."@en ;
         rdfs:domain       [ a            owl:Class ;
@@ -840,7 +846,7 @@ schema:version  a         owl:ObjectProperty ;
         rdfs:range        [ a            owl:Class ;
                             owl:unionOf  ( schema:Number schema:Text schema:URL schema:Role )
                           ] .
-						  
+
 schema:dateModified  a    owl:datatypeProperty ;
         rdfs:comment      "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed."@en ;
         rdfs:domain       [ a            owl:Class ;
@@ -868,7 +874,7 @@ schema:dateModified  a    owl:datatypeProperty ;
 schema:orcidIdentifier a owl:ObjectProperty ;
         rdfs:label        "orcidIdentifier" ;
         rdfs:comment      "The ORCID identifier of a contributor" ;
-        rdfs:domain       schema:Person ; 
+        rdfs:domain       schema:Person ;
         rdfs:range        [ a            owl:Class ;
                             owl:unionOf  ( schema:Text schema:URL )
                           ] .
@@ -876,29 +882,29 @@ schema:orcidIdentifier a owl:ObjectProperty ;
 schema:forumName  a		owl:ObjectProperty ;
         rdfs:label        "forumName" ;
         rdfs:comment      "The name of a person as showed on the OHDSI forum" ;
-        rdfs:domain       schema:Person ; 
+        rdfs:domain       schema:Person ;
         rdfs:range        [ a            owl:Class ;
                             owl:unionOf  ( schema:Text schema:URL )
                           ] .
-		
+
 schema:ohdsiCollaborator a owl:ObjectProperty ;
         rdfs:label        "ohdsiCollaborator" ;
         rdfs:comment      "OHDSI collaborator information" ;
-        rdfs:domain       schema:Person ; 
+        rdfs:domain       schema:Person ;
         rdfs:range        schema:URL .
 
 schema:githubHandle a owl:ObjectProperty ;
         rdfs:label        "githubHandle" ;
         rdfs:comment      "GitHub username of a person" ;
-        rdfs:domain       schema:Person ; 
+        rdfs:domain       schema:Person ;
         rdfs:range        [ a            owl:Class ;
                             owl:unionOf  ( schema:Text schema:URL )
-                          ] .		
+                          ] .
 
 schema:googlescholarId a owl:ObjectProperty ;
         rdfs:label        "googlescholarId" ;
         rdfs:comment      "Google Scholar ID of a person" ;
-        rdfs:domain       schema:Person ; 
+        rdfs:domain       schema:Person ;
         rdfs:range        [ a            owl:Class ;
                             owl:unionOf  ( schema:Text schema:URL )
-                          ] .				
+                          ] .
