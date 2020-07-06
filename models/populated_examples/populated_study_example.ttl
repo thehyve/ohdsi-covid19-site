@@ -5,6 +5,7 @@
 @prefix snomed: <http://snomed.info/id/> .
 @prefix person: <http://data.ohdsi.org/person/> .
 @prefix concept: <http://data.ohdsi.org/concept/> .
+@prefix database: <http://data.ohdsi.org/database/> .
 
 <http://data.ohdsi.org/study/hcq> a schema:MedicalObservationalStudy ;
 	schema:identifier "EUPAS34497" ;
@@ -25,7 +26,7 @@
 	schema:result ohdsi:Shiny ;
 	schema:publication ohdsi:StudyPublication ; #Placeholder for study publication, no publication available
 	schema:hasPart ohdsi:Atlas, ohdsi:RCode ;
-	ohdsi:database ohdsi:SIDIAP, ohdsi:THIN, ohdsi:IPCI, ohdsi:CPRD .
+	ohdsi:database database:sidiap, database:thin, database:ipci, database:cprd .
 
 ohdsi:StudydesignHCQ a schema:MedicalObservationalStudyDesign ;
 	schema:identifier "..." ; #There is no protocol identifier available for this study
@@ -197,18 +198,18 @@ ohdsi:RCode a schema:SoftwareSourceCode ;
 	schema:version "..." ; #Not clear which version of Atlas is used
 	schema:maintainer ohdsi:OHDSI .
 
-ohdsi:SIDIAP a ohdsi:Database ;
+database:sidiap a ohdsi:Database ;
 	schema:identifier "SIDIAP" ;
 	schema:name "The Information System for the Development of Research in Primary Care" .
 
-ohdsi:THIN a ohdsi:Database ;
+database:thin a ohdsi:Database ;
 	schema:identifier "THIN" ;
 	schema:name "The Health Improvement Network" .
 
-ohdsi:IPCI a ohdsi:Database ;
+database:ipci a ohdsi:Database ;
 	schema:identifier "IPCI" ;
 	schema:name "Integrated Primary Care Information" .
 
-ohdsi:CPRD a ohdsi:Database ;
+database:cprd a ohdsi:Database ;
 	schema:identifier "CPRD" ;
 	schema:name "Clinical Practice Research Datalink" .
