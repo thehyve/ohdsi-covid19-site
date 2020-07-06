@@ -8,109 +8,89 @@
 
 <http://data.ohdsi.org/study/hcq> a schema:MedicalObservationalStudy ;
 	schema:identifier "EUPAS34497" ;
-	schema:name "Risk of hydroxychloroquine, alone and in combination with azithromycin: a multi-national study" ; 
+	schema:name "Risk of hydroxychloroquine, alone and in combination with azithromycin: a multi-national study" ;
 	schema:description "Retrospective, real-world, observational study to estimate the population-level effects of hydroxychloroquine among patients with rheumatoid arthritis. Designed and executed during the OHDSI community COVID-19 virtual study-a-thon (March 26-29) to inform healthcare decision-making in response to the current global pandemic." ;
-	ohdsi:studyType "Clinical application" ;
-	ohdsi:analyticsUseCase "Population level estimation" ;
+	ohdsi:studyType "Clinical Application" ;
+	ohdsi:analyticsUseCase "Population-Level Estimation" ;
 	schema:mainEntityOfPage <http://www.encepp.eu/encepp/viewResource.htm?id=34498> ;
 	schema:studyDesign ohdsi:StudydesignHCQ ;
 	schema:status ohdsi:ResultsAvailable ;
-	schema:healthCondition ohdsi:Covid19, ohdsi:conditionPH ; #Add extra placeholder, in case of multiple health conditions
-	schema:studySubject concept:1777087, ohdsi:Sulfasalazine, ohdsi:Azithromycin, ohdsi:Amoxicillin ;
+	schema:healthCondition concept:37311061, concept:80809 ;
+	schema:studySubject concept:1777087, concept:964339, concept:1734104, concept:1713332 ;
 	schema:subjectOf ohdsi:Covid19Studyathon ;
 	schema:author person:JenniferLane, person:JamesWeaver, person:DanielPrietoAlhambra, person:MartijnSchuemie ;
 	schema:datePublished "2020-04-02"^^xsd:date ;
 	schema:citation ohdsi:referencePH, ohdsi:referencePH2 ; #Multiple placeholders for multiple health conditions ;
 	schema:discussionUrl "https://forums.ohdsi.org/" ; #Link to discussions on forum needed ;
-	schema:result ohdsi:Shiny ; 
-	schema:publication ohdsi:StudyPublication ; #Placeholder for study publication, no publication available 
-	schema:hasPart ohdsi:Atlas, ohdsi:RCode ; 
+	schema:result ohdsi:Shiny ;
+	schema:publication ohdsi:StudyPublication ; #Placeholder for study publication, no publication available
+	schema:hasPart ohdsi:Atlas, ohdsi:RCode ;
 	ohdsi:database ohdsi:SIDIAP, ohdsi:THIN, ohdsi:IPCI, ohdsi:CPRD .
-	
+
 ohdsi:StudydesignHCQ a schema:MedicalObservationalStudyDesign ;
-	schema:identifier "..." ; #There is no protocol identifier available for this study 
+	schema:identifier "..." ; #There is no protocol identifier available for this study
 	schema:version "1.4"^^xsd:decimal ;
 	schema:dateModified "2020-04-01"^^xsd:date ;
 	schema:url "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine/blob/master/documents/OHDSI%20COVID-19%20Studyathon_PLE_HCQ_Protocol_v1.4.pdf" ;
 	schema:license "". #Placeholder for protocol license
 
-ohdsi:Covid19 a schema:MedicalCondition ;
+concept:37311061 a schema:MedicalCondition ;
 	schema:name "Disease caused by severe acute respiratory syndrome coronavirus 2" ;
-	schema:code ohdsi:37311061, ohdsi:SNOMED84053900 .
-	
-ohdsi:37311061 a schema:MedicalCode ;
-	schema:codeValue "37311061"^^xsd:string ;
-	schema:codingSystem "OMOP Standardized Vocabularies" ;
-	owl:equivalentClass ohdsi:Snomed84053900 .
+	schema:identifier "37311061"
+	schema:code _:840539006 .
 
-ohdsi:SNOMED84053900 a schema:MedicalCode ;
-	schema:codeValue "84053900"^^xsd:string ;
+_:840539006 a schema:MedicalCode ;
+	schema:codeValue "840539006" ;
 	schema:codingSystem "SNOMED CT" ;
-	schema:sameAs "" .
+	schema:sameAs "http://snomed.info/id/840539006" .
 
-ohdsi:conditionPH a schema:MedicalCondition ; #Add placeholder for when multiple Medical Conditions are being studied.
-	schema:name "" ;
-	schema:code "ohdsi:conceptPH", "ohdsi:sourcetermPH" . 
-	
-ohdsi:conceptPH a schema:MedicalCode ;
-	schema:codeValue "1234567"^^xsd:string ;
-	schema:codingSystem "OMOP Standardized Vocabularies" ;
-	owl:equivalentClass ohdsi:sourcetermPH .
-	
-ohdsi:sourcetermPH a schema:MedicalCode ;
-	schema:codeValue "9876"^^xsd:string ;
-	schema:codingSystem "" ;
-	schema:sameAs "" .
-		
+concept:80809 a schema:MedicalCondition ; #Add placeholder for when multiple Medical Conditions are being studied.
+	schema:name "Rheumatoid arthritis" ;
+	schema:identifier "80809" ;
+	schema:code _:69896004 .
+
+_:69896004 a schema:MedicalCode ;
+	schema:codeValue "69896004" ;
+	schema:codingSystem "SNOMED CT" ;
+	schema:sameAs "http://snomed.info/id/69896004" .
+
 concept:1777087 a schema:Drug ;
-	schema:name "Hydroxychloroquine" ; 
+	schema:name "Hydroxychloroquine" ;
 	schema:identifier "1777087" ;
-	schema:code _:5521 ;
-	
+	schema:code _:5521 .
+
 _:5521 a schema:MedicalCode ;
 	schema:codeValue "5521" ;
 	schema:codingSystem "RxNorm" ;
 	schema:sameAs "http://purl.bioontology.org/ontology/RXNORM/5521" .
 
-ohdsi:Sulfasalazine a schema:Drug ;
+concept:964339 a schema:Drug ;
 	schema:name "Sulfasalazine" ;
-	schema:code ohdsi:964339, ohdsi:Rx9524 .
-	
-ohdsi:964339 a schema:MedicalCode ;
-	schema:codeValue "964339"^^xsd:string ;
-	schema:codingSystem "OMOP Standardized Vocabularies" ;
-	owl:equivalentClass ohdsi:Rx9524 .
-	
-ohdsi:Rx9524 a schema:MedicalCode ;
-	schema:codeValue "9524"^^xsd:string ;
+	schema:identifier "964339" ;
+	schema:code _:9524 .
+
+_:9524 a schema:MedicalCode ;
+	schema:codeValue "9524" ;
 	schema:codingSystem "RxNorm" ;
 	schema:sameAs "http://purl.bioontology.org/ontology/RXNORM/9524" .
 
-ohdsi:Azithromycin a schema:Drug ;
-	schema:name "Azithromycin"; 
-	schema:code ohdsi:1734104, ohdsi:Rx18631 .
-	
-ohdsi:1734104 a schema:MedicalCode ;
-	schema:codeValue "1734104"^^xsd:string ;
-	schema:codingSystem "OMOP Standardized Vocabularies" ;
-	owl:equivalentClass ohdsi:Rx18631 .
-	
-ohdsi:Rx18631 a schema:MedicalCode ;
-	schema:codeValue "18631"^^xsd:string ;
+concept:1734104 a schema:Drug ;
+	schema:name "Azithromycin" ;
+	schema:identifier "1734104" ;
+	schema:code _:18631 .
+
+_:18631 a schema:MedicalCode ;
+	schema:codeValue "18631" ;
 	schema:codingSystem "RxNorm" ;
 	schema:sameAs "http://purl.bioontology.org/ontology/RXNORM/18631" .
 
-ohdsi:Amoxicillin a schema:Drug ;
-	schema:name "Amoxicillin"; 
-	schema:code ohdsi:1713332, ohdsi:Rx723.
-	
-ohdsi:1713332 a schema:MedicalCode ;
-	schema:codeValue "1713332"^^xsd:string ;
-	schema:codingSystem "OMOP Standardized Vocablaries" ;
-	owl:equivalentClass ohdsi:Rx18631 .
+concept:1713332 a schema:Drug ;
+	schema:name "Amoxicillin" ;
+  schema:identifier "1713332" ;
+	schema:code _:723 .
 
-ohdsi:Rx723 a schema:MedicalCode ;
-	schema:codeValue "723"^^xsd:string ;
+_:723 a schema:MedicalCode ;
+	schema:codeValue "723" ;
 	schema:codingSystem "RxNorm" ;
 	schema:sameAs "http://purl.bioontology.org/ontology/RXNORM/723" .
 
@@ -126,7 +106,7 @@ ohdsi:OHDSI a schema:Organization ;
 
 person:JenniferLane a schema:Person ;
 	schema:name "Jennifer Lane" ;
-	schema:honorificPrefix "" ; 
+	schema:honorificPrefix "" ;
 	schema:honorificSuffix "M.D.", "" ;
 	schema:jobTitle "Versus Arthritis Clinical Research Fellow in Orthopaedic Surgery" ;
 	schema:worksFor ohdsi:UniversityOxfordTOS ;
@@ -135,15 +115,15 @@ person:JenniferLane a schema:Person ;
 	ohdsi:ohdsiCollaborator "https://www.ohdsi.org/who-we-are/collaborators/jennifer-lane/" ;
 	ohdsi:githubHandle "" ;
 	ohdsi:googlescholarId "" .
-	
+
 ohdsi:UniversityOxfordTOS a schema:Organization ;
 	schema:name "University of Oxford" ;
 	schema:department "Trauma and Orthopaedic Surgery" ;
 	schema:address "Windmill Road, Headington, Oxford, OX3 7HE, UK" .
-	
+
 person:JamesWeaver a schema:Person ;
 	schema:name "James Weaver" ;
-	schema:honorificPrefix "" ; 
+	schema:honorificPrefix "" ;
 	schema:honorificSuffix "MPH", "" ;
 	schema:jobTitle "Associate Director of Epidemiology Analytics" ;
 	schema:worksFor ohdsi:JJ ;
@@ -152,15 +132,15 @@ person:JamesWeaver a schema:Person ;
 	ohdsi:ohdsiCollaborator "https://www.ohdsi.org/who-we-are/collaborators/james-weaver/" ;
 	ohdsi:githubHandle "https://github.com/jamieweaver" ;
 	ohdsi:googlescholarId "" .
-	
+
 ohdsi:JJ a schema:Organization ;
 	schema:name "Johnson & Johnson" ;
 	schema:department "Epidemiology analytics" ;
 	schema:address "" .
-	
+
 person:DanielPrietoAlhambra a schema:Person ;
 	schema:name "Daniel Prieto-Alhambra" ;
-	schema:honorificPrefix "" ; 
+	schema:honorificPrefix "" ;
 	schema:honorificSuffix "M.D.", "MSc", "PhD" ;
 	schema:jobTitle "Associate Director of Epidemiology Analytics" ;
 	schema:worksFor ohdsi:UniversityOxfordCSM ;
@@ -174,10 +154,10 @@ ohdsi:UniversityOxfordCSM a schema:Organization ;
 	schema:name "University of Oxford" ;
 	schema:department "Centre for Statistics in Medicine" ;
 	schema:address "Windmill Road, Headington, Oxford, OX3 7HE, UK" .
-	
+
 person:MartijnSchuemie a schema:Person ;
 	schema:name "Martijn Schuemie" ;
-	schema:honorificPrefix "" ; 
+	schema:honorificPrefix "" ;
 	schema:honorificSuffix "PhD", "" ;
 	schema:jobTitle "Research Fellow, Epidemiology Analyics" ;
 	schema:worksFor ohdsi:JJ ;
@@ -191,44 +171,44 @@ ohdsi:referencePH a schema:ScholarlyArticle ;  #There are no citations available
 	schema:url "https://pubmed.ncbi.nlm.nih.gov" ;
 	schema:name "Article title" ;
 	schema:author "Author placeholder" ; #Store as Person class
-	schema:datePublished "1970-01-01"^^xsd:date . 
-	
+	schema:datePublished "1970-01-01"^^xsd:date .
+
 ohdsi:referencePH2 a schema:ScholarlyArticle ;  #There are no citations available for this study this is a placeholder
 	schema:url "https://pubmed.ncbi.nlm.nih.gov" ;
 	schema:name "Article title" ;
 	schema:author "Author placeholder" ; #Store as Person class
 	schema:datePublished "1970-01-01"^^xsd:date .
-	
+
 ohdsi:Shiny	a schema:WebApplication ;
 	schema:url "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/" .
 
 ohdsi:StudyPublication a schema:MedicalScholarlyArticle ; #Placeholder for publication
-	schema:url "https://pubmed.ncbi.nlm.nih.gov" . 
+	schema:url "https://pubmed.ncbi.nlm.nih.gov" .
 
 ohdsi:Atlas a schema:SoftwareApplication ;
 	schema:name "Atlas" ;
 	schema:installURL "https://github.com/OHDSI/Atlas/wiki/Atlas-Setup-Guide" ;
-	schema:softwareVersion "..." ; #Not clear which version of Atlas is used 
+	schema:softwareVersion "..." ; #Not clear which version of Atlas is used
 	schema:maintainer ohdsi:OHDSI .
 
 ohdsi:RCode a schema:SoftwareSourceCode ;
 	schema:codeRepository "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine" ;
 	schema:programmingLanguage "R" ;
-	schema:version "..." ; #Not clear which version of Atlas is used 
+	schema:version "..." ; #Not clear which version of Atlas is used
 	schema:maintainer ohdsi:OHDSI .
 
 ohdsi:SIDIAP a ohdsi:Database ;
-	schema:identifier "SIDIAP" ; 
+	schema:identifier "SIDIAP" ;
 	schema:name "The Information System for the Development of Research in Primary Care" .
 
 ohdsi:THIN a ohdsi:Database ;
-	schema:identifier "THIN" ; 
+	schema:identifier "THIN" ;
 	schema:name "The Health Improvement Network" .
 
 ohdsi:IPCI a ohdsi:Database ;
-	schema:identifier "IPCI" ; 
+	schema:identifier "IPCI" ;
 	schema:name "Integrated Primary Care Information" .
 
 ohdsi:CPRD a ohdsi:Database ;
-	schema:identifier "CPRD" ; 
-	schema:name "Clinical Practice Research Datalink" .	
+	schema:identifier "CPRD" ;
+	schema:name "Clinical Practice Research Datalink" .
