@@ -21,7 +21,7 @@
 	schema:subjectOf ohdsi:Covid19Studyathon ;
 	schema:author person:JenniferLane, person:JamesWeaver, person:DanielPrietoAlhambra, person:MartijnSchuemie ;
 	schema:datePublished "2020-04-02"^^xsd:date ;
-	schema:citation ohdsi:referencePH, ohdsi:referencePH2 ; #Multiple placeholders for multiple health conditions ;
+	schema:citation ohdsi:referencePH, ohdsi:referencePH2 ; #Multiple placeholders for multiple citations ;
 	schema:discussionUrl "https://forums.ohdsi.org/" ; #Link to discussions on forum needed ;
 	schema:result ohdsi:Shiny ;
 	schema:publication ohdsi:StudyPublication ; #Placeholder for study publication, no publication available
@@ -45,7 +45,7 @@ _:840539006 a schema:MedicalCode ;
 	schema:codingSystem "SNOMED CT" ;
 	schema:sameAs "http://snomed.info/id/840539006" .
 
-concept:80809 a schema:MedicalCondition ; #Add placeholder for when multiple Medical Conditions are being studied.
+concept:80809 a schema:MedicalCondition ;
 	schema:name "Rheumatoid arthritis" ;
 	schema:identifier "80809" ;
 	schema:code _:69896004 .
