@@ -37,7 +37,7 @@ ohdsi:StudydesignHCQ a schema:MedicalObservationalStudyDesign ;
 
 concept:37311061 a schema:MedicalCondition ;
 	schema:name "Disease caused by severe acute respiratory syndrome coronavirus 2" ;
-	schema:identifier "37311061"
+	schema:identifier "37311061" ;
 	schema:code _:840539006 .
 
 _:840539006 a schema:MedicalCode ;
