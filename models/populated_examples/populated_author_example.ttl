@@ -1,5 +1,5 @@
 @prefix schema: <http://schema.org/> .
-@prefix ohdsi: <http://ohdsi.data.org/> .
+@prefix ohdsi: <http://data.ohdsi.org/> .
 
 ohdsi:JenniferLane a schema:Person ; 
 	schema:name "Jennifer Lane" ;
