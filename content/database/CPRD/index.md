@@ -13,7 +13,7 @@ alternateName: "ARS"
 
 identifier: "ARS1"
 
-id: "Dataset_ARS"
+id: "ars"
 
 # date format
 dateCreated: "1996-01-01"
@@ -27,30 +27,26 @@ description: "Italy has a national health care system, funded by national tax bu
 
 databaseUrl: "https://www.ars.toscana.it/it/"
 
+# date format
+startDate: "1996-01-01"
+
+# date format
+endDate: "2018-02-15"
+
 version: "5.4"
 
-license: "open-source"
+associatedInstitution: "Agenzia regionale di sanità della Toscana"
 
-associatedInstitution: 
-  id: "ARSToscana"
-  name: "Agenzia regionale di sanità della Toscana"
-
-publication: 
-  id: "27014709"
-  name: "Data Extraction and Management in Networks of Observational Health Care Databases for Scientific Research: A Comparison of EU-ADR, OMOP, Mini-Sentinel and MATRICE Strategies"
-  author: "Gini R"
-  publisher: "EGEMS (Washington, DC)"
-  dateCreated: "2016-02-08"
-  identifier: "https://pubmed.ncbi.nlm.nih.gov/27014709/"
+publication: "https://doi.org/10.13063/2327-9214.1189"
 
 spatialCoverage: "Firenze"
 
 temporalCoverage: "P2Y6M5D"
 
 # Array
-fundingTypes:
-- "European Public Funding"
-- "Funding From Industry / Contract Research" 
+databaseCharacteristic: 
+- "EHR data"
+- "Primary care records"
 
 # ohdsi:populationSize
 populationSize: "5000000"
@@ -60,26 +56,22 @@ administrativeContact:
   name: "Rosa Gini"
   email: "rosa.gini@ars.toscana.it"
   telephone: "+393357757388"
-  address: "via Dazzi 1, 50141 Firenze, Italy"
 
 principalInvestigator:
   id: "RosaGini"
   name: "Rosa Gini"
   email: "rosa.gini@ars.toscana.it"
   telephone: "+393357757388"
-  address: "via Dazzi 1, 50141 Firenze, Italy"
 
 scientificContact:
   id: "RosaGini"
   name: "Rosa Gini"
   email: "rosa.gini@ars.toscana.it"
   telephone: "+393357757388"
-  address: "via Dazzi 1, 50141 Firenze, Italy"
 
 technicalContact:
   id: "RosaGini"
   name: "Rosa Gini"
   email: "rosa.gini@ars.toscana.it"
   telephone: "+393357757388"
-  address: "via Dazzi 1, 50141 Firenze, Italy"
 ---

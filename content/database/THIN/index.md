@@ -9,73 +9,68 @@ lastmod: 2020-06-05T15:48:57+02:00
 featured: false
 draft: false
 
-alternateName: 
+alternateName: ""
 
-identifier: 
+identifier: ""
+
+id: ""
 
 # date format
-dateCreated: 
+dateCreated: ""
 
 # date format
-dateModified: 
+dateModified: ""
 
-databaseSystem: 
+databaseSystem: ""
 
-description: 
+description: ""
 
-databaseUrl: 
+databaseUrl: ""
 
-version: 
+# date format
+startDate: ""
 
-license: 
+# date format
+endDate: ""
 
-associatedInstitution: 
-  id: 
-  name: 
+version: ""
 
-publication: 
-  id: 
-  name: 
-  author: 
-  publisher: 
-  dateCreated: 
-  identifier: 
+associatedInstitution: ""
 
-spatialCoverage: 
+# URL
+publication: ""
 
-temporalCoverage: 
+spatialCoverage: "" 
+ 
+temporalCoverage: ""
 
 # Array
-fundingTypes: []
+databaseCharacteristic: []
 
 # ohdsi:populationSize
-populationSize: 
+populationSize: ""
 
 administrativeContact:
-  id: 
-  name: 
-  email: 
-  telephone: 
-  address: 
+  id: ""
+  name: ""
+  email: ""
+  telephone: "" 
 
 principalInvestigator:
-  id: 
-  name: 
-  email: 
-  telephone: 
-  address: 
+  id: ""
+  name: ""
+  email: ""
+  telephone: ""
 
 scientificContact:
-  id: 
-  name: 
-  email: 
-  telephone: 
-  address: 
+  id: ""
+  name: ""
+  email: ""
+  telephone: ""
 
 technicalContact:
-  id: 
-  name: 
-  email: 
-  telephone: 
-  address: 
+  id: ""
+  name: ""
+  email: ""
+  telephone: "" 
 ---

@@ -27,28 +27,25 @@ description: ""
 
 databaseUrl: ""
 
+# date format
+startDate: ""
+
+# date format
+endDate: ""
+
 version: ""
 
-license: ""
+associatedInstitution: ""
 
-associatedInstitution: 
-  id: ""
-  name: ""
-
-publication: 
-  id: ""
-  name: ""
-  author: ""
-  publisher: "" 
-  dateCreated: ""
-  identifier: ""
+# URL
+publication: ""
 
 spatialCoverage: "" 
  
 temporalCoverage: ""
 
 # Array
-fundingTypes: []
+databaseCharacteristic: []
 
 # ohdsi:populationSize
 populationSize: ""
@@ -58,26 +55,22 @@ administrativeContact:
   name: ""
   email: ""
   telephone: "" 
-  address: ""
 
 principalInvestigator:
   id: ""
   name: ""
   email: ""
   telephone: ""
-  address: ""
 
 scientificContact:
   id: ""
   name: ""
   email: ""
   telephone: ""
-  address: ""
 
 technicalContact:
   id: ""
   name: ""
   email: ""
   telephone: "" 
-  address: ""
 ---
