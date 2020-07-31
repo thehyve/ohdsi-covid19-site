@@ -1,0 +1,21 @@
+# Publication types.
+# Each item in the list corresponds to an item in the language packs.
+status = [ 
+  "study_status_complete",
+  "study_status_design_finalized",
+  "study_status_repo_created",
+  "study_status_started",
+  "study_status_results_available"
+]
+
+types = [
+  "study_type_clinical_app",
+  "study_type_methods_research"
+]
+
+usecases = [
+  "study_usecase_characterization",
+  "study_usecase_population_level_estimation",
+  "study_usecase_patient_level_prediction",	
+  "study_usecase_characterization_and_population_level_estimation"
+]
