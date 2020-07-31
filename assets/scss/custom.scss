@@ -1,15 +1,106 @@
-.btn{
-  line-height: 1;
-}
-.navbar{
-  font-size: 1em;
-}
-.tab-pane{
-  padding: 1em;
-  border: 1px solid #dee2e6;
-  border-top: none;
+// .btn{
+//   line-height: 1;
+// }
+// .navbar{
+//   font-size: 1em;
+// }
+// .tab-pane{
+//   padding: 1em;
+//   border: 1px solid #dee2e6;
+//   border-top: none;
+// }
+
+// .ul-organization{
+//   list-style: none;
+// }
+
+// Override this file to add your own SCSS styling.
+// .btn-links .btn{
+//   padding: 0.5rem
+// }
+
+.people-widget{
+  .people-person{
+    .portrait-title{
+      margin-bottom: 1em;
+      h2{margin-bottom:0}
+      h3{margin:0}
+    }
+  }
 }
 
-.ul-organization{
-  list-style: none;
+.tab-content{
+  border: 1px solid rgb(222, 226, 230);
+  border-top: none;
+  .tab-pane{
+    padding: 1em;
+  }
 }
+
+.media-body{
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1em;
+}
+
+footer{
+  //background-color: #eee;
+  p{
+    text-align: inherit;
+  }
+  .powered-by{
+    text-align: center;
+  }
+  // a{
+  //   font-size: 0.75em;
+  // }
+} 
+
+.logo-container{
+  text-align: center;
+  .logo-image{
+   
+    @media screen and (max-width: 768px){
+      width: 50%;
+      height: auto;
+    }
+    width: 100%;
+    height: auto;
+    // height: 50px;
+    // width: auto;
+    // display: inline;
+  }
+}
+
+.custom-site-header{
+  height: 50vh; padding: 0; position: relative;
+  .container{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+}
+
+.custom-header{
+  height: 20vh; padding: 0; position: relative;
+  .container{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    transform: translateY(-50%);
+  }
+}
+
+.contact-widget{
+  i{
+    color: $sta-primary;
+  }
+
+
+}
+
+// h3.article-title{
+//   font-weight: 400;
+// }
+

@@ -9,6 +9,19 @@ lastmod: 2020-06-17T17:50:47+02:00
 featured: false
 draft: false
 
+readmeurl: "https://raw.githubusercontent.com/ohdsi-studies/Covid19Icarius/master/README.md"
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder. 
+image:
+  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/pLCdAaMFLTE)'
+  focal_point: ""
+  preview_only: false
+
+# image:
+#   caption: Photo by rawpixel on Unsplash
+#   focal_point: Smart
+
 # what does this ID mean?
 id: Study_ACE
 # encepp ID
@@ -19,9 +32,13 @@ authors:
 - SCYou
 
 # Date format
-datePublished: 02-04-2020
+datePublished: 2020-04-02
 
 studyType: Estimation study
+
+studyUseCase: Characterization
+
+studyStatus: Repo Created
 
 # encepp URL
 studyUrl: http://www.encepp.eu/encepp/viewResource.htm?id=35297
@@ -169,4 +186,10 @@ databases:
 -  THIN
 -  SIDIAP
 -  IPCI
+
+study_type: ["1"]
+
+study_status: ["1"]
+
+study_usecase: ["0"]
 ---

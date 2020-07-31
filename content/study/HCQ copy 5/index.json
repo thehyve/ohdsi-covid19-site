@@ -1,0 +1,33 @@
+{
+ "AnalyticsUseCases": "Population-Level Estimation",
+ "StudyType": "Clinical Application",
+ "Tags": [
+  "Study-a-thon",
+  "COVID-19"
+ ],
+ "StudyLead": [
+  "Jennifer Lane",
+  "James Weaver"
+ ],
+ "StudyLeadForumsTag": [
+  {
+   "Title": "jenniferlane",
+   "URL": "https://forums.ohdsi.org/u/jenniferlane"
+  },
+  {
+   "Title": "jweave17",
+   "URL": "https://forums.ohdsi.org/u/jweave17"
+  }
+ ],
+ "StudyStartDate": "May 31, 2020",
+ "StudyEndDate": "-",
+ "Protocol": {
+  "Title": "PDF (as filed with PASS)",
+  "URL": "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine2/tree/master/documents"
+ },
+ "Publications": "-",
+ "ResultsExplorer": {
+  "Title": "Shiny app",
+  "URL": "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine2/"
+ }
+}

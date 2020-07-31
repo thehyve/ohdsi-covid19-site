@@ -21,7 +21,7 @@ organization:
 
 # Academic Networking
 accounts:
-  forumName: "https://forums.ohdsi.org/u/daniel_prieto"
+  ohdsiForumName: "daniel_prieto"
   githubHandle: ""
   googlescholarId: "https://scholar.google.com/citations?user=hiBxiTYAAAAJ"
   ohdsiCollaborator: "https://www.ohdsi.org/who-we-are/collaborators/dani-prieto-alhambra/"
@@ -34,6 +34,12 @@ honorificSuffix: [
   "PhD",
   "M.D.",
   "MSc"]
+
+# Organizational groups that you belong to (for People widget)
+#   Set this to `[]` or comment out if you are not using People widget.
+user_groups:
+- Researchers
+- Visitors
 ---
 
 

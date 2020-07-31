@@ -14,7 +14,7 @@ baseurl = "/"
 
 # Enter a copyright notice to display in the site footer.
 # To display a copyright symbol, type `&copy;`. For current year, type `{year}`.
-copyright = "&copy; {year} OHDSI studyathon team."
+copyright = "&copy; {year} OHDSI studyathon team. Content licensed under Creative Commons Attribution 4.0 International License."
 
 ############################
 ## Advanced options below ##
@@ -44,6 +44,9 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
   tags = "/tag/:slug/"
   categories = "/category/:slug/"
   publication_types = "/publication-type/:slug/"
+  study_types = "/study-type/:slug/"
+  study_status = "/study-status/:slug/"
+  study_usecases = "/study-usecase/:slug/"
 
 [outputs]
   home = [ "HTML", "RSS", "JSON", "WebAppManifest" ]
@@ -78,6 +81,9 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
   tag = "tags"
   category = "categories"
   publication_type = "publication_types"
+  study_type = "study_type"
+  study_status = "study_status"
+  study_usecase = "study_usecase"
   author = "authors"
 
 # Related content.

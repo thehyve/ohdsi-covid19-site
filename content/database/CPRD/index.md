@@ -16,7 +16,7 @@ identifier: "ARS1"
 id: "ars"
 
 # date format
-dateCreated: "1996-01-01"
+datePublished: "1996-01-01"
 
 # date format
 dateModified: "2020-05-15"

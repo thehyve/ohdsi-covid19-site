@@ -1,0 +1,38 @@
+{
+ "AnalyticsUseCases": "Population-Level Estimation",
+ "StudyType": "Clinical Application",
+ "Tags": [
+  "Study-a-thon",
+  "COVID-19"
+ ],
+ "StudyLead": [
+  "Marc A. Suchard",
+  "Seng Chan You",
+  "Mitchell M. Conover"
+ ],
+ "StudyLeadForumsTag": [
+  {
+   "Title": "msuchard",
+   "URL": "https://forums.ohdsi.org/u/msuchard"
+  },
+  {
+   "Title": "SCYou",
+   "URL": "https://forums.ohdsi.org/u/scyou/"
+  },
+  {
+   "Title": "Conovermitch",
+   "URL": "https://forums.ohdsi.org/u/Conovermitch"
+  }
+ ],
+ "StudyStartDate": "March 26, 2020",
+ "StudyEndDate": "-",
+ "Protocol": {
+  "Title": "PDF",
+  "URL": "https://github.com/ohdsi-studies/Covid19Icarius/blob/master/Documents/COVID19_ACE_ARB_Protocol_Version_1_2.pdf"
+ },
+ "Publications": "-",
+ "ResultsExplorer": {
+  "Title": "Shiny app",
+  "URL": "https://data.ohdsi.org/IcariusSusceptibility/"
+ }
+}

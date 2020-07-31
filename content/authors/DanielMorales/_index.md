@@ -12,8 +12,8 @@ authors:
 bio:
 
 # Organization/Affiliation
-organization:
-  id: ""
+organizations:
+- id: ""
   name: ""
   address: ""
   department: ""
@@ -21,7 +21,7 @@ organization:
 
 # Academic Networking
 accounts:
-  forumName: "https://forums.ohdsi.org/u/danielmorales"
+  ohdsiForumName: "danielmorales"
   githubHandle: ""
   googlescholarId: ""
   ohdsiCollaborator: ""
@@ -33,4 +33,10 @@ honorificPrefix: ""
 honorificSuffix: [
   "M.D.",
   "MSc"]
+
+# Organizational groups that you belong to (for People widget)
+#   Set this to `[]` or comment out if you are not using People widget.
+user_groups:
+- Researchers
+- Visitors
 ---
