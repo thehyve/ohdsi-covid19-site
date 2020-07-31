@@ -1,0 +1,106 @@
+{{ with .network }}
+  <ul class="network-icon" aria-hidden="true">
+    {{ with .ohdsiCollaborator  }}
+      {{ $link := print "https://www.ohdsi.org/who-we-are/collaborators/" . "/"}}
+      {{ $scheme := (urls.Parse $link).Scheme }}
+      {{ $target := "" }}
+      {{ if not $scheme }}
+        {{ $link = .link | relLangURL }}
+      {{ else if in (slice "http" "https") $scheme }}
+        {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+      {{ end }}
+      <li>
+        <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} data-toggle="tooltip" data-placement="top" title="OHDSI Profile">
+          <i class="fas fa-user-circle"></i>
+        </a>
+      </li>
+    {{ end }}
+    {{ with .ohdsiForumName }}
+      {{ $link := print "https://forums.ohdsi.org/u/" . }}
+      {{ $scheme := (urls.Parse $link).Scheme }}
+      {{ $target := "" }}
+      {{ if not $scheme }}
+        {{ $link = .link | relLangURL }}
+      {{ else if in (slice "http" "https") $scheme }}
+        {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+      {{ end }}
+      <li>
+        <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} data-toggle="tooltip" data-placement="top" title="OHDSI Forum">
+          <i class="fas fa-comments"></i>
+        </a>
+      </li>
+    {{ end }}
+
+    {{ with .githubHandle }}
+      {{ $link := print "https://github.com/" . }}
+      {{ $scheme := (urls.Parse $link).Scheme }}
+      {{ $target := "" }}
+      {{ if not $scheme }}
+        {{ $link = .link | relLangURL }}
+      {{ else if in (slice "http" "https") $scheme }}
+        {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+      {{ end }}
+      <li>
+        <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} data-toggle="tooltip" data-placement="top" title="Github">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+    {{ end }}
+    {{ with .googlescholarId }}
+      {{ $link := print "https://scholar.google.co.uk/citations?user=" . }}
+      {{ $scheme := (urls.Parse $link).Scheme }}
+      {{ $target := "" }}
+      {{ if not $scheme }}
+        {{ $link = .link | relLangURL }}
+      {{ else if in (slice "http" "https") $scheme }}
+        {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+      {{ end }}
+      <li>
+        <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} data-toggle="tooltip" data-placement="top" title="Google Scholar">
+          <i class="ai ai-google-scholar"></i>
+        </a>
+      </li>
+    {{ end }}
+    
+    {{ with .orcidIdentifier }}
+      {{ $link := print "https://orcid.org/" . }}
+      {{ $scheme := (urls.Parse $link).Scheme }}
+      {{ $target := "" }}
+      {{ if not $scheme }}
+        {{ $link = .link | relLangURL }}
+      {{ else if in (slice "http" "https") $scheme }}
+        {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+      {{ end }}
+      <li>
+        <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} data-toggle="tooltip" data-placement="top" title="Orcid">
+          <i class="fab fa-orcid"></i>
+        </a>
+      </li>
+    {{ end }}
+    {{ with .twitter }}
+      {{ $link := print "https://twitter.com/" . }}
+      {{ $scheme := (urls.Parse $link).Scheme }}
+      {{ $target := "" }}
+      {{ if not $scheme }}
+        {{ $link = .link | relLangURL }}
+      {{ else if in (slice "http" "https") $scheme }}
+        {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+      {{ end }}
+      <li>
+        <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} data-toggle="tooltip" data-placement="top" title="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    {{ end }}
+    {{ with .email }}
+      {{ $link := . }}
+      {{ $target := "" }}
+      {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+      <li>
+        <a href="mailto:{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} data-toggle="tooltip" data-placement="top" title="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}

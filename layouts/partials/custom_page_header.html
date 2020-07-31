@@ -1,0 +1,181 @@
+{{ $page := . }}
+{{ $featured := (.Resources.ByType "image").GetMatch "*featured*" }}
+{{ $anchor := $page.Params.image.focal_point | default "Smart" }}
+
+{{/* Set default titles for node pages */}}
+{{ $title := .Title }}
+{{ if and (not $title) .IsNode }}
+  {{ if eq .Type "post" }}
+    {{ $title = i18n "posts" }}
+  {{ else if eq .Type "talk" }}
+    {{ $title = i18n "talks" }}
+  {{ else if eq .Type "publication" }}
+    {{ $title = i18n "publications" }}
+  {{ else if eq .Type "study" }}
+    {{ $title = i18n "studies" }}
+  {{end}}
+{{end}}
+
+{{/* $st := .page */}}
+{{ $columns := .Params.design.columns | default "2" }}
+{{ $subtitle := .Params.subtitle }}
+
+{{ $bg := .Params.design.background }}
+  {{ $style := "" }}
+
+  {{ if $bg.color }}
+    {{ $style = printf "background-color: %s;" ($bg.color | default "transparent") }}
+  {{ end }}
+
+  {{ if and $bg.gradient_start $bg.gradient_end }}
+    {{ $style = printf "%sbackground-image: linear-gradient(%s, %s);" $style $bg.gradient_start $bg.gradient_end }}
+  {{ end }}
+
+  {{ if $bg.image }}
+    {{ $darken := "" }}
+    {{ if $bg.image_darken }}
+      {{ $darken = printf "linear-gradient(rgba(0, 0, 0, %s), rgba(0, 0, 0, %s))," (string $bg.image_darken) (string $bg.image_darken) }}
+    {{ end }}
+    {{/* See Hugo note on linking assets in styles: https://github.com/gohugoio/hugoThemes#common-permalink-issues */}}
+    {{ $style = printf "%sbackground-image: %s url('%s');" $style $darken (printf "img/%s" $bg.image | absURL) }}
+    {{ with $bg.image_size }}
+      {{/* Allow sizes: actual, cover, and contain. */}}
+      {{ $style = printf "%sbackground-size: %s;" $style (replace . "actual" "auto") }}
+    {{ end }}
+    {{ with $bg.image_position }}
+      {{/* Allow valid CSS positions including left, center, and right. */}}
+      {{ $style = printf "%sbackground-position: %s;" $style . }}
+    {{ end }}
+  {{ end }}
+
+  {{ with .Params.design.spacing.padding }}
+    {{ $style_pad := printf "padding: %s;" (delimit . " ") }}
+    {{ $style = print $style $style_pad }}
+  {{ end }}
+
+  {{ with .Params.advanced.css_style }}
+    {{ $style = print $style . }}
+  {{ end }}
+
+  {{/* Fix Hugo's ContentBaseName returning wrong file base name when page section is within a bundle. */}}
+  {{ $hash_id := replace .File.ContentBaseName "index" (path.Base (path.Split .Path).Dir) }}
+
+  {{ $widget := or .Params.widget "blank" }}
+  {{ if eq $widget "custom" }}{{ $widget = "blank" }}{{ end }}{{/* Support legacy Custom widget */}}
+  {{ if eq $widget "projects" }}{{ $widget = "portfolio" }}{{ end }}{{/* Support legacy Projects widget */}}
+
+  {{ $widget_path := printf "widgets/%s.html" $widget }}
+  {{ $widget_args := dict "root" $ "page" . "hash_id" $hash_id }}
+  {{ $css_classes := .Params.advanced.css_class | default "" }}
+  {{ $extra_attributes := "" }}
+  {{ $use_container := true }}
+
+  {{/* Special case: Slider widget. */}}
+  {{ if in (slice "slider") $widget }}
+    {{ $css_classes = print $css_classes " carousel slide" }}
+    {{ $extra_attributes = printf "data-ride=\"carousel\" data-interval=\"%s\"" (string .Params.interval | default "5000") }}
+    {{ $use_container = false }}
+  {{ end }}
+
+
+
+<section id="{{$hash_id}}" class="home-section {{printf "wg-%s" (replace $widget "_" "-")}} {{if $bg.text_color_light}}dark{{end}} {{if $bg.image}} bg-image{{if ($bg.image_parallax | default true) }} parallax{{end}}{{end}} {{with $css_classes}}{{.}}{{end}}" {{with $style}}style="{{. | safeCSS}}"{{end}} {{print $extra_attributes | safeHTMLAttr}}>
+  {{if $use_container}}<div class="container">{{end}}
+    {{/* partial $widget_path $widget_args */}}
+    <div class="row">
+      {{ if ne $columns "1" }}
+        <div class="col-12 col-lg-4 section-heading">
+          {{ with $title }}<h1>{{ . | markdownify | emojify }}</h1>{{ end }}
+          {{ with $subtitle }}<p>{{ . | markdownify | emojify }}</p>{{ end }}
+        </div>
+        <div class="col-12 col-lg-8">
+          {{/* $st.Content */}}
+        </div>
+      {{ else }}
+        <div class="col-lg-12">
+          {{ with $title }}<h1>{{ . | markdownify | emojify }}</h1>{{ end }}
+          {{ with $subtitle }}<p>{{ . | markdownify | emojify }}</p>{{ end }}
+          {{/* $st.Content */}}
+        </div>
+      {{ end }}
+    </div>
+  {{if $use_container}}</div>{{end}}
+</section>
+
+{{/* Header image */}}
+{{ if and .Params.header.image (not (and $featured (not .Params.image.preview_only))) }}
+<div class="article-header">
+  {{ $img_src := urls.Parse .Params.header.image }}
+  {{ if $img_src.Scheme }}
+  <img src="{{ .Params.header.image }}" class="article-banner" alt="">
+  {{ else }}
+  <img src="{{ (printf "/img/%s" .Params.header.image) | relURL }}" class="article-banner" alt="">
+  {{ end }}
+
+  {{ with .Params.header.caption }}<span class="article-header-caption">{{ . | markdownify | emojify }}</span>{{ end }}
+</div>
+{{end}}
+
+{{/* Featured image layout */}}
+{{ if and $featured (not .Params.image.preview_only) }}
+
+{{/* Fit image within max size. */}}
+{{ $image := $featured }}
+
+{{/* Determine image placement. */}}
+{{ $placement := .Params.image.placement | default 1 }}{{/* Default to full column width. */}}
+{{ $image_container := "" }}
+{{ if eq $placement 2}}
+  {{ $image_container = "container" }}
+  {{ if gt $featured.Width 1200 }}
+    {{ $image = $featured.Resize "1200x" }}
+  {{ end }}
+{{else if eq $placement 3}}
+  {{ $image_container = "container-fluid" }}
+  {{ $image := $featured.Fit "2560x2560" }}
+{{else}}
+  {{ $image_container = "article-container" }}
+  {{ if gt $featured.Width 720 }}
+    {{ $image = $featured.Resize "720x" }}
+  {{ end }}
+{{end}}
+
+<div class="article-container pt-3">
+  <h2>{{ $title }}</h2>
+
+  {{ with $page.Params.subtitle }}
+  <p class="page-subtitle">{{ . | markdownify | emojify }}</p>
+  {{end}}
+
+  {{ partial "page_metadata" (dict "page" $page "is_list" 0 "share" true) }}
+  {{ partial "page_links_div.html" $page }}
+</div>
+
+{{/* Featured image */}}
+<div class="article-header {{$image_container}} featured-image-wrapper mt-4 mb-4" style="max-width: {{$image.Width}}px; max-height: {{$image.Height}}px;">
+  <div style="position: relative">
+    <img src="{{ $image.RelPermalink }}" alt="{{ with $.Params.image.alt_text }}{{.}}{{ end }}" class="featured-image">
+    {{ with $.Params.image.caption }}<span class="article-header-caption">{{ . | markdownify | emojify }}</span>{{ end }}
+  </div>
+</div>
+{{else}}
+  {{/* Case when page has no image */}}
+
+  {{/* Wider container for nodes */}}
+  {{ $ctnr := "article-container" }}
+  {{ if $page.IsNode }}
+    {{ $ctnr = "container" }}
+  {{end}}
+<div class="{{$ctnr}} pt-3 mt-5">
+  {{/*  <h2>{{ $title }}</h2>  */}}
+
+  {{ with $page.Params.subtitle }}
+  <p class="page-subtitle">{{ . | markdownify | emojify }}</p>
+  {{end}}
+
+  {{ if not .IsNode }}
+    {{ partial "page_metadata" (dict "page" $page "is_list" 0 "share" true) }}
+    {{ partial "page_links_div.html" $page }}
+  {{end}}
+</div>
+{{end}}

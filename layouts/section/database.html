@@ -1,0 +1,120 @@
+{{- define "main" -}}
+
+{{ partial "page_header.html" . }}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="form-row mb-4">
+        <div class="form-group col-12 mb-2">
+          <input type="search" class="form-control filter-search w-100" placeholder="{{ i18n "search_placeholder" }}" autocapitalize="off"
+          autocomplete="off" autocorrect="off" role="textbox" spellcheck="false">
+        </div>
+        <div class="col-12 mb-2">
+          <small id="" class="form-text text-muted">Study Type:</small>
+          <select class="pub-filters pubtype-select form-control form-control-sm" data-filter-group="pubtype">
+            <option value="*">{{ i18n "study_type_all" }}</option>
+            {{ $study_type := partial "functions/get_study_types" $ }}
+            {{ range $index, $taxonomy := site.Taxonomies.study_type }}
+            <option value=".pubtype-{{ (int $index) }}">
+              {{ index $study_type (int $index) }}
+            </option>
+            {{ end }}
+          </select>
+        </div>
+        <div class="col-12 mb-2">
+          <small id="" class="form-text text-muted">Study Status:</small>
+          <select class="pub-filters pubtype-select form-control form-control-sm" data-filter-group="pubstatus">
+            <option value="*">{{ i18n "study_status_all" }}</option>
+            {{ $study_status := partial "functions/get_study_status" $ }}
+            {{ range $index, $taxonomy := site.Taxonomies.study_status }}
+            <option value=".pubstatus-{{ (int $index) }}">
+              {{ index $study_status (int $index) }}
+            </option>
+            {{ end }}
+          </select>
+        </div>
+        <div class="col-12 mb-2">
+          <small id="" class="form-text text-muted">Study Use cases:</small>
+          <select class="pub-filters pubtype-select form-control form-control-sm" data-filter-group="pubusecase">
+            <option value="*">{{ i18n "study_usecase_all" }}</option>
+            {{ $study_usecase := partial "functions/get_study_usecases" $ }}
+            {{ range $index, $taxonomy := site.Taxonomies.study_usecase }}
+            <option value=".pubusecase-{{ (int $index) }}">
+              {{ index $study_usecase (int $index) }}
+            </option>
+            {{ end }}
+          </select>
+        </div>
+        <div class="col-12 mb-2">
+          <small id="" class="form-text text-muted">Study Year:</small>
+          <select class="pub-filters form-control form-control-sm" data-filter-group="year">
+            <option value="*">{{ i18n "study_year_all" }}</option>
+            {{ $years_sorted := $.Scratch.GetSortedMapValues "years" }}
+            {{ if $years_sorted }}
+            {{ range $year := sort $years_sorted "" "desc" }}
+            <option value=".year-{{ $year }}">
+              {{ $year }}
+            </option>
+            {{ end }}
+            {{ end }}
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <div id="container-publications">
+        {{ range .Pages.ByDate.Reverse }}
+
+        {{ if .Params.study_type }}
+          {{ $.Scratch.Set "pubtype" (index .Params.study_type 0) }}
+        {{ else }}
+          {{ $.Scratch.Set "pubtype" 0 }}
+        {{ end }}
+
+        {{ if .Params.study_status }}
+          {{ $.Scratch.Set "pubstatus" (index .Params.study_status 0) }}
+        {{ else }}
+          {{ $.Scratch.Set "pubstatus" 0 }}
+        {{ end }}
+        {{ if .Params.study_usecase }}
+          {{ $.Scratch.Set "pubusecase" (index .Params.study_usecase 0) }}
+        {{ else }}
+          {{ $.Scratch.Set "pubusecase" 0 }}
+        {{ end }}
+
+        <div class="grid-sizer col-lg-12 isotope-item pubtype-{{ $.Scratch.Get "pubtype" }} pubstatus-{{ $.Scratch.Get "pubstatus" }} pubusecase-{{ $.Scratch.Get "pubusecase" }} year-{{ .Date.Format "2006" }}">
+          {{ if eq $.Params.view 1 }}
+            {{ partial "li_list" . }}
+          {{ else if eq $.Params.view 3 }}
+            {{ partial "li_card" . }}
+          {{ else if eq $.Params.view 4 }}
+            {{ partial "li_citation" . }}
+          {{ else }}
+            {{ partial "li_compact" . }}
+          {{ end }}
+        </div>
+
+        {{ end }}
+      </div>
+    </div>
+    <div class="col-lg-12">
+
+      {{ with .Content }}
+      <div class="article-style">{{ . }}</div>
+      {{ end }}
+
+      {{/* Array of distinct years. */}}
+      {{ range .Pages.ByDate.Reverse }}
+        {{ $year := print (.Date.Format "2006") }}
+        {{ $.Scratch.SetInMap "years" $year $year }}
+      {{ end }}
+
+      
+
+      
+
+    </div>
+  </div>
+</div>
+
+{{- end -}}

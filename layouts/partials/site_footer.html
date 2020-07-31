@@ -1,25 +1,96 @@
-<footer class="site-footer">
-  {{ if or (site.GetPage "terms.md") (site.GetPage "privacy.md") }}
-  <p class="powered-by">
-    {{ with site.GetPage "privacy.md" }}
-      {{ printf "<a href=\"%s\">%s</a>" .RelPermalink .Title | safeHTML }}
+<footer class="site-footer mt-3 mt-sm-5">
+  {{ $footer := site.GetPage "footer.md"}}
+  {{ with $footer }}
+  {{ with .Params.logos }}
+  <div class="row logo-container mb-5">
+  {{ range . }}
+  <div class="col-md-4 col-lg-2 mb-5 mb-sm-3">
+  {{ with .url }}<a href="{{.}}" target="_blank" rel="noopener">{{end}}
+    <img class="logo-image mx-auto" src="{{ .img }}" alt="" width="100" height="50">
+  {{with .url}}</a>{{end}}
+  </div>
+  {{ end }}
+  </div>
+  {{ end }}
+  
+  {{if .Params.about}}
+  <div class="row mb-5 text-center text-sm-left">
+    <div class="col-md-6">
+      {{with .Params.about.title}}<h4>{{.}}</h4>{{end}}
+      {{with .Params.about.content}}<p>{{.}}</p>{{end}}
+    </div>
+    <div class="col-md-6">
+      {{ with site.Params.email }}
+      <h4>CONTACT</h4>
+      <p><a href="mailto:{{ . }}">{{ . }}</a></p>
+      {{end}}
+
+      {{ if or (site.GetPage "terms.md") (site.GetPage "privacy.md") (site.GetPage "cookie.md") }}
+      <h4>TERMS OF USE</h4>
+      <p class="">
+      {{ with site.GetPage "terms.md" }}
+        {{ printf "<a href=\"%s\">%s</a>" .RelPermalink .Title | safeHTML }}<br>
+      {{ end }}
+      {{ with site.GetPage "privacy.md" }}
+        {{ printf "<a href=\"%s\">%s</a>" .RelPermalink .Title | safeHTML }}<br>
+      {{ end }}
+      {{ with site.GetPage "cookie.md" }}
+        {{ printf "<a href=\"%s\">%s</a>" .RelPermalink .Title | safeHTML }}
+      {{ end }}
+      </p>
+      {{ end }}
+      <!-- <p>
+      <a href="">Legal notice</a><br>
+      <a href="">Privacy Policy</a><br>
+      <a href="">Cookie Policy</a>
+      </p> -->
+    </div>
+    
+    <!-- <div class="col-md-3">
+      <h2>SOCIAL MEDIA</h2>
+      <div class="iw-so-social-icons iw-text-left">
+        <a href="https://www.youtube.com/channel/UCZueTFaBQsdn_8jI6d6cStA" class="iw-so-social-icon iw-so-social-icon-YOUTUBE">
+          <span class="sow-icon-fontawesome sow-fab" data-sow-icon=""></span></a>
+        <a href="https://www.linkedin.com/company/imi2-ehden/" class="iw-so-social-icon iw-so-social-icon-LINKEDIN">
+          <span class="sow-icon-fontawesome sow-fab" data-sow-icon=""></span></a>
+        <a href="http://www.github.com/EHDEN" class="iw-so-social-icon iw-so-social-icon-GITHUB">
+          <span class="sow-icon-fontawesome sow-fab" data-sow-icon=""></span></a>
+        <a href="https://twitter.com/IMI_EHDEN" class="iw-so-social-icon iw-so-social-icon-TWITTER">
+          <span class="sow-icon-fontawesome sow-fab" data-sow-icon=""></span></a>
+      </div>
+    </div> -->
+    
+  </div>
+  {{else}}
+    {{ if or (site.GetPage "terms.md")  (site.GetPage "privacy.md") (site.GetPage "cookie.md")}}
+      <p class="powered-by">
+        {{ with site.GetPage "terms.md" }}
+          {{ printf "<a href=\"%s\">%s</a>" .RelPermalink .Title | safeHTML }}
+        {{ end }}
+        {{ with site.GetPage "privacy.md" }}
+          {{ if site.GetPage "terms.md" }} &middot; {{ end }}
+          {{ printf "<a href=\"%s\">%s</a>" .RelPermalink .Title | safeHTML }}
+        {{ end }}
+        {{ with site.GetPage "cookie.md" }}
+          {{ if or (site.GetPage "privacy.md") (site.GetPage "terms.md") }} &middot; {{ end }}
+          {{ printf "<a href=\"%s\">%s</a>" .RelPermalink .Title | safeHTML }}
+        {{ end }}
+      </p>
     {{ end }}
-    {{ with site.GetPage "terms.md" }}
-      {{ if site.GetPage "privacy.md" }} &middot; {{ end }}
-      {{ printf "<a href=\"%s\">%s</a>" .RelPermalink .Title | safeHTML }}
-    {{ end }}
-  </p>
+  {{end}}
   {{ end }}
 
-  <p class="powered-by">{{ with site.Copyright }}{{ replace . "{year}" now.Year | markdownify}}{{ end }} Content licensed under <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+  <p class="powered-by">
+    {{ with site.Copyright }}{{ replace . "{year}" now.Year | markdownify}}{{ end }}
+  </p>
 
   {{/* Display copyright license. */}}
-  {{/* partial "site_footer_license" . */}}
+  {{ partial "site_footer_license" . }}
 
   <p class="powered-by">
-    <!-- Powered by the 
-    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for 
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>. -->
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
 
     {{ if not (in (slice "docs" "updates") .Type) }}
     <span class="float-right" aria-hidden="true">

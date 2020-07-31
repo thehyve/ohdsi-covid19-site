@@ -1,0 +1,6 @@
+{{/* Get Publication Types */}}
+{{ $study_usecase := slice }}
+{{ range site.Data.study_taxonomies.usecases }}
+  {{ $study_usecase = $study_usecase | append (i18n . | default "Uncategorized") }}
+{{ end }}
+{{ return $study_usecase }}

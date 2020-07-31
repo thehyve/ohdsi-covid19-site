@@ -4,13 +4,13 @@
   {{ partial "page_header" . }}
 
   <div class="article-container">
-    <div class="article-meta mb-3">
+    <!-- <div class="article-meta mb-3">
       <button type="button" class="btn btn-outline-secondary my-1">{{.Params.databaseSystem }}</button>
       <button type="button" class="btn btn-outline-secondary my-1">Alternate Name: {{.Params.alternateName }}</button>
       <button type="button" class="btn btn-outline-secondary my-1">Version: {{.Params.version }}</button>
       <button type="button" class="btn btn-outline-secondary my-1">License: {{.Params.license }}</button>
       <a type="button" class="btn btn-outline-primary my-1" href="{{.Params.databaseUrl }}"><i class="fas fa-link mr-1"></i>URL</a>
-    </div>
+    </div> -->
     <div class="article-style">
 
       <!-- <p>{{ .Summary }}</p> -->
@@ -215,163 +215,11 @@
     "wd" : "https://www.wikidata.org/wiki/"
   }
 }
+            </code>
           </pre>
         </div>
       </div>
-    
-        
-        {{ if ne .Params.contributor nil }}
-          {{ if (gt (len .Params.contributor) 1) }}
-            <dt>Contributors</dt>
-          {{ else }}
-            <dt>Contributor</dt>
-          {{ end }}
-          <dd>
-            <ol>
-            {{ range .Params.contributor }}
-            <li>{{ .name }}</li>
-            {{ end }}
-            </ol>
-          </dd>
-        {{ end }}
-        
-        
-        
-        {{ if ne .Params.healthCondition nil }}
-          {{ if (gt (len .Params.healthCondition) 1) }}
-            <dt>Health Conditions</dt>
-          {{ else }}
-            <dt>Health Condition</dt>
-          {{ end }}
-          <dd>
-            <ol>
-            {{ range .Params.healthCondition }}
-            <li>
-              <dl>
-                <dt>Type</dt><dd>Medical Condition</dd>
-                <dt>Name</dt><dd>{{ .name }}</dd>
-                <dt>Code</dt><dd>
-                  <dl>
-                    <dt>Type</dt><dd>MedicalCode</dd>
-                    <dt>Term Code</dt><dd>{{ .code.termCode }}</dd>
-                    <dt>Coding System</dt><dd>{{ .code.codingSystem }}</dd>
-                    <dt>In Defined Termset</dt><dd><a href={{ .code.inDefinedTermset }}>{{ .code.inDefinedTermset }}</a></dd>
-                  </dl>
-                </dd>
-              </dl>
-            </li>
-            {{ end }}
-            </ol>
-          </dd>
-        {{ end }}
-
-        {{ if ne .Params.studySubject nil }}
-          {{ if (gt (len .Params.studySubject) 1) }}
-            <dt>Study Subjects</dt>
-          {{ else }}
-            <dt>Study Subject</dt>
-          {{ end }}
-          <dd>
-            <ol>
-            {{ range .Params.studySubject }}
-            <li>
-              <dl>
-                <dt>Type</dt><dd>Drug</dd>
-                <dt>Name</dt><dd>{{ .name }}</dd>
-                <dt>Code</dt><dd>
-                  <dl>
-                    <dt>Type</dt><dd>MedicalCode</dd>
-                    <dt>Term Code</dt><dd>{{ .code.termCode }}</dd>
-                    <dt>Coding System</dt><dd>{{ .code.codingSystem }}</dd>
-                    <dt>In Defined Termset</dt><dd><a href={{ .code.inDefinedTermset }}>{{ .code.inDefinedTermset }}</a></dd>
-                  </dl>
-                </dd>
-              </dl>
-            </li>
-            {{ end }}
-            </ol>
-          </dd>
-        {{ end }}
-
-        {{ if ne .Params.subjectOf nil }}
-          <dt>Subject Of</dt>
-          <dd>
-            <dl>
-              <dt>Type</dt><dd>Event</dd>
-              <dt>Name</dt><dd>{{ .Params.subjectOf.name }}</dd>
-              <dt>Organizer</dt><dd>
-                <dl>
-                  <dt>Type</dt><dd>Organization</dd>
-                  <dt>Name</dt><dd>{{ .Params.subjectOf.organizer.name }}</dd>
-                </dl>
-              </dd>
-              <dt>Location</dt><dd>{{ .Params.subjectOf.location }}</dd>
-              <dt>Start Date</dt><dd>{{ .Params.subjectOf.startDate }}</dd>
-              <dt>End Date</dt><dd>{{ .Params.subjectOf.endDate }}</dd>
-              <dt></dt><dd></dd>
-              <dt></dt><dd></dd>
-              <dt></dt><dd></dd>
-            </dl>
-          </dd>
-        {{ end }}
-        
-        
-
-        {{ if ne .Params.hasPart nil }}
-          {{ if (gt (len .Params.hasPart) 1) }}
-            <dt>Has Parts</dt>
-          {{ else }}
-            <dt>Has Part</dt>
-          {{ end }}
-          <ol>
-            {{ range .Params.hasPart }}
-            <li>
-              <dl>
-                {{ range $key, $value := . }}
-                {{ with (eq $key "@type") }}<dt>Type</dt><dd>{{ $value }}</dd>{{ end }}
-                {{ with (eq $key "name") }}<dt>Name</dt><dd>{{ $value }}</dd>{{ end }}
-                {{ with (eq $key "codeRepository") }}<dt>Code Repository</dt><dd><a href={{ $value }}>{{ $value }}</a></dd>{{ end }}
-                {{ with (eq $key "installURL") }}<dt>Install URL</dt><dd><a href={{ $value }}>{{ $value }}</a></dd>{{ end }}
-                {{ with (eq $key "softwareVersion") }}<dt>Software Version</dt><dd>{{ $value }}</dd>{{ end }}
-                {{ with (eq $key "programmingLanguage") }}<dt>Programming Language</dt><dd>{{ $value }}</dd>{{ end }}
-                {{ with (eq $key "version") }}<dt>Version</dt><dd>{{ $value }}</dd>{{ end }}
-                {{ with (eq $key "maintainer") }}<dt>Maintainer</dt><dd>
-                  <dl>
-                    <dt>Type</dt><dd>Organization</dd>
-                    <dt>Name</dt><dd>{{ $value.name }}</dd>
-                  </dl>{{ end }}
-                {{ end }}
-              </dl>
-            </li>
-            {{ end }}
-            </ol>
-          </dd>
-        {{ end }}
-        
-        {{ if ne .Params.citation nil }}
-          {{ if (gt (len .Params.citation) 1) }}
-            <dt>Citations</dt>
-          {{ else }}
-            <dt>Citation</dt>
-          {{ end }}
-          <dd>
-            <ol>
-            {{ range .Params.citation }}
-            <li>
-              <dl>
-                <dt>Type</dt><dd>Scholarly Article</dd>
-                <dt>Url</dt><dd><a href={{ .Params.citation.url }}>{{ .Params.citation.url }}</a></dd>
-                <dt>Author</dt><dd>{{ .Params.citation.author }}</dd>
-                <dt>Date Published</dt><dd>{{ .Params.citation.datePublished }}</dd>
-                <dt>Headline</dt><dd>{{ .Params.citation.headline }}</dd>
-                <dt>Publisher</dt><dd>{{ .Params.citation.publisher }}</dd>
-              </dl>
-            </li>
-            {{ end }}
-            </ol>
-          </dd>
-        {{ end }}
-      </dl>
+      
       {{ .Content }}
     </div>
 
