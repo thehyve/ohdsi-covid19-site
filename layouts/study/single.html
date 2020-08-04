@@ -4,14 +4,6 @@
   {{ partial "page_header" . }}
 
   <div class="article-container">
-    <div class="article-meta mb-3">
-      <button type="button" class="btn btn-outline-secondary">Identifier: {{.Params.identifier}}</button>
-      <button type="button" class="btn btn-outline-secondary">{{.Params.studyType}}</button>
-      <a type="button" class="btn btn-outline-primary" href="{{.Params.studyUrl}}"><i class="fas fa-link mr-1"></i>URL</a>
-      <a type="button" class="btn btn-outline-primary" href="{{.Params.discussionUrl}}"><i class="fas fa-comments mr-1"></i>Forum Discussion</a>
-      <a type="button" class="btn btn-outline-primary" href="{{.Params.result.url}}"><i class="fas fa-link mr-1"></i>Result</a>
-      <a type="button" class="btn btn-outline-primary" href="{{.Params.license}}"><i class="fas fa-link mr-1"></i>License</a>
-    </div>
     <div class="article-style">
 
       <!-- <p>{{ .Summary }}</p> -->
@@ -32,6 +24,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" id="jsonld-tab" data-toggle="tab" href="#jsonld" role="tab" aria-controls="jsonld" aria-selected="false">JSON-LD</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="readme-tab" data-toggle="tab" href="#readme" role="tab" aria-controls="readme" aria-selected="false">From ReadMe</a>
         </li>
       </ul>
       <div class="tab-content" id="myTabContent">
@@ -378,10 +373,26 @@
 }
           </code></pre>
         </div>
+        <div class="tab-pane fade" id="readme" role="tabpanel" aria-labelledby="readme-tab">
+          {{ $filePath := .File.Dir }} 
+          {{ $url := print "content/" $filePath "index.json"}}
+          {{ if (fileExists $url) -}}
+            {{ $data := getJSON $url }}
+            <p>Analytics Use Case(s): <b>{{$data.AnalyticsUseCases}}</b></p>
+            <p>Study Type: <b>{{$data.StudyType}}</b></p>
+            <p>Tags: <b>{{range $i, $e := $data.Tags}}{{ if $i }}, {{ end }}{{ . }}{{ end }}</b></p>
+            <p>Study Lead: <b>{{range $i, $e := $data.StudyLead}}{{ if $i }}, {{ end }}{{ . }}{{ end }}</b></p>
+            <p>Study Lead Forum Tag: <b>{{range $i, $e := $data.StudyLeadForumsTag}}{{ if $i }}, {{ end }}<a href="{{ .URL }}">{{ .Title }}</a>{{ end }}</b></p>
+            <p>Study Start Date: <b>{{$data.StudyStartDate}}</b></p>
+            <p>Study End Date: <b>{{$data.StudyEndDate}}</b></p>
+            <p>Protocol: <b><a href="{{ $data.Protocol.URL }}">{{ $data.Protocol.Title }}</a></b></p>
+            <p>Publications: <b>{{$data.Publications}}</b></p>
+            <p>Results Explorer: <b><a href="{{ $data.ResultsExplorer.URL }}">{{ $data.ResultsExplorer.Title }}</a></b></p>
+          {{ end }}  
+        </div>
       </div>
       {{ .Content }}
     </div>
-
     {{ partial "page_footer" . }}
 
     <div class="project-related-pages content-widget-hr">

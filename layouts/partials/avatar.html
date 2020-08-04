@@ -3,16 +3,10 @@
 
 {{ $src := "" }}
 {{ $forum_name := "" }}
-{{ $forum_name := .person.accounts.forumName}}
-{{/* range .person.accounts */}}
-  {{/* with .forumName */}}
-    {{/* $forum_name = . */}}
-  {{/* end */}}
-{{/* end */}}
+{{ $forum_name := .person.accounts.ohdsiForumName }}
 
 {{ if $forum_name }}
-  {{/* $ohdsiForumData := getJSON "https://forums.ohdsi.org/u/" $forum_name ".json" */}}
-  {{ $ohdsiForumData := getJSON $forum_name ".json" }}
+  {{ $ohdsiForumData := getJSON "https://forums.ohdsi.org/u/" $forum_name ".json" }}
   {{ with $ohdsiForumData.users }}
     {{ range first 1 . }}
       {{ $src = .avatar_template }}

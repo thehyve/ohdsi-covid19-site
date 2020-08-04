@@ -21,7 +21,7 @@ organization:
 
 # Academic Networking
 accounts:
-  forumName: "https://forums.ohdsi.org/u/jweave17"
+  ohdsiForumName: "jweave17"
   githubHandle: "https://github.com/jamieweaver"
   googlescholarId: ""
   ohdsiCollaborator: "https://www.ohdsi.org/who-we-are/collaborators/james-weaver/"
@@ -34,6 +34,12 @@ honorificSuffix: [
   "",
   "MPH"
 ]
+
+# Organizational groups that you belong to (for People widget)
+#   Set this to `[]` or comment out if you are not using People widget.
+user_groups:
+- Researchers
+- Visitors
 ---
 
 

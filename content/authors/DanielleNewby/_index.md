@@ -21,7 +21,7 @@ organization:
 
 # Academic Networking
 accounts:
-  forumName: ""
+  ohdsiForumName: ""
   githubHandle: ""
   googlescholarId: "https://scholar.google.co.uk/citations?user=sIyODSsAAAAJ&hl=en"
   ohdsiCollaborator: ""
@@ -31,4 +31,10 @@ honorificPrefix: ""
 
 # Array of suffixes (e.g. M.D.)
 honorificSuffix: ["PhD"]
+
+# Organizational groups that you belong to (for People widget)
+#   Set this to `[]` or comment out if you are not using People widget.
+user_groups:
+- Researchers
+- Visitors
 ---

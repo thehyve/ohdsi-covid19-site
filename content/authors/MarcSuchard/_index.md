@@ -21,7 +21,7 @@ organization:
 
 # Academic Networking
 accounts:
-  forumName: "https://forums.ohdsi.org/u/msuchard"
+  ohdsiForumName: "msuchard"
   githubHandle: ""
   googlescholarId: "https://scholar.google.com/citations?user=vF2UV4MAAAAJ&hl=en"
   ohdsiCollaborator: "https://www.ohdsi.org/who-we-are/collaborators/marc-suchard/"
@@ -31,4 +31,10 @@ honorificPrefix: ""
 
 # Array of suffixes (e.g. M.D.)
 honorificSuffix: ["PhD", "M.D."]
+
+# Organizational groups that you belong to (for People widget)
+#   Set this to `[]` or comment out if you are not using People widget.
+user_groups:
+- Researchers
+- Visitors
 ---
