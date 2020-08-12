@@ -16,11 +16,11 @@ study:hcq a schema:MedicalObservationalStudy ;
 	ohdsi:studyType "Clinical Application" ;
 	ohdsi:analyticsUseCase "Population-Level Estimation" ;
 	schema:mainEntityOfPage <http://www.encepp.eu/encepp/viewResource.htm?id=34498> ;
-	schema:studyDesign ohdsi:StudydesignHCQ ;
+	schema:studyDesign <https://covid19.ohdsi.app/study/hcq/design> ;
 	schema:status ohdsi:ResultsAvailable ;
 	schema:healthCondition concept:37311061, concept:80809 ;
 	schema:studySubject concept:1777087, concept:964339, concept:1734104, concept:1713332 ;
-	schema:subjectOf ohdsi:Covid19Studyathon ;
+	schema:subjectOf <https://covid19.ohdsi.app/> ;
 	schema:author person:JenniferLane, person:JamesWeaver, person:DanielPrietoAlhambra, person:MartijnSchuemie ;
 	schema:datePublished "2020-04-02"^^xsd:date ;
 	schema:citation ohdsi:referencePH, ohdsi:referencePH2 ; #Multiple placeholders for multiple citations ;
@@ -137,33 +137,31 @@ person:jweave17 a schema:Person ;
 	schema:name "James Weaver" ;
 	schema:honorificSuffix "MPH", "" ;
 	schema:jobTitle "Associate Director of Epidemiology Analytics" ;
-	schema:worksFor ohdsi:JJ ;
-	ohdsi:orcidIdentifier "" ;
-	ohdsi:forumName "https://forums.ohdsi.org/u/jweave17" ;
-	ohdsi:ohdsiCollaborator "https://www.ohdsi.org/who-we-are/collaborators/james-weaver/" ;
+	schema:worksFor [ a schema:Organization ;
+                     schema:name "Johnson & Johnson" ;
+                     schema:department "Epidemiology analytics" ;
+                     schema:address ""
+                   ] ;
+	ohdsi:orcidID "" ;
+	ohdsi:forumProfile "https://forums.ohdsi.org/u/jweave17" ;
+  schema:mainEntityOfPage "https://www.ohdsi.org/who-we-are/collaborators/james-weaver/" ;
 	ohdsi:githubHandle "https://github.com/jamieweaver" ;
-	ohdsi:googlescholarId "" .
-
-ohdsi:JJ a schema:Organization ;
-	schema:name "Johnson & Johnson" ;
-	schema:department "Epidemiology analytics" ;
-	schema:address "" .
+	ohdsi:googleScholarID "" .
 
 person:daniel_prieto a schema:Person ;
 	schema:name "Daniel Prieto-Alhambra" ;
 	schema:honorificSuffix "M.D.", "MSc", "PhD" ;
 	schema:jobTitle "Associate Director of Epidemiology Analytics" ;
-	schema:worksFor ohdsi:UniversityOxfordCSM ;
-	ohdsi:orcidIdentifier "https://orcid.org/0000-0002-3950-6346" ;
-	ohdsi:forumName "https://forums.ohdsi.org/u/daniel_prieto" ;
-	ohdsi:ohdsiCollaborator "https://www.ohdsi.org/who-we-are/collaborators/dani-prieto-alhambra/" ;
+	schema:worksFor [ a schema:Organization ;
+                     schema:name "University of Oxford" ;
+                     schema:department "Centre for Statistics in Medicine" ;
+                     schema:address "Windmill Road, Headington, Oxford, OX3 7HE, UK"
+                   ] ;
+	ohdsi:orcidID "https://orcid.org/0000-0002-3950-6346" ;
+	ohdsi:forumProfile "https://forums.ohdsi.org/u/daniel_prieto" ;
+  schema:mainEntityOfPage "https://www.ohdsi.org/who-we-are/collaborators/dani-prieto-alhambra/" ;
 	ohdsi:githubHandle "" ;
-	ohdsi:googlescholarId "https://scholar.google.com/citations?user=hiBxiTYAAAAJ" .
-
-ohdsi:UniversityOxfordCSM a schema:Organization ;
-	schema:name "University of Oxford" ;
-	schema:department "Centre for Statistics in Medicine" ;
-	schema:address "Windmill Road, Headington, Oxford, OX3 7HE, UK" .
+	ohdsi:googleScholarID "https://scholar.google.com/citations?user=hiBxiTYAAAAJ" .
 
 person:schuemie a schema:Person ;
 	schema:name "Martijn Schuemie" ;
@@ -171,11 +169,11 @@ person:schuemie a schema:Person ;
 	schema:honorificSuffix "PhD", "" ;
 	schema:jobTitle "Research Fellow, Epidemiology Analyics" ;
 	schema:worksFor ohdsi:JJ ;
-	ohdsi:orcidIdentifier "https://orcid.org/0000-0002-0817-5361" ;
-	ohdsi:forumName "https://forums.ohdsi.org/u/schuemie" ;
-	ohdsi:ohdsiCollaborator "https://www.ohdsi.org/who-we-are/collaborators/martijn-schuemie/" ;
+	ohdsi:orcidID "https://orcid.org/0000-0002-0817-5361" ;
+	ohdsi:forumProfile "https://forums.ohdsi.org/u/schuemie" ;
+  schema:mainEntityOfPage "https://www.ohdsi.org/who-we-are/collaborators/martijn-schuemie/" ;
 	ohdsi:githubHandle "https://github.com/schuemie" ;
-	ohdsi:googlescholarId "https://scholar.google.com/citations?user=oxWLqMkAAAAJ" .
+	ohdsi:googleScholarID "https://scholar.google.com/citations?user=oxWLqMkAAAAJ" .
 
 ohdsi:referencePH a schema:ScholarlyArticle ;  #There are no citations available for this study this is a placeholder
 	schema:url "https://pubmed.ncbi.nlm.nih.gov" ;
