@@ -5,7 +5,7 @@
 @prefix snomed: <http://snomed.info/id/> .
 @prefix person: <https://covid19.ohdsi.app/author/> .
 @prefix concept: <http://data.ohdsi.org/concept/> .
-@prefix database: <http://data.ohdsi.org/database/> .
+@prefix database: <https://covid19.ohdsi.app/database/> .
 @prefix covid19: <https://covid19.ohdsi.app/> .
 @prefix study: <https://covid19.ohdsi.app/study/> .
 
@@ -32,7 +32,7 @@ study:hcq a schema:MedicalObservationalStudy ;
                   schema:mainEntityofPage "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/" ;
                   schema:name "Risk of hydroxychloroquine, alone and in combination with azithromycin: a multi-national study"
                 ] ;
-	schema:publication <https://doi.org/10.13063/2327-9214.1189>, <https://doi.org/10.13063/2327-9214.1189>  ; # Placeholder for study publication, no publication available for this study
+	schema:publication <https://doi.org/10.13063/2327-9214.1189>, <https://doi.org/10.13063/2327-9214.1189>  ; # Placeholder for study publication, no publication available for this study. A study can have multiple publications, hence the duplication.
 	schema:hasPart  [ a schema:SoftwareSourceCode ;
 	                  schema:codeRepository "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine" ;
                     schema:dateModified "2020-04-11"^^xsd:date ; # Last update date GitHub reposity

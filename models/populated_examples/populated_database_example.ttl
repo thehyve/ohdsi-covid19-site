@@ -2,8 +2,9 @@
 @prefix ohdsi: <http://data.ohdsi.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix wd: <https://www.wikidata.org/wiki/> .
+@prefix database: <https://covid19.ohdsi.app/database/> .
 
-<http://data.ohdsi.org/database/ars> a ohdsi:Database ;
+database:ars a ohdsi:Database ;
     schema:identifier "ARS1" ;
     schema:name "Agenzia regionale di sanità della Toscana" ;
     schema:alternateName "ARS" ;
