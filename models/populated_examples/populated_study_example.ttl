@@ -44,19 +44,19 @@ study:hcq a schema:MedicalObservationalStudy ;
 	                  schema:codeRepository "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine" ;
                     schema:dateModified "2020-04-11"^^xsd:date ; # Last update date GitHub reposity
 	                  schema:programmingLanguage "R" ;
-	                  schema:version "..." ;
+	                  schema:version "1"^^xsd:decimal ;
 	                  schema:maintainer ohdsi:OHDSI
                   ],
                   [ a schema:SoftwareApplication ;
                     schema:name "Atlas" ;
 	                  schema:mainEntityofPage "https://github.com/OHDSI/Atlas" ;
-	                  schema:softwareVersion "..." ;
+	                  schema:softwareVersion "1"^^xsd:decimal ;
 	                  schema:maintainer ohdsi:OHDSI
                   ],
                   [ a schema:SoftwareApplication ;  # There can be made use of multiple software tools, this is an example
                     schema:name "Data Quality Dashboard" ;
                     schema:mainEntityofPage "https://github.com/OHDSI/DataQualityDashboard" ;
-                    schema:softwareVersion "..." ;
+                    schema:softwareVersion "1"^^xsd:decimal ;
                     schema:maintainer ohdsi:OHDSI
                   ] ;
 	ohdsi:database database:sidiap, database:thin, database:ipci, database:cprd .
