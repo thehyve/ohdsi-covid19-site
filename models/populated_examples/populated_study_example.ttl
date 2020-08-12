@@ -32,14 +32,7 @@ study:hcq a schema:MedicalObservationalStudy ;
                   schema:mainEntityofPage "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/" ;
                   schema:name "Risk of hydroxychloroquine, alone and in combination with azithromycin: a multi-national study"
                 ] ;
-	schema:publication [ a schema:MedicalScholarlyArticle ; # Placeholder for study publication, no publication available for this study
-	                     schema:mainEntityOfPage "https://pubmed.ncbi.nlm.nih.gov" ; # Should be doi
-                       schema:name "Title of Article"
-                     ],
-                     [ a schema:MedicalScholarlyArticle ; # There could be multiple publications, hence the duplication
-                       schema:mainEntityOfPage "https://pubmed.ncbi.nlm.nih.gov" ; # Should be doi
-                       schema:name "Title of Article"
-                     ] ;
+	schema:publication <https://doi.org/10.13063/2327-9214.1189>, <https://doi.org/10.13063/2327-9214.1189>  ; # Placeholder for study publication, no publication available for this study
 	schema:hasPart  [ a schema:SoftwareSourceCode ;
 	                  schema:codeRepository "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine" ;
                     schema:dateModified "2020-04-11"^^xsd:date ; # Last update date GitHub reposity
