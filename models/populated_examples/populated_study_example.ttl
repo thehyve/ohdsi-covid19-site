@@ -3,11 +3,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix snomed: <http://snomed.info/id/> .
-@prefix person: <http://data.ohdsi.org/person/> .
+@prefix person: <https://covid19.ohdsi.app/author/> .
 @prefix concept: <http://data.ohdsi.org/concept/> .
 @prefix database: <http://data.ohdsi.org/database/> .
+@prefix covid19: <https://covid19.ohdsi.app/> .
+@prefix study: <https://covid19.ohdsi.app/study/> .
 
-<http://data.ohdsi.org/study/hcq> a schema:MedicalObservationalStudy ;
+study:hcq a schema:MedicalObservationalStudy ;
 	schema:identifier "EUPAS34497" ;
 	schema:name "Risk of hydroxychloroquine, alone and in combination with azithromycin: a multi-national study" ;
 	schema:description "Retrospective, real-world, observational study to estimate the population-level effects of hydroxychloroquine among patients with rheumatoid arthritis. Designed and executed during the OHDSI community COVID-19 virtual study-a-thon (March 26-29) to inform healthcare decision-making in response to the current global pandemic." ;
@@ -28,12 +30,12 @@
 	schema:hasPart ohdsi:Atlas, ohdsi:RCode ;
 	ohdsi:database database:sidiap, database:thin, database:ipci, database:cprd .
 
-ohdsi:StudydesignHCQ a schema:MedicalObservationalStudyDesign ;
+<https://covid19.ohdsi.app/study/hcq/design> a schema:MedicalObservationalStudyDesign ;
 	schema:identifier "..." ; #There is no protocol identifier available for this study
 	schema:version "1.4"^^xsd:decimal ;
 	schema:dateModified "2020-04-01"^^xsd:date ;
 	schema:url "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine/blob/master/documents/OHDSI%20COVID-19%20Studyathon_PLE_HCQ_Protocol_v1.4.pdf" ;
-	schema:license "". #Placeholder for protocol license
+	schema:license "" . #Placeholder for protocol license
 
 concept:37311061 a schema:MedicalCondition ;
 	schema:name "Disease caused by severe acute respiratory syndrome coronavirus 2" ;
@@ -95,36 +97,44 @@ _:723 a schema:MedicalCode ;
 	schema:codingSystem "RxNorm" ;
 	schema:sameAs "http://purl.bioontology.org/ontology/RXNORM/723" .
 
-ohdsi:Covid19Studyathon a schema:Event ;
+<https://covid19.ohdsi.app/> a schema:Event ;
 	schema:name "COVID-19 virtual study-a-thon" ;
 	schema:organizer ohdsi:OHDSI ;
-	schema:location "Microsoft Teams" ;
+	schema:location covid19:workspace ;
 	schema:startDate "2020-03-26"^^xsd:date ;
-	schema:endDate "2020-03-29"^^xsd:date .
+	schema:endDate "2020-03-29"^^xsd:date ;
+  schema:mainEntityOfPage <https://www.ohdsi.org/covid-19-updates/> ;
+  schema:recordedIn <https://www.youtube.com/playlist?list=PLpzbqK7kvfeVGZiT1eKO6KxQiN7nzBFK> .
+
+<https://www.youtube.com/playlist?list=PLpzbqK7kvfeVGZiT1eKO6KxQiN7nzBFK> a schema:VideoObject ;
+  schema:uploadDate "2020-03-29"^^xsd:date ;
+  schema:creator ohdsi:OHDSI .
+
+covid19:workspace a schema:VirtualLocation ;
+  schema:name "Microsoft Teams" .
 
 ohdsi:OHDSI a schema:Organization ;
-	schema:name "OHDSI" .
+	schema:name "Observational Health Data Sciences and Informatics" ;
+  schema:mainEntityOfPage <https://www.ohdsi.org/> ;
+  schema:url <https://www.linkedin.com/company/ohdsi/>, <https://twitter.com/ohdsi>, <https://www.youtube.com/user/OHDSIJoinTheJourney> .
 
-person:JenniferLane a schema:Person ;
+person:jenniferlane a schema:Person ;
 	schema:name "Jennifer Lane" ;
-	schema:honorificPrefix "" ;
-	schema:honorificSuffix "M.D.", "" ;
+	schema:honorificSuffix "MD", "MA", "MEd", "MRCS" ;
 	schema:jobTitle "Versus Arthritis Clinical Research Fellow in Orthopaedic Surgery" ;
-	schema:worksFor ohdsi:UniversityOxfordTOS ;
-	ohdsi:orcidIdentifier "" ;
-	ohdsi:forumName "https://forums.ohdsi.org/u/jenniferlane" ;
-	ohdsi:ohdsiCollaborator "https://www.ohdsi.org/who-we-are/collaborators/jennifer-lane/" ;
+	schema:worksFor [ a schema:Organization ;
+                      schema:name "University of Oxford" ;
+                      schema:department "Trauma and Orthopaedic Surgery" ;
+                      schema:address "Windmill Road, Headington, Oxford, OX3 7HE, UK"
+                  ] ;
+	ohdsi:orcidID "" ;
+	ohdsi:forumProfile "https://forums.ohdsi.org/u/jenniferlane" ;
+	schema:mainEntityOfPage "https://www.ohdsi.org/who-we-are/collaborators/jennifer-lane/" ;
 	ohdsi:githubHandle "" ;
-	ohdsi:googlescholarId "" .
+	ohdsi:googleScholarID "" .
 
-ohdsi:UniversityOxfordTOS a schema:Organization ;
-	schema:name "University of Oxford" ;
-	schema:department "Trauma and Orthopaedic Surgery" ;
-	schema:address "Windmill Road, Headington, Oxford, OX3 7HE, UK" .
-
-person:JamesWeaver a schema:Person ;
+person:jweave17 a schema:Person ;
 	schema:name "James Weaver" ;
-	schema:honorificPrefix "" ;
 	schema:honorificSuffix "MPH", "" ;
 	schema:jobTitle "Associate Director of Epidemiology Analytics" ;
 	schema:worksFor ohdsi:JJ ;
@@ -139,9 +149,8 @@ ohdsi:JJ a schema:Organization ;
 	schema:department "Epidemiology analytics" ;
 	schema:address "" .
 
-person:DanielPrietoAlhambra a schema:Person ;
+person:daniel_prieto a schema:Person ;
 	schema:name "Daniel Prieto-Alhambra" ;
-	schema:honorificPrefix "" ;
 	schema:honorificSuffix "M.D.", "MSc", "PhD" ;
 	schema:jobTitle "Associate Director of Epidemiology Analytics" ;
 	schema:worksFor ohdsi:UniversityOxfordCSM ;
@@ -156,7 +165,7 @@ ohdsi:UniversityOxfordCSM a schema:Organization ;
 	schema:department "Centre for Statistics in Medicine" ;
 	schema:address "Windmill Road, Headington, Oxford, OX3 7HE, UK" .
 
-person:MartijnSchuemie a schema:Person ;
+person:schuemie a schema:Person ;
 	schema:name "Martijn Schuemie" ;
 	schema:honorificPrefix "" ;
 	schema:honorificSuffix "PhD", "" ;
