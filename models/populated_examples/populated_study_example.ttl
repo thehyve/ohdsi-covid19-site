@@ -23,9 +23,13 @@ study:hcq a schema:MedicalObservationalStudy ;
 	schema:subjectOf <https://covid19.ohdsi.app/> ;
 	schema:author person:JenniferLane, person:JamesWeaver, person:DanielPrietoAlhambra, person:MartijnSchuemie ;
 	schema:datePublished "2020-04-02"^^xsd:date ;
-	schema:discussionUrl "https://forums.ohdsi.org/" ; #Link to discussions on forum needed ;
-	schema:result ohdsi:Shiny ;
-	schema:publication ohdsi:StudyPublication ; #Placeholder for study publication, no publication available
+	schema:discussionUrl "https://forums.ohdsi.org/" ; # Placeholder for URL to forum discussions, no forum thread available for this study
+	schema:result [ a schema:WebApplication ;
+                  schema:mainEntityofPage "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/"
+                ] ;
+	schema:publication [ a schema:MedicalScholarlyArticle ; # Placeholder for study publication, no publication available for this study
+	                    schema:mainEntityOfPage "https://pubmed.ncbi.nlm.nih.gov"
+                     ] ;
 	schema:hasPart ohdsi:Atlas, ohdsi:RCode ;
 	ohdsi:database database:sidiap, database:thin, database:ipci, database:cprd .
 
@@ -167,18 +171,16 @@ person:schuemie a schema:Person ;
 	schema:honorificPrefix "" ;
 	schema:honorificSuffix "PhD", "" ;
 	schema:jobTitle "Research Fellow, Epidemiology Analyics" ;
-	schema:worksFor ohdsi:JJ ;
+	schema:worksFor [ a schema:Organization ;
+                    schema:name "Johnson & Johnson" ;
+                    schema:department "Epidemiology analytics" ;
+                    schema:address ""
+                  ] ;
 	ohdsi:orcidID "https://orcid.org/0000-0002-0817-5361" ;
 	ohdsi:forumProfile "https://forums.ohdsi.org/u/schuemie" ;
   schema:mainEntityOfPage "https://www.ohdsi.org/who-we-are/collaborators/martijn-schuemie/" ;
 	ohdsi:githubHandle "https://github.com/schuemie" ;
 	ohdsi:googleScholarID "https://scholar.google.com/citations?user=oxWLqMkAAAAJ" .
-
-ohdsi:Shiny	a schema:WebApplication ;
-	schema:url "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/" .
-
-ohdsi:StudyPublication a schema:MedicalScholarlyArticle ; #Placeholder for publication
-	schema:url "https://pubmed.ncbi.nlm.nih.gov" .
 
 ohdsi:Atlas a schema:SoftwareApplication ;
 	schema:name "Atlas" ;
