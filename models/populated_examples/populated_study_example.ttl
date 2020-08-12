@@ -23,7 +23,6 @@ study:hcq a schema:MedicalObservationalStudy ;
 	schema:subjectOf <https://covid19.ohdsi.app/> ;
 	schema:author person:JenniferLane, person:JamesWeaver, person:DanielPrietoAlhambra, person:MartijnSchuemie ;
 	schema:datePublished "2020-04-02"^^xsd:date ;
-	schema:citation ohdsi:referencePH, ohdsi:referencePH2 ; #Multiple placeholders for multiple citations ;
 	schema:discussionUrl "https://forums.ohdsi.org/" ; #Link to discussions on forum needed ;
 	schema:result ohdsi:Shiny ;
 	schema:publication ohdsi:StudyPublication ; #Placeholder for study publication, no publication available
@@ -174,18 +173,6 @@ person:schuemie a schema:Person ;
   schema:mainEntityOfPage "https://www.ohdsi.org/who-we-are/collaborators/martijn-schuemie/" ;
 	ohdsi:githubHandle "https://github.com/schuemie" ;
 	ohdsi:googleScholarID "https://scholar.google.com/citations?user=oxWLqMkAAAAJ" .
-
-ohdsi:referencePH a schema:ScholarlyArticle ;  #There are no citations available for this study this is a placeholder
-	schema:url "https://pubmed.ncbi.nlm.nih.gov" ;
-	schema:name "Article title" ;
-	schema:author "Author placeholder" ; #Store as Person class
-	schema:datePublished "1970-01-01"^^xsd:date .
-
-ohdsi:referencePH2 a schema:ScholarlyArticle ;  #There are no citations available for this study this is a placeholder
-	schema:url "https://pubmed.ncbi.nlm.nih.gov" ;
-	schema:name "Article title" ;
-	schema:author "Author placeholder" ; #Store as Person class
-	schema:datePublished "1970-01-01"^^xsd:date .
 
 ohdsi:Shiny	a schema:WebApplication ;
 	schema:url "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/" .
