@@ -787,7 +787,7 @@ schema:githubHandle  a    owl:ObjectProperty ;
                             owl:unionOf  ( schema:Text schema:URL )
                           ] .
 
-schema:googleScholarID  a  owl:ObjectProperty ;
+schema:googleScholarID  a owl:ObjectProperty ;
         rdfs:label        "googlescholarId" ;
         rdfs:comment      "Google Scholar ID of a person" ;
         rdfs:domain       schema:Person ;

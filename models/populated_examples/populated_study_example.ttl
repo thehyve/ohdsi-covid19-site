@@ -174,7 +174,7 @@ person:jweave17 a schema:Person ;
 
 person:daniel_prieto a schema:Person ;
 	schema:name "Daniel Prieto-Alhambra" ;
-	schema:honorificSuffix "M.D.", "MSc", "PhD" ;
+	schema:honorificSuffix "MD", "MSc", "PhD" ;
 	schema:jobTitle "Associate Director of Epidemiology Analytics" ;
 	schema:worksFor [ a schema:Organization ;
                      schema:name "University of Oxford" ;
