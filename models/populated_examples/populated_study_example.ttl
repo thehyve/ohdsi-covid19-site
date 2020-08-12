@@ -25,10 +25,20 @@ study:hcq a schema:MedicalObservationalStudy ;
 	schema:dateCreated "2020-04-02"^^xsd:date ; # Startdate of study
 	schema:discussionUrl "https://forums.ohdsi.org/" ; # Placeholder for URL to forum discussions, no forum thread available for this study
 	schema:result [ a schema:WebApplication ;
-                  schema:mainEntityofPage "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/"
+                  schema:mainEntityofPage "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/" ;
+                  schema:name "Risk of hydroxychloroquine, alone and in combination with azithromycin: a multi-national study"
+                ],
+                [ a schema:WebApplication ; # A study can have multiple Shiny visualizations available, hence the duplication
+                  schema:mainEntityofPage "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/" ;
+                  schema:name "Risk of hydroxychloroquine, alone and in combination with azithromycin: a multi-national study"
                 ] ;
 	schema:publication [ a schema:MedicalScholarlyArticle ; # Placeholder for study publication, no publication available for this study
-	                     schema:mainEntityOfPage "https://pubmed.ncbi.nlm.nih.gov" # Should be doi
+	                     schema:mainEntityOfPage "https://pubmed.ncbi.nlm.nih.gov" ; # Should be doi
+                       schema:name "Title of Article"
+                     ],
+                     [ a schema:MedicalScholarlyArticle ; # There could be multiple publications, hence the duplication
+                       schema:mainEntityOfPage "https://pubmed.ncbi.nlm.nih.gov" ; # Should be doi
+                       schema:name "Title of Article"
                      ] ;
 	schema:hasPart  [ a schema:SoftwareSourceCode ;
 	                  schema:codeRepository "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine" ;
@@ -42,7 +52,7 @@ study:hcq a schema:MedicalObservationalStudy ;
 	                  schema:softwareVersion "..." ;
 	                  schema:maintainer ohdsi:OHDSI
                   ],
-                  [ a schema:SoftwareApplication ;  # There can be made use of multiple software applications, this is an example
+                  [ a schema:SoftwareApplication ;  # There can be made use of multiple software tools, this is an example
                     schema:name "Data Quality Dashboard" ;
                     schema:mainEntityofPage "https://github.com/OHDSI/DataQualityDashboard" ;
                     schema:softwareVersion "..." ;
