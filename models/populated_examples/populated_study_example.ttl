@@ -22,7 +22,7 @@ study:hcq a schema:MedicalObservationalStudy ;
 	schema:studySubject concept:1777087, concept:964339, concept:1734104, concept:1713332 ;
 	schema:subjectOf <https://covid19.ohdsi.app/> ;
 	schema:author person:JenniferLane, person:JamesWeaver, person:DanielPrietoAlhambra, person:MartijnSchuemie ;
-	schema:dateCreated "2020-04-02"^^xsd:date ; # Startdate of study
+	schema:dateCreated "2020-04-02"^^xsd:date ; # Start date of study
 	schema:discussionUrl "https://forums.ohdsi.org/" ; # Placeholder for URL to forum discussions, no forum thread available for this study
 	schema:result [ a schema:WebApplication ;
                   schema:mainEntityofPage "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/" ;
@@ -42,6 +42,7 @@ study:hcq a schema:MedicalObservationalStudy ;
                      ] ;
 	schema:hasPart  [ a schema:SoftwareSourceCode ;
 	                  schema:codeRepository "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine" ;
+                    schema:dateModified "2020-04-11"^^xsd:date ; # Last update date GitHub reposity
 	                  schema:programmingLanguage "R" ;
 	                  schema:version "..." ;
 	                  schema:maintainer ohdsi:OHDSI
