@@ -28,9 +28,26 @@ study:hcq a schema:MedicalObservationalStudy ;
                   schema:mainEntityofPage "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/"
                 ] ;
 	schema:publication [ a schema:MedicalScholarlyArticle ; # Placeholder for study publication, no publication available for this study
-	                     schema:mainEntityOfPage "https://pubmed.ncbi.nlm.nih.gov"
+	                     schema:mainEntityOfPage "https://pubmed.ncbi.nlm.nih.gov" # Should be doi
                      ] ;
-	schema:hasPart ohdsi:Atlas, ohdsi:RCode ;
+	schema:hasPart  [ a schema:SoftwareSourceCode ;
+	                  schema:codeRepository "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine" ;
+	                  schema:programmingLanguage "R" ;
+	                  schema:version "..." ;
+	                  schema:maintainer ohdsi:OHDSI
+                  ],
+                  [ a schema:SoftwareApplication ;
+                    schema:name "Atlas" ;
+	                  schema:mainEntityofPage "https://github.com/OHDSI/Atlas" ;
+	                  schema:softwareVersion "..." ;
+	                  schema:maintainer ohdsi:OHDSI
+                  ],
+                  [ a schema:SoftwareApplication ;  # There can be made use of multiple software applications, this is an example
+                    schema:name "Data Quality Dashboard" ;
+                    schema:mainEntityofPage "https://github.com/OHDSI/DataQualityDashboard" ;
+                    schema:softwareVersion "..." ;
+                    schema:maintainer ohdsi:OHDSI
+                  ] ;
 	ohdsi:database database:sidiap, database:thin, database:ipci, database:cprd .
 
 <https://covid19.ohdsi.app/study/hcq/design> a schema:MedicalObservationalStudyDesign ;
@@ -168,7 +185,6 @@ person:daniel_prieto a schema:Person ;
 
 person:schuemie a schema:Person ;
 	schema:name "Martijn Schuemie" ;
-	schema:honorificPrefix "" ;
 	schema:honorificSuffix "PhD", "" ;
 	schema:jobTitle "Research Fellow, Epidemiology Analyics" ;
 	schema:worksFor [ a schema:Organization ;
@@ -181,18 +197,6 @@ person:schuemie a schema:Person ;
   schema:mainEntityOfPage "https://www.ohdsi.org/who-we-are/collaborators/martijn-schuemie/" ;
 	ohdsi:githubHandle "https://github.com/schuemie" ;
 	ohdsi:googleScholarID "https://scholar.google.com/citations?user=oxWLqMkAAAAJ" .
-
-ohdsi:Atlas a schema:SoftwareApplication ;
-	schema:name "Atlas" ;
-	schema:installURL "https://github.com/OHDSI/Atlas/wiki/Atlas-Setup-Guide" ;
-	schema:softwareVersion "..." ; # Not clear which version of Atlas is used
-	schema:maintainer ohdsi:OHDSI .
-
-ohdsi:RCode a schema:SoftwareSourceCode ;
-	schema:codeRepository "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine" ;
-	schema:programmingLanguage "R" ;
-	schema:version "..." ; # Not clear which R version is used
-	schema:maintainer ohdsi:OHDSI .
 
 database:sidiap a ohdsi:Database ;
 	schema:identifier "SIDIAP" ;
