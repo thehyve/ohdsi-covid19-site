@@ -22,13 +22,13 @@ study:hcq a schema:MedicalObservationalStudy ;
 	schema:studySubject concept:1777087, concept:964339, concept:1734104, concept:1713332 ;
 	schema:subjectOf <https://covid19.ohdsi.app/> ;
 	schema:author person:JenniferLane, person:JamesWeaver, person:DanielPrietoAlhambra, person:MartijnSchuemie ;
-	schema:datePublished "2020-04-02"^^xsd:date ;
+	schema:dateCreated "2020-04-02"^^xsd:date ; # Startdate of study
 	schema:discussionUrl "https://forums.ohdsi.org/" ; # Placeholder for URL to forum discussions, no forum thread available for this study
 	schema:result [ a schema:WebApplication ;
                   schema:mainEntityofPage "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/"
                 ] ;
 	schema:publication [ a schema:MedicalScholarlyArticle ; # Placeholder for study publication, no publication available for this study
-	                    schema:mainEntityOfPage "https://pubmed.ncbi.nlm.nih.gov"
+	                     schema:mainEntityOfPage "https://pubmed.ncbi.nlm.nih.gov"
                      ] ;
 	schema:hasPart ohdsi:Atlas, ohdsi:RCode ;
 	ohdsi:database database:sidiap, database:thin, database:ipci, database:cprd .
@@ -185,13 +185,13 @@ person:schuemie a schema:Person ;
 ohdsi:Atlas a schema:SoftwareApplication ;
 	schema:name "Atlas" ;
 	schema:installURL "https://github.com/OHDSI/Atlas/wiki/Atlas-Setup-Guide" ;
-	schema:softwareVersion "..." ; #Not clear which version of Atlas is used
+	schema:softwareVersion "..." ; # Not clear which version of Atlas is used
 	schema:maintainer ohdsi:OHDSI .
 
 ohdsi:RCode a schema:SoftwareSourceCode ;
 	schema:codeRepository "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine" ;
 	schema:programmingLanguage "R" ;
-	schema:version "..." ; #Not clear which version of Atlas is used
+	schema:version "..." ; # Not clear which R version is used
 	schema:maintainer ohdsi:OHDSI .
 
 database:sidiap a ohdsi:Database ;
