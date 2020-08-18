@@ -3,6 +3,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix wd: <https://www.wikidata.org/wiki/> .
 @prefix database: <https://covid19.ohdsi.app/database/> .
+@prefix person: <https://covid19.ohdsi.app/author/> .
 
 database:ars a ohdsi:Database ;
     schema:identifier "ARS1" ;
@@ -26,7 +27,7 @@ database:ars a ohdsi:Database ;
     ohdsi:databaseSystem "PostgreSQL" ;
     ohdsi:databaseCharacteristic "EHR data", "Primary care records" .
 
-<http://data.ohdsi.org/person/JaneDoe> a schema:Person ;
+person:JaneDoe a schema:Person ;
     schema:name "Jane Doe" ;
     schema:email "jane_doe@ars.org" ;
     schema:telephone "+390000000" .
