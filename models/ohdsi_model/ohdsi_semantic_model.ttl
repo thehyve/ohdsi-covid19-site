@@ -643,16 +643,50 @@ ohdsi:Discontinued  a     schema:MedicalStudyStatus ;
         rdfs:label        "Discontinued"@en ;
         rdfs:comment      "Study has been discontinued"@en .
 
-ohdsi:studyType  a        owl:DatatypeProperty ;
+ohdsi:MedicalStudyType  a owl:NamedIndividual , owl:Class ;
+        rdfs:comment      "The type of a medical study. Enumerated type."@en ;
+        rdfs:label        "MedicalStudyStatus"@en ;
+        rdfs:subClassOf   schema:MedicalEnumeration .
+
+ohdsi:ClinicalApplication  a  ohdsi:MedicalStudyType ;
+        rdfs:label        "ClinicalApplication"@en ;
+        rdfs:comment      "Study type is clinical application"@en .
+
+ohdsi:MethodsResearch  a  ohdsi:MedicalStudyType ;
+        rdfs:label        "MethodsResearch"@en ;
+        rdfs:comment      "Study type is methods research"@en .
+
+ohdsi:MedicalStudyUseCase  a  owl:NamedIndividual , owl:Class ;
+        rdfs:comment      "The use case of a medical study. Enumerated type."@en ;
+        rdfs:label        "MedicalStudyStatus"@en ;
+        rdfs:subClassOf   schema:MedicalEnumeration .
+
+ohdsi:Characterization  a  ohdsi:MedicalStudyUseCase ;
+        rdfs:label        "Characterization"@en ;
+        rdfs:comment      "Study use case is characterization"@en .
+
+ohdsi:PopulationLevelEstimation  a  ohdsi:MedicalStudyUseCase ;
+        rdfs:label        "PopulationLevelEstimation"@en ;
+        rdfs:comment      "Study use case is Population-Level Estimation"@en .
+
+ohdsi:PatientLevelPrediction  a  ohdsi:MedicalStudyUseCase ;
+        rdfs:label        "PatientLevelPrediction"@en ;
+        rdfs:comment      "Study use case is Patient-Level Prediction"@en .
+
+ohdsi:studyType  a       owl:DatatypeProperty ;
         rdfs:label        "studyType"@en ;
         rdfs:domain       schema:MedicalObservationalStudy ;
-        rdfs:range        schema:Text ;
+        rdfs:range        [ a            owl:Class ;
+                          owl:unionOf  ( ohdsi:MedicalStudyType )
+                         ] ;
         rdfs:comment      "The type of the study"@en .
 
 ohdsi:analyticsUseCase  a  owl:DatatypeProperty ;
         rdfs:label        "analyticsUseCase"@en ;
         rdfs:domain       schema:MedicalObservationalStudy ;
-        rdfs:range        schema:Text ;
+        rdfs:range         [ a            owl:Class ;
+                             owl:unionOf  ( ohdsi:MedicalStudyUseCase )
+                          ]  ;
         rdfs:comment      "The use case of the study"@en .
 
 ohdsi:database  a         owl:ObjectProperty ;
@@ -665,12 +699,12 @@ schema:author  a          owl:ObjectProperty ;
         rdfs:comment      "The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably."@en ;
         rdfs:domain       [ a            owl:Class ;
                             owl:unionOf  ( schema:CreativeWork schema:Rating schema:MedicalObservationalStudy)
-                          ] ;
+                         ] ;
         rdfs:isDefinedBy  <https://schema.org/author> ;
         rdfs:label        "author"@en ;
         rdfs:range        [ a            owl:Class ;
                            owl:unionOf  ( schema:Organization schema:Person schema:Text schema:URL schema:Role )
-                          ] .
+                         ] .
 
 schema:dateCreated  a     owl:datatypeProperty ;
         rdfs:comment      "The date on which the CreativeWork was created or the item was added to a DataFeed."@en ;

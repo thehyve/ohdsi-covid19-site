@@ -13,8 +13,8 @@ study:hcq a schema:MedicalObservationalStudy ;
 	schema:identifier "EUPAS34497" ;
 	schema:name "Risk of hydroxychloroquine, alone and in combination with azithromycin: a multi-national study" ;
 	schema:description "Retrospective, real-world, observational study to estimate the population-level effects of hydroxychloroquine among patients with rheumatoid arthritis. Designed and executed during the OHDSI community COVID-19 virtual study-a-thon (March 26-29) to inform healthcare decision-making in response to the current global pandemic." ;
-	ohdsi:studyType "Clinical Application" ;
-	ohdsi:analyticsUseCase "Population-Level Estimation" ;
+	ohdsi:studyType ohdsi:ClinicalApplication, ohdsi:MethodsResearch ; # A study can have multiple study types
+	ohdsi:analyticsUseCase ohdsi:PopulationLevelEstimation ;
 	schema:mainEntityOfPage <http://www.encepp.eu/encepp/viewResource.htm?id=34498> ;
 	schema:studyDesign <https://covid19.ohdsi.app/study/hcq/design> ;
 	schema:status ohdsi:ResultsAvailable ;
