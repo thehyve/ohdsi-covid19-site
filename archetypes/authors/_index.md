@@ -1,51 +1,56 @@
 ---
 # Display name
 title: "{{ replace .Name "-" " " | title }}"
-name: {{ .Name }}
 
-# Username (this should match the folder name and the author name on other pages)
+# Username (this should match the folder name)
 authors:
 - {{ .Name }}
 
+# Role/position
+role: 
+
 # Organization/Affiliation
-organization:
-  id: ""
-  name: ""
-  address: ""
-  department: ""
-  jobTitle: ""
+organizations:
+- name: 
+  id: 
+  address: 
+  department: 
+  jobTitle: 
+
+# Short bio (displayed in user profile at end of posts)
+bio: 
+
+interests:
+- 
+
+education:
+  courses:
+  - course: 
+    institution: 
+    year: 
 
 # Academic Networking
 accounts:
-  forumName: "https://forums.ohdsi.org/u/forumName/"
-  githubHandle: "https://github.com/githubHandle"
-  googlescholarId: "https://scholar.google.co.kr/citations?user=DDKRubAAAAAJ"
-  ohdsiCollaborator: "https://www.ohdsi.org/who-we-are/collaborators/ohdsiCollaborator/"
-  orcidIdentifier: "https://orcid.org/0000-0002-5052-6399"
+  ohdsiForumName: {{ .Name }}
+  githubHandle: 
+  googlescholarId: 
+  ohdsiCollaborator:
+  orcidIdentifier: 
+  twitter: 
+  email: 
 
-social:
-# - icon: envelope
-#   icon_pack: fas
-#   link: '#contact'  # For a direct email link, use "mailto:test@example.
-# - icon: twitter
-#   icon_pack: fab
-#   link: https://twitter.com/GeorgeCushen
-- icon: comments
-  icon_pack: fas
-  link: 
-- icon: google-scholar
-  icon_pack: ai
-  link: 
-- icon: github
-  icon_pack: fab
-  link: 
-- icon: orcid
-  icon_pack: ai
-  link: 
+honorificPrefix: 
 
-
-honorificPrefix: ""
-
-# Array of suffixes (e.g. "M.D." , "...")
+# Array of suffixes (e.g. M.D.)
 honorificSuffix: []
+
+# Enter email to display Gravatar (if Gravatar enabled in Config)
+email: "asdas@sdasd.com"
+
+# Organizational groups that you belong to (for People widget)
+#   Set this to `[]` or comment out if you are not using People widget.
+user_groups:
+- Researchers
+- Visitors
+
 ---

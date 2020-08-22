@@ -11,6 +11,16 @@
     {{ partial "page_metadata_authors" $page }}
   </div>
   {{ end }}
+  {{ else }}
+  {{ $authorLen := 0 }}
+  {{ if $page.Params.from_readme.authors }}
+  {{ $authorLen = len $page.Params.from_readme.authors }}
+  {{end}}
+  {{ if gt $authorLen 0 }}
+  <div>
+    {{ partial "page_metadata_readme_authors" $page }}
+  </div>
+  {{ end }}
   {{ end }}
 
   {{ if not (in (slice "talk" "page") $page.Type) }}
@@ -27,6 +37,7 @@
     {{ $date }}
   </span>
   </div>
+  {{/*}}
   <div class="">
     <span class="article-date">
       {{ $date := $page.Lastmod.Format site.Params.date_format }}
@@ -35,9 +46,72 @@
       {{ else }}
         {{ i18n "date_published" }}: 
       {{ end }}
-      {{with  $page.Params.datePublished }}
+      {{with  $page.Params.date }}
         {{$date = . | dateFormat site.Params.date_format }}
         {{$date}}
+      {{ end }}
+    </span>
+  </div>
+  {{*/}}
+  {{ end }}
+
+  {{ if eq $page.Type "study" }}
+  <div class="">
+    <span class="article-date">
+      {{ if $page.Params.dateCreated }}
+      {{ with  $page.Params.dateCreated }}
+      {{/* $date := . | dateFormat site.Params.date_format */}}
+      Start date: {{ . }}
+      {{ end }}
+      {{ else }}
+      {{ with  $page.Params.from_readme.dateCreated }}
+      {{/* $date := . | dateFormat site.Params.date_format */}}
+      Start date: {{ . }}
+      {{ end }}
+      {{ end }}
+    </span>
+  </div>
+  <div class="">
+    <span class="article-date">
+      {{ if $page.Params.endDate }}
+      {{ with  $page.Params.endDate }}
+      {{/* $date := . | dateFormat site.Params.date_format */}}
+      End date: {{ . }}
+      {{ end }}
+      {{ else }}
+      {{ with  $page.Params.from_readme.endDate }}
+      {{/* $date := . | dateFormat site.Params.date_format */}}
+      End date: {{ . }}
+      {{ end }}
+      {{ end }}
+    </span>
+  </div>
+  {{ end }}
+
+  {{ if eq $page.Type "database" }}
+  <div class="">
+    <span class="article-date">
+      {{ if $page.Params.dateCreated }}
+        {{ with  $page.Params.dateCreated }}
+        Start date: {{ . }}
+        {{ end }}
+      {{ else }}
+        {{ with  $page.Params.from_readme.dateCreated }}
+        Start date: {{ . }}
+        {{ end }}
+      {{ end }}
+    </span>
+  </div>
+  <div class="">
+    <span class="article-date">
+      {{ if $page.Params.endDate }}
+        {{ with  $page.Params.endDate }}
+        End date: {{ . }}
+        {{ end }}
+      {{ else }}
+        {{ with  $page.Params.from_readme.endDate }}
+        End date: {{ . }}
+        {{ end }}
       {{ end }}
     </span>
   </div>

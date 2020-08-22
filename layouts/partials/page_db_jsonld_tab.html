@@ -1,0 +1,144 @@
+{{- $params := . -}}
+{{- $type := "front" -}}
+<script>
+  function copyToClipboard() {
+    const str = document.getElementById('item-to-copy').innerText;
+    const el = document.createElement('textarea');
+    el.value = str;
+    el.setAttribute('readonly', '');
+    el.style.position = 'absolute';
+    el.style.left = '-9999px';
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    alert('JSON-LD copied to clipboard.')
+}
+</script>
+<button class="btn btn-outline-primary mb-3" onclick="copyToClipboard()" style="text-align: right;"><i class="far fa-copy mr-1"></i>Copy to clipboard</button>
+<pre id="item-to-copy" style="color: #000; font-size: 14px; line-height:1;"><code class="json">
+{
+  "@graph": [
+    {
+      "@id": "database:{{ $params.id }}",
+      "@type": "ohdsi:Database",
+      "administrativeContact": "ohdsi:person/{{ $params.administrativeContact }}",
+      "associatedInstitution": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.associatedInstitution) }},
+      "databaseCharacteristic": [{{ range $i, $e := $params.databaseCharacteristic }}{{ if $i }}, {{ end }}
+        {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $e) }}{{ end }}
+      ],
+      "databaseSystem": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.databaseSystem) }},
+      "ohdsi:populationSize": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.populationSize) }},
+      "principalInvestigator": "ohdsi:person/{{ $params.principalInvestigator }}",
+      "scientificContact": "ohdsi:person/{{ $params.scientificContact }}",
+      "technicalContact": "ohdsi:person/{{ $params.technicalContact }}",
+      "alternateName": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.alternateName) }},
+      "dateCreated": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.dateCreated) }},
+      "dateModified": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.dateModified) }},
+      "description": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.description) }},
+      "endDate": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.endDate) }},
+      "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.identifier) }},
+      "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.Title) }},
+      "publication": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.publication) }},
+      "spatialCoverage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.spatialCoverage) }},
+      "startDate": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.startDate) }},
+      "url": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.databaseUrl) }},
+      "version": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.version) }}
+    },
+    {{ range $i, $e := $params.persons }}{{ if $i }}, {{ end }}{
+      "@id": "person/{{ .id }}",
+      "@type": "schema:Person",
+      "email": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .email) }},
+      "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .name) }},
+      "telephone": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .telephone) }}
+    }{{ end }}
+  ],
+  "@context": {
+    "telephone": {
+      "@id": "http://schema.org/telephone"
+    },
+    "email": {
+      "@id": "http://schema.org/email"
+    },
+    "name": {
+      "@id": "http://schema.org/name"
+    },
+    "endDate": {
+      "@id": "http://schema.org/endDate",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "databaseCharacteristic": {
+      "@id": "http://data.ohdsi.org/databaseCharacteristic"
+    },
+    "startDate": {
+      "@id": "http://schema.org/startDate",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "administrativeContact": {
+      "@id": "http://data.ohdsi.org/administrativeContact",
+      "@type": "@id"
+    },
+    "databaseSystem": {
+      "@id": "http://data.ohdsi.org/databaseSystem"
+    },
+    "dateModified": {
+      "@id": "http://schema.org/dateModified",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "description": {
+      "@id": "http://schema.org/description"
+    },
+    "alternateName": {
+      "@id": "http://schema.org/alternateName"
+    },
+    "url": {
+      "@id": "http://schema.org/url"
+    },
+    "associatedInstitution": {
+      "@id": "http://data.ohdsi.org/associatedInstitution"
+    },
+    "technicalContact": {
+      "@id": "http://data.ohdsi.org/technicalContact",
+      "@type": "@id"
+    },
+    "scientificContact": {
+      "@id": "http://data.ohdsi.org/scientificContact",
+      "@type": "@id"
+    },
+    "spatialCoverage": {
+      "@id": "http://schema.org/spatialCoverage",
+      "@type": "@id"
+    },
+    "dateCreated": {
+      "@id": "http://schema.org/dateCreated",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "principalInvestigator": {
+      "@id": "http://data.ohdsi.org/principalInvestigator",
+      "@type": "@id"
+    },
+    "version": {
+      "@id": "http://schema.org/version",
+      "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+    },
+    "identifier": {
+      "@id": "http://schema.org/identifier"
+    },
+    "publication": {
+      "@id": "http://schema.org/publication",
+      "@type": "@id"
+    },
+    "populationSize": {
+      "@id": "http://data.ohdsi.org/populationSize",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "schema": "http://schema.org/",
+    "database": "https://covid19.ohdsi.app/database/",
+    "person": "https://covid19.ohdsi.app/author/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "ohdsi": "http://data.ohdsi.org/",
+    "wd": "https://www.wikidata.org/wiki/"
+  }
+}
+  </code>
+</pre>

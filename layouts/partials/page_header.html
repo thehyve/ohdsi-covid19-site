@@ -3,7 +3,10 @@
 {{ $anchor := $page.Params.image.focal_point | default "Smart" }}
 
 {{/* Set default titles for node pages */}}
-{{ $title := .Title }}
+{{ $title := .Params.from_readme.title}}
+{{ if .Title }}
+  {{ $title = .Title }}
+{{ end }}
 {{ if and (not $title) .IsNode }}
   {{ if eq .Type "post" }}
     {{ $title = i18n "posts" }}
@@ -13,6 +16,8 @@
     {{ $title = i18n "publications" }}
   {{ else if eq .Type "study" }}
     {{ $title = i18n "studies" }}
+  {{ else if eq .Type "database" }}
+    {{ $title = i18n "databases" }}
   {{end}}
 {{end}}
 
@@ -62,7 +67,7 @@
   {{end}}
 
   {{ partial "page_metadata" (dict "page" $page "is_list" 0 "share" true) }}
-  {{ partial "page_links_div.html" $page }}
+  {{ partial "page_links_div" $page }}
 </div>
 
 {{/* Featured image */}}

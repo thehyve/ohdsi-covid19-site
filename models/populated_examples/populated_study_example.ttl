@@ -3,6 +3,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix snomed: <http://snomed.info/id/> .
+<<<<<<< HEAD
 @prefix person: <http://data.ohdsi.org/person/> .
 @prefix concept: <http://data.ohdsi.org/concept/> .
 @prefix database: <http://data.ohdsi.org/database/> .
@@ -29,11 +30,69 @@
 	ohdsi:database database:sidiap, database:thin, database:ipci, database:cprd .
 
 ohdsi:StudydesignHCQ a schema:MedicalObservationalStudyDesign ;
+=======
+@prefix person: <https://covid19.ohdsi.app/author/> .
+@prefix concept: <http://data.ohdsi.org/concept/> .
+@prefix database: <https://covid19.ohdsi.app/database/> .
+@prefix covid19: <https://covid19.ohdsi.app/> .
+@prefix study: <https://covid19.ohdsi.app/study/> .
+
+study:hcq a schema:MedicalObservationalStudy ;
+	schema:identifier "EUPAS34497" ;
+	schema:name "Risk of hydroxychloroquine, alone and in combination with azithromycin: a multi-national study" ;
+	schema:description "Retrospective, real-world, observational study to estimate the population-level effects of hydroxychloroquine among patients with rheumatoid arthritis. Designed and executed during the OHDSI community COVID-19 virtual study-a-thon (March 26-29) to inform healthcare decision-making in response to the current global pandemic." ;
+	ohdsi:studyType ohdsi:ClinicalApplication, ohdsi:MethodsResearch ; # A study can have multiple study types
+	ohdsi:analyticsUseCase ohdsi:PopulationLevelEstimation ;
+	schema:mainEntityOfPage <http://www.encepp.eu/encepp/viewResource.htm?id=34498> ;
+	schema:studyDesign <https://covid19.ohdsi.app/study/hcq/design> ;
+	schema:status ohdsi:ResultsAvailable ;
+	schema:healthCondition concept:37311061, concept:80809 ;
+	schema:studySubject concept:1777087, concept:964339, concept:1734104, concept:1713332 ;
+	schema:subjectOf <https://covid19.ohdsi.app/> ;
+	schema:author person:JenniferLane, person:JamesWeaver, person:DanielPrietoAlhambra, person:MartijnSchuemie ;
+	schema:dateCreated "2020-04-02"^^xsd:date ; # Start date of study
+	schema:discussionUrl "https://forums.ohdsi.org/" ; # Placeholder for URL to forum discussions, no forum thread available for this study
+	schema:result [ a schema:WebApplication ;
+                  schema:mainEntityofPage "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/" ;
+                  schema:name "Risk of hydroxychloroquine, alone and in combination with azithromycin: a multi-national study"
+                ],
+                [ a schema:WebApplication ; # A study can have multiple Shiny visualizations available, hence the duplication
+                  schema:mainEntityofPage "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/" ;
+                  schema:name "Risk of hydroxychloroquine, alone and in combination with azithromycin: a multi-national study"
+                ] ;
+	schema:publication <https://doi.org/10.13063/2327-9214.1189>, <https://doi.org/10.13063/2327-9214.1189>  ; # Placeholder for study publication, no publication available for this study. A study can have multiple publications, hence the duplication.
+	schema:hasPart  [ a schema:SoftwareSourceCode ;
+	                  schema:codeRepository "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine" ;
+                    schema:dateModified "2020-04-11"^^xsd:date ; # Last update date GitHub reposity
+	                  schema:programmingLanguage "R" ;
+	                  schema:version "1"^^xsd:decimal ;
+	                  schema:maintainer ohdsi:OHDSI
+                  ],
+                  [ a schema:SoftwareApplication ;
+                    schema:name "Atlas" ;
+	                  schema:mainEntityofPage "https://github.com/OHDSI/Atlas" ;
+	                  schema:softwareVersion "1"^^xsd:decimal ;
+	                  schema:maintainer ohdsi:OHDSI
+                  ],
+                  [ a schema:SoftwareApplication ;  # There can be made use of multiple software tools, this is an example
+                    schema:name "Data Quality Dashboard" ;
+                    schema:mainEntityofPage "https://github.com/OHDSI/DataQualityDashboard" ;
+                    schema:softwareVersion "1"^^xsd:decimal ;
+                    schema:maintainer ohdsi:OHDSI
+                  ] ;
+	ohdsi:database database:sidiap, database:thin, database:ipci, database:cprd .
+
+<https://covid19.ohdsi.app/study/hcq/design> a schema:MedicalObservationalStudyDesign ;
+>>>>>>> 0feb0e8123f8202a929c4f992239921f5cbd15c5
 	schema:identifier "..." ; #There is no protocol identifier available for this study
 	schema:version "1.4"^^xsd:decimal ;
 	schema:dateModified "2020-04-01"^^xsd:date ;
 	schema:url "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine/blob/master/documents/OHDSI%20COVID-19%20Studyathon_PLE_HCQ_Protocol_v1.4.pdf" ;
+<<<<<<< HEAD
 	schema:license "". #Placeholder for protocol license
+=======
+	schema:license "" . #Placeholder for protocol license
+>>>>>>> 0feb0e8123f8202a929c4f992239921f5cbd15c5
 
 concept:37311061 a schema:MedicalCondition ;
 	schema:name "Disease caused by severe acute respiratory syndrome coronavirus 2" ;
@@ -95,26 +154,54 @@ _:723 a schema:MedicalCode ;
 	schema:codingSystem "RxNorm" ;
 	schema:sameAs "http://purl.bioontology.org/ontology/RXNORM/723" .
 
-ohdsi:Covid19Studyathon a schema:Event ;
+<https://covid19.ohdsi.app/> a schema:Event ;
 	schema:name "COVID-19 virtual study-a-thon" ;
 	schema:organizer ohdsi:OHDSI ;
+<<<<<<< HEAD
 	schema:location "Microsoft Teams" ;
 	schema:startDate "2020-03-26"^^xsd:date ;
 	schema:endDate "2020-03-29"^^xsd:date .
+=======
+	schema:location covid19:workspace ;
+	schema:startDate "2020-03-26"^^xsd:date ;
+	schema:endDate "2020-03-29"^^xsd:date ;
+  schema:mainEntityOfPage <https://www.ohdsi.org/covid-19-updates/> ;
+  schema:recordedIn <https://www.youtube.com/playlist?list=PLpzbqK7kvfeVGZiT1eKO6KxQiN7nzBFK> .
+
+<https://www.youtube.com/playlist?list=PLpzbqK7kvfeVGZiT1eKO6KxQiN7nzBFK> a schema:VideoObject ;
+  schema:uploadDate "2020-03-29"^^xsd:date ;
+  schema:creator ohdsi:OHDSI .
+
+covid19:workspace a schema:VirtualLocation ;
+  schema:name "Microsoft Teams" .
+>>>>>>> 0feb0e8123f8202a929c4f992239921f5cbd15c5
 
 ohdsi:OHDSI a schema:Organization ;
-	schema:name "OHDSI" .
+	schema:name "Observational Health Data Sciences and Informatics" ;
+  schema:mainEntityOfPage <https://www.ohdsi.org/> ;
+  schema:url <https://www.linkedin.com/company/ohdsi/>, <https://twitter.com/ohdsi>, <https://www.youtube.com/user/OHDSIJoinTheJourney> .
 
+<<<<<<< HEAD
 person:JenniferLane a schema:Person ;
 	schema:name "Jennifer Lane" ;
 	schema:honorificPrefix "" ;
 	schema:honorificSuffix "M.D.", "" ;
+=======
+person:jenniferlane a schema:Person ;
+	schema:name "Jennifer Lane" ;
+	schema:honorificSuffix "MD", "MA", "MEd", "MRCS" ;
+>>>>>>> 0feb0e8123f8202a929c4f992239921f5cbd15c5
 	schema:jobTitle "Versus Arthritis Clinical Research Fellow in Orthopaedic Surgery" ;
-	schema:worksFor ohdsi:UniversityOxfordTOS ;
-	ohdsi:orcidIdentifier "" ;
-	ohdsi:forumName "https://forums.ohdsi.org/u/jenniferlane" ;
-	ohdsi:ohdsiCollaborator "https://www.ohdsi.org/who-we-are/collaborators/jennifer-lane/" ;
+	schema:worksFor [ a schema:Organization ;
+                      schema:name "University of Oxford" ;
+                      schema:department "Trauma and Orthopaedic Surgery" ;
+                      schema:address "Windmill Road, Headington, Oxford, OX3 7HE, UK"
+                  ] ;
+	ohdsi:orcidID "" ;
+	ohdsi:forumProfile "https://forums.ohdsi.org/u/jenniferlane" ;
+	schema:mainEntityOfPage "https://www.ohdsi.org/who-we-are/collaborators/jennifer-lane/" ;
 	ohdsi:githubHandle "" ;
+<<<<<<< HEAD
 	ohdsi:googlescholarId "" .
 
 ohdsi:UniversityOxfordTOS a schema:Organization ;
@@ -125,13 +212,24 @@ ohdsi:UniversityOxfordTOS a schema:Organization ;
 person:JamesWeaver a schema:Person ;
 	schema:name "James Weaver" ;
 	schema:honorificPrefix "" ;
+=======
+	ohdsi:googleScholarID "" .
+
+person:jweave17 a schema:Person ;
+	schema:name "James Weaver" ;
+>>>>>>> 0feb0e8123f8202a929c4f992239921f5cbd15c5
 	schema:honorificSuffix "MPH", "" ;
 	schema:jobTitle "Associate Director of Epidemiology Analytics" ;
-	schema:worksFor ohdsi:JJ ;
-	ohdsi:orcidIdentifier "" ;
-	ohdsi:forumName "https://forums.ohdsi.org/u/jweave17" ;
-	ohdsi:ohdsiCollaborator "https://www.ohdsi.org/who-we-are/collaborators/james-weaver/" ;
+	schema:worksFor [ a schema:Organization ;
+                     schema:name "Johnson & Johnson" ;
+                     schema:department "Epidemiology analytics" ;
+                     schema:address ""
+                   ] ;
+	ohdsi:orcidID "" ;
+	ohdsi:forumProfile "https://forums.ohdsi.org/u/jweave17" ;
+  schema:mainEntityOfPage "https://www.ohdsi.org/who-we-are/collaborators/james-weaver/" ;
 	ohdsi:githubHandle "https://github.com/jamieweaver" ;
+<<<<<<< HEAD
 	ohdsi:googlescholarId "" .
 
 ohdsi:JJ a schema:Organization ;
@@ -143,12 +241,24 @@ person:DanielPrietoAlhambra a schema:Person ;
 	schema:name "Daniel Prieto-Alhambra" ;
 	schema:honorificPrefix "" ;
 	schema:honorificSuffix "M.D.", "MSc", "PhD" ;
+=======
+	ohdsi:googleScholarID "" .
+
+person:daniel_prieto a schema:Person ;
+	schema:name "Daniel Prieto-Alhambra" ;
+	schema:honorificSuffix "MD", "MSc", "PhD" ;
+>>>>>>> 0feb0e8123f8202a929c4f992239921f5cbd15c5
 	schema:jobTitle "Associate Director of Epidemiology Analytics" ;
-	schema:worksFor ohdsi:UniversityOxfordCSM ;
-	ohdsi:orcidIdentifier "https://orcid.org/0000-0002-3950-6346" ;
-	ohdsi:forumName "https://forums.ohdsi.org/u/daniel_prieto" ;
-	ohdsi:ohdsiCollaborator "https://www.ohdsi.org/who-we-are/collaborators/dani-prieto-alhambra/" ;
+	schema:worksFor [ a schema:Organization ;
+                     schema:name "University of Oxford" ;
+                     schema:department "Centre for Statistics in Medicine" ;
+                     schema:address "Windmill Road, Headington, Oxford, OX3 7HE, UK"
+                   ] ;
+	ohdsi:orcidID "https://orcid.org/0000-0002-3950-6346" ;
+	ohdsi:forumProfile "https://forums.ohdsi.org/u/daniel_prieto" ;
+  schema:mainEntityOfPage "https://www.ohdsi.org/who-we-are/collaborators/dani-prieto-alhambra/" ;
 	ohdsi:githubHandle "" ;
+<<<<<<< HEAD
 	ohdsi:googlescholarId "https://scholar.google.com/citations?user=hiBxiTYAAAAJ" .
 
 ohdsi:UniversityOxfordCSM a schema:Organization ;
@@ -159,13 +269,24 @@ ohdsi:UniversityOxfordCSM a schema:Organization ;
 person:MartijnSchuemie a schema:Person ;
 	schema:name "Martijn Schuemie" ;
 	schema:honorificPrefix "" ;
+=======
+	ohdsi:googleScholarID "https://scholar.google.com/citations?user=hiBxiTYAAAAJ" .
+
+person:schuemie a schema:Person ;
+	schema:name "Martijn Schuemie" ;
+>>>>>>> 0feb0e8123f8202a929c4f992239921f5cbd15c5
 	schema:honorificSuffix "PhD", "" ;
 	schema:jobTitle "Research Fellow, Epidemiology Analyics" ;
-	schema:worksFor ohdsi:JJ ;
-	ohdsi:orcidIdentifier "https://orcid.org/0000-0002-0817-5361" ;
-	ohdsi:forumName "https://forums.ohdsi.org/u/schuemie" ;
-	ohdsi:ohdsiCollaborator "https://www.ohdsi.org/who-we-are/collaborators/martijn-schuemie/" ;
+	schema:worksFor [ a schema:Organization ;
+                    schema:name "Johnson & Johnson" ;
+                    schema:department "Epidemiology analytics" ;
+                    schema:address ""
+                  ] ;
+	ohdsi:orcidID "https://orcid.org/0000-0002-0817-5361" ;
+	ohdsi:forumProfile "https://forums.ohdsi.org/u/schuemie" ;
+  schema:mainEntityOfPage "https://www.ohdsi.org/who-we-are/collaborators/martijn-schuemie/" ;
 	ohdsi:githubHandle "https://github.com/schuemie" ;
+<<<<<<< HEAD
 	ohdsi:googlescholarId "https://scholar.google.com/citations?user=oxWLqMkAAAAJ" .
 
 ohdsi:referencePH a schema:ScholarlyArticle ;  #There are no citations available for this study this is a placeholder
@@ -197,6 +318,9 @@ ohdsi:RCode a schema:SoftwareSourceCode ;
 	schema:programmingLanguage "R" ;
 	schema:version "..." ; #Not clear which version of Atlas is used
 	schema:maintainer ohdsi:OHDSI .
+=======
+	ohdsi:googleScholarID "https://scholar.google.com/citations?user=oxWLqMkAAAAJ" .
+>>>>>>> 0feb0e8123f8202a929c4f992239921f5cbd15c5
 
 database:sidiap a ohdsi:Database ;
 	schema:identifier "SIDIAP" ;

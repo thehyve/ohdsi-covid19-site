@@ -2,8 +2,15 @@
 @prefix ohdsi: <http://data.ohdsi.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix wd: <https://www.wikidata.org/wiki/> .
+<<<<<<< HEAD
 
 <http://data.ohdsi.org/database/ars> a ohdsi:Database ;
+=======
+@prefix database: <https://covid19.ohdsi.app/database/> .
+@prefix person: <https://covid19.ohdsi.app/author/> .
+
+database:ars a ohdsi:Database ;
+>>>>>>> 0feb0e8123f8202a929c4f992239921f5cbd15c5
     schema:identifier "ARS1" ;
     schema:name "Agenzia regionale di sanità della Toscana" ;
     schema:alternateName "ARS" ;
@@ -25,7 +32,11 @@
     ohdsi:databaseSystem "PostgreSQL" ;
     ohdsi:databaseCharacteristic "EHR data", "Primary care records" .
 
+<<<<<<< HEAD
 <http://data.ohdsi.org/person/JaneDoe> a schema:Person ;
+=======
+person:JaneDoe a schema:Person ;
+>>>>>>> 0feb0e8123f8202a929c4f992239921f5cbd15c5
     schema:name "Jane Doe" ;
     schema:email "jane_doe@ars.org" ;
     schema:telephone "+390000000" .

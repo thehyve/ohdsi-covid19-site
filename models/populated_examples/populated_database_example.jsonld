@@ -1,10 +1,16 @@
 {
   "@graph" : [ {
-    "@id" : "ohdsi:database/ars",
+    "@id" : "person:JaneDoe",
+    "@type" : "schema:Person",
+    "email" : "jane_doe@ars.org",
+    "name" : "Jane Doe",
+    "telephone" : "+390000000"
+  }, {
+    "@id" : "database:ars",
     "@type" : "ohdsi:Database",
     "administrativeContact" : "ohdsi:person/JaneDoe",
     "associatedInstitution" : "Agenzia regionale di sanità della Toscana",
-    "databaseCharacteristic" : [ "EHR data", "Primary care records" ],
+    "databaseCharacteristic" : [ "Primary care records", "EHR data" ],
     "databaseSystem" : "PostgreSQL",
     "ohdsi:populationSize" : 5000000,
     "principalInvestigator" : "ohdsi:person/JaneDoe",
@@ -22,74 +28,89 @@
     "startDate" : "1996-01-01",
     "url" : "https://www.example.org",
     "version" : "5.4"
-  }, {
-    "@id" : "ohdsi:person/JaneDoe",
-    "@type" : "schema:Person",
-    "email" : "jane_doe@ars.org",
-    "name" : "Jane Doe",
-    "telephone" : "+390000000"
   } ],
-  "@id" : "urn:x-arq:DefaultGraphNode",
   "@context" : {
-    "telephone" : "http://schema.org/telephone",
-    "email" : "http://schema.org/email",
-    "name" : "http://schema.org/name",
-    "scientificContact" : {
-      "@id" : "http://data.ohdsi.org/scientificContact",
-      "@type" : "@id"
+    "telephone" : {
+      "@id" : "http://schema.org/telephone"
     },
-    "principalInvestigator" : {
-      "@id" : "http://data.ohdsi.org/principalInvestigator",
-      "@type" : "@id"
+    "email" : {
+      "@id" : "http://schema.org/email"
+    },
+    "name" : {
+      "@id" : "http://schema.org/name"
     },
     "endDate" : {
       "@id" : "http://schema.org/endDate",
       "@type" : "http://www.w3.org/2001/XMLSchema#date"
     },
-    "dateCreated" : {
-      "@id" : "http://schema.org/dateCreated",
-      "@type" : "http://www.w3.org/2001/XMLSchema#date"
+    "databaseCharacteristic" : {
+      "@id" : "http://data.ohdsi.org/databaseCharacteristic"
     },
-    "url" : "http://schema.org/url",
     "startDate" : {
       "@id" : "http://schema.org/startDate",
-      "@type" : "http://www.w3.org/2001/XMLSchema#date"
-    },
-    "dateModified" : {
-      "@id" : "http://schema.org/dateModified",
       "@type" : "http://www.w3.org/2001/XMLSchema#date"
     },
     "administrativeContact" : {
       "@id" : "http://data.ohdsi.org/administrativeContact",
       "@type" : "@id"
     },
+    "databaseSystem" : {
+      "@id" : "http://data.ohdsi.org/databaseSystem"
+    },
+    "dateModified" : {
+      "@id" : "http://schema.org/dateModified",
+      "@type" : "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "description" : {
+      "@id" : "http://schema.org/description"
+    },
+    "alternateName" : {
+      "@id" : "http://schema.org/alternateName"
+    },
+    "url" : {
+      "@id" : "http://schema.org/url"
+    },
+    "associatedInstitution" : {
+      "@id" : "http://data.ohdsi.org/associatedInstitution"
+    },
+    "technicalContact" : {
+      "@id" : "http://data.ohdsi.org/technicalContact",
+      "@type" : "@id"
+    },
+    "scientificContact" : {
+      "@id" : "http://data.ohdsi.org/scientificContact",
+      "@type" : "@id"
+    },
     "spatialCoverage" : {
       "@id" : "http://schema.org/spatialCoverage",
       "@type" : "@id"
     },
-    "alternateName" : "http://schema.org/alternateName",
-    "technicalContact" : {
-      "@id" : "http://data.ohdsi.org/technicalContact",
+    "dateCreated" : {
+      "@id" : "http://schema.org/dateCreated",
+      "@type" : "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "principalInvestigator" : {
+      "@id" : "http://data.ohdsi.org/principalInvestigator",
       "@type" : "@id"
+    },
+    "version" : {
+      "@id" : "http://schema.org/version",
+      "@type" : "http://www.w3.org/2001/XMLSchema#decimal"
+    },
+    "identifier" : {
+      "@id" : "http://schema.org/identifier"
     },
     "publication" : {
       "@id" : "http://schema.org/publication",
       "@type" : "@id"
     },
-    "databaseCharacteristic" : "http://data.ohdsi.org/databaseCharacteristic",
-    "description" : "http://schema.org/description",
     "populationSize" : {
       "@id" : "http://data.ohdsi.org/populationSize",
       "@type" : "http://www.w3.org/2001/XMLSchema#integer"
     },
-    "identifier" : "http://schema.org/identifier",
-    "version" : {
-      "@id" : "http://schema.org/version",
-      "@type" : "http://www.w3.org/2001/XMLSchema#decimal"
-    },
-    "associatedInstitution" : "http://data.ohdsi.org/associatedInstitution",
-    "databaseSystem" : "http://data.ohdsi.org/databaseSystem",
     "schema" : "http://schema.org/",
+    "database" : "https://covid19.ohdsi.app/database/",
+    "person" : "https://covid19.ohdsi.app/author/",
     "xsd" : "http://www.w3.org/2001/XMLSchema#",
     "ohdsi" : "http://data.ohdsi.org/",
     "wd" : "https://www.wikidata.org/wiki/"

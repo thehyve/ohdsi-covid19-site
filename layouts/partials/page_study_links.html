@@ -6,19 +6,69 @@
   <button type="button" class="btn btn-outline-secondary my-1 mr-1" >{{ i18n "identifier" }}: {{ . }}</button>
 {{ end }}
 
-{{ with $page.Params.studyType }}
-  <button type="button" class="btn btn-outline-secondary my-1 mr-1" >{{ i18n "study_type" }}: {{ . }}</button>
+{{ if $page.Params.studyType }}
+  {{ with $page.Params.studyType }}
+  {{ $all_study_types := partial "functions/get_study_types" . }}
+  <button type="button" class="btn btn-outline-secondary my-1 mr-1" >{{ i18n "study_type" }}:
+    {{ range $i, $v := . }}{{ if $i }}, {{ end }}
+      {{ $indexInt := int $v }}
+      {{- index $all_study_types $indexInt -}}
+    {{ end }}
+  </button>
+  {{ end }}
+{{ else }}
+  {{ with $page.Params.from_readme.studyType }}
+    {{ $all_study_types := partial "functions/get_study_types" . }}
+    <button type="button" class="btn btn-outline-secondary my-1 mr-1" >{{ i18n "study_type" }}:
+      {{ range $i, $v := . }}{{ if $i }}, {{ end }}
+        {{ $indexInt := int $v }}
+        {{- index $all_study_types $indexInt -}}
+      {{ end }}
+    </button>
+  {{ end }}
 {{ end }}
 
-{{ with $page.Params.studyUseCase }}
-  <button type="button" class="btn btn-outline-secondary my-1 mr-1" >{{ i18n "study_useCase" }}: {{ . }}</button>
+{{ if $page.Params.analyticsUseCase }}
+  {{ with $page.Params.analyticsUseCase }}
+  {{ $all_study_usecase := partial "functions/get_study_usecases" . }}
+  <button type="button" class="btn btn-outline-secondary my-1 mr-1" >{{ i18n "study_usecase" }}:
+    {{ $indexInt := int . }}
+    {{- index $all_study_usecase $indexInt -}}
+  </button>
+  {{ end }}
+{{ else }}
+  {{ with $page.Params.from_readme.analyticsUseCase }}
+    {{ $all_study_usecase := partial "functions/get_study_usecases" . }}
+    <button type="button" class="btn btn-outline-secondary my-1 mr-1" >{{ i18n "study_usecase" }}:
+      {{ range $i, $v := . }}{{ if $i }}, {{ end }}
+        {{ $indexInt := int $v }}
+        {{- index $all_study_usecase $indexInt -}}
+      {{ end }}
+    </button>
+  {{ end }}
 {{ end }}
 
-{{ with $page.Params.studyStatus }}
-  <button type="button" class="btn btn-outline-secondary my-1 mr-1" >{{ i18n "study_status" }}: {{ . }}</button>
+{{ if $page.Params.studyStatus }}
+  {{ with $page.Params.studyStatus }}
+  {{ $all_study_status := partial "functions/get_study_status" . }}
+  <button type="button" class="btn btn-outline-secondary my-1 mr-1" >{{ i18n "study_status" }}:
+    {{ $indexInt := int . }}
+    {{- index $all_study_status $indexInt -}}
+  </button>
+  {{ end }}
+{{ else }}
+  {{ with $page.Params.from_readme.studyStatus }}
+    {{ $all_study_status := partial "functions/get_study_status" . }}
+    <button type="button" class="btn btn-outline-secondary my-1 mr-1" >{{ i18n "study_status" }}:
+      {{ range $i, $v := . }}{{ if $i }}, {{ end }}
+        {{ $indexInt := int $v }}
+        {{- index $all_study_status $indexInt -}}
+      {{ end }}
+    </button>
+  {{ end }}
 {{ end }}
 
-{{ with $page.Params.studyUrl }}
+{{ with $page.Params.mainEntityOfPage }}
   {{ $resource := $page.Resources.GetMatch . }}
   {{ if $resource }}
     {{ $link = $resource.RelPermalink }}
@@ -44,18 +94,33 @@
 </a>
 {{ end }}
 
-{{ with $page.Params.result.url }}
+{{/* if $page.Params.result.url }}
+  {{ with $page.Params.result.url }}
+    {{ $resource := $page.Resources.GetMatch . }}
+    {{ if $resource }}
+      {{ $link = $resource.RelPermalink }}
+    {{ else }}
+      {{ $link = . | relURL }}
+    {{ end }}
+  <a type="button" class="btn btn-outline-primary my-1 mr-1" href="{{ $link }}" target="_blank" rel="noopener">
+    <i class="fas fa-link mr-1"></i>
+    {{ i18n "btn_result" }}
+  </a>
+  {{ end }}
+{{ else }}
+  {{ with $page.Params.from_readme.result.url }}
   {{ $resource := $page.Resources.GetMatch . }}
   {{ if $resource }}
     {{ $link = $resource.RelPermalink }}
   {{ else }}
     {{ $link = . | relURL }}
   {{ end }}
-<a type="button" class="btn btn-outline-primary my-1 mr-1" href="{{ $link }}" target="_blank" rel="noopener">
+  <a type="button" class="btn btn-outline-primary my-1 mr-1" href="{{ $link }}" target="_blank" rel="noopener">
   <i class="fas fa-link mr-1"></i>
   {{ i18n "btn_result" }}
-</a>
-{{ end }}
+  </a>
+  {{ end }}
+{{ end */}}
 
 {{ with $page.Params.license }}
   {{ $resource := $page.Resources.GetMatch . }}

@@ -38,9 +38,12 @@
 
 <div class="media stream-item">
   <div class="media-body">
-
+    {{ $title := .Params.from_readme.title}}
+    {{ if $item.Title}}
+      {{ $title = $item.Title }}
+    {{ end }}
     <h3 class="article-title mb-0 mt-0">
-      <a href="{{$link}}" {{ $target | safeHTMLAttr }}>{{ $item.Title }}</a>
+      <a href="{{$link}}" {{ $target | safeHTMLAttr }}>{{ $title }}</a>
     </h3>
 
     {{ with $summary }}

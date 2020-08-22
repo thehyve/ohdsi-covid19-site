@@ -6,91 +6,148 @@ categories: []
 date: {{ .Date }}
 lastmod: {{ .Date }}
 featured: false
-draft: false
+draft: true
 
-id: ""
-identifier: ""
+id: 
+
+# Analytics UseCase:
+# 0: Characterization
+# 1: Population-Level Estimation
+# 2: Patient-Level Prediction
+# 3: Characterization and Population-Level Estimation
+analyticsUseCase:
+
+databases: []
+
+# Study Type:
+# 0: Clinical Application
+# 1: Methods Research
+studyType: []
 
 # Author ID
 authors: []
 
-# Date format
-datePublished: "" 
-
-studyType: ""
-
-studyUrl: "" 
-
-discussionUrl: ""
+#date format YYYY-MM-DD
+dateCreated:
 
 description: "" 
 
+# URL
+discussionUrl: ""
+
 # @type: hasParts
 softwareSourceCodes:
-- name: ""
-  codeRepository: ""
-  version: ""
+- id:
+  name:
+  # URL
+  codeRepository: 
+  # date format YYYY-MM-DD
+  dateModified: 
+  # id from 'organizations'
+  maintainer: 
   programmingLanguage: ""
-  maintainer: ""
+  version: ""
 
 # @type: hasParts
 softwareApplications:
-- name: ""
-  installURL: ""
+- id:
+  # URL
+  mainEntityofPage:
+  # id from 'organizations'
+  maintainer: 
+  name:
   version: ""
-  maintainer: ""
 
 healthConditions:
 - name: ""
   id: ""
   code: 
-  - id: ""
+    id: ""
     codeValue: ""
     codingSystem: ""
+    # URL
     sameAs: ""
 
+identifier: 
+
 # URL
-license: ""
+mainEntityOfPage:
 
-publication:
-  url: ""
+# Array of URLs
+publications:
+- url: ""
 
-result:
-  url: ""
-  id: ""
+results:
+- id: 
+  # URL
+  mainEntityofPage:
+  name:
+
+# Study Status: 
+# 0: Complete
+# 1: Design Finalized
+# 2: Repo Created
+# 3: Started
+# 4: Results Available
+study_status: ""
 
 studyDesign:
-  url: ""
-  identifier: ""
-  version: ""
-  dateModified: ""
   id: ""
+  # date format YYYY-MM-DD
+  dateModified: ""
+  identifier: ""
+  license:
+  # URL
+  url: ""
+  version: ""
 
 # @type: studySubject
 drugs: 
-- name: ""
+- id:
+  name:
   code:
-  - id: ""
+    id: ""
     codeValue: ""
     codingSystem: ""
+    # URL
     sameAs: ""
-    equivalentClass: ""
 
 # @type: subjectOf
 event:
+  id: ""
   name: ""
-  location: ""
+  # URL
+  mainEntityOfPage:
+  # id from 'eventLocations'
+  location:
+  # id from 'organizations'
   organizer: ""
+  # date format YYYY-MM-DD
   startDate: ""
+  # date format YYYY-MM-DD
   endDate: ""
-  id: ""
+  # id from 'eventRecordLocations'
+  recordedIn:
 
-citations:
-- articleTitle: ""
-  url: ""
-  datePublished: ""
-  author: ""
-  id: ""
+eventLocations:
+- id: 
+  type: 
+  name: 
 
-databases: []
+eventRecordLocations:
+- id: 
+  creator: 
+  # date format YYYY-MM-DD
+  uploadDate: 
+
+organizations:
+- id: 
+  # URL
+  mainEntityOfPage: 
+  name: 
+  url: []
+
+# date format YYYY-MM-DD
+end_date: 
+
 ---

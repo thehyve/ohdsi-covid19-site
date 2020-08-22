@@ -1,0 +1,29 @@
+{{ $params := . }}
+{{/* $featured_image := ($page.Resources.ByType "image").GetMatch "*featured*" */}}
+
+{{/* $author := partial "functions/get_author_name" $page */}}
+
+{{/* $publisher := site.Params.org_name | default site.Title */}}
+{{/* $logo_url := partial "functions/get_logo_url" $page -*/}}
+<script>
+  function copyToClipboard() {
+    const str = document.getElementById('item-to-copy').innerText;
+    const el = document.createElement('textarea');
+    el.value = str;
+    el.setAttribute('readonly', '');
+    el.style.position = 'absolute';
+    el.style.left = '-9999px';
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    alert('JSON-LD copied to clipboard.')
+}
+</script>
+<button class="btn btn-outline-primary mb-3" onclick="copyToClipboard()" style="text-align: right;"><i class="far fa-copy mr-1"></i>Copy to clipboard</button>
+
+<pre id="item-to-copy" style="color: #000; font-size: 14px; line-height:1;">
+  <code class="json">
+    {{ partial "page_study_jsonld" (dict "type" "front" "value" .) }}
+  </code>
+</pre>

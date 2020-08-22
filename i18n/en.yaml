@@ -257,7 +257,7 @@
 - id: study_type
   translation: Study Type
 
-- id: study_useCase
+- id: study_usecase
   translation: Use Case(s)
 
 - id: study_status
@@ -327,6 +327,42 @@
 
 - id: study_usecase_characterization_and_population_level_estimation
   translation: Characterization and Population-Level Estimation
+
+#
+
+- id: jsonld_study_status_complete
+  translation: Complete
+
+- id: jsonld_study_status_design_finalized
+  translation: DesignFinalized
+
+- id: jsonld_study_status_repo_created
+  translation: RepoCreated
+
+- id: jsonld_study_status_started
+  translation: Started
+
+- id: jsonld_study_status_results_available
+  translation: ResultsAvailable
+
+- id: jsonld_study_type_clinical_app
+  translation: ClinicalApplication
+
+- id: jsonld_study_type_methods_research
+  translation: MethodsResearch
+
+- id: jsonld_study_usecase_characterization
+  translation: Characterization
+
+- id: jsonld_study_usecase_population_level_estimation
+  translation: PopulationLevelEstimation
+
+- id: jsonld_study_usecase_patient_level_prediction
+  translation: PatientLevelPrediction
+
+- id: jsonld_study_usecase_characterization_and_population_level_estimation
+  translation: CharacterizationAndPopulationLevelEstimation
+
 
 #
 
