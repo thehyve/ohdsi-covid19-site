@@ -74,8 +74,14 @@
           {{ with .Params.softwareSourceCodes }}
           <b>Source Codes:</b>
           <ul>
-            {{ range . }}
-              <li><a href="{{ .codeRepository }}">{{ .name }}</a> Version: {{ .version }}, Programming Language: {{ .programmingLanguage }}, Maintainer: {{ .maintainer }}</li>
+            {{ range $softwareSourceCodes := . }}
+            {{ $maintainer := "" }}
+            {{ range $params.organizations }}
+            {{ if eq .id $softwareSourceCodes.maintainer }}
+            {{ $maintainer = .name }}
+            {{ end }}
+            {{ end }}
+              <li><a href="{{ .codeRepository }}">{{ .name }}</a> Version: {{ .version }}, Programming Language: {{ .programmingLanguage }}, Maintainer: {{ $maintainer }}</li>
             {{ end }}
           </ul>
           {{ end }}
