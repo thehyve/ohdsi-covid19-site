@@ -6,7 +6,6 @@
 @prefix person: <https://covid19.ohdsi.app/author/> .
 @prefix concept: <http://data.ohdsi.org/concept/> .
 @prefix database: <https://covid19.ohdsi.app/database/> .
-@prefix covid19: <https://covid19.ohdsi.app/> .
 @prefix study: <https://covid19.ohdsi.app/study/> .
 
 study:hcq a schema:MedicalObservationalStudy ;
@@ -33,25 +32,25 @@ study:hcq a schema:MedicalObservationalStudy ;
                   schema:name "Risk of hydroxychloroquine, alone and in combination with azithromycin: a multi-national study"
                 ] ;
 	schema:publication <https://doi.org/10.13063/2327-9214.1189>, <https://doi.org/10.13063/2327-9214.1189>  ; # Placeholder for study publication, no publication available for this study. A study can have multiple publications, hence the duplication.
-	schema:hasPart  [ a schema:SoftwareSourceCode ;
-	                  schema:codeRepository "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine" ;
-                    schema:dateModified "2020-04-11"^^xsd:date ; # Last update date GitHub reposity
-	                  schema:programmingLanguage "R" ;
-	                  schema:version "1"^^xsd:decimal ;
-	                  schema:maintainer ohdsi:OHDSI
-                  ],
-                  [ a schema:SoftwareApplication ;
-                    schema:name "Atlas" ;
-	                  schema:mainEntityofPage "https://github.com/OHDSI/Atlas" ;
-	                  schema:softwareVersion "1"^^xsd:decimal ;
-	                  schema:maintainer ohdsi:OHDSI
-                  ],
-                  [ a schema:SoftwareApplication ;  # There can be made use of multiple software tools, this is an example
-                    schema:name "Data Quality Dashboard" ;
-                    schema:mainEntityofPage "https://github.com/OHDSI/DataQualityDashboard" ;
-                    schema:softwareVersion "1"^^xsd:decimal ;
-                    schema:maintainer ohdsi:OHDSI
-                  ] ;
+	schema:hasPart [ a schema:SoftwareSourceCode ;
+                   schema:codeRepository "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine" ;
+                   schema:dateModified "2020-04-11"^^xsd:date ; # Last update date GitHub reposity
+                   schema:programmingLanguage "R" ;
+                   schema:version "1"^^xsd:decimal ;
+                   schema:maintainer ohdsi:OHDSI
+                 ],
+                 [ a schema:SoftwareApplication ;
+                   schema:name "Atlas" ;
+                   schema:mainEntityofPage "https://github.com/OHDSI/Atlas" ;
+                   schema:softwareVersion "1"^^xsd:decimal ;
+                   schema:maintainer ohdsi:OHDSI
+                 ],
+                 [ a schema:SoftwareApplication ;  # There can be made use of multiple software tools, this is an example
+                   schema:name "Data Quality Dashboard" ;
+                   schema:mainEntityofPage "https://github.com/OHDSI/DataQualityDashboard" ;
+                   schema:softwareVersion "1"^^xsd:decimal ;
+                   schema:maintainer ohdsi:OHDSI
+                 ] ;
 	ohdsi:database database:sidiap, database:thin, database:ipci, database:cprd .
 
 <https://covid19.ohdsi.app/study/hcq/design> a schema:MedicalObservationalStudyDesign ;
@@ -64,78 +63,71 @@ study:hcq a schema:MedicalObservationalStudy ;
 concept:37311061 a schema:MedicalCondition ;
 	schema:name "Disease caused by severe acute respiratory syndrome coronavirus 2" ;
 	schema:identifier "37311061" ;
-	schema:code _:840539006 .
-
-_:840539006 a schema:MedicalCode ;
-	schema:codeValue "840539006" ;
-	schema:codingSystem "SNOMED CT" ;
-	schema:sameAs "http://snomed.info/id/840539006" .
+	schema:code [ a schema:MedicalCode ;
+	              schema:codeValue "840539006" ;
+                schema:codingSystem "SNOMED CT" ;
+	              schema:sameAs "http://snomed.info/id/840539006"
+              ] .
 
 concept:80809 a schema:MedicalCondition ;
 	schema:name "Rheumatoid arthritis" ;
 	schema:identifier "80809" ;
-	schema:code _:69896004 .
-
-_:69896004 a schema:MedicalCode ;
-	schema:codeValue "69896004" ;
-	schema:codingSystem "SNOMED CT" ;
-	schema:sameAs "http://snomed.info/id/69896004" .
+	schema:code [ a schema:MedicalCode ;
+	              schema:codeValue "69896004" ;
+	              schema:codingSystem "SNOMED CT" ;
+	              schema:sameAs "http://snomed.info/id/69896004"
+              ] .
 
 concept:1777087 a schema:Drug ;
 	schema:name "Hydroxychloroquine" ;
 	schema:identifier "1777087" ;
-	schema:code _:5521 .
-
-_:5521 a schema:MedicalCode ;
-	schema:codeValue "5521" ;
-	schema:codingSystem "RxNorm" ;
-	schema:sameAs "http://purl.bioontology.org/ontology/RXNORM/5521" .
+	schema:code [ a schema:MedicalCode ;
+	              schema:codeValue "5521" ;
+	              schema:codingSystem "RxNorm" ;
+	              schema:sameAs "http://purl.bioontology.org/ontology/RXNORM/5521"
+              ] .
 
 concept:964339 a schema:Drug ;
 	schema:name "Sulfasalazine" ;
 	schema:identifier "964339" ;
-	schema:code _:9524 .
-
-_:9524 a schema:MedicalCode ;
-	schema:codeValue "9524" ;
-	schema:codingSystem "RxNorm" ;
-	schema:sameAs "http://purl.bioontology.org/ontology/RXNORM/9524" .
+	schema:code [ a schema:MedicalCode ;
+	              schema:codeValue "9524" ;
+	              schema:codingSystem "RxNorm" ;
+	              schema:sameAs "http://purl.bioontology.org/ontology/RXNORM/9524"
+              ] .
 
 concept:1734104 a schema:Drug ;
 	schema:name "Azithromycin" ;
 	schema:identifier "1734104" ;
-	schema:code _:18631 .
-
-_:18631 a schema:MedicalCode ;
-	schema:codeValue "18631" ;
-	schema:codingSystem "RxNorm" ;
-	schema:sameAs "http://purl.bioontology.org/ontology/RXNORM/18631" .
+	schema:code [ a schema:MedicalCode ;
+	              schema:codeValue "18631" ;
+               	schema:codingSystem "RxNorm" ;
+	              schema:sameAs "http://purl.bioontology.org/ontology/RXNORM/18631"
+              ] .
 
 concept:1713332 a schema:Drug ;
 	schema:name "Amoxicillin" ;
   schema:identifier "1713332" ;
-	schema:code _:723 .
-
-_:723 a schema:MedicalCode ;
-	schema:codeValue "723" ;
-	schema:codingSystem "RxNorm" ;
-	schema:sameAs "http://purl.bioontology.org/ontology/RXNORM/723" .
+	schema:code [ a schema:MedicalCode ;
+	              schema:codeValue "723" ;
+              	schema:codingSystem "RxNorm" ;
+	              schema:sameAs "http://purl.bioontology.org/ontology/RXNORM/723"
+              ] .
 
 <https://covid19.ohdsi.app/> a schema:Event ;
 	schema:name "COVID-19 virtual study-a-thon" ;
 	schema:organizer ohdsi:OHDSI ;
-	schema:location covid19:workspace ;
+	schema:location [ a schema:VirtualLocation ;
+                    schema:name "Microsoft Teams"
+                  ] ;
 	schema:startDate "2020-03-26"^^xsd:date ;
 	schema:endDate "2020-03-29"^^xsd:date ;
   schema:mainEntityOfPage <https://www.ohdsi.org/covid-19-updates/> ;
-  schema:recordedIn <https://www.youtube.com/playlist?list=PLpzbqK7kvfeVGZiT1eKO6KxQiN7nzBFK> .
-
-<https://www.youtube.com/playlist?list=PLpzbqK7kvfeVGZiT1eKO6KxQiN7nzBFK> a schema:VideoObject ;
-  schema:uploadDate "2020-03-29"^^xsd:date ;
-  schema:creator ohdsi:OHDSI .
-
-covid19:workspace a schema:VirtualLocation ;
-  schema:name "Microsoft Teams" .
+  schema:recordedIn [ a schema:VideoObject ;
+                      schema:url <https://www.youtube.com/playlist?list=PLpzbqK7kvfeVGZiT1eKO6KxQiN7nzBFK> ;
+                      schema:uploadDate "2020-03-29"^^xsd:date ;
+                      schema:creator ohdsi:OHDSI
+                    ] .
 
 ohdsi:OHDSI a schema:Organization ;
 	schema:name "Observational Health Data Sciences and Informatics" ;
@@ -147,9 +139,9 @@ person:jenniferlane a schema:Person ;
 	schema:honorificSuffix "MD", "MA", "MEd", "MRCS" ;
 	schema:jobTitle "Versus Arthritis Clinical Research Fellow in Orthopaedic Surgery" ;
 	schema:worksFor [ a schema:Organization ;
-                      schema:name "University of Oxford" ;
-                      schema:department "Trauma and Orthopaedic Surgery" ;
-                      schema:address "Windmill Road, Headington, Oxford, OX3 7HE, UK"
+                    schema:name "University of Oxford" ;
+                    schema:department "Trauma and Orthopaedic Surgery" ;
+                    schema:address "Windmill Road, Headington, Oxford, OX3 7HE, UK"
                   ] ;
 	ohdsi:orcidID "" ;
 	ohdsi:forumProfile "https://forums.ohdsi.org/u/jenniferlane" ;
@@ -162,10 +154,10 @@ person:jweave17 a schema:Person ;
 	schema:honorificSuffix "MPH", "" ;
 	schema:jobTitle "Associate Director of Epidemiology Analytics" ;
 	schema:worksFor [ a schema:Organization ;
-                     schema:name "Johnson & Johnson" ;
-                     schema:department "Epidemiology analytics" ;
-                     schema:address ""
-                   ] ;
+                    schema:name "Johnson & Johnson" ;
+                    schema:department "Epidemiology analytics" ;
+                    schema:address ""
+                  ] ;
 	ohdsi:orcidID "" ;
 	ohdsi:forumProfile "https://forums.ohdsi.org/u/jweave17" ;
   schema:mainEntityOfPage "https://www.ohdsi.org/who-we-are/collaborators/james-weaver/" ;
@@ -177,10 +169,10 @@ person:daniel_prieto a schema:Person ;
 	schema:honorificSuffix "MD", "MSc", "PhD" ;
 	schema:jobTitle "Associate Director of Epidemiology Analytics" ;
 	schema:worksFor [ a schema:Organization ;
-                     schema:name "University of Oxford" ;
-                     schema:department "Centre for Statistics in Medicine" ;
-                     schema:address "Windmill Road, Headington, Oxford, OX3 7HE, UK"
-                   ] ;
+                    schema:name "University of Oxford" ;
+                    schema:department "Centre for Statistics in Medicine" ;
+                    schema:address "Windmill Road, Headington, Oxford, OX3 7HE, UK"
+                  ] ;
 	ohdsi:orcidID "https://orcid.org/0000-0002-3950-6346" ;
 	ohdsi:forumProfile "https://forums.ohdsi.org/u/daniel_prieto" ;
   schema:mainEntityOfPage "https://www.ohdsi.org/who-we-are/collaborators/dani-prieto-alhambra/" ;
