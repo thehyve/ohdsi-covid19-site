@@ -2,34 +2,35 @@
 {{- $type := .type }}
 {
   "@graph": [
-    {{ range $i, $e := $params.drugs }}{
+    {{- range $i, $e := $params.drugs }}
+    {
       "@id": "concept:{{ .id }}",
       "@type": "schema:Drug",
-      "code": "_:{{ .code.id }}",
+      "code": {
+        "@type": "schema:MedicalCode",
+        "codeValue": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .code.codeValue) }},
+        "codingSystem": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .code.codingSystem) }}{{ with .code.sameAs }},
+        "sameAs": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .) }}{{ end }}
+      },
       "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .id) }},
       "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .name) }}
-    },{{ end }}{{ range $i, $e := $params.drugs }}
-    {
-      "@id": "_:{{ .code.id }}",
-      "@type": "schema:MedicalCode",
-      "codeValue": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .code.codeValue) }},
-      "codingSystem": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .code.codingSystem) }}{{ with .code.sameAs }},
-      "sameAs": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .) }}{{ end }}
-    },{{ end }}{{ range $i, $e := $params.healthConditions }}
+    },
+    {{- end -}}
+    {{- range $i, $e := $params.healthConditions }}
     {
       "@id": "concept:{{ .id }}",
       "@type": "schema:MedicalCondition",
-      "code": "_:{{ .code.id }}",
+      "code": {
+        "@type": "schema:MedicalCode",
+        "codeValue": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .code.codeValue) }},
+        "codingSystem": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .code.codingSystem) }}{{ with .code.sameAs }},
+        "sameAs": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .) }}{{ end }}
+      },
       "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .id) }},
       "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .name) }}
-    },{{ end }}{{ range $i, $e := $params.healthConditions }}
-    {
-      "@id": "_:{{ .code.id }}",
-      "@type": "schema:MedicalCode",
-      "codeValue": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .code.codeValue) }},
-      "codingSystem": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .code.codingSystem) }}{{ with .code.sameAs }},
-      "sameAs": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .) }}{{ end }}
-    },{{ end }}{{ range $i, $e := $params.authors }}{{- $profile_page := site.GetPage (printf "/authors/%s" $e) -}}
+    },
+    {{- end -}}
+    {{- range $i, $e := $params.authors -}}{{- $profile_page := site.GetPage (printf "/authors/%s" $e) }}
     {
       "@id": "person:{{ $e }}",
       "@type": "schema:Person",
@@ -46,46 +47,24 @@
         {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .jobTitle) }}{{ end }}
       ],{{ end }}
       "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $profile_page.Params.title) }},
-      {{ with $profile_page.Params.organizations }}"worksFor": [{{ range $j, $v := . }}{{ if $j }}, {{ end }}
-        {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .id) }}{{ end }}
-      ]{{ end }}
-    },{{ range $profile_page.Params.organizations }}
-    {
-      "@id": "_:{{ .id }}",
-      "@type": "schema:Organization",
-      "address": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .address) }},
-      "department": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .department) }},
-      "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .name) }}
-    },{{ end }}{{ end }}{{ range $i, $e := $params.softwareSourceCodes }}
-    {
-      "@id": "_:{{ .id }}",
-      "@type": "schema:SoftwareSourceCode",
-      "codeRepository": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .codeRepository) }},
-      "dateModified": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .dateModified) }},
-      "maintainer": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .maintainer) }},
-      "programmingLanguage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .programmingLanguage) }},
-      "version": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .version) }}
-    },{{ end }}{{ range $i, $e := $params.softwareApplications }}
-    {
-      "@id": "_:{{ .id }}",
-      "@type": "schema:SoftwareApplication",
-      "mainEntityofPage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .mainEntityofPage) }},
-      "maintainer": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .maintainer) }},
-      "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .name) }},
-      "softwareVersion": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .version) }}
-    },{{ end }}{{range $i, $e := $params.databases}}{{- $db_page := site.GetPage (printf "/database/%s" $e) -}}
+      {{- with $profile_page.Params.organization }}
+      "worksFor": {
+        "@type": "schema:Organization",
+        "address": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .address) }},
+        "department": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .department) }},
+        "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .name) }}
+      }
+      {{- end }}
+    },
+    {{- end -}}   
+    {{- range $i, $e := $params.databases -}}{{- $db_page := site.GetPage (printf "/database/%s" $e) }}
     {
       "@id": "database:{{ $e }}",
       "@type": "ohdsi:Database",
       "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $db_page.Params.identifier) }},
       "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $db_page.Params.title) }}
-    },{{ end }}{{ range $i, $e := $params.results }}
-    {
-      "@id": "_:{{ .id }}",
-      "@type": "schema:WebApplication",
-      "mainEntityofPage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .mainEntityofPage) }},
-      "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .name) }}
-    },{{ end }}
+    },
+    {{- end }}
     {
       "@id": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.id) }},
       "@type": "schema:MedicalObservationalStudyDesign",
@@ -99,59 +78,27 @@
       "@id": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.id) }},
       "@type": "schema:Event",
       "endDate": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.endDate) }},
-      "location": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.location) }},
+      "location": {
+        "@type": "schema:{{ $params.event.location.type }}",
+        "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.location.name) }} 
+      },
       "mainEntityOfPage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.mainEntityOfPage) }},
       "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.name) }},
       "organizer": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.organizer) }},
-      "recordedIn": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.recordedIn) }},
+      "recordedIn": {
+        "@type": "schema:VideoObject",
+        "url": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.recordedIn.url) }},
+        "creator": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.recordedIn.creator) }},
+        "uploadDate": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.recordedIn.uploadDate) }} 
+      },
       "startDate": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.startDate) }}
-    },{{ range $params.eventLocations }}
-    {
-      "@id": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .id) }},
-      "@type": "schema:{{ .type }}",
-      "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .name) }} 
-    },{{ end }}{{ range $params.eventRecordLocations }}
-    {
-      "@id": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .id) }},
-      "@type": "schema:VideoObject",
-      "creator": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .creator) }},
-      "uploadDate": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .uploadDate) }} 
-    },{{ end }}
+    },
     {
       "@id": "study:{{ $params.id }}",
       "@type": "schema:MedicalObservationalStudy",
-      "ohdsi:database": [{{ range $i, $e := $params.databases }}{{ if $i }}, {{ end }}
-        "database:{{ $e }}"{{ end }}
-      ],
-      "author": [{{ range $i, $e := $params.authors }}{{ if $i }}, {{ end }}
-        "person:{{ $e }}"{{ end }}
-      ],
-      "dateCreated": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.dateCreated) }},
-      "description": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.description) }},
-      "discussionUrl": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.discussionUrl) }},
-      "hasPart": [{{ range $i, $e := $params.softwareSourceCodes }}{{ if $i }}, {{ end }}
-        "_:{{ .id }}"{{ end }},{{ range $i, $e := $params.softwareApplications }}{{ if $i }}, {{ end }}
-        "_:{{ .id }}"{{ end }}
-      ],
-      "healthCondition": [{{ range $i, $e := $params.healthConditions }}{{ if $i }}, {{ end }}
-        "concept:{{ .id }}"{{ end }}
-      ],
       "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.identifier) }},
       "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.title) }},
-      {{ if $params.analyticsUseCase }}
-      {{- with $params.analyticsUseCase -}}
-      {{- $all_study_usecase := partial "functions/get_study_usecases_jsonld" . -}}
-      {{- $indexInt := int . -}}
-      "analyticsUseCase": "ohdsi:{{- index $all_study_usecase $indexInt -}}",
-      {{- end -}}
-      {{ end }}
-      {{ if $params.studyStatus }}
-      {{- with $params.studyStatus -}}
-      {{- $all_study_status := partial "functions/get_study_status_jsonld" . -}}
-      {{- $indexInt := int . -}}
-      "status": "ohdsi:{{- index $all_study_status $indexInt -}}",
-      {{- end -}}
-      {{ end }}
+      "description": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.description) }},
       {{ if $params.studyType }}
       {{- with $params.studyType -}}
       "studyType": [
@@ -162,6 +109,47 @@
       {{- end -}}],
       {{- end -}}
       {{ end }}
+      {{ if $params.analyticsUseCase }}
+      {{- with $params.analyticsUseCase -}}
+      {{- $all_study_usecase := partial "functions/get_study_usecases_jsonld" . -}}
+      {{- $indexInt := int . -}}
+      "analyticsUseCase": "ohdsi:{{- index $all_study_usecase $indexInt -}}",
+      {{- end -}}
+      {{ end }}
+      "mainEntityOfPage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.mainEntityOfPage) }},
+      "studyDesign": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.id) }},
+      {{ if $params.studyStatus }}
+      {{- with $params.studyStatus -}}
+      {{- $all_study_status := partial "functions/get_study_status_jsonld" . -}}
+      {{- $indexInt := int . -}}
+      "status": "ohdsi:{{- index $all_study_status $indexInt -}}",
+      {{- end -}}
+      {{ end }}
+      "healthCondition": [{{ range $i, $e := $params.healthConditions }}{{ if $i }}, {{ end }}
+        "concept:{{ .id }}"{{ end }}
+      ],
+      "studySubject": [{{ range $i, $e := $params.drugs }}{{ if $i }}, {{ end }}
+        "concept:{{ .id }}"{{ end }}
+      ],
+      "subjectOf": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.id) }},
+      "author": [{{ range $i, $e := $params.authors }}{{ if $i }}, {{ end }}
+        "person:{{ $e }}"{{ end }}
+      ],
+      "dateCreated": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.dateCreated) }},
+      "discussionUrl": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.discussionUrl) }},
+      {{ if $params.results }}
+      {{- with $params.results -}}
+      "result": [
+      {{- range $i, $v := . -}}{{- if $i -}}, {{- end }}
+        {
+          "@type": "schema:WebApplication",
+          "mainEntityofPage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .mainEntityofPage) }},
+          "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .name) }}
+        }
+      {{- end }}
+      ],
+      {{- end -}}
+      {{ end }}
       {{ if $params.publications }}
       {{- with $params.publications -}}
       "publication": [
@@ -170,20 +158,34 @@
       {{- end -}}],
       {{- end -}}
       {{ end }}
-      {{ if $params.results }}
-      {{- with $params.results -}}
-      "result": [
-      {{- range $i, $v := . -}}{{- if $i -}}, {{- end -}}
-      "_:{{ $v.id }}"
-      {{- end -}}],
-      {{- end -}}
-      {{ end }}
-      "studyDesign": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.id) }},
-      "studySubject": [{{ range $i, $e := $params.drugs }}{{ if $i }}, {{ end }}
-        "concept:{{ .id }}"{{ end }}
+      "hasPart": [
+      {{- range $i, $e := $params.softwareSourceCodes }}
+        {
+          "@type": "schema:SoftwareSourceCode",
+          "codeRepository": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .codeRepository) }},
+          "dateModified": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .dateModified) }},
+          "maintainer": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .maintainer) }},
+          "programmingLanguage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .programmingLanguage) }},
+          "version": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .version) }}
+        },
+        {{- end }}
+        {{- range $i, $e := $params.softwareApplications }}{{ if $i }}, {{ end }}
+        {
+          "@type": "schema:SoftwareApplication",
+          "mainEntityofPage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .mainEntityofPage) }},
+          "maintainer": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .maintainer) }},
+          "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .name) }},
+          "softwareVersion": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .version) }}
+        }
+        {{- end }}  
       ],
-      "subjectOf": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.id) }},
-      "mainEntityOfPage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.mainEntityOfPage) }}
+      "ohdsi:database": [
+        {{- range $i, $e := $params.databases -}}{{- if $i -}}, {{- end }}
+        {
+          "@id": "database:{{ $e }}"
+        }
+        {{- end }}
+      ]
     }
   ],
   "@context": {

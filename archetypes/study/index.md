@@ -30,15 +30,14 @@ authors: []
 #date format YYYY-MM-DD
 dateCreated:
 
-description: "" 
+description:  
 
 # URL
-discussionUrl: ""
+discussionUrl: 
 
 # @type: hasParts
 softwareSourceCodes:
-- id:
-  name:
+- name:
   # URL
   codeRepository: 
   # date format YYYY-MM-DD
@@ -50,19 +49,17 @@ softwareSourceCodes:
 
 # @type: hasParts
 softwareApplications:
-- id:
+- name:
   # URL
   mainEntityofPage:
   # id from 'organizations'
   maintainer: 
-  name:
   version: ""
 
 healthConditions:
 - name: ""
   id: ""
   code: 
-    id: ""
     codeValue: ""
     codingSystem: ""
     # URL
@@ -78,10 +75,10 @@ publications:
 - url: ""
 
 results:
-- id: 
+- name:
   # URL
   mainEntityofPage:
-  name:
+  
 
 # Study Status: 
 # 0: Complete
@@ -89,62 +86,59 @@ results:
 # 2: Repo Created
 # 3: Started
 # 4: Results Available
-study_status: ""
+study_status: 
 
 studyDesign:
-  id: ""
+  id: 
   # date format YYYY-MM-DD
-  dateModified: ""
-  identifier: ""
+  dateModified: 
+  identifier: 
   license:
   # URL
-  url: ""
-  version: ""
+  url: 
+  version: 
 
 # @type: studySubject
 drugs: 
 - id:
   name:
   code:
-    id: ""
-    codeValue: ""
-    codingSystem: ""
+    id: 
+    codeValue: 
+    codingSystem: 
     # URL
-    sameAs: ""
+    sameAs: 
 
 # @type: subjectOf
 event:
-  id: ""
-  name: ""
+  id: 
+  name: 
   # URL
   mainEntityOfPage:
-  # id from 'eventLocations'
   location:
+    type:
+    name:
   # id from 'organizations'
-  organizer: ""
+  organizer: 
   # date format YYYY-MM-DD
-  startDate: ""
+  startDate: 
   # date format YYYY-MM-DD
-  endDate: ""
-  # id from 'eventRecordLocations'
+  endDate: 
   recordedIn:
-
-eventLocations:
-- id: 
-  type: 
-  name: 
-
-eventRecordLocations:
-- id: 
-  creator: 
-  # date format YYYY-MM-DD
-  uploadDate: 
+    id:
+    # URL
+    url:
+    # id from 'organizations'
+    creator:
+    # date format YYYY-MM-DD
+    uploadDate:
 
 organizations:
 - id: 
   # URL
   mainEntityOfPage: 
   name: 
+  # Array of URLs
   url: []
 
 # date format YYYY-MM-DD

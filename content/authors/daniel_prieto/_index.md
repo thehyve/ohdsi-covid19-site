@@ -10,9 +10,8 @@ authors:
 role: "Associate Director of Epidemiology Analytics"
 
 # Organization/Affiliation
-organizations:
-- name: "University of Oxford"
-  id: "b10"
+organization:
+  name: "University of Oxford"
   address: "Windmill Road, Headington, Oxford, OX3 7HE, UK"
   department: "Centre for Statistics in Medicine"
   jobTitle: "Associate Director of Epidemiology Analytics"
@@ -39,7 +38,7 @@ accounts:
   twitter: 
   email: 
 
-honorificPrefix: 
+honorificPrefix: ""
 
 # Array of suffixes (e.g. M.D.)
 honorificSuffix: ["MSc",

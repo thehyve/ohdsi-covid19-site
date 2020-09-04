@@ -36,8 +36,7 @@ discussionUrl: "https://forums.ohdsi.org/"
 
 # @type: hasParts
 softwareSourceCodes:
-- id: "b3"
-  name:
+- name:
   # URL
   codeRepository: "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine"
   # date format YYYY-MM-DD
@@ -49,24 +48,21 @@ softwareSourceCodes:
 
 # @type: hasParts
 softwareApplications:
-- id: "b11"
+- name: "Data Quality Dashboard"
   # URL
   mainEntityofPage: "https://github.com/OHDSI/DataQualityDashboard"
   # id from 'organizations'
   maintainer: "ohdsi:OHDSI"
-  name: "Data Quality Dashboard"
   version: "1"
-- id: "b8"
+- name: "Atlas"
   mainEntityofPage: "https://github.com/OHDSI/Atlas"
   maintainer: "ohdsi:OHDSI"
-  name: "Atlas"
   version: "1"
 
 healthConditions:
 - name: "Disease caused by severe acute respiratory syndrome coronavirus 2"
   id: "37311061"
   code: 
-    id: "b4"
     codeValue: "840539006"
     codingSystem: "SNOMED CT"
     # URL
@@ -74,7 +70,6 @@ healthConditions:
 - name: "Rheumatoid arthritis"
   id: "80809"
   code: 
-    id: "b6"
     codeValue: "69896004"
     codingSystem: "SNOMED CT"
     # url format
@@ -90,14 +85,12 @@ publications:
 - url: "https://doi.org/10.13063/2327-9214.1189"
 
 results:
-- id: "b0"
+- name: "Risk of hydroxychloroquine, alone and in combination with azithromycin: a multi-national study"
   # URL
   mainEntityofPage: "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/"
-  name: "Risk of hydroxychloroquine, alone and in combination with azithromycin: a multi-national study"
-- id: "b14"
+- name: "Risk of hydroxychloroquine, alone and in combination with azithromycin: a multi-national study"
   # url format
   mainEntityofPage: "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/"
-  name: "Risk of hydroxychloroquine, alone and in combination with azithromycin: a multi-national study"
 
 # Study Status: 
 # 0: Complete
@@ -122,7 +115,6 @@ drugs:
 - id: 1777087
   name: "Hydroxychloroquine"
   code:
-    id: "b9" # is codeValue
     codeValue: "5521"
     codingSystem: "RxNorm"
     # URL
@@ -130,21 +122,18 @@ drugs:
 - id: 1713332
   name: "Amoxicillin"
   code:
-    id: "b12" # is codeValue
     codeValue: "723"
     codingSystem: "RxNorm"
     sameAs: "http://purl.bioontology.org/ontology/RXNORM/723"
 - id: 964339
   name: "Sulfasalazine"
   code:
-    id: "b1" # is codeValue
     codeValue: "9524"
     codingSystem: "RxNorm"
     sameAs: "http://purl.bioontology.org/ontology/RXNORM/9524"
 - id: 1734104
   name: "Azithromycin"
   code:
-    id: "b13" # is codeValue
     codeValue: "18631"
     codingSystem: "RxNorm"
     sameAs: "http://purl.bioontology.org/ontology/RXNORM/18631"
@@ -156,7 +145,9 @@ event:
   # URL
   mainEntityOfPage: "https://www.ohdsi.org/covid-19-updates/"
   # id from 'eventLocations'
-  location: "covid19:workspace"
+  location: 
+    type: "VirtualLocation"
+    name: "Microsoft Teams"
   # id from 'organizations'
   organizer: "ohdsi:OHDSI"
   # date format YYYY-MM-DD
@@ -164,18 +155,12 @@ event:
   # date format YYYY-MM-DD
   endDate: "2020-03-29"
   # id from 'eventRecordLocations'
-  recordedIn: "https://www.youtube.com/playlist?list=PLpzbqK7kvfeVGZiT1eKO6KxQiN7nzBFK"
-
-eventLocations:
-- id: "covid19:workspace"
-  type: "VirtualLocation"
-  name: "Microsoft Teams"
-
-eventRecordLocations:
-- id: "https://www.youtube.com/playlist?list=PLpzbqK7kvfeVGZiT1eKO6KxQiN7nzBFK"
-  creator: "ohdsi:OHDSI"
-  # date format YYYY-MM-DD
-  uploadDate: "2020-03-29"
+  recordedIn: 
+    id: "https://www.youtube.com/playlist?list=PLpzbqK7kvfeVGZiT1eKO6KxQiN7nzBFK"
+    url: "https://www.youtube.com/playlist?list=PLpzbqK7kvfeVGZiT1eKO6KxQiN7nzBFK"
+    creator: "ohdsi:OHDSI"
+    # date format YYYY-MM-DD
+    uploadDate: "2020-03-29"
 
 organizations:
 - id: "ohdsi:OHDSI"
