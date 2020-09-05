@@ -7,8 +7,6 @@
 {{ $publisher := site.Params.org_name | default site.Title }}
 {{ $logo_url := partial "functions/get_logo_url" $page }}
 
-{{/*}}
 <script type="application/ld+json">
   {{ partial "page_db_jsonld" (dict "type" "jsonld" "value" $params) }}
 </script>
-{{*/}}
