@@ -5,9 +5,10 @@
 
 {{ $author := partial "functions/get_author_name" $page }}
 {{ $publisher := site.Params.org_name | default site.Title }}
-{{ $logo_url := partial "functions/get_logo_url" $page -}}
+{{ $logo_url := partial "functions/get_logo_url" $page }}
 
-{{ $jsonld := "application/ld+json"}}
-<script type="{{ $jsonld }}">
-{{ partial "page_db_jsonld" (dict "type" "jsonld" "value" $params) }}
+{{/*}}
+<script type="application/ld+json">
+  {{ partial "page_db_jsonld" (dict "type" "jsonld" "value" $params) }}
 </script>
+{{*/}}

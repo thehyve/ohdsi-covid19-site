@@ -1,15 +1,16 @@
 {{- $page := .page }}
-{{- $summary := .summary -}}
-{{- $params := $page.Params -}}
-{{- $featured_image := ($page.Resources.ByType "image").GetMatch "*featured*" -}}
+{{ $summary := .summary }}
+{{ $params := $page.Params }}
+{{ $featured_image := ($page.Resources.ByType "image").GetMatch "*featured*" }}
 
-{{- $author := partial "functions/get_author_name" $page -}}
+{{ $author := partial "functions/get_author_name" $page }}
 
-{{- $publisher := site.Params.org_name | default site.Title -}}
-{{- $logo_url := partial "functions/get_logo_url" $page -}}
+{{ $publisher := site.Params.org_name | default site.Title }}
+{{ $logo_url := partial "functions/get_logo_url" $page }}
 
-{{- $jsonld := "application/ld+json" -}}
-{{- $type := "jsonld" -}}
+{{ $type := "jsonld" -}}
+
+{{/*}}
 <script type="application/ld+json">
   {
     "@graph": [
@@ -377,4 +378,4 @@
     }
   }
 </script>
-
+{{*/}}
