@@ -19,3 +19,23 @@ usecases = [
   "study_usecase_patient_level_prediction",	
   "study_usecase_characterization_and_population_level_estimation"
 ]
+
+status_jsonld = [ 
+  "jsonld_study_status_complete",
+  "jsonld_study_status_design_finalized",
+  "jsonld_study_status_repo_created",
+  "jsonld_study_status_started",
+  "jsonld_study_status_results_available"
+]
+
+types_jsonld = [
+  "jsonld_study_type_clinical_app",
+  "jsonld_study_type_methods_research"
+]
+
+usecases_jsonld = [
+  "jsonld_study_usecase_characterization",
+  "jsonld_study_usecase_population_level_estimation",
+  "jsonld_study_usecase_patient_level_prediction",	
+  "jsonld_study_usecase_characterization_and_population_level_estimation"
+]

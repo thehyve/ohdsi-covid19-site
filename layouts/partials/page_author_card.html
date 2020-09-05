@@ -29,6 +29,7 @@
         {{ with .Params.role }}<h6 class="card-subtitle">{{. | markdownify | emojify}}</h6>{{end}}
         {{ with .Params.bio }}<p class="card-text">{{. | markdownify | emojify}}</p>{{end}}
         {{ partial "network_links" (dict "network" .Params.accounts) }}
+       
         {{/* partial "social_links" . */}}
       </div>
     </div>

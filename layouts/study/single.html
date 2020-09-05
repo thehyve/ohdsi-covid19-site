@@ -1,13 +1,15 @@
 {{- define "main" -}}
-
+{{ $params := .Params }}
 <article class="article article-project">
   {{ partial "page_header" . }}
 
   <div class="article-container">
     <div class="article-style">
-
-      <!-- <p>{{ .Summary }}</p> -->
-      <p>{{ .Description }}</p>
+      {{ $description := .Params.from_readme.description }}
+      {{ if .Description }}
+        {{ $description = .Description }}
+      {{ end }}
+      <p>{{ $description }}</p>
       
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
@@ -20,375 +22,83 @@
           <a class="nav-link" id="databases-tab" data-toggle="tab" href="#databases" role="tab" aria-controls="databases" aria-selected="false">Databases</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="citations-tab" data-toggle="tab" href="#citations" role="tab" aria-controls="citations" aria-selected="false">Citations</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" id="jsonld-tab" data-toggle="tab" href="#jsonld" role="tab" aria-controls="jsonld" aria-selected="false">JSON-LD</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="readme-tab" data-toggle="tab" href="#readme" role="tab" aria-controls="readme" aria-selected="false">From ReadMe</a>
         </li>
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
-          <b>Drugs:</b> <ul>
-            {{range .Params.drugs}}
-            <li>{{.name}}</li>
-            {{end}}
+          {{ with .Params.drugs }}
+          <b>Drugs:</b>
+          <ul>
+            {{ range . }}
+            <li>{{ .name }}</li>
+            {{ end }}
           </ul>
-          <b>Health Conditions:</b> <ul>
-            {{range .Params.healthConditions}}
-            <li>{{.name}}</li>
-            {{end}}
+          {{ end }}
+
+          {{ with .Params.healthConditions }}
+          <b>Health Conditions:</b>
+          <ul>
+            {{ range . }}
+            <li>{{ .name }}</li>
+            {{ end }}
           </ul>
-          <b>Event:</b> {{.Params.event.name}} <i>({{.Params.event.startDate}} to {{.Params.event.endDate}})</i> at {{.Params.event.location}}, Organizer: {{.Params.event.organizer}}
+          {{ end }}
+
+          {{ $location := "" }}
+          {{ range $params.eventLocations }}
+          {{ if eq .id $params.event.location }}
+          {{ $location = .name }}
+          {{ end }}
+          {{ end }}
+          {{ $organizer := "" }}
+          {{ range $params.organizations }}
+          {{ if eq .id $params.event.organizer }}
+          {{ $organizer = .name }}
+          {{ end }}
+          {{ end }}
+          {{ with .Params.event }}
+          <b>Event:</b> {{ .name }} <i>({{ .startDate }} to {{ .endDate }})</i> at {{ $location }}, Organizer: {{ $organizer }}
+          {{ end }}
         </div>
         <div class="tab-pane fade" id="software" role="tabpanel" aria-labelledby="software-tab">
-          <b>Applications:</b> <ul>
-            {{range .Params.softwareApplications}}
-              <li><a href="{{.installUrl}}">{{.name}}</a> Version: {{.version}}</li>
-            {{end}}
+          {{ with .Params.softwareApplications }}
+          <b>Applications:</b>
+          <ul>
+            {{ range . }}
+              <li><a href="{{ .installUrl }}">{{ .name }}</a> Version: {{ .version }}</li>
+            {{ end }}
           </ul>
-          <b>Source Codes:</b> <ul>
-            {{range .Params.softwareSourceCodes}}
-              <li><a href="{{.codeRepository}}">{{.name}}</a> Version: {{.version}}, Programming Language: {{.programmingLanguage}}, Maintainer: {{.maintainer}}</li>
-            {{end}}
-          </ul>
+          {{ end }}
 
+          {{ with .Params.softwareSourceCodes }}
+          <b>Source Codes:</b>
+          <ul>
+            {{ range $softwareSourceCodes := . }}
+            {{ $maintainer := "" }}
+            {{ range $params.organizations }}
+            {{ if eq .id $softwareSourceCodes.maintainer }}
+            {{ $maintainer = .name }}
+            {{ end }}
+            {{ end }}
+              <li><a href="{{ .codeRepository }}">{{ .name }}</a> Version: {{ .version }}, Programming Language: {{ .programmingLanguage }}, Maintainer: {{ $maintainer }}</li>
+            {{ end }}
+          </ul>
+          {{ end }}
         </div>
         <div class="tab-pane fade" id="databases" role="tabpanel" aria-labelledby="databases-tab">
-          <b>Databases:</b> <ul>{{range $i, $e := .Params.databases}}
-          {{- $db_page := site.GetPage (printf "/database/%s" $e) -}}
-          <li><a href="{{$db_page.URL}}">{{$db_page.Params.title}}</a></li>
-          {{end}}
-          </ul>
-        </div>
-        <div class="tab-pane fade" id="citations" role="tabpanel" aria-labelledby="citations-tab">
+          {{ with .Params.databases }}
+          <b>Databases:</b>
           <ul>
-          {{range .Params.citations}}
-            <li><a href="{{.url}}">{{.author}}. <i>{{.articleTitle}}</i>, {{.datePublished}}</a></li>
-          {{end}}
+            {{ range $i, $e := . }}
+            {{- $db_page := site.GetPage (printf "/database/%s" $e) -}}
+            <li><a href="{{ $db_page.URL }}">{{ $db_page.Params.title }}</a></li>
+            {{ end }}
           </ul>
+          {{ end }}
         </div>
         <div class="tab-pane fade" id="jsonld" role="tabpanel" aria-labelledby="jsonld-tab" style="position: relative;">
-          {{ $params := .Params}}
-          {{/* $featured_image := ($page.Resources.ByType "image").GetMatch "*featured*" */}}
-          
-          {{/* $author := partial "functions/get_author_name" $page */}}
-          
-          {{/* $publisher := site.Params.org_name | default site.Title */}}
-          {{/* $logo_url := partial "functions/get_logo_url" $page -*/}}
-          <script>
-            function copyToClipboard() {
-              const str = document.getElementById('item-to-copy').innerText;
-              const el = document.createElement('textarea');
-              el.value = str;
-              el.setAttribute('readonly', '');
-              el.style.position = 'absolute';
-              el.style.left = '-9999px';
-              document.body.appendChild(el);
-              el.select();
-              document.execCommand('copy');
-              document.body.removeChild(el);
-              alert('JSON-LD copied to clipboard.')
-          }
-          </script>
-          <button class="btn btn-outline-primary mb-3" onclick="copyToClipboard()" style="text-align: right;"><i class="far fa-copy mr-1"></i>Copy to clipboard</button>
-
-          <pre id="item-to-copy" style="color: #000; font-size: 14px; line-height:1;"><code class="json">
-{
-  "@context" : {
-    "schema" : "http://schema.org/",
-    "ohdsi" : "http://ohdsi.data.org/",
-    "owl" : "http://www.w3.org/2002/07/owl#",
-    "address" : "http://schema.org/address",
-    "department" : "http://schema.org/department",
-    "orcidIdentifier" : "http://ohdsi.data.org/orcidIdentifier",
-    "forumName" : "http://ohdsi.data.org/forumName",
-    "honorificSuffix" : "http://schema.org/honorificSuffix",
-    "jobTitle" : "http://schema.org/jobTitle",
-    "githubHandle" : "http://ohdsi.data.org/githubHandle",
-    "googlescholarId" : "http://ohdsi.data.org/googlescholarId",
-    "worksFor" : {
-      "@id" : "http://schema.org/worksFor",
-      "@type" : "@id"
-    },
-    "ohdsiCollaborator" : "http://ohdsi.data.org/ohdsiCollaborator",
-    "honorificPrefix" : "http://schema.org/honorificPrefix",
-    "equivalentClass" : {
-      "@id" : "http://www.w3.org/2002/07/owl#equivalentClass",
-      "@type" : "@id"
-    },
-    "codingSystem" : "http://schema.org/codingSystem",
-    "codeValue" : {
-      "@id" : "http://schema.org/codeValue",
-      "@type" : "http://www.w3.org/2001/XMLSchema#string"
-    },
-    "sameAs" : "http://schema.org/sameAs",
-    "name" : "http://schema.org/name",
-    "identifier" : "http://schema.org/identifier",
-    "code" : {
-      "@id" : "http://schema.org/code",
-      "@type" : "@id"
-    },
-    "healthCondition" : {
-      "@id" : "http://schema.org/healthCondition",
-      "@type" : "@id"
-    },
-    "author" : {
-      "@id" : "http://schema.org/author",
-      "@type" : "@id"
-    },
-    "studyType" : "http://schema.org/studyType",
-    "studySubject" : {
-      "@id" : "http://schema.org/studySubject",
-      "@type" : "@id"
-    },
-    "hasPart" : {
-      "@id" : "http://schema.org/hasPart",
-      "@type" : "@id"
-    },
-    "result" : {
-      "@id" : "http://schema.org/result",
-      "@type" : "@id"
-    },
-    "database" : {
-      "@id" : "http://ohdsi.data.org/database",
-      "@type" : "@id"
-    },
-    "datePublished" : {
-      "@id" : "http://schema.org/datePublished",
-      "@type" : "http://www.w3.org/2001/XMLSchema#date"
-    },
-    "publication" : {
-      "@id" : "http://schema.org/publication",
-      "@type" : "@id"
-    },
-    "citation" : {
-      "@id" : "http://schema.org/citation",
-      "@type" : "@id"
-    },
-    "license" : "http://schema.org/license",
-    "subjectOf" : {
-      "@id" : "http://schema.org/subjectOf",
-      "@type" : "@id"
-    },
-    "description" : "http://schema.org/description",
-    "discussionUrl" : "http://schema.org/discussionUrl",
-    "url" : "http://schema.org/url",
-    "studyDesign" : {
-      "@id" : "http://schema.org/studyDesign",
-      "@type" : "@id"
-    },
-    "endDate" : {
-      "@id" : "http://schema.org/endDate",
-      "@type" : "http://www.w3.org/2001/XMLSchema#date"
-    },
-    "startDate" : {
-      "@id" : "http://schema.org/startDate",
-      "@type" : "http://www.w3.org/2001/XMLSchema#date"
-    },
-    "location" : "http://schema.org/location",
-    "organizer" : {
-      "@id" : "http://schema.org/organizer",
-      "@type" : "@id"
-    },
-    "dateModified" : {
-      "@id" : "http://schema.org/dateModified",
-      "@type" : "http://www.w3.org/2001/XMLSchema#date"
-    },
-    "version" : {
-      "@id" : "http://schema.org/version",
-      "@type" : "http://www.w3.org/2001/XMLSchema#decimal"
-    },
-    "maintainer" : {
-      "@id" : "http://schema.org/maintainer",
-      "@type" : "@id"
-    },
-    "softwareVersion" : "http://schema.org/softwareVersion",
-    "installURL" : "http://schema.org/installURL",
-    "programmingLanguage" : "http://schema.org/programmingLanguage",
-    "codeRepository" : "http://schema.org/codeRepository"
-  },
-  "@id" : "urn:x-arq:DefaultGraphNode",
-  "@graph": [
-    {{ range $i, $e := $params.drugs }}{
-      "@id": "ohdsi:{{ .name }}",
-      "@type": "schema:Drug",
-      "code": [{{ range $j, $v := .code }}{{ if $j }}, {{ end }}
-        "ohdsi:{{ $v.id }}"{{ end }}
-      ],
-      "name": "{{ .name }}"
-    },
-    {{ end }}{{ range $i, $e := $params.drugs }}{{ range $j, $v := .code }}{
-      "@id": "ohdsi:{{ .id }}",
-      "@type": "schema:MedicalCode",
-      "codeValue": "{{ .codeValue }}",
-      "codingSystem": "{{ .codingSystem }}"{{ with .sameAs }},
-      "sameAs": "{{ . }}"{{ end }}{{ with .equivalentClass }},
-      "equivalentClass": "ohdsi:{{ . }}"{{ end }}
-    },
-    {{ end }}{{ end }}{{ range $i, $e := $params.healthConditions }}{
-      "@id": "ohdsi:{{.id}}",
-      "@type": "schema:MedicalCondition",
-      "code": [{{ range $j, $v := .code }}{{ if $j }}, {{ end }}
-        "ohdsi:{{ $v.id }}"{{ end }}
-      ],
-      "name": "{{ .name }}"
-    },
-    {{ end }}{{ range $i, $e := $params.healthConditions }}{{ range $j, $v := .code }}{
-      "@id": "ohdsi:{{ .id }}",
-      "@type": "schema:MedicalCode",
-      "codeValue": "{{ .codeValue }}",
-      "codingSystem": "{{ .codingSystem }}"{{ with .sameAs }},
-      "sameAs": {{ . }}{{ end }}{{ with .equivalentClass }},
-      "equivalentClass": "ohdsi:{{ . }}"{{ end }}
-    },
-    {{ end }}{{ end }}{{ range $i, $e := $params.authors }}{{- $profile_page := site.GetPage (printf "/authors/%s" $e) -}}{
-      "@id": "ohdsi:{{ $e }}",
-      "@type": "schema:Person",
-      "forumName": "{{ $profile_page.Params.accounts.forumName }}",
-      "githubHandle": "{{ $profile_page.Params.accounts.githubHandle }}",
-      "googlescholarId": "{{ $profile_page.Params.accounts.googlescholarId }}",
-      "ohdsiCollaborator": "{{ $profile_page.Params.accounts.ohdsiCollaborator }}",
-      "orcidIdentifier": "{{ $profile_page.Params.accounts.orcidIdentifier }}",
-      "honorificPrefix": "{{ $profile_page.Params.honorificPrefix }}",
-      "honorificSuffix": [{{ range $j, $v := $profile_page.Params.honorificSuffix }}{{ if $j }}, {{ end }}
-        "{{ . }}"{{ end }}
-      ],
-      "jobTitle": "{{ $profile_page.Params.organization.jobTitle }}",
-      "name": "{{ $profile_page.Params.title }}",
-      "worksFor": "ohdsi:{{ $profile_page.Params.organization.id }}"
-    },
-    {{ end }}
-    {{- $arr := slice "" -}}
-    {{- range $i, $e := $params.authors -}}{{- $profile_page := site.GetPage (printf "/authors/%s" $e) -}}
-      {{- if in $arr $profile_page.Params.organization.id -}}{{- else -}}
-        {{- $arr = $arr | append (slice $profile_page.Params.organization.id) -}}
-    {
-      "@id": "ohdsi:{{$profile_page.Params.organization.id}}",
-      "@type": "schema:Organization",
-      "address": "{{$profile_page.Params.organization.address}}",
-      "department": "{{$profile_page.Params.organization.department}}",
-      "name": "{{$profile_page.Params.organization.name}}"
-    },
-    {{ end }}{{ end }}{
-      "@id": "ohdsi:{{$params.event.organizer}}",
-      "@type": "schema:Organization",
-      "name": "{{$params.event.organizer}}"
-    },
-    {{ range $i, $e := $params.softwareSourceCodes }}{
-      "@id": "ohdsi:{{ .name }}",
-      "@type": "schema:SoftwareSourceCode",
-      "codeRepository": "{{ .codeRepository }}",
-      "maintainer": "ohdsi:{{ .maintainer }}",
-      "programmingLanguage": "{{ .programmingLanguage }}",
-      "schema:version": "{{ .version }}"
-    },
-    {{ end }}{{ range $i, $e := $params.softwareApplications }}{
-      "@id": "ohdsi:{{ .name }}",
-      "@type": "schema:SoftwareApplication",
-      "installURL": "{{ .installURL }}",
-      "maintainer": "ohdsi:{{ .maintainer }}",
-      "name": "{{ .name }}",
-      "softwareVersion": "{{.version}}"
-    },
-    {{ end }}{{range $i, $e := $params.databases}}{{- $db_page := site.GetPage (printf "/database/%s" $e) -}}{
-      "@id": "ohdsi:{{ $e }}",
-      "@type": "ohdsi:Database",
-      "identifier": "{{ $e }}",
-      "name": "{{ $db_page.Params.title }}"
-    },
-    {{ end }}{
-      "@id": "ohdsi:{{ $params.result.id }}",
-      "@type": "schema:WebApplication",
-      "url": "{{ $params.result.url }}"
-    },
-    {
-      "@id": "ohdsi:StudyPublication",
-      "@type": "schema:MedicalScholarlyArticle",
-      "url": "{{ $params.publication.url }}"
-    },
-    {
-      "@id": "ohdsi:{{ $params.studyDesign.id }}",
-      "@type": "schema:MedicalObservationalStudyDesign",
-      "dateModified": "{{ $params.studyDesign.dateModified }}",
-      "identifier": "{{ $params.studyDesign.identifier }}",
-      "url": "{{ $params.studyDesign.url }}",
-      "version": "{{ $params.studyDesign.version }}"
-    },
-    {
-      "@id": "ohdsi:{{ $params.event.id }}",
-      "@type": "schema:Event",
-      "endDate": "{{ $params.event.endDate }}",
-      "location": "{{ $params.event.location }}",
-      "name": "{{ $params.event.name }}",
-      "organizer": "ohdsi:{{ $params.event.organizer }}",
-      "startDate": "{{ $params.event.startDate }}"
-    },
-    {{ range $i, $e := $params.citations }}{
-      "@id": "ohdsi:{{ .id }}",
-      "@type": "schema:ScholarlyArticle",
-      "author": "{{ .author }}",
-      "datePublished": "{{ .datePublished }}",
-      "name": "{{ .articleTitle }}",
-      "url": "{{ .url }}"
-    },
-    {{ end }}{
-      "@id": "ohdsi:{{ $params.id }}",
-      "@type": "schema:MedicalObservationalStudy",
-      "database": [{{ range $i, $e := $params.databases }}{{ if $i }}, {{ end }}
-        "ohdsi:{{ $e }}"{{ end }}
-      ],
-      "author": [{{ range $i, $e := $params.authors }}{{ if $i }}, {{ end }}
-        "ohdsi:{{ $e }}"{{ end }}
-      ],
-      "citation": [{{ range $i, $e := $params.citations }}{{ if $i }}, {{ end }}
-        "ohdsi:{{ .id }}"{{ end }}
-      ],
-      "datePublished": "{{ $params.datePublished }}",
-      "description": "{{ $params.description }}",
-      "discussionUrl": "{{ $params.discussionUrl }}",
-      "hasPart": [{{ range $i, $e := $params.softwareSourceCodes }}{{ if $i }}, {{ end }}
-        "ohdsi:{{ .name }}"{{ end }},{{ range $i, $e := $params.softwareApplications }}{{ if $i }}, {{ end }}
-        "ohdsi:{{ .name }}"{{ end }}
-      ],
-      "healthCondition": [{{ range $i, $e := $params.healthConditions }}{{ if $i }}, {{ end }}
-        "ohdsi:{{ .id }}"{{ end }}
-      ],
-      "identifier": "{{ $params.identifier }}",
-      "license": "{{ $params.license }}",
-      "name": "{{ $params.title }}",
-      "publication": "ohdsi:StudyPublication",
-      "result": "ohdsi:{{ $params.result.id }}",
-      "studyDesign": "ohdsi:{{ $params.studyDesign.id }}",
-      "studySubject": [{{ range $i, $e := $params.drugs }}{{ if $i }}, {{ end }}
-        "ohdsi:{{ .name }}"{{ end }}
-      ],
-      "studyType": "{{ $params.studyType }}",
-      "subjectOf": "ohdsi:{{ $params.event.id }}",
-      "url": "{{ $params.studyUrl }}"
-    }
-  ]
-}
-          </code></pre>
-        </div>
-        <div class="tab-pane fade" id="readme" role="tabpanel" aria-labelledby="readme-tab">
-          {{ $filePath := .File.Dir }} 
-          {{ $url := print "content/" $filePath "index.json"}}
-          {{ if (fileExists $url) -}}
-            {{ $data := getJSON $url }}
-            <p>Analytics Use Case(s): <b>{{$data.AnalyticsUseCases}}</b></p>
-            <p>Study Type: <b>{{$data.StudyType}}</b></p>
-            <p>Tags: <b>{{range $i, $e := $data.Tags}}{{ if $i }}, {{ end }}{{ . }}{{ end }}</b></p>
-            <p>Study Lead: <b>{{range $i, $e := $data.StudyLead}}{{ if $i }}, {{ end }}{{ . }}{{ end }}</b></p>
-            <p>Study Lead Forum Tag: <b>{{range $i, $e := $data.StudyLeadForumsTag}}{{ if $i }}, {{ end }}<a href="{{ .URL }}">{{ .Title }}</a>{{ end }}</b></p>
-            <p>Study Start Date: <b>{{$data.StudyStartDate}}</b></p>
-            <p>Study End Date: <b>{{$data.StudyEndDate}}</b></p>
-            <p>Protocol: <b><a href="{{ $data.Protocol.URL }}">{{ $data.Protocol.Title }}</a></b></p>
-            <p>Publications: <b>{{$data.Publications}}</b></p>
-            <p>Results Explorer: <b><a href="{{ $data.ResultsExplorer.URL }}">{{ $data.ResultsExplorer.Title }}</a></b></p>
-          {{ end }}  
+          {{ partial "page_study_jsonld_tab" .Params }}
         </div>
       </div>
       {{ .Content }}

@@ -1,19 +1,13 @@
 {{- define "main" -}}
+{{- $params := .Params -}}
 
 <article class="article article-project">
   {{ partial "page_header" . }}
 
   <div class="article-container">
-    <!-- <div class="article-meta mb-3">
-      <button type="button" class="btn btn-outline-secondary my-1">{{.Params.databaseSystem }}</button>
-      <button type="button" class="btn btn-outline-secondary my-1">Alternate Name: {{.Params.alternateName }}</button>
-      <button type="button" class="btn btn-outline-secondary my-1">Version: {{.Params.version }}</button>
-      <button type="button" class="btn btn-outline-secondary my-1">License: {{.Params.license }}</button>
-      <a type="button" class="btn btn-outline-primary my-1" href="{{.Params.databaseUrl }}"><i class="fas fa-link mr-1"></i>URL</a>
-    </div> -->
+
     <div class="article-style">
 
-      <!-- <p>{{ .Summary }}</p> -->
       <p>{{ .Description }}</p>
       
       <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -29,194 +23,80 @@
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
-          <p><b>Database URL:</b> <a href="{{ .Params.databaseUrl }}">{{ .Params.databaseUrl }}</a></p>
-          <p><b>Database System:</b> {{ .Params.databaseSystem }}</p>
-          <p><b>Database Alternate Name:</b> {{ .Params.alternateName }}</p>
-          <p><b>Database Version:</b> {{ .Params.version }}</p>
-          <p><b>Date Created:</b> {{ .Params.dateCreated }}</p>
-          <p><b>Date Modified:</b> {{ .Params.dateModified }}</p>
-          <p><b>Start Date:</b> {{ .Params.startDate }}</p>
-          <p><b>End Date:</b> {{ .Params.endDate }}</p>
-          <p><b>Spatial Coverage:</b> {{ .Params.spatialCoverage }}</p>
-          <p><b>Population Size:</b> {{ .Params.populationSize }}</p>
-          <p><b>Database Characteristic:</b> <ul>
-            {{range .Params.databaseCharacteristic }}
-            <li>{{ . }}</li>
-            {{end }}
-          </ul></p>
-          <p><b>Associated Institution:</b> {{ .Params.associatedInstitution }}</p>
+          <!-- <p><b>Database URL:</b> <a href="{{ $params.databaseUrl }}">{{ $params.databaseUrl }}</a></p> -->
+          <!-- <p><b>Database System:</b> {{ $params.databaseSystem }}</p> -->
+          <!-- <p><b>Database Alternate Name:</b> {{ $params.alternateName }}</p> -->
+          <!-- <p><b>Database Version:</b> {{ $params.version }}</p> -->
+          {{/* with $params.dateCreated }}<p><b>Date Created:</b> {{ . }}</p>{{ end }}
+          {{ with $params.dateModified }}<p><b>Date Modified:</b> {{ . }}</p>{{ end }}
+          {{ with $params.startDate }}<p><b>Start Date:</b> {{ . }}</p>{{ end }}
+          {{ with $params.endDate }}<p><b>End Date:</b> {{ . }}</p>{{ end */}}
+          {{ with $params.spatialCoverage }}<p><b>Spatial Coverage:</b> {{ . }}</p>{{ end }}
+          {{ with $params.populationSize }}<p><b>Population Size:</b> {{ . }}</p>{{ end }}
+          {{ with $params.databaseCharacteristic }}<p><b>Database Characteristic:</b>
+            <ul>
+              {{ range . }}
+              <li>{{ . }}</li>
+              {{ end }}
+          </ul></p>{{ end }}
+          {{ with $params.associatedInstitution }}<p><b>Associated Institution:</b> {{ . }}</p>{{ end }}
         </div>
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-          <b>Administrative Contact:</b>
-          <ul>
-            <li><b>Name:</b> {{.Params.administrativeContact.name }}</li>
-            <li><b>Email:</b> <a href="mailto:{{.Params.administrativeContact.email }}">{{.Params.administrativeContact.email }}</a></li>
-            <li><b>Telephone:</b> {{.Params.administrativeContact.telephone }}</li>
-          </ul>
-          <b>Principal Investigator Contact:</b>
-          <ul>
-            <li><b>Name:</b> {{.Params.principalInvestigator.name }}</li>
-            <li><b>Email:</b> <a href="mailto:{{.Params.principalInvestigator.email }}">{{.Params.principalInvestigator.email }}</a></li>
-            <li><b>Telephone:</b> {{.Params.principalInvestigator.telephone }}</li>
-          </ul>
-          <b>Scientific Contact:</b>
-          <ul>
-            <li><b>Name:</b> {{.Params.scientificContact.name }}</li>
-            <li><b>Email:</b> <a href="mailto:{{.Params.scientificContact.email }}">{{.Params.scientificContact.email }}</a></li>
-            <li><b>Telephone:</b> {{.Params.scientificContact.telephone }}</li>
-          </ul>
-          <b>Technical Contact:</b>
-          <ul>
-            <li><b>Name:</b> {{.Params.technicalContact.name }}</li>
-            <li><b>Email:</b> <a href="mailto:{{.Params.technicalContact.email }}">{{.Params.technicalContact.email }}</a></li>
-            <li><b>Telephone:</b> {{.Params.technicalContact.telephone }}</li>
-          </ul>
+          {{ with $administrativeContact := $params.administrativeContact }}
+            {{$person := ""}}
+            {{ range $params.persons }}
+              {{ if eq .id $administrativeContact}}
+                {{ $person = . }}
+              {{ end }}
+            {{ end }}
+            <b>Administrative Contact:</b><ul>
+              <li><b>Name:</b> {{ $person.name }}</li>
+              <li><b>Email:</b> <a href="mailto:{{ $person.email }}">{{ $person.email }}</a></li>
+              <li><b>Telephone:</b> {{ $person.telephone }}</li>
+            </ul>
+          {{ end }}
+          {{ with $principalInvestigator := $params.principalInvestigator }}
+            {{$person := ""}}
+            {{ range $params.persons }}
+              {{ if eq .id $principalInvestigator}}
+                {{ $person = . }}
+              {{ end }}
+            {{ end }}
+            <b>Principal Investigator Contact:</b><ul>
+              <li><b>Name:</b> {{ $person.name }}</li>
+              <li><b>Email:</b> <a href="mailto:{{ $person.email }}">{{ $person.email }}</a></li>
+              <li><b>Telephone:</b> {{ $person.telephone }}</li>
+            </ul>
+          {{ end }}
+          {{ with $scientificContact := $params.scientificContact }}
+            {{$person := ""}}
+            {{ range $params.persons }}
+              {{ if eq .id $scientificContact}}
+                {{ $person = . }}
+              {{ end }}
+            {{ end }}
+            <b>Scientific Contact:</b><ul>
+              <li><b>Name:</b> {{ $person.name }}</li>
+              <li><b>Email:</b> <a href="mailto:{{ $person.email }}">{{ $person.email }}</a></li>
+              <li><b>Telephone:</b> {{ $person.telephone }}</li>
+            </ul>
+          {{ end }}
+          {{ with $technicalContact := $params.technicalContact }}
+            {{$person := ""}}
+            {{ range $params.persons }}
+              {{ if eq .id $technicalContact}}
+                {{ $person = . }}
+              {{ end }}
+            {{ end }}
+            <b>Technical Contact:</b><ul>
+              <li><b>Name:</b> {{ $person.name }}</li>
+              <li><b>Email:</b> <a href="mailto:{{ $person.email }}">{{ $person.email }}</a></li>
+              <li><b>Telephone:</b> {{ $person.telephone }}</li>
+            </ul>
+          {{ end }}
         </div>
         <div class="tab-pane fade" id="jsonld" role="tabpanel" aria-labelledby="jsonld-tab">
-          {{ $params := .Params }}
-          <script>
-          function copyToClipboard() {
-            const str = document.getElementById('item-to-copy').innerText;
-            const el = document.createElement('textarea');
-            el.value = str;
-            el.setAttribute('readonly', '');
-            el.style.position = 'absolute';
-            el.style.left = '-9999px';
-            document.body.appendChild(el);
-            el.select();
-            document.execCommand('copy');
-            document.body.removeChild(el);
-            alert('JSON-LD copied to clipboard.')
-        }
-        </script>
-        <button class="btn btn-outline-primary mb-3" onclick="copyToClipboard()" style="text-align: right;"><i class="far fa-copy mr-1"></i>Copy to clipboard</button>
-
-        <pre id="item-to-copy" style="color: #000; font-size: 14px; line-height:1;"><code class="json">
-{
-  "@graph": [
-    {
-      "@id": "ohdsi:database/{{ $params.id }}",
-      "@type": "ohdsi:Database",
-      "administrativeContact": "ohdsi:person/{{ $params.administrativeContact.id }}",
-      "associatedInstitution": "{{ $params.associatedInstitution }}",
-      "databaseCharacteristic": [{{ range $i, $e := $params.databaseCharacteristic }}{{ if $i }}, {{ end }}
-        "{{ $e }}"{{ end }}
-      ],
-      "databaseSystem": "{{ $params.databaseSystem }}",
-      "ohdsi:populationSize": "{{ $params.populationSize }}",
-      "principalInvestigator": "ohdsi:person/{{ $params.principalInvestigator.id }}",
-      "scientificContact": "ohdsi:person/{{ $params.scientificContact.id }}",
-      "technicalContact": "ohdsi:person/{{ $params.technicalContact.id }}",
-      "alternateName": "{{ $params.alternateName }}",
-      "dateCreated": "{{ $params.dateCreated }}",
-      "dateModified": "{{ $params.dateModified }}",
-      "description": "{{ $params.description }}",
-      "endDate": "{{ $params.endDate }}",
-      "identifier": "{{ $params.identifier }}",
-      "name": "{{ $params.Title }}",
-      "publication": "ohdsi:{{ $params.publication }}",
-      "spatialCoverage": "{{ $params.spatialCoverage }}",
-      "startDate": "{{ $params.startDate }}",
-      "url": "{{ $params.databaseUrl }}",
-      "version": "{{ $params.version }}"
-    },
-    {
-      "@id": "ohdsi:person/{{ $params.administrativeContact.id }}",
-      "@type": "schema:Person",
-      "email": "{{ $params.administrativeContact.email }}",
-      "name": "{{ $params.administrativeContact.name }}",
-      "telephone": "{{ $params.administrativeContact.telephone }}"
-    }
-    {{ if ne $params.principalInvestigator.id $params.administrativeContact.id }},{
-      "@id": "ohdsi:person/{{ $params.principalInvestigator.id }}",
-      "@type": "schema:Person",
-      "email": "{{ $params.principalInvestigator.email }}",
-      "name": "{{ $params.principalInvestigator.name }}",
-      "telephone": "{{ $params.principalInvestigator.telephone }}"
-    }{{ end }}
-    {{ if ne $params.scientificContact.id $params.administrativeContact.id }}{{ if ne $params.scientificContact.id $params.principalInvestigator.id }},{
-      "@id": "ohdsi:person/{{ $params.scientificContact.id }}",
-      "@type": "schema:Person",
-      "email": "{{ $params.scientificContact.email }}",
-      "name": "{{ $params.scientificContact.name }}",
-      "telephone": "{{ $params.scientificContact.telephone }}"
-    }{{ end }}{{ end }}
-    {{ if ne $params.technicalContact.id $params.administrativeContact.id }}{{ if ne $params.technicalContact.id $params.principalInvestigator.id }}{{ if ne $params.technicalContact.id $params.scientificContact.id }},{
-      "@id": "ohdsi:person/{{ $params.technicalContact.id }}",
-      "@type": "schema:Person",
-      "email": "{{ $params.technicalContact.email }}",
-      "name": "{{ $params.technicalContact.name }}",
-      "telephone": "{{ $params.technicalContact.telephone }}"
-    }{{ end }}{{ end }}{{ end }}
-  ],
-  "@id": "urn:x-arq:DefaultGraphNode",
-  "@context" : {
-    "telephone" : "http://schema.org/telephone",
-    "email" : "http://schema.org/email",
-    "name" : "http://schema.org/name",
-    "scientificContact" : {
-      "@id" : "http://data.ohdsi.org/scientificContact",
-      "@type" : "@id"
-    },
-    "principalInvestigator" : {
-      "@id" : "http://data.ohdsi.org/principalInvestigator",
-      "@type" : "@id"
-    },
-    "endDate" : {
-      "@id" : "http://schema.org/endDate",
-      "@type" : "http://www.w3.org/2001/XMLSchema#date"
-    },
-    "dateCreated" : {
-      "@id" : "http://schema.org/dateCreated",
-      "@type" : "http://www.w3.org/2001/XMLSchema#date"
-    },
-    "url" : "http://schema.org/url",
-    "startDate" : {
-      "@id" : "http://schema.org/startDate",
-      "@type" : "http://www.w3.org/2001/XMLSchema#date"
-    },
-    "dateModified" : {
-      "@id" : "http://schema.org/dateModified",
-      "@type" : "http://www.w3.org/2001/XMLSchema#date"
-    },
-    "administrativeContact" : {
-      "@id" : "http://data.ohdsi.org/administrativeContact",
-      "@type" : "@id"
-    },
-    "spatialCoverage" : {
-      "@id" : "http://schema.org/spatialCoverage",
-      "@type" : "@id"
-    },
-    "alternateName" : "http://schema.org/alternateName",
-    "technicalContact" : {
-      "@id" : "http://data.ohdsi.org/technicalContact",
-      "@type" : "@id"
-    },
-    "publication" : {
-      "@id" : "http://schema.org/publication",
-      "@type" : "@id"
-    },
-    "databaseCharacteristic" : "http://data.ohdsi.org/databaseCharacteristic",
-    "description" : "http://schema.org/description",
-    "populationSize" : {
-      "@id" : "http://data.ohdsi.org/populationSize",
-      "@type" : "http://www.w3.org/2001/XMLSchema#integer"
-    },
-    "identifier" : "http://schema.org/identifier",
-    "version" : {
-      "@id" : "http://schema.org/version",
-      "@type" : "http://www.w3.org/2001/XMLSchema#decimal"
-    },
-    "associatedInstitution" : "http://data.ohdsi.org/associatedInstitution",
-    "databaseSystem" : "http://data.ohdsi.org/databaseSystem",
-    "schema" : "http://schema.org/",
-    "xsd" : "http://www.w3.org/2001/XMLSchema#",
-    "ohdsi" : "http://data.ohdsi.org/",
-    "wd" : "https://www.wikidata.org/wiki/"
-  }
-}
-            </code>
-          </pre>
+          {{ partial "page_db_jsonld_tab" $params }}
         </div>
       </div>
       

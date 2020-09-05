@@ -1,0 +1,11 @@
+{{ $type := .type }}
+{{ $value := .value }}
+{{ $result := "" }}
+
+{{ if eq $type "front" }}
+  {{ $result = print "\"" $value "\""}}
+{{ else if eq $type "jsonld" }}
+  {{ $result = $value }}
+{{ end }}
+
+{{ return $result }}

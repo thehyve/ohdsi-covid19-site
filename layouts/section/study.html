@@ -54,7 +54,7 @@
           {{ $.Scratch.SetInMap "months_number" $month $month }}
         {{ end }}
         
-        {{ $months_sorted := $.Scratch.GetSortedMapValues "months_number" }}
+        {{/* $months_sorted := $.Scratch.GetSortedMapValues "months_number" }}
         {{ range sort $months_sorted "" "desc" }}
           {{ $index_str := substr . 5 2}}
           {{ $index := int $index_str }}
@@ -63,7 +63,7 @@
           {{ $month := printf "%s %s" $yearr $monthName }}
           {{ $.Scratch.SetInMap "months" . $month }}
         {{ end }}
-        {{ $months_sorted := $.Scratch.Get "months" }}
+        {{ $months_sorted := $.Scratch.Get "months" */}}
 
         <div class="col-12 mb-2">
           <small id="" class="form-text text-muted">Study Type:</small>
@@ -115,6 +115,7 @@
             {{ end }}
           </select>
         </div>
+        {{/*}}
         <!-- <div class="col-12 mb-2">
           <small id="" class="form-text text-muted">Study Month:</small>
           <select class="pub-filters form-control form-control-sm" data-filter-group="month">
@@ -129,6 +130,7 @@
             {{ end }}
           </select>
         </div> -->
+        {{*/}}
       </div>
       {{/*  <p>Totla number of Studies: {{ len .Pages.ByDate.Reverse }}<br>
       Found by filter: {{ len .Pages.ByDate.Reverse }}</p>  */}}

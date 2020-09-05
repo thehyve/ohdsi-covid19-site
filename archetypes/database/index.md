@@ -7,70 +7,65 @@ categories: []
 date: {{ .Date }}
 lastmod: {{ .Date }} 
 featured: false
-draft: false
-
-alternateName: ""
-
-identifier: ""
+draft: true
 
 id: ""
 
-# date format
-dateCreated: ""
-
-# date format
-dateModified: ""
+# Array of string - e.g. ["", ""]
+databaseCharacteristic: []
 
 databaseSystem: ""
 
+identifier: ""
+
+populationSize: ""
+
+alternateName: ""
+
+# date format YYYY-MM-DD
+dateCreated: ""
+
+# date format YYYY-MM-DD
+dateModified: ""
+
 description: ""
 
+# URL
 databaseUrl: ""
 
-# date format
+# date format YYYY-MM-DD
 startDate: ""
 
-# date format
+# date format YYYY-MM-DD
 endDate: ""
-
-version: ""
-
-associatedInstitution: ""
 
 # URL
 publication: ""
 
 spatialCoverage: "" 
- 
+
+version: ""
+
 temporalCoverage: ""
 
-# Array
-databaseCharacteristic: []
+associatedInstitution: ""
 
-# ohdsi:populationSize
-populationSize: ""
-
-administrativeContact:
-  id: ""
+# Array of persons used in administrativeContact, principalInvestigator, scientificContact, technicalContact
+persons:
+- id: ""
   name: ""
   email: ""
   telephone: "" 
 
-principalInvestigator:
-  id: ""
-  name: ""
-  email: ""
-  telephone: ""
+# id of person from 'persons'
+administrativeContact: ""
 
-scientificContact:
-  id: ""
-  name: ""
-  email: ""
-  telephone: ""
+# id of person from 'persons'
+principalInvestigator:  ""
 
-technicalContact:
-  id: ""
-  name: ""
-  email: ""
-  telephone: "" 
+# id of person from 'persons'
+scientificContact:  ""
+
+# id of person from 'persons'
+technicalContact:  ""
 ---

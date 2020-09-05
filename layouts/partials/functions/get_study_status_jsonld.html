@@ -1,0 +1,6 @@
+{{/* Get Publication Types */}}
+{{ $study_status := slice }}
+{{ range site.Data.study_taxonomies.status_jsonld }}
+  {{ $study_status = $study_status | append (i18n . | default "Uncategorized") }} 
+{{ end }}
+{{ return $study_status }}
