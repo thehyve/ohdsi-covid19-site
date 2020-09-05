@@ -25,8 +25,10 @@ async function main(){
 
   console.log(`Found ${repos.length} repositories.\n`);
   
+  let addedCounter = 0;
+
   for (const [index, item] of repos.entries()) {
-    console.log(`Start: Scrape Repo #${index} - ${item.name}\n`);
+    console.log(`Scrape Repo #${index+1} - ${item.name}`);
 
     let response;
     try {
@@ -122,7 +124,7 @@ async function main(){
 
     extData.description = description.join('\n');
 
-    console.log(`End: Scrape Repo #${index} - ${item.name}\n`);
+    //console.log(`End: Scrape Repo #${index} - ${item.name}`);
     if(extData.tags && extData.tags.includes('COVID-19')){
       if (fs.existsSync(`../content/study/${item.name}/index.md`)) {
         removeReadmePart(item, extData)
@@ -137,12 +139,14 @@ async function main(){
           removeReadmePart(item, extData)
         });
       }
-      //console.log('has covid tag');
+      console.log(`Added to content`);
+      addedCounter++;
     }else{
       //console.log('does not have covid tag');
     }
     
   }
+  console.log(`\nScraped total number of ${repos.length} repositories. Added ${addedCounter} with tag "COVID-19" to content.`)
 }
 
 
@@ -204,7 +208,7 @@ scrapeArrayOfStudyTypeFrom = (item) => {
   const output = [];
   const result = scrapeArrayOfStringFrom(item)
   result.forEach(element => {
-    console.log(element);
+    //console.log(element);
     switch(element.toLowerCase()){
       case 'Clinical Application'.toLowerCase():
         output.push(0);

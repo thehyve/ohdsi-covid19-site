@@ -1,6 +1,7 @@
 ---
 # Display name
 title: "{{ replace .Name "-" " " | title }}"
+draft: true
 
 # Username (this should match the folder name)
 authors:
