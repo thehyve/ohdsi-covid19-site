@@ -6,7 +6,7 @@ categories: []
 date: {{ .Date }}
 lastmod: {{ .Date }}
 featured: false
-draft: true
+draft: false
 
 id: 
 
@@ -15,14 +15,14 @@ id:
 # 1: Population-Level Estimation
 # 2: Patient-Level Prediction
 # 3: Characterization and Population-Level Estimation
-analyticsUseCase:
+study_usecase: []
 
 databases: []
 
 # Study Type:
 # 0: Clinical Application
 # 1: Methods Research
-studyType: []
+study_type: []
 
 # Author ID
 authors: []
@@ -86,7 +86,7 @@ results:
 # 2: Repo Created
 # 3: Started
 # 4: Results Available
-study_status: 
+study_status: []
 
 studyDesign:
   id: 

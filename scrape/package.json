@@ -1,0 +1,26 @@
+{
+  "name": "scrape",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cheerio": "^1.0.0-rc.3",
+    "child_process": "^1.0.2",
+    "gray-matter": "^4.0.2",
+    "json2md": "^1.7.1",
+    "mark-twain": "^2.0.3",
+    "markdown-to-json": "^0.5.4",
+    "md-2-json": "^1.0.6",
+    "puppeteer": "^5.2.1",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "yamljs": "^0.3.0"
+  }
+}

@@ -1,6 +1,6 @@
 {{/* Get Publication Types */}}
 {{ $study_types := slice }}
 {{ range site.Data.study_taxonomies.types }}
-  {{ $study_types = $study_types | append (i18n . | default "Uncategorized") }}
+{{ $study_types = $study_types | append (i18n . | default "Uncategorized") }}
 {{ end }}
 {{ return $study_types }}
