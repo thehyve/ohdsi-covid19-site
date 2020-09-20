@@ -3,10 +3,10 @@
 title: ""
 tags: []
 categories: []
-date: 2020-09-20T17:06:46+02:00
-lastmod: 2020-09-20T17:06:46+02:00
+date: 2020-09-20T20:16:52+02:00
+lastmod: 2020-09-20T20:16:52+02:00
 featured: false
-draft: true
+draft: false
 
 id: 
 
@@ -15,14 +15,14 @@ id:
 # 1: Population-Level Estimation
 # 2: Patient-Level Prediction
 # 3: Characterization and Population-Level Estimation
-analyticsUseCase:
+study_usecase: [1]
 
 databases: []
 
 # Study Type:
 # 0: Clinical Application
 # 1: Methods Research
-studyType: []
+study_type: [0]
 
 # Author ID
 authors: []
@@ -86,7 +86,7 @@ results:
 # 2: Repo Created
 # 3: Started
 # 4: Results Available
-study_status: 
+study_status: []
 
 studyDesign:
   id: 
@@ -146,16 +146,16 @@ end_date:
 
 from_readme:
   title: 'OHDSI COVID-19 Studyathon: Il6 and JAK inhibitors population-level effect estimation'
-  analyticsUseCase: [1]
-  studyType: [0]
+  study_usecase: [1]
+  study_type: [0]
   tags: [Study-a-thon, COVID-19]
   leads: ['Daniel Prieto-Alhambra']
-  leadForumTags: [{name: Daniel_Prieto, url: 'https://forums.ohdsi.org/u/daniel_prieto'}]
+  leadForumTags: [{name: Daniel_Prieto, mainEntityofPage: 'https://forums.ohdsi.org/u/daniel_prieto'}]
   startDate: 'March 26, 2020'
   endDate: ""
   protocol: {}
   publications: []
-  results: [{name: 'Evidence Explorer', url: 'https://data.ohdsi.org/Covid19EstimationIl6JakInhibitors/'}]
+  results: [{name: 'Evidence Explorer', mainEntityofPage: 'https://data.ohdsi.org/Covid19EstimationIl6JakInhibitors/'}]
   authors: [Daniel_Prieto]
   description: "Many existing drugs are being considered for use in treatment and prophylaxis of COVID-19 in rapid clinical trials across the world. However, the full safety profiles of these drugs is often unknown, and the current trials are unlikely to be powered or have sufficent follow-up time to evaluate most safety outcomes. The aim of this OHDSI study is to use existing retrospective data to evaluate the safety of these drugs. Where possible, we also attempt to estimate potential efficacy, for example using prior viral infections as surrogate outcome, or where available by using COVID-19 as outcome.\nThis study is part of the OHDSI 2020 COVID-19 study-a-thon."
 

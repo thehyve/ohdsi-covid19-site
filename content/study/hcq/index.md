@@ -15,14 +15,14 @@ id: hcq
 # 1: Population-Level Estimation
 # 2: Patient-Level Prediction
 # 3: Characterization and Population-Level Estimation
-analyticsUseCase: 1
+study_usecase: [1]
 
 databases: ["sidiap"]
 
 # Study Type:
 # 0: Clinical Application
 # 1: Methods Research
-studyType: [1, 0]
+study_type: [1]
 
 authors: ["daniel_prieto"]
 
@@ -98,7 +98,7 @@ results:
 # 2: Repo Created
 # 3: Started
 # 4: Results Available
-studyStatus: "4"
+study_status: ["4"]
 
 studyDesign:
   id: "study:hcq/design"

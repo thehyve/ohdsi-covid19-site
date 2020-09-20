@@ -3,10 +3,10 @@
 title: ""
 tags: []
 categories: []
-date: 2020-09-20T17:06:45+02:00
-lastmod: 2020-09-20T17:06:45+02:00
+date: 2020-09-20T20:16:50+02:00
+lastmod: 2020-09-20T20:16:50+02:00
 featured: false
-draft: true
+draft: false
 
 id: 
 
@@ -15,14 +15,14 @@ id:
 # 1: Population-Level Estimation
 # 2: Patient-Level Prediction
 # 3: Characterization and Population-Level Estimation
-analyticsUseCase:
+study_usecase: [1]
 
 databases: []
 
 # Study Type:
 # 0: Clinical Application
 # 1: Methods Research
-studyType: []
+study_type: [0]
 
 # Author ID
 authors: []
@@ -86,7 +86,7 @@ results:
 # 2: Repo Created
 # 3: Started
 # 4: Results Available
-study_status: 
+study_status: []
 
 studyDesign:
   id: 
@@ -146,14 +146,14 @@ end_date:
 
 from_readme:
   title: 'Comparative Cohort Study of Famotidine in Hospitalized COVID-19 Patients'
-  analyticsUseCase: [1]
-  studyType: [0]
+  study_usecase: [1]
+  study_type: [0]
   tags: [COVID-19, Famotidine]
   leads: ['Azza Shoaibi']
-  leadForumTags: [{name: azza_shoaibi, url: 'https://forums.ohdsi.org/u/azza_shoaibi/'}]
+  leadForumTags: [{name: azza_shoaibi, mainEntityofPage: 'https://forums.ohdsi.org/u/azza_shoaibi/'}]
   startDate: 'June 1, 2020'
   endDate: ""
-  protocol: {name: here, url: 'https://github.com/ohdsi-studies/Covid19EstimationFamotidine/tree/master/Protocol'}
+  protocol: {name: here, mainEntityofPage: 'https://github.com/ohdsi-studies/Covid19EstimationFamotidine/tree/master/Protocol'}
   publications: []
   results: []
   authors: [azza_shoaibi]

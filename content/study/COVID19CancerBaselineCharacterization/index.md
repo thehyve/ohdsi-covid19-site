@@ -3,8 +3,8 @@
 title: ""
 tags: []
 categories: []
-date: 2020-09-20T17:06:44+02:00
-lastmod: 2020-09-20T17:06:44+02:00
+date: 2020-09-20T20:16:49+02:00
+lastmod: 2020-09-20T20:16:49+02:00
 featured: false
 draft: false
 
@@ -15,14 +15,13 @@ id:
 # 1: Population-Level Estimation
 # 2: Patient-Level Prediction
 # 3: Characterization and Population-Level Estimation
-analyticsUseCase:
+study_usecase: [0]
 
 databases: []
-
 # Study Type:
 # 0: Clinical Application
 # 1: Methods Research
-studyType: []
+study_type: [0]
 
 # Author ID
 authors: []
@@ -86,7 +85,7 @@ results:
 # 2: Repo Created
 # 3: Started
 # 4: Results Available
-study_status: 
+study_status: []
 
 studyDesign:
   id: 
@@ -146,11 +145,11 @@ end_date:
 
 from_readme:
   title: 'Baseline Characteristics of COVID-19 in Cancer Patients '
-  analyticsUseCase: [0]
-  studyType: [0]
+  study_usecase: [0]
+  study_type: [0]
   tags: [COVID-19, Oncology]
   leads: ['Talita Duarte-Salles', 'Shilpa Ratwani']
-  leadForumTags: [{name: tduarte, url: 'https://forums.ohdsi.org/u/tduarte/'}, {name: shilparatwani, url: 'https://forums.ohdsi.org/u/shilparatwani/'}]
+  leadForumTags: [{name: tduarte, mainEntityofPage: 'https://forums.ohdsi.org/u/tduarte/'}, {name: shilparatwani, mainEntityofPage: 'https://forums.ohdsi.org/u/shilparatwani/'}]
   startDate: 'April 7, 2020'
   endDate: ""
   protocol: {}

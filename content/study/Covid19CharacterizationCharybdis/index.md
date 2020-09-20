@@ -3,10 +3,10 @@
 title: ""
 tags: []
 categories: []
-date: 2020-09-20T17:06:45+02:00
-lastmod: 2020-09-20T17:06:45+02:00
+date: 2020-09-20T20:16:49+02:00
+lastmod: 2020-09-20T20:16:49+02:00
 featured: false
-draft: true
+draft: false
 
 id: 
 
@@ -15,14 +15,14 @@ id:
 # 1: Population-Level Estimation
 # 2: Patient-Level Prediction
 # 3: Characterization and Population-Level Estimation
-analyticsUseCase:
+study_usecase: [0]
 
 databases: []
 
 # Study Type:
 # 0: Clinical Application
 # 1: Methods Research
-studyType: []
+study_type: [0]
 
 # Author ID
 authors: []
@@ -86,7 +86,7 @@ results:
 # 2: Repo Created
 # 3: Started
 # 4: Results Available
-study_status: 
+study_status: []
 
 studyDesign:
   id: 
@@ -146,16 +146,16 @@ end_date:
 
 from_readme:
   title: 'Characterizing Health Associated Risks, and Your Baseline Disease In SARS-COV-2 (CHARYBDIS)'
-  analyticsUseCase: [0]
-  studyType: [0]
+  study_usecase: [0]
+  study_type: [0]
   tags: [OHDSI, Study-a-thon, COVID-19]
   leads: ['Talita Duarte-Salles', 'Kristin Kostka', 'Albert Prats-Uribe']
-  leadForumTags: [{name: tduarte, url: 'https://forums.ohdsi.org/u/tduarte'}, {name: krfeeney, url: 'https://forums.ohdsi.org/u/krfeeney'}, {name: Albert_Prats, url: 'https://forums.ohdsi.org/u/Albert_Prats'}]
+  leadForumTags: [{name: tduarte, mainEntityofPage: 'https://forums.ohdsi.org/u/tduarte'}, {name: krfeeney, mainEntityofPage: 'https://forums.ohdsi.org/u/krfeeney'}, {name: Albert_Prats, mainEntityofPage: 'https://forums.ohdsi.org/u/Albert_Prats'}]
   startDate: 'April 21, 2020'
   endDate: 'Mid-July 2020'
-  protocol: {name: 'Word Doc', url: 'https://github.com/ohdsi-studies/Covid19CharacterizationCharybdis/blob/master/documents/Protocol_COVID-19%20Charybdis%20Characterisation_V5.docx'}
+  protocol: {name: 'Word Doc', mainEntityofPage: 'https://github.com/ohdsi-studies/Covid19CharacterizationCharybdis/blob/master/documents/Protocol_COVID-19%20Charybdis%20Characterisation_V5.docx'}
   publications: []
-  results: [{name: 'Shiny App: Cohort Diagnostics - COVID Targets', url: 'https://data.ohdsi.org/Covid19CharacterizationCharybdisDiagCovid/'}, {name: 'Shiny App: Cohort Diagnostics - Influenza Targets', url: 'https://data.ohdsi.org/Covid19CharacterizationCharybdisDiagInfluenza/'}, {name: 'Shiny App: Cohort Diagnostics - Stratum', url: 'https://data.ohdsi.org/Covid19CharacterizationCharybdisDiagStrata/'}, {name: 'Shiny App: Cohort Diagnostics - Features', url: 'https://data.ohdsi.org/Covid19CharacterizationCharybdisDiagFeature/'}, {name: 'Shiny App: Characterization Study', url: 'https://data.ohdsi.org/Covid19CharacterizationCharybdis/'}]
+  results: [{name: 'Shiny App: Cohort Diagnostics - COVID Targets', mainEntityofPage: 'https://data.ohdsi.org/Covid19CharacterizationCharybdisDiagCovid/'}, {name: 'Shiny App: Cohort Diagnostics - Influenza Targets', mainEntityofPage: 'https://data.ohdsi.org/Covid19CharacterizationCharybdisDiagInfluenza/'}, {name: 'Shiny App: Cohort Diagnostics - Stratum', mainEntityofPage: 'https://data.ohdsi.org/Covid19CharacterizationCharybdisDiagStrata/'}, {name: 'Shiny App: Cohort Diagnostics - Features', mainEntityofPage: 'https://data.ohdsi.org/Covid19CharacterizationCharybdisDiagFeature/'}, {name: 'Shiny App: Characterization Study', mainEntityofPage: 'https://data.ohdsi.org/Covid19CharacterizationCharybdis/'}]
   authors: [tduarte, krfeeney, Albert_Prats]
   description: "**Objectives:**\n1) Describe the baseline demographic, clinical characteristics, treatments and outcomes of interest among individuals tested for SARS-CoV-2 and/or diagnosed with COVID-19 overall and stratified by sex, age, race and specific comorbidities;\n2) Describe characteristics and outcomes of patients diagnosed/tested positive for influenza as well as patients hospitalized with influenza between September 2017 and April 2018 compared to the COVID-19 population."
 

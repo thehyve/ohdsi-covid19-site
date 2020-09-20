@@ -3,10 +3,10 @@
 title: ""
 tags: []
 categories: []
-date: 2020-09-20T17:06:48+02:00
-lastmod: 2020-09-20T17:06:48+02:00
+date: 2020-09-20T20:16:54+02:00
+lastmod: 2020-09-20T20:16:54+02:00
 featured: false
-draft: true
+draft: false
 
 id: 
 
@@ -15,14 +15,14 @@ id:
 # 1: Population-Level Estimation
 # 2: Patient-Level Prediction
 # 3: Characterization and Population-Level Estimation
-analyticsUseCase:
+study_usecase: [0]
 
 databases: []
 
 # Study Type:
 # 0: Clinical Application
 # 1: Methods Research
-studyType: []
+study_type: [0]
 
 # Author ID
 authors: []
@@ -86,7 +86,7 @@ results:
 # 2: Repo Created
 # 3: Started
 # 4: Results Available
-study_status: 
+study_status: []
 
 studyDesign:
   id: 
@@ -146,14 +146,14 @@ end_date:
 
 from_readme:
   title: 'Characteristics and outcomes of individuals tested for SARS-CoV-2'
-  analyticsUseCase: [0]
-  studyType: [0]
+  study_usecase: [0]
+  study_type: [0]
   tags: [OHDSI, Study-a-thon, COVID-19]
   leads: ['Asieh Golozar', 'Seng Chan You']
-  leadForumTags: [{name: SCYou, url: 'https://forums.ohdsi.org/u/SCYou'}]
+  leadForumTags: [{name: SCYou, mainEntityofPage: 'https://forums.ohdsi.org/u/SCYou'}]
   startDate: 'April 4, 2020'
   endDate: ""
-  protocol: {name: 'Google Doc', url: 'https://drive.google.com/drive/folders/1sSrKmNjLAaStWyfZjUlzY97HxcTqrMNW'}
+  protocol: {name: 'Google Doc', mainEntityofPage: 'https://drive.google.com/drive/folders/1sSrKmNjLAaStWyfZjUlzY97HxcTqrMNW'}
   publications: []
   results: []
   authors: [SCYou]

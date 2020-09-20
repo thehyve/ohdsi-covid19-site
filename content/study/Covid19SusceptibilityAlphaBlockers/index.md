@@ -3,10 +3,10 @@
 title: ""
 tags: []
 categories: []
-date: 2020-09-20T17:06:48+02:00
-lastmod: 2020-09-20T17:06:48+02:00
+date: 2020-09-20T20:16:53+02:00
+lastmod: 2020-09-20T20:16:53+02:00
 featured: false
-draft: true
+draft: false
 
 id: 
 
@@ -15,14 +15,14 @@ id:
 # 1: Population-Level Estimation
 # 2: Patient-Level Prediction
 # 3: Characterization and Population-Level Estimation
-analyticsUseCase:
+study_usecase: [1]
 
 databases: []
 
 # Study Type:
 # 0: Clinical Application
 # 1: Methods Research
-studyType: []
+study_type: [0]
 
 # Author ID
 authors: []
@@ -86,7 +86,7 @@ results:
 # 2: Repo Created
 # 3: Started
 # 4: Results Available
-study_status: 
+study_status: []
 
 studyDesign:
   id: 
@@ -146,14 +146,14 @@ end_date:
 
 from_readme:
   title: 'OHDSI COVID-19 Studyathon: Alpha-1 blocker for Palliating Inflammatory injury Severity (APIS) study'
-  analyticsUseCase: [1]
-  studyType: [0]
+  study_usecase: [1]
+  study_type: [0]
   tags: [Study-a-thon, COVID-19]
   leads: ['Aki Nishimura', 'Daniel Prieto Alhambra', 'Marc A. Suchard']
-  leadForumTags: [{name: aki-nishimura, url: 'https://forums.ohdsi.org/u/aki-nishimura'}, {name: Daniel_Prieto, url: 'https://forums.ohdsi.org/u/daniel_prieto'}, {name: msuchard, url: 'https://forums.ohdsi.org/u/msuchard'}]
+  leadForumTags: [{name: aki-nishimura, mainEntityofPage: 'https://forums.ohdsi.org/u/aki-nishimura'}, {name: Daniel_Prieto, mainEntityofPage: 'https://forums.ohdsi.org/u/daniel_prieto'}, {name: msuchard, mainEntityofPage: 'https://forums.ohdsi.org/u/msuchard'}]
   startDate: 'July 7th, 2020'
   endDate: ""
-  protocol: {name: PDF, url: 'https://github.com/ohdsi-studies/Covid19SusceptibilityAlphaBlockers/blob/master/Documents/alpha_blocker_study_protocol.pdf'}
+  protocol: {name: PDF, mainEntityofPage: 'https://github.com/ohdsi-studies/Covid19SusceptibilityAlphaBlockers/blob/master/Documents/alpha_blocker_study_protocol.pdf'}
   publications: []
   results: []
   authors: [aki-nishimura, Daniel_Prieto, msuchard]

@@ -3,10 +3,10 @@
 title: ""
 tags: []
 categories: []
-date: 2020-09-20T17:06:45+02:00
-lastmod: 2020-09-20T17:06:45+02:00
+date: 2020-09-20T20:16:50+02:00
+lastmod: 2020-09-20T20:16:50+02:00
 featured: false
-draft: true
+draft: false
 
 id: 
 
@@ -15,14 +15,14 @@ id:
 # 1: Population-Level Estimation
 # 2: Patient-Level Prediction
 # 3: Characterization and Population-Level Estimation
-analyticsUseCase:
+study_usecase: [1]
 
 databases: []
 
 # Study Type:
 # 0: Clinical Application
 # 1: Methods Research
-studyType: []
+study_type: [0]
 
 # Author ID
 authors: []
@@ -86,7 +86,7 @@ results:
 # 2: Repo Created
 # 3: Started
 # 4: Results Available
-study_status: 
+study_status: []
 
 studyDesign:
   id: 
@@ -146,11 +146,11 @@ end_date:
 
 from_readme:
   title: 'Evaluation of Existing Drugs for Treatment of COVID-19'
-  analyticsUseCase: [1]
-  studyType: [0]
+  study_usecase: [1]
+  study_type: [0]
   tags: [Study-a-thon, COVID-19]
   leads: ['Martijn Schuemie', 'Daniel Prieto-Alhambra']
-  leadForumTags: [{name: schuemie, url: 'https://forums.ohdsi.org/u/schuemie'}]
+  leadForumTags: [{name: schuemie, mainEntityofPage: 'https://forums.ohdsi.org/u/schuemie'}]
   startDate: 'March 19, 2020'
   endDate: ""
   protocol: {}

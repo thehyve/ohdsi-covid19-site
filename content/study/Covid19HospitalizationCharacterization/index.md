@@ -3,10 +3,10 @@
 title: ""
 tags: []
 categories: []
-date: 2020-09-20T17:06:47+02:00
-lastmod: 2020-09-20T17:06:47+02:00
+date: 2020-09-20T20:16:52+02:00
+lastmod: 2020-09-20T20:16:52+02:00
 featured: false
-draft: true
+draft: false
 
 id: 
 
@@ -15,14 +15,14 @@ id:
 # 1: Population-Level Estimation
 # 2: Patient-Level Prediction
 # 3: Characterization and Population-Level Estimation
-analyticsUseCase:
+study_usecase: [0]
 
 databases: []
 
 # Study Type:
 # 0: Clinical Application
 # 1: Methods Research
-studyType: []
+study_type: [0]
 
 # Author ID
 authors: []
@@ -86,7 +86,7 @@ results:
 # 2: Repo Created
 # 3: Started
 # 4: Results Available
-study_status: 
+study_status: []
 
 studyDesign:
   id: 
@@ -146,16 +146,16 @@ end_date:
 
 from_readme:
   title: 'Clinical Characterization of Patients Hospitalized with COVID-19 and Influenza'
-  analyticsUseCase: [0]
-  studyType: [0]
+  study_usecase: [0]
+  study_type: [0]
   tags: [OHDSI, Study-a-thon, COVID-19]
   leads: ['Edward Burn', 'Seng Chan You']
-  leadForumTags: [{name: EdBurn, url: 'https://forums.ohdsi.org/u/edburn'}, {name: SCYou, url: 'https://forums.ohdsi.org/u/SCYou'}]
+  leadForumTags: [{name: EdBurn, mainEntityofPage: 'https://forums.ohdsi.org/u/edburn'}, {name: SCYou, mainEntityofPage: 'https://forums.ohdsi.org/u/SCYou'}]
   startDate: 'March 16, 2020'
   endDate: 'April 9, 2020'
-  protocol: {name: 'Word Doc', url: 'https://github.com/ohdsi-studies/Covid19HospitalizationCharacterization/blob/master/documents/Protocol_COVID-19%20Hospitalization%20Characterisation_V1.1.docx'}
-  publications: [{name: MedRxiv, url: 'https://www.medrxiv.org/content/10.1101/2020.04.22.20074336v1'}]
-  results: [{name: 'Shiny app', url: 'http://evidence.ohdsi.org:3838/Covid19CharacterizationHospitalization/'}]
+  protocol: {name: 'Word Doc', mainEntityofPage: 'https://github.com/ohdsi-studies/Covid19HospitalizationCharacterization/blob/master/documents/Protocol_COVID-19%20Hospitalization%20Characterisation_V1.1.docx'}
+  publications: [{name: MedRxiv, mainEntityofPage: 'https://www.medrxiv.org/content/10.1101/2020.04.22.20074336v1'}]
+  results: [{name: 'Shiny app', mainEntityofPage: 'http://evidence.ohdsi.org:3838/Covid19CharacterizationHospitalization/'}]
   authors: [EdBurn, SCYou]
   description: 'A study to describe the baseline characteristics of suspected cases of the COVID-19 or confirmed cases of the COVID-19 and influenza patients from 2014-2019 and 2009-2010 (H1N1 pandemic).'
 
