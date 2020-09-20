@@ -110,8 +110,8 @@
         "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.identifier) }},
         "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.title) }},
         "description": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.description) }},
-        {{ if $params.studyType }}
-        {{- with $params.studyType -}}
+        {{ if $params.study_type }}
+        {{- with $params.study_type -}}
         "studyType": [
         {{- $all_study_types := partial "functions/get_study_types_jsonld" . -}}
         {{- range $i, $v := . }}{{- if $i -}}, {{- end -}}
@@ -120,20 +120,26 @@
         {{- end -}}],
         {{- end -}}
         {{ end }}
-        {{ if $params.analyticsUseCase }}
-        {{- with $params.analyticsUseCase -}}
+        {{ if $params.study_usecase }}
+        {{- with $params.study_usecase -}}
+        "analyticsUseCase": [
         {{- $all_study_usecase := partial "functions/get_study_usecases_jsonld" . -}}
-        {{- $indexInt := int . -}}
-        "analyticsUseCase": "ohdsi:{{- index $all_study_usecase $indexInt -}}",
+        {{- range $i, $v := . }}{{- if $i -}}, {{- end -}}
+        {{- $indexInt := int $v -}}
+        "ohdsi:{{ index $all_study_usecase $indexInt }}"
+        {{- end -}}],
         {{- end -}}
         {{ end }}
         "mainEntityOfPage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.mainEntityOfPage) }},
         "studyDesign": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.id) }},
-        {{ if $params.studyStatus }}
-        {{- with $params.studyStatus -}}
+        {{ if $params.study_status }}
+        {{- with $params.study_status -}}
+        "status": [
         {{- $all_study_status := partial "functions/get_study_status_jsonld" . -}}
-        {{- $indexInt := int . -}}
-        "status": "ohdsi:{{- index $all_study_status $indexInt -}}",
+        {{- range $i, $v := . }}{{- if $i -}}, {{- end -}}
+        {{- $indexInt := int $v -}}
+        "ohdsi:{{ index $all_study_status $indexInt }}"
+        {{- end -}}],
         {{- end -}}
         {{ end }}
         "healthCondition": [{{ range $i, $e := $params.healthConditions }}{{ if $i }}, {{ end }}

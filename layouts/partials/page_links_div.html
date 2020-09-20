@@ -7,32 +7,34 @@
 {{ $slug := $page.File.ContentBaseName }}
 {{ $resource := $page.Resources.GetMatch (printf "%s.pdf" $slug) }}
 {{ with $resource }}
-  {{ $pdf_link = true }}
+{{ $pdf_link = true }}
 {{ end }}
 
 {{ $resource := $page.Resources.GetMatch "cite.bib" }}
 {{ with $resource }}
-  {{ $cite_link = true }}
+{{ $cite_link = true }}
 {{ end }}
 
 {{ if eq .Type "study" }}
-  {{ if .Params.identifier | or .Params.studyType | or .Params.mainEntityOfPage | or .Params.result | or .Params.license | or .Params.discussionUrl | or $cite_link | or $pdf_link | or .Params.external_link | or .Params.url_preprint | or .Params.url_pdf | or .Params.url_slides | or .Params.url_video | or .Params.url_source | or .Params.url_code | or .Params.url_dataset | or .Params.url_poster | or .Params.url_project | or .Params.doi | or .Params.links | or .Params.projects | or .Params.slides }}
-  <div class="btn-links mb-3">
-    {{ with .Params.external_link }}
-    <a class="btn btn-outline-primary my-1" href="{{ . }}" target="_blank" rel="noopener">{{ i18n "open_project_site" }}</a>
-    {{ end }}
-    {{ partial "page_study_links" (dict "page" $page "is_list" 0) }}
-  </div>
+{{ if .Params.identifier | or .Params.study_type | or .Params.from_readme.study_type | or .Params.mainEntityOfPage | or .Params.results | or .Params.from_readme.result | or .Params.license | or .Params.discussionUrl | or $cite_link | or $pdf_link | or .Params.external_link | or .Params.url_preprint | or .Params.url_pdf | or .Params.url_slides | or .Params.url_video | or .Params.url_source | or .Params.url_code | or .Params.url_dataset | or .Params.url_poster | or .Params.url_project | or .Params.doi | or .Params.links | or .Params.projects | or .Params.slides }}
+<div class="btn-links mb-3">
+  {{ with .Params.external_link }}
+  <a class="btn btn-outline-primary my-1" href="{{ . }}" target="_blank"
+    rel="noopener">{{ i18n "open_project_site" }}</a>
   {{ end }}
+  {{ partial "page_study_links" (dict "page" $page "is_list" 0) }}
+</div>
+{{ end }}
 {{ end }}
 
 {{ if eq .Type "database" }}
-  {{ if .Params.identifier | or .Params.studyType | or .Params.studyUrl | or .Params.result | or .Params.license | or .Params.discussionUrl | or $cite_link | or $pdf_link | or .Params.external_link | or .Params.url_preprint | or .Params.url_pdf | or .Params.url_slides | or .Params.url_video | or .Params.url_source | or .Params.url_code | or .Params.url_dataset | or .Params.url_poster | or .Params.url_project | or .Params.doi | or .Params.links | or .Params.projects | or .Params.slides }}
-  <div class="btn-links mb-3">
-    {{ with .Params.external_link }}
-    <a class="btn btn-outline-primary my-1" href="{{ . }}" target="_blank" rel="noopener">{{ i18n "open_project_site" }}</a>
-    {{ end }}
-    {{ partial "page_database_links" (dict "page" $page "is_list" 0) }}
-  </div>
+{{ if .Params.identifier | or .Params.study_type | or .Params.studyUrl | or .Params.results | or .Params.license | or .Params.discussionUrl | or $cite_link | or $pdf_link | or .Params.external_link | or .Params.url_preprint | or .Params.url_pdf | or .Params.url_slides | or .Params.url_video | or .Params.url_source | or .Params.url_code | or .Params.url_dataset | or .Params.url_poster | or .Params.url_project | or .Params.doi | or .Params.links | or .Params.projects | or .Params.slides }}
+<div class="btn-links mb-3">
+  {{ with .Params.external_link }}
+  <a class="btn btn-outline-primary my-1" href="{{ . }}" target="_blank"
+    rel="noopener">{{ i18n "open_project_site" }}</a>
   {{ end }}
+  {{ partial "page_database_links" (dict "page" $page "is_list" 0) }}
+</div>
+{{ end }}
 {{ end }}
