@@ -1,7 +1,7 @@
 ---
 # Display name
 title: "Azza_shoaibi"
-
+draft: true
 # Username (this should match the folder name)
 authors:
 - azza_shoaibi

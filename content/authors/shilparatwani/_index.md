@@ -1,7 +1,7 @@
 ---
 # Display name
 title: "Shilparatwani"
-
+draft: true
 # Username (this should match the folder name)
 authors:
 - shilparatwani
