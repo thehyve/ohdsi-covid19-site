@@ -278,8 +278,12 @@ scrapeStringFrom = (str) => {
 
 generateObjectofNameAndUrlFrom = (str) => {
   if (!str) return {}
-  const name = str.match(/\[(.*)\]/)[1]
-  const mainEntityofPage = str.match(/\((.*)\)/)[1]
+  let name = str
+  let mainEntityofPage = ""
+  if (str.match(/\[(.*)\]/)) {
+    name = str.match(/\[(.*)\]/)[1]
+    mainEntityofPage = str.match(/\((.*)\)/)[1]
+  }
   return { name, mainEntityofPage }
 }
 
