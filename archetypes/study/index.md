@@ -14,6 +14,37 @@ draft: false
 # The identifier is the last part of the URL directing to the particular study
 study_id: 
 
+# Study identifier 
+study_identifier: 
+
+# URL to study registration site
+study_registration_url:
+
+# Study description
+description:  
+
+# Start date of the study, use date format YYYY-MM-DD
+start_date:
+
+# End date of the study, use date format YYYY-MM-DD
+end_date: 
+
+# Study status, choose 0, 1, 2, 3 or 4:: 
+# 0: Complete
+# 1: Design Finalized
+# 2: Repo Created
+# 3: Started
+# 4: Results Available
+study_status: []
+
+# Author identifier of the authors contributing to the study
+authors: []
+
+# Study Type, choose 0 or 1:
+# 0: Clinical Application
+# 1: Methods Research
+study_type: []
+
 # Analytics Use Case of the Study, choose 0, 1, 2 or 3:
 # 0: Characterization
 # 1: Population-Level Estimation
@@ -24,19 +55,38 @@ use_case: []
 # Database identifiers of databases used for the study
 databases: []
 
-# Study Type, choose 0 or 1:
-# 0: Clinical Application
-# 1: Methods Research
-study_type: []
+# Conditions studied; if multiple conditions are being studied,
+# duplicate all keys under "conditions"
+conditions:
+# Concept name
+- concept_name:
+  # Concept identifier
+  concept_id:
+  # Concept code and vocabulary metadata
+  code: 
+    # Concept code
+    concept_code: 
+    # Vocabulary id
+    vocabulary_id: 
+    # URL to term in vocabulary (e.g. http://snomed.info/id/69896004)
+    concept_code_url: 
 
-# Author identifier of the authors contributing to the study
-authors: []
+# Study protocol
+study_protocol:
+  # Protocol identifier; specifically created for the website
+  # The identifier is the last part of the URL directing to the particular study protocol
+  protocol_id: 
+  # Last modification date, use date format YYYY-MM-DD
+  date_modified:
+  # Protocol identifier, in case protocol has an identifier elsewhere 
+  protocol_identifier: 
+  # Protocol license
+  license:
+  # URL to the protocol
+  protocol_url:
+  # Version of the protocol 
+  version: 
 
-# Start date of the study, use date format YYYY-MM-DD
-start_date:
-
-# Study description
-description:  
 
 # URL to the forum thread about the study
 forum_thread_url: 
@@ -68,28 +118,6 @@ software:
   # Version of the software
   version: ""
 
-# Conditions studied; if multiple conditions are being studied,
-# duplicate all keys under "conditions"
-conditions:
-# Concept name
-- concept_name:
-  # Concept identifier
-  concept_id:
-  # Concept code and vocabulary metadata
-  code: 
-    # Concept code
-    concept_code: 
-    # Vocabulary id
-    vocabulary_id: 
-    # URL to term in vocabulary (e.g. http://snomed.info/id/69896004)
-    concept_code_url: 
-
-# Study identifier 
-study_identifier: 
-
-# URL to study registration site
-study_registration_url:
-
 # doi of publications related to the study; if multiple articles have been published,
 # duplicate key under "publications"
 publications:
@@ -101,31 +129,7 @@ results:
 - name:
   # URL to the web application
   application_url:
-  
-# Study status, choose 0, 1, 2, 3 or 4:: 
-# 0: Complete
-# 1: Design Finalized
-# 2: Repo Created
-# 3: Started
-# 4: Results Available
-study_status: []
-
-# Study protocol
-study_protocol:
-  # Protocol identifier; specifically created for the website
-  # The identifier is the last part of the URL directing to the particular study protocol
-  protocol_id: 
-  # Last modification date, use date format YYYY-MM-DD
-  date_modified:
-  # Protocol identifier, in case protocol has an identifier elsewhere 
-  protocol_identifier: 
-  # Protocol license
-  license:
-  # URL to the protocol
-  protocol_url:
-  # Version of the protocol 
-  version: 
-
+ 
 # Drug studied. If multiple subjects are being studied,
 # duplicate all keys under "study_subject"
 study_subject: 
@@ -178,8 +182,5 @@ organizations:
   name: 
   # Other URLs linking to important organization sites (e.g. twitter)
   url: []
-
-# End date of the study, use date format YYYY-MM-DD
-end_date: 
 
 ---
