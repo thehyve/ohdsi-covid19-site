@@ -135,7 +135,6 @@ study_subject:
   concept_name:
    # Concept code and vocabulary metadata
   code:
-    id: 
     # Concept code
     concept_code:
     # Vocabulary id 
@@ -153,7 +152,6 @@ event:
   event_url:
   # Location of the event
   location:
-    type:
     name:
   # Identifier of the organizer of the event
   organizer_identifier: 
@@ -163,7 +161,6 @@ event:
   end_date:
   # Recording of event 
   recordedIn:
-    id:
     # URL to recording of event
     recording_url:
     # Identifier of organizer of the event
