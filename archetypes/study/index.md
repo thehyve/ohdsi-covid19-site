@@ -130,7 +130,7 @@ results:
   # URL to the web application
   application_url:
  
-# Drug studied. If multiple subjects are being studied,
+# Drug studied; if multiple subjects are being studied,
 # duplicate all keys under "study_subject"
 study_subject: 
 # Concept identifier
