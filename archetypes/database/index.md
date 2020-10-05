@@ -1,5 +1,6 @@
 ---
-# Display name
+# Website information
+# Do not fill; filled automatically
 title: "{{ replace .Name "-" " " | title }}"
 authors: []
 tags: []
@@ -9,63 +10,80 @@ lastmod: {{ .Date }}
 featured: false
 draft: true
 
-id: ""
+# Database identifier, specifically created for the website.
+# The identifier is the last part of the URL directing to the particular database
+database_id:
 
-# Array of string - e.g. ["", ""]
-databaseCharacteristic: []
+# Database characteristics; key words, can be multiple (e.g. "EHR data", "Primary care records")
+database_characteristics: []
 
-databaseSystem: ""
+# Database management system (e.g. "PostgreSQL)
+database_system:
 
-identifier: ""
+# Database identifier
+identifier:
 
-populationSize: ""
+# Size of the database (number of subjects)
+population_size:
 
-alternateName: ""
+# Alternative name of the database
+alternate_name:
 
-# date format YYYY-MM-DD
-dateCreated: ""
+# Date the database is created, use date format YYYY-MM-DD
+date_created:
 
-# date format YYYY-MM-DD
-dateModified: ""
+# Date the database is modified, use date format YYYY-MM-DD
+date_modified:
 
-description: ""
+# Description of the database
+description: 
 
-# URL
-databaseUrl: ""
+# URL directing to information about the database
+database_url: 
 
-# date format YYYY-MM-DD
-startDate: ""
+# Start date of data in the database, use date format YYYY-MM-DD
+start_date:
 
-# date format YYYY-MM-DD
-endDate: ""
+# End date of data in the databse, use date format YYYY-MM-DD
+end_date:
 
-# URL
-publication: ""
+# doi of publication related to the database
+publication: 
 
-spatialCoverage: "" 
+# Spatial coverage of database (e.g. "Florence")
+spatial_coverage:  
 
-version: ""
+# Version of the database
+version: 
 
-temporalCoverage: ""
+# Temporal coverage of the database
+temporal_coverage: 
 
-associatedInstitution: ""
+# Institution associated with the database
+associated_institution: 
 
-# Array of persons used in administrativeContact, principalInvestigator, scientificContact, technicalContact
+# Persons used in administrative_contact, principal_investigator, scientific_contact, technical_contact
+# If there are multiples, duplicate all keys under "persons"
 persons:
-- id: ""
-  name: ""
-  email: ""
-  telephone: "" 
+# Create an identifier for each person
+- id:
+  # Name of the person
+  name:
+  # Email address of the person
+  email: 
+  # Telephone number of the person
+  telephone: 
 
-# id of person from 'persons'
-administrativeContact: ""
+# id of person from "persons"
+administrative_contact:
 
-# id of person from 'persons'
-principalInvestigator:  ""
+# id of person from "persons"
+principal_investigator: 
 
-# id of person from 'persons'
-scientificContact:  ""
+# id of person from "persons"
+scientific_contact: 
 
-# id of person from 'persons'
-technicalContact:  ""
+# id of person from "persons"
+technical_contact: 
+
 ---
