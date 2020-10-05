@@ -1,7 +1,8 @@
 ---
 # Website information
-# Do not fill; filled automatically
+# Database name
 title: "{{ replace .Name "-" " " | title }}"
+# Do not fill; filled automatically
 authors: []
 tags: []
 categories: []
@@ -14,20 +15,17 @@ draft: true
 # The identifier is the last part of the URL directing to the particular database
 database_id:
 
-# Database characteristics; key words, can be multiple (e.g. "EHR data", "Primary care records")
-database_characteristics: []
-
-# Database management system (e.g. "PostgreSQL)
-database_system:
-
 # Database identifier
 identifier:
 
-# Size of the database (number of subjects)
-population_size:
-
 # Alternative name of the database
 alternate_name:
+
+# Description of the database
+description: 
+
+# Database characteristics; key words, can be multiple (e.g. "EHR data", "Primary care records")
+database_characteristics: []
 
 # Date the database is created, use date format YYYY-MM-DD
 date_created:
@@ -35,8 +33,8 @@ date_created:
 # Date the database is modified, use date format YYYY-MM-DD
 date_modified:
 
-# Description of the database
-description: 
+# Version of the database
+version: 
 
 # URL directing to information about the database
 database_url: 
@@ -47,14 +45,14 @@ start_date:
 # End date of data in the databse, use date format YYYY-MM-DD
 end_date:
 
-# doi of publication related to the database
-publication: 
+# Database management system (e.g. "PostgreSQL)
+database_system:
+
+# Size of the database (number of subjects)
+population_size:
 
 # Spatial coverage of database (e.g. "Florence")
 spatial_coverage:  
-
-# Version of the database
-version: 
 
 # Temporal coverage of the database
 temporal_coverage: 
@@ -85,5 +83,8 @@ scientific_contact:
 
 # id of person from "persons"
 technical_contact: 
+
+# doi of publication related to the database
+publication: 
 
 ---
