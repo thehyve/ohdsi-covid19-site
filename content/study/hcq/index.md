@@ -51,11 +51,11 @@ source_code:
   # URL to GitHub repository containing the source code
   code_repository_url: "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine"
   # Last modification date, use date format YYYY-MM-DD
-  dateModified: 2020-04-11
+  dateModified: 2020-04-11 # //todo
   # Maintainer of source code; use identifier of organization if applicable
   maintainer: "ohdsi:OHDSI"
   # Programming language used
-  programmingLanguage: "R"
+  programming_language: "R"
   # Version of the source code
   version: "1"
 
