@@ -1,49 +1,63 @@
 ---
-# Display name
+# Website information
+# Do not fill; filled automatically
 title: "Daniel Prieto-Alhambra"
 
-# Username (this should match the folder name)
+# Forumname 
 authors:
 - daniel_prieto
 
-# Role/position
+# Role/position of person
 role: "Associate Director of Epidemiology Analytics"
 
-# Organization/Affiliation
-organization:
-  name: "University of Oxford"
+# Organization/Affiliation of the person
+organizations:
+# Name of organization
+- name: "University of Oxford"
+  # Identifier of organization
+  organization_identifier: 
+  # Address of organization
   address: "Windmill Road, Headington, Oxford, OX3 7HE, UK"
+  # Department
   department: "Centre for Statistics in Medicine"
-  jobTitle: "Associate Director of Epidemiology Analytics"
+  # Job title
+  job_title:  "Associate Director of Epidemiology Analytics"
 
 # Short bio (displayed in user profile at end of posts)
 bio: 
 
-# interests:
-# - 
-
-# education:
-#   courses:
-#   - course: 
-#     institution: 
-#     year: 
+# Person's interests
+interests:
+- 
+# Person's education
+education:
+  courses:
+  - course: 
+    institution: 
+    year: 
 
 # Academic Networking
 accounts:
-  ohdsiForumName: "daniel_prieto"
-  githubHandle: 
-  googlescholarId: "hiBxiTYAAAAJ"
-  ohdsiCollaborator: "dani-prieto-alhambra"
-  orcidIdentifier: "0000-0002-3950-6346"
+  # Forum name on OHDSI forum
+  ohdsi_forum_name: "daniel_prieto"
+  # Github dandle
+  github_handle:
+  # Google scholar identifier
+  google_scholar_identifier: "hiBxiTYAAAAJ"
+  # URL directing to OHDSI collaborator page
+  ohdsi_collaborator_URL: "dani-prieto-alhambra"
+  # Orchid identifier
+  orcid_dentifier: "0000-0002-3950-6346"
+  # Twitter name
   twitter: 
+  # Email address
   email: 
 
+# Honorific prefix (e.g. PhD) 
 honorificPrefix: ""
 
-# Array of suffixes (e.g. M.D.)
-honorificSuffix: ["MSc",
-        "PhD",
-        "MD"]
+# Array of honorific suffixes (e.g. "MD", "PhD")
+honorificSuffix: ["MSc", "PhD", "MD"]
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: "asdas@sdasd.com"
@@ -53,5 +67,4 @@ email: "asdas@sdasd.com"
 user_groups:
 - Researchers
 - Visitors
-
 ---
