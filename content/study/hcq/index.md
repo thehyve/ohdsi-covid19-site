@@ -102,19 +102,19 @@ conditions:
 study_identifier: "EUPAS34497"
 
 # URL to study registration site
-mainEntityOfPage: "http://www.encepp.eu/encepp/viewResource.htm?id=34498"
+mainEntityOfPage: "http://www.encepp.eu/encepp/viewResource.htm?id=34498" // todo
 
 # doi of publications related to the study; if multiple articles have been published,
 # duplicate key under "publications"
 publications:
-- url: "https://doi.org/10.13063/2327-9214.1189"
+- url: "https://doi.org/10.13063/2327-9214.1189" //
 
 # study results (e.g. shiny web application)
 results:
 # Name of the web application showing the results
 - name: "Risk of hydroxychloroquine, alone and in combination with azithromycin: a multi-national study"
   # URL to the web application
-  mainEntityofPage: "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/"
+  mainEntityofPage: "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/" //
 - name: "Risk of hydroxychloroquine, alone and in combination with azithromycin: a multi-national study"
   # url format
   mainEntityofPage: "https://data.ohdsi.org/Covid19EstimationHydroxychloroquine/"
@@ -128,7 +128,7 @@ results:
 study_status: ["4"]
 
 # Study protocol
-studyDesign:
+study_protocol:
   # Protocol identifier; specifically created for the website
   # The identifier is the last part of the URL directing to the particular study protocol
   id: "study:hcq/design"

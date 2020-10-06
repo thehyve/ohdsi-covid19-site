@@ -77,13 +77,13 @@
       },
       {{- end }}
       {
-        "@id": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.id) }},
+        "@id": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.id) }},
         "@type": "schema:MedicalObservationalStudyDesign",
-        "dateModified": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.dateModified) }},
-        "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.study_identifier) }},
-        "license": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.license) }},
-        "url": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.url) }},
-        "version": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.version) }}
+        "dateModified": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.dateModified) }},
+        "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.study_identifier) }},
+        "license": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.license) }},
+        "url": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.url) }},
+        "version": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.version) }}
       },
       {
         "@id": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.id) }},
@@ -131,7 +131,7 @@
         {{- end -}}
         {{ end }}
         "mainEntityOfPage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.mainEntityOfPage) }},
-        "studyDesign": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.id) }},
+        "studyDesign": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.id) }},
         {{ if $params.study_status }}
         {{- with $params.study_status -}}
         "status": [
