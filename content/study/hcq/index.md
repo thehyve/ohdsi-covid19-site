@@ -91,8 +91,8 @@ conditions:
     # URL to term in vocabulary (e.g. http://snomed.info/id/69896004)
     concept_code_url: "http://snomed.info/id/840539006"
 - concept_name: "Rheumatoid arthritis"
-  id: "80809"
-  concept_id: 
+  concept_id: "80809"
+  code: 
     concept_code: "69896004"
     vocabulary_id: "SNOMED CT"
     # url format

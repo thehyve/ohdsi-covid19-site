@@ -31,11 +31,11 @@
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
-          {{ with .Params.drugs }}
+          {{ with .Params.study_subject }}
           <b>Drugs:</b>
           <ul>
             {{ range . }}
-            <li>{{ .name }}</li>
+            <li>{{ .concept_name }}</li>
             {{ end }}
           </ul>
           {{ end }}
@@ -44,7 +44,7 @@
           <b>Health Conditions:</b>
           <ul>
             {{ range . }}
-            <li>{{ .name }}</li>
+            <li>{{ .concept_name }}</li>
             {{ end }}
           </ul>
           {{ end }}
@@ -62,7 +62,7 @@
           {{ end }}
           {{ end }}
           {{ with .Params.event }}
-          <p><b>Event:</b> {{ .name }} <i>({{ .startDate }} to {{ .endDate }})</i> at {{ $location }}, Organizer:
+          <p><b>Event:</b> {{ .name }} <i>({{ .start_date }} to {{ .end_date }})</i> at {{ .location.name }}, Organizer:
             {{ $organizer }}</p>
           {{ end }}
           {{if .Params.results }}
@@ -70,7 +70,7 @@
           <b>Results:</b>
           <ul>
             {{ range . }}
-            <li><a href="{{.mainEntityOfPage}}">{{.name}}</a></li>
+            <li><a href="{{.application_url}}">{{.name}}</a></li>
             {{ end }}
           </ul>
           {{ end }}
@@ -91,7 +91,7 @@
           <b>Applications:</b>
           <ul>
             {{ range . }}
-            <li><a href="{{ .installUrl }}">{{ .name }}</a> Version: {{ .version }}</li>
+            <li><a href="{{ .source_code_url }}">{{ .name }}</a> Version: {{ .version }}</li>
             {{ end }}
           </ul>
           {{ end }}
@@ -102,11 +102,11 @@
             {{ range $source_code := . }}
             {{ $maintainer := "" }}
             {{ range $params.organizations }}
-            {{ if eq .id $source_code.maintainer }}
+            {{ if eq .organization_identifier $source_code.maintainer }}
             {{ $maintainer = .name }}
             {{ end }}
             {{ end }}
-            <li><a href="{{ .codeRepository }}">{{ .name }}</a> Version: {{ .version }}, Programming Language:
+            <li><a href="{{ .code_repository_url }}">{{ .name }}</a> Version: {{ .version }}, Programming Language:
               {{ .programming_language }}, Maintainer: {{ $maintainer }}</li>
             {{ end }}
           </ul>

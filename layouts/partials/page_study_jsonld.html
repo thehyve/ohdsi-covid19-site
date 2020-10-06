@@ -1,383 +1,373 @@
 {{- $params := .value -}}
 {{- $type := .type }}
 {
-"@graph": [
-{{- range $i, $e := $params.drugs }}
-{
-"@id": "concept:{{ .id }}",
-"@type": "schema:Drug",
-"code": {
-"@type": "schema:MedicalCode",
-"codeValue": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .code.codeValue) }},
-"codingSystem":
-{{ partial "functions/get_jsonld_value" (dict "type" $type "value" .code.codingSystem) }}{{ with .code.sameAs }},
-"sameAs": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .) }}{{ end }}
-},
-"identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .id) }},
-"name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .name) }}
-},
-{{- end -}}
-{{- range $i, $e := $params.conditions }}
-{
-"@id": "concept:{{ .id }}",
-"@type": "schema:MedicalCondition",
-"code": {
-"@type": "schema:MedicalCode",
-"codeValue": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .code.codeValue) }},
-"codingSystem":
-{{ partial "functions/get_jsonld_value" (dict "type" $type "value" .code.codingSystem) }}{{ with .code.sameAs }},
-"sameAs": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .) }}{{ end }}
-},
-"identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .id) }},
-"name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .name) }}
-},
-{{- end -}}
-{{- range $i, $e := $params.authors -}}{{- $profile_page := site.GetPage (printf "/authors/%s" $e) }}
-{
-"@id": "person:{{ $e }}",
-"@type": "schema:Person",
-{{ with $profile_page.Params.accounts.ohdsiForumName }}"forumProfile": "https://forums.ohdsi.org/u/{{ . }}",{{ end }}
-{{ with $profile_page.Params.accounts.githubHandle }}"githubHandle": "https://github.com/{{ . }}",{{ end }}
-{{ with $profile_page.Params.accounts.googlescholarId }}"googleScholarID":
-"https://scholar.google.com/citations?user={{ . }}",{{ end }}
-{{ with $profile_page.Params.accounts.ohdsiCollaborator }}"schema:mainEntityOfPage":
-"https://www.ohdsi.org/who-we-are/collaborators/{{ . }}",{{ end }}
-{{ with $profile_page.Params.accounts.orcidIdentifier }}"orcidID": "https://orcid.org/{{ . }}",{{ end }}
-{{ with $profile_page.Params.honorificPrefix }}"honorificPrefix":
-{{ partial "functions/get_jsonld_value" (dict "type" $type "value" .) }},{{ end }}
-{{ with $profile_page.Params.honorificSuffix }}"honorificSuffix":
-[{{ range $j, $v := $profile_page.Params.honorificSuffix }}{{ if $j }}, {{ end }}
-{{ partial "functions/get_jsonld_value" (dict "type" $type "value" .) }}{{ end }}
-],{{ end }}
-{{ with $profile_page.Params.organizations }}"jobTitle":
-[{{ range $j, $v := $profile_page.Params.organizations }}{{ if $j }}, {{ end }}
-{{ partial "functions/get_jsonld_value" (dict "type" $type "value" .jobTitle) }}{{ end }}
-],{{ end }}
-"name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $profile_page.Params.title) }},
-{{- with $profile_page.Params.organization }}
-"worksFor": {
-"@type": "schema:Organization",
-"address": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .address) }},
-"department": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .department) }},
-"name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .name) }}
-}
-{{- end }}
-},
-{{- end -}}
-{{- range $i, $e := $params.databases -}}{{- $db_page := site.GetPage (printf "/database/%s" $e) }}
-{
-"@id": "database:{{ $e }}",
-"@type": "ohdsi:Database",
-"identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $db_page.Params.study_identifier) }},
-"name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $db_page.Params.title) }}
-},
-{{- end }}
-{
-"@id": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.id) }},
-"@type": "schema:MedicalObservationalStudyDesign",
-"dateModified":
-{{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.dateModified) }},
-"identifier":
-{{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.study_identifier) }},
-"license": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.license) }},
-"url": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.url) }},
-"version": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.version) }}
-},
-{
-"@id": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.id) }},
-"@type": "schema:Event",
-"endDate": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.endDate) }},
-"location": {
-"@type": "schema:{{ $params.event.location.type }}",
-"name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.location.name) }}
-},
-"mainEntityOfPage":
-{{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.mainEntityOfPage) }},
-"name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.name) }},
-"organizer": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.organizer) }},
-"recordedIn": {
-"@type": "schema:VideoObject",
-"url": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.recordedIn.url) }},
-"creator": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.recordedIn.creator) }},
-"uploadDate": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.recordedIn.uploadDate) }}
-},
-"startDate": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.startDate) }}
-},
-{
-"@id": "study:{{ $params.study_id }}",
-"@type": "schema:MedicalObservationalStudy",
-"identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_identifier) }},
-"name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.title) }},
-"description": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.description) }},
-{{ if $params.study_type }}
-{{- with $params.study_type -}}
-"studyType": [
-{{- $all_study_types := partial "functions/get_study_types_jsonld" . -}}
-{{- range $i, $v := . }}{{- if $i -}}, {{- end -}}
-{{- $indexInt := int $v -}}
-"ohdsi:{{ index $all_study_types $indexInt }}"
-{{- end -}}],
-{{- end -}}
-{{ end }}
-{{ if $params.study_usecase }}
-{{- with $params.study_usecase -}}
-"analyticsUseCase": [
-{{- $all_study_usecase := partial "functions/get_study_usecases_jsonld" . -}}
-{{- range $i, $v := . }}{{- if $i -}}, {{- end -}}
-{{- $indexInt := int $v -}}
-"ohdsi:{{ index $all_study_usecase $indexInt }}"
-{{- end -}}],
-{{- end -}}
-{{ end }}
-"mainEntityOfPage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.mainEntityOfPage) }},
-"studyDesign": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.id) }},
-{{ if $params.study_status }}
-{{- with $params.study_status -}}
-"status": [
-{{- $all_study_status := partial "functions/get_study_status_jsonld" . -}}
-{{- range $i, $v := . }}{{- if $i -}}, {{- end -}}
-{{- $indexInt := int $v -}}
-"ohdsi:{{ index $all_study_status $indexInt }}"
-{{- end -}}],
-{{- end -}}
-{{ end }}
-"healthCondition": [{{ range $i, $e := $params.conditions }}{{ if $i }}, {{ end }}
-"concept:{{ .id }}"{{ end }}
-],
-"studySubject": [{{ range $i, $e := $params.drugs }}{{ if $i }}, {{ end }}
-"concept:{{ .id }}"{{ end }}
-],
-"subjectOf": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.id) }},
-"author": [{{ range $i, $e := $params.authors }}{{ if $i }}, {{ end }}
-"person:{{ $e }}"{{ end }}
-],
-"dateCreated": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.start_date) }},
-"discussionUrl": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.forum_thread_url) }},
-{{ if $params.results }}
-{{- with $params.results -}}
-"result": [
-{{- range $i, $v := . -}}{{- if $i -}}, {{- end }}
-{
-"@type": "schema:WebApplication",
-"mainEntityofPage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .mainEntityofPage) }},
-"name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .name) }}
-}
-{{- end }}
-],
-{{- end -}}
-{{ end }}
-{{ if $params.publications }}
-{{- with $params.publications -}}
-"publication": [
-{{- range $i, $v := . -}}{{- if $i -}}, {{- end -}}
-{{ partial "functions/get_jsonld_value" (dict "type" $type "value" $v.url) }}
-{{- end -}}],
-{{- end -}}
-{{ end }}
-"hasPart": [
-{{- range $i, $e := $params.source_code }}
-{
-"@type": "schema:SoftwareSourceCode",
-"codeRepository": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .codeRepository) }},
-"dateModified": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .dateModified) }},
-"maintainer": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .maintainer) }},
-"programmingLanguage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .programming_language) }},
-"version": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .version) }}
-},
-{{- end }}
-{{- range $i, $e := $params.software }}{{ if $i }}, {{ end }}
-{
-"@type": "schema:SoftwareApplication",
-"mainEntityofPage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .mainEntityofPage) }},
-"maintainer": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .maintainer) }},
-"name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .name) }},
-"softwareVersion": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .version) }}
-}
-{{- end }}
-],
-"ohdsi:database": [
-{{- range $i, $e := $params.databases -}}{{- if $i -}}, {{- end }}
-{
-"@id": "database:{{ $e }}"
-}
-{{- end }}
-]
-}
-],
-"@context": {
-"name": {
-"@id": "http://schema.org/name"
-},
-"mainEntityofPage": {
-"@id": "http://schema.org/mainEntityofPage"
-},
-"recordedIn": {
-"@id": "http://schema.org/recordedIn",
-"@type": "@id"
-},
-"mainEntityOfPage": {
-"@id": "http://schema.org/mainEntityOfPage",
-"@type": "@id"
-},
-"endDate": {
-"@id": "http://schema.org/endDate",
-"@type": "http://www.w3.org/2001/XMLSchema#date"
-},
-"startDate": {
-"@id": "http://schema.org/startDate",
-"@type": "http://www.w3.org/2001/XMLSchema#date"
-},
-"location": {
-"@id": "http://schema.org/location",
-"@type": "@id"
-},
-"organizer": {
-"@id": "http://schema.org/organizer",
-"@type": "@id"
-},
-"code": {
-"@id": "http://schema.org/code",
-"@type": "@id"
-},
-"identifier": {
-"@id": "http://schema.org/identifier"
-},
-"address": {
-"@id": "http://schema.org/address"
-},
-"department": {
-"@id": "http://schema.org/department"
-},
-"honorificSuffix": {
-"@id": "http://schema.org/honorificSuffix"
-},
-"forumProfile": {
-"@id": "http://data.ohdsi.org/forumProfile"
-},
-"githubHandle": {
-"@id": "http://data.ohdsi.org/githubHandle"
-},
-"worksFor": {
-"@id": "http://schema.org/worksFor",
-"@type": "@id"
-},
-"googleScholarID": {
-"@id": "http://data.ohdsi.org/googleScholarID"
-},
-"jobTitle": {
-"@id": "http://schema.org/jobTitle"
-},
-"orcidID": {
-"@id": "http://data.ohdsi.org/orcidID"
-},
-"creator": {
-"@id": "http://schema.org/creator",
-"@type": "@id"
-},
-"uploadDate": {
-"@id": "http://schema.org/uploadDate",
-"@type": "http://www.w3.org/2001/XMLSchema#date"
-},
-"maintainer": {
-"@id": "http://schema.org/maintainer",
-"@type": "@id"
-},
-"version": {
-"@id": "http://schema.org/version",
-"@type": "http://www.w3.org/2001/XMLSchema#decimal"
-},
-"programmingLanguage": {
-"@id": "http://schema.org/programmingLanguage"
-},
-"dateModified": {
-"@id": "http://schema.org/dateModified",
-"@type": "http://www.w3.org/2001/XMLSchema#date"
-},
-"codeRepository": {
-"@id": "http://schema.org/codeRepository"
-},
-"sameAs": {
-"@id": "http://schema.org/sameAs"
-},
-"codingSystem": {
-"@id": "http://schema.org/codingSystem"
-},
-"codeValue": {
-"@id": "http://schema.org/codeValue"
-},
-"license": {
-"@id": "http://schema.org/license"
-},
-"url": {
-"@id": "http://schema.org/url"
-},
-"softwareVersion": {
-"@id": "http://schema.org/softwareVersion",
-"@type": "http://www.w3.org/2001/XMLSchema#decimal"
-},
-"healthCondition": {
-"@id": "http://schema.org/healthCondition",
-"@type": "@id"
-},
-"hasPart": {
-"@id": "http://schema.org/hasPart",
-"@type": "@id"
-},
-"result": {
-"@id": "http://schema.org/result",
-"@type": "@id"
-},
-"studySubject": {
-"@id": "http://schema.org/studySubject",
-"@type": "@id"
-},
-"dateCreated": {
-"@id": "http://schema.org/dateCreated",
-"@type": "http://www.w3.org/2001/XMLSchema#date"
-},
-"status": {
-"@id": "http://schema.org/status",
-"@type": "@id"
-},
-"subjectOf": {
-"@id": "http://schema.org/subjectOf",
-"@type": "@id"
-},
-"studyType": {
-"@id": "http://data.ohdsi.org/studyType",
-"@type": "@id"
-},
-"author": {
-"@id": "http://schema.org/author",
-"@type": "@id"
-},
-"description": {
-"@id": "http://schema.org/description"
-},
-"discussionUrl": {
-"@id": "http://schema.org/discussionUrl"
-},
-"database": "https://covid19.ohdsi.app/database/",
-"publication": {
-"@id": "http://schema.org/publication",
-"@type": "@id"
-},
-"studyDesign": {
-"@id": "http://schema.org/studyDesign",
-"@type": "@id"
-},
-"analyticsUseCase": {
-"@id": "http://data.ohdsi.org/analyticsUseCase",
-"@type": "@id"
-},
-"schema": "http://schema.org/",
-"study": "https://covid19.ohdsi.app/study/",
-"owl": "http://www.w3.org/2002/07/owl#",
-"person": "https://covid19.ohdsi.app/author/",
-"snomed": "http://snomed.info/id/",
-"concept": "http://data.ohdsi.org/concept/",
-"xsd": "http://www.w3.org/2001/XMLSchema#",
-"ohdsi": "http://data.ohdsi.org/",
-"covid19": "https://covid19.ohdsi.app/"
-}
+    "@graph": [
+    {{- range $i, $e := $params.study_subject }}
+        {
+            "@id": "concept:{{ .concept_id }}",
+            "@type": "schema:Drug",
+            "code": {
+                "@type": "schema:MedicalCode",
+                "codeValue": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .code.concept_code) }},
+                "codingSystem": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .code.vocabulary_id) }}{{ with .code.concept_code_url }},
+                "sameAs": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .) }}{{ end }}
+            },
+            "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .concept_id) }},
+            "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .concept_name) }}
+        },
+    {{- end -}}
+    {{- range $i, $e := $params.conditions }}
+        {
+            "@id": "concept:{{ .concept_id }}",
+            "@type": "schema:MedicalCondition",
+            "code": {
+                "@type": "schema:MedicalCode",
+                "codeValue": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .code.concept_code) }},
+                "codingSystem": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .code.vocabulary_id) }}{{ with .code.concept_code_url }},
+                "sameAs": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .) }}{{ end }}
+            },
+            "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .concept_id) }},
+            "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .concept_name) }}
+        },
+    {{- end -}}
+    {{- range $i, $e := $params.authors -}}{{- $profile_page := site.GetPage (printf "/authors/%s" $e) }}
+        {
+            "@id": "person:{{ $e }}",
+            "@type": "schema:Person",
+            {{ with $profile_page.Params.accounts.ohdsiForumName }}"forumProfile": "https://forums.ohdsi.org/u/{{ . }}",{{ end }}
+            {{ with $profile_page.Params.accounts.githubHandle }}"githubHandle": "https://github.com/{{ . }}",{{ end }}
+            {{ with $profile_page.Params.accounts.googlescholarId }}"googleScholarID": "https://scholar.google.com/citations?user={{ . }}",{{ end }}
+            {{ with $profile_page.Params.accounts.ohdsiCollaborator }}"schema:mainEntityOfPage": "https://www.ohdsi.org/who-we-are/collaborators/{{ . }}",{{ end }}
+            {{ with $profile_page.Params.accounts.orcidIdentifier }}"orcidID": "https://orcid.org/{{ . }}",{{ end }}
+            {{ with $profile_page.Params.honorificPrefix }}"honorificPrefix": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .) }},{{ end }}
+            {{ with $profile_page.Params.honorificSuffix }}"honorificSuffix": [{{ range $j, $v := $profile_page.Params.honorificSuffix }}{{ if $j }}, {{ end }}
+                {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .) }}{{ end }}
+            ],{{ end }}
+            {{ with $profile_page.Params.organizations }}"jobTitle": [{{ range $j, $v := $profile_page.Params.organizations }}{{ if $j }}, {{ end }}
+                {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .jobTitle) }}{{ end }}
+            ],{{ end }}
+            "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $profile_page.Params.title) }},
+            {{- with $profile_page.Params.organization }}
+            "worksFor": {
+                "@type": "schema:Organization",
+                "address": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .address) }},
+                "department": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .department) }},
+                "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .name) }}
+            }
+            {{- end }}
+        },
+    {{- end -}}
+    {{- range $i, $e := $params.databases -}}{{- $db_page := site.GetPage (printf "/database/%s" $e) }}
+        {
+            "@id": "database:{{ $e }}",
+            "@type": "ohdsi:Database",
+            "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $db_page.Params.id) }},
+            "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $db_page.Params.title) }}
+        },
+    {{- end }}
+        {
+            "@id": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.protocol_id) }},
+            "@type": "schema:MedicalObservationalStudyDesign",
+            "dateModified": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.date_modified) }},
+            "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.protocol_identifier) }},
+            "license": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.license) }},
+            "url": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.protocol_url) }},
+            "version": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.version) }}
+        },
+        {
+            "@id": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.event_identifier) }},
+            "@type": "schema:Event",
+            "endDate": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.end_date) }},
+            "location": {
+                "@type": "schema:{{ $params.event.location.type }}",
+                "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.location.name) }}
+            },
+            "mainEntityOfPage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.event_url) }},
+            "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.name) }},
+            "organizer": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.organizer_identifier) }},
+            "recordedIn": {
+                "@type": "schema:VideoObject",
+                "url": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.recordedIn.recording_url) }},
+                "creator": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.recordedIn.creator) }},
+                "uploadDate": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.recordedIn.upload_date) }}
+            },
+            "startDate": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.start_date) }}
+        },
+        {
+            "@id": "study:{{ $params.study_id }}",
+            "@type": "schema:MedicalObservationalStudy",
+            "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_identifier) }},
+            "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.title) }},
+            "description": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.description) }},
+            {{ if $params.study_type }}
+            {{- with $params.study_type -}}
+            "studyType": [
+            {{- $all_study_types := partial "functions/get_study_types_jsonld" . -}}
+            {{- range $i, $v := . }}{{- if $i -}}, {{- end -}}
+            {{- $indexInt := int $v -}}
+                "ohdsi:{{ index $all_study_types $indexInt }}"
+            {{- end -}}],
+            {{- end -}}
+            {{ end }}
+            {{ if $params.study_usecase }}
+            {{- with $params.study_usecase -}}
+            "analyticsUseCase": [
+            {{- $all_study_usecase := partial "functions/get_study_usecases_jsonld" . -}}
+            {{- range $i, $v := . }}{{- if $i -}}, {{- end -}}
+            {{- $indexInt := int $v -}}
+                "ohdsi:{{ index $all_study_usecase $indexInt }}"
+            {{- end -}}],
+            {{- end -}}
+            {{ end }}
+            "mainEntityOfPage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_registration_url) }},
+            "studyDesign": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.protocol_id) }},
+            {{ if $params.study_status }}
+            {{- with $params.study_status -}}
+            "status": [
+            {{- $all_study_status := partial "functions/get_study_status_jsonld" . -}}
+            {{- range $i, $v := . }}{{- if $i -}}, {{- end -}}
+            {{- $indexInt := int $v -}}
+                "ohdsi:{{ index $all_study_status $indexInt }}"
+            {{- end -}}],
+            {{- end -}}
+            {{ end }}
+            "healthCondition": [{{ range $i, $e := $params.conditions }}{{ if $i }}, {{ end }}
+                "concept:{{ .concept_id }}"{{ end }}
+            ],
+            "studySubject": [{{ range $i, $e := $params.study_subject }}{{ if $i }}, {{ end }}
+                "concept:{{ .concept_id }}"{{ end }}
+            ],
+            "subjectOf": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.event_identifier) }},
+            "author": [{{ range $i, $e := $params.authors }}{{ if $i }}, {{ end }}
+                "person:{{ $e }}"{{ end }}
+            ],
+            "dateCreated": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.start_date) }},
+            "discussionUrl": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.forum_thread_url) }},
+            {{ if $params.results }}
+            {{- with $params.results -}}
+            "result": [
+                {{- range $i, $v := . -}}{{- if $i -}}, {{- end }}
+                {
+                    "@type": "schema:WebApplication",
+                    "mainEntityofPage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .application_url) }},
+                    "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .name) }}
+                }
+                {{- end }}
+            ],
+            {{- end -}}
+            {{ end }}
+            {{ if $params.publications }}
+            {{- with $params.publications -}}
+            "publication": [
+            {{- range $i, $v := . -}}{{- if $i -}}, {{- end -}}
+                {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $v.doi) }}
+            {{- end -}}],
+            {{- end -}}
+            {{ end }}
+            "hasPart": [
+                {{- range $i, $e := $params.source_code }}
+                {
+                    "@type": "schema:SoftwareSourceCode",
+                    "codeRepository": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .code_repository_url) }},
+                    "dateModified": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .date_modified) }},
+                    "maintainer": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .maintainer) }},
+                    "programmingLanguage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .programming_language) }},
+                    "version": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .version) }}
+                },
+                {{- end }}
+                {{- range $i, $e := $params.software }}{{ if $i }}, {{ end }}
+                {
+                    "@type": "schema:SoftwareApplication",
+                    "mainEntityofPage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .source_code_url) }},
+                    "maintainer": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .maintainer) }},
+                    "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .name) }},
+                    "softwareVersion": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .version) }}
+                }
+                {{- end }}
+            ],
+            "ohdsi:database": [
+                {{- range $i, $e := $params.databases -}}{{- if $i -}}, {{- end }}
+                {
+                    "@id": "database:{{ $e }}"
+                }
+                {{- end }}
+            ]
+        }
+    ],
+    "@context": {
+        "name": {
+            "@id": "http://schema.org/name"
+        },
+        "mainEntityofPage": {
+            "@id": "http://schema.org/mainEntityofPage"
+        },
+        "recordedIn": {
+            "@id": "http://schema.org/recordedIn",
+            "@type": "@id"
+        },
+        "mainEntityOfPage": {
+            "@id": "http://schema.org/mainEntityOfPage",
+            "@type": "@id"
+        },
+        "endDate": {
+            "@id": "http://schema.org/endDate",
+            "@type": "http://www.w3.org/2001/XMLSchema#date"
+        },
+        "startDate": {
+            "@id": "http://schema.org/startDate",
+            "@type": "http://www.w3.org/2001/XMLSchema#date"
+        },
+        "location": {
+            "@id": "http://schema.org/location",
+            "@type": "@id"
+        },
+        "organizer": {
+            "@id": "http://schema.org/organizer",
+            "@type": "@id"
+        },
+        "code": {
+            "@id": "http://schema.org/code",
+            "@type": "@id"
+        },
+        "identifier": {
+            "@id": "http://schema.org/identifier"
+        },
+        "address": {
+            "@id": "http://schema.org/address"
+        },
+        "department": {
+            "@id": "http://schema.org/department"
+        },
+        "honorificSuffix": {
+            "@id": "http://schema.org/honorificSuffix"
+        },
+        "forumProfile": {
+            "@id": "http://data.ohdsi.org/forumProfile"
+        },
+        "githubHandle": {
+            "@id": "http://data.ohdsi.org/githubHandle"
+        },
+        "worksFor": {
+            "@id": "http://schema.org/worksFor",
+            "@type": "@id"
+        },
+        "googleScholarID": {
+            "@id": "http://data.ohdsi.org/googleScholarID"
+        },
+        "jobTitle": {
+            "@id": "http://schema.org/jobTitle"
+        },
+        "orcidID": {
+        "@id": "http://data.ohdsi.org/orcidID"
+        },
+        "creator": {
+            "@id": "http://schema.org/creator",
+            "@type": "@id"
+        },
+        "uploadDate": {
+            "@id": "http://schema.org/uploadDate",
+            "@type": "http://www.w3.org/2001/XMLSchema#date"
+        },
+        "maintainer": {
+            "@id": "http://schema.org/maintainer",
+            "@type": "@id"
+        },
+        "version": {
+            "@id": "http://schema.org/version",
+            "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+        },
+        "programmingLanguage": {
+            "@id": "http://schema.org/programmingLanguage"
+        },
+        "dateModified": {
+            "@id": "http://schema.org/dateModified",
+            "@type": "http://www.w3.org/2001/XMLSchema#date"
+        },
+        "codeRepository": {
+            "@id": "http://schema.org/codeRepository"
+        },
+        "sameAs": {
+            "@id": "http://schema.org/sameAs"
+        },
+        "codingSystem": {
+            "@id": "http://schema.org/codingSystem"
+        },
+        "codeValue": {
+            "@id": "http://schema.org/codeValue"
+        },
+        "license": {
+            "@id": "http://schema.org/license"
+        },
+        "url": {
+            "@id": "http://schema.org/url"
+        },
+        "softwareVersion": {
+            "@id": "http://schema.org/softwareVersion",
+            "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+        },
+        "healthCondition": {
+            "@id": "http://schema.org/healthCondition",
+            "@type": "@id"
+        },
+        "hasPart": {
+            "@id": "http://schema.org/hasPart",
+            "@type": "@id"
+        },
+        "result": {
+            "@id": "http://schema.org/result",
+            "@type": "@id"
+        },
+        "studySubject": {
+            "@id": "http://schema.org/studySubject",
+            "@type": "@id"
+        },
+        "dateCreated": {
+            "@id": "http://schema.org/dateCreated",
+            "@type": "http://www.w3.org/2001/XMLSchema#date"
+        },
+        "status": {
+            "@id": "http://schema.org/status",
+            "@type": "@id"
+        },
+        "subjectOf": {
+            "@id": "http://schema.org/subjectOf",
+            "@type": "@id"
+        },
+        "studyType": {
+            "@id": "http://data.ohdsi.org/studyType",
+            "@type": "@id"
+        },
+        "author": {
+            "@id": "http://schema.org/author",
+            "@type": "@id"
+        },
+        "description": {
+            "@id": "http://schema.org/description"
+        },
+        "discussionUrl": {
+            "@id": "http://schema.org/discussionUrl"
+        },
+        "database": "https://covid19.ohdsi.app/database/",
+        "publication": {
+            "@id": "http://schema.org/publication",
+            "@type": "@id"
+        },
+        "studyDesign": {
+            "@id": "http://schema.org/studyDesign",
+            "@type": "@id"
+        },
+        "analyticsUseCase": {
+            "@id": "http://data.ohdsi.org/analyticsUseCase",
+            "@type": "@id"
+        },
+        "schema": "http://schema.org/",
+        "study": "https://covid19.ohdsi.app/study/",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "person": "https://covid19.ohdsi.app/author/",
+        "snomed": "http://snomed.info/id/",
+        "concept": "http://data.ohdsi.org/concept/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "ohdsi": "http://data.ohdsi.org/",
+        "covid19": "https://covid19.ohdsi.app/"
+    }
 }
