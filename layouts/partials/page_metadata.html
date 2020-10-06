@@ -32,6 +32,8 @@
       {{ else }}
       {{ if ne $page.Params.Lastmod $page.Params.Date }}
       {{ i18n "last_updated" }}
+      {{ else }}
+      Published: 
       {{ end }}
       {{ end }}
       {{ $date }}
@@ -60,13 +62,11 @@
     <span class="article-date">
       {{ if $page.Params.start_date }}
       {{ with  $page.Params.start_date }}
-      {{/* $date := . | dateFormat site.Params.date_format */}}
-      Start date: {{ . }}
+      Start Date: {{ dateFormat site.Params.date_format . }}
       {{ end }}
       {{ else }}
       {{ with  $page.Params.from_readme.start_date }}
-      {{/* $date := . | dateFormat site.Params.date_format */}}
-      Start date: {{ . }}
+      Start Date: {{ dateFormat site.Params.date_format . }}
       {{ end }}
       {{ end }}
     </span>
@@ -75,13 +75,11 @@
     <span class="article-date">
       {{ if $page.Params.end_date }}
       {{ with  $page.Params.end_date }}
-      {{/* $date := . | dateFormat site.Params.date_format */}}
-      End date: {{ . }}
+      End Date: {{ dateFormat site.Params.date_format . }}
       {{ end }}
       {{ else }}
       {{ with  $page.Params.from_readme.endDate }}
-      {{/* $date := . | dateFormat site.Params.date_format */}}
-      End date: {{ . }}
+      End Date: {{ dateFormat site.Params.date_format . }}
       {{ end }}
       {{ end }}
     </span>
@@ -93,11 +91,11 @@
     <span class="article-date">
       {{ if $page.Params.start_date }}
       {{ with  $page.Params.start_date }}
-      Start date: {{ . }}
+      Start Date: {{ dateFormat site.Params.date_format . }}
       {{ end }}
       {{ else }}
       {{ with  $page.Params.from_readme.start_date }}
-      Start date: {{ . }}
+      Start Date: {{ dateFormat site.Params.date_format . }}
       {{ end }}
       {{ end }}
     </span>
@@ -106,11 +104,11 @@
     <span class="article-date">
       {{ if $page.Params.end_date }}
       {{ with  $page.Params.end_date }}
-      End date: {{ . }}
+      End Date: {{ dateFormat site.Params.date_format . }}
       {{ end }}
       {{ else }}
       {{ with  $page.Params.from_readme.endDate }}
-      End date: {{ . }}
+      End Date: {{ dateFormat site.Params.date_format . }}
       {{ end }}
       {{ end }}
     </span>
