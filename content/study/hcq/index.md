@@ -79,17 +79,17 @@ software:
 # duplicate all keys under "conditions"
 conditions:
 # Concept name
-- name: "Disease caused by severe acute respiratory syndrome coronavirus 2"
+- name: "Disease caused by severe acute respiratory syndrome coronavirus 2" //
   # Concept identifier
-  id: "37311061"
+  id: "37311061" //
   # Concept code and vocabulary metadata
   code: 
     # Concept code
-    codeValue: "840539006"
+    codeValue: "840539006" //
     # Vocabulary id
-    codingSystem: "SNOMED CT"
+    codingSystem: "SNOMED CT" //
     # URL to term in vocabulary (e.g. http://snomed.info/id/69896004)
-    sameAs: "http://snomed.info/id/840539006"
+    sameAs: "http://snomed.info/id/840539006" //
 - name: "Rheumatoid arthritis"
   id: "80809"
   code: 
@@ -99,7 +99,7 @@ conditions:
     sameAs: "http://snomed.info/id/69896004"
 
 # Study identifier 
-identifier: "EUPAS34497"
+study_identifier: "EUPAS34497"
 
 # URL to study registration site
 mainEntityOfPage: "http://www.encepp.eu/encepp/viewResource.htm?id=34498"

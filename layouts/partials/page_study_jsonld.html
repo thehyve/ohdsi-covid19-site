@@ -68,7 +68,7 @@
 {
 "@id": "database:{{ $e }}",
 "@type": "ohdsi:Database",
-"identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $db_page.Params.identifier) }},
+"identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $db_page.Params.study_identifier) }},
 "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $db_page.Params.title) }}
 },
 {{- end }}
@@ -76,7 +76,8 @@
 "@id": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.id) }},
 "@type": "schema:MedicalObservationalStudyDesign",
 "dateModified": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.dateModified) }},
-"identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.identifier) }},
+"identifier":
+{{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.study_identifier) }},
 "license": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.license) }},
 "url": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.url) }},
 "version": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.version) }}
@@ -104,7 +105,7 @@
 {
 "@id": "study:{{ $params.study_id }}",
 "@type": "schema:MedicalObservationalStudy",
-"identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.identifier) }},
+"identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_identifier) }},
 "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.title) }},
 "description": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.description) }},
 {{ if $params.study_type }}

@@ -80,7 +80,7 @@
         "@id": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.id) }},
         "@type": "schema:MedicalObservationalStudyDesign",
         "dateModified": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.dateModified) }},
-        "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.identifier) }},
+        "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.study_identifier) }},
         "license": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.license) }},
         "url": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.url) }},
         "version": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.studyDesign.version) }}
@@ -107,7 +107,7 @@
       {
         "@id": "study:{{ $params.id }}",
         "@type": "schema:MedicalObservationalStudy",
-        "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.identifier) }},
+        "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_identifier) }},
         "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.title) }},
         "description": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.description) }},
         {{ if $params.study_type }}

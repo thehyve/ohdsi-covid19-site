@@ -2,7 +2,7 @@
 {{ $page := .page }}
 {{ $link := "" }}
 
-{{ with $page.Params.identifier }}
+{{ with $page.Params.study_identifier }}
 <button type="button" class="btn btn-outline-secondary my-1 mr-1">{{ i18n "identifier" }}: {{ . }}</button>
 {{ end }}
 
