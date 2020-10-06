@@ -4,9 +4,134 @@
 {{ $featured_image := ($page.Resources.ByType "image").GetMatch "*featured*" }}
 
 {{ $author := partial "functions/get_author_name" $page }}
+
 {{ $publisher := site.Params.org_name | default site.Title }}
 {{ $logo_url := partial "functions/get_logo_url" $page }}
 
+{{ $type := "jsonld" -}}
+
 <script type="application/ld+json">
-  {{ partial "page_db_jsonld" (dict "type" "jsonld" "value" $params) }}
+  {
+    "@graph": [
+      {
+        "@id": "database:{{ $params.database_id }}",
+        "@type": "ohdsi:Database",
+        "administrativeContact": "ohdsi:person/{{ $params.administrative_contact }}",
+        "associatedInstitution": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.associated_institution) }},
+        "databaseCharacteristic": [{{ range $i, $e := $params.database_characteristics }}{{ if $i }}, {{ end }}
+          {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $e) }}{{ end }}
+        ],
+        "databaseSystem": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.database_system) }},
+        "ohdsi:populationSize": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.population_size) }},
+        "principalInvestigator": "ohdsi:person/{{ $params.principal_investigator }}",
+        "scientificContact": "ohdsi:person/{{ $params.scientific_contact }}",
+        "technicalContact": "ohdsi:person/{{ $params.technical_contact }}",
+        "alternateName": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.alternate_name) }},
+        "dateCreated": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.date_created) }},
+        "dateModified": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.date_modified) }},
+        "description": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.description) }},
+        "endDate": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.end_date) }},
+        "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.identifier) }},
+        "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.Title) }},
+        "publication": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.publication) }},
+        "spatialCoverage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.spatial_coverage) }},
+        "startDate": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.start_date) }},
+        "url": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.database_url) }},
+        "version": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.version) }}
+      },
+      {{ range $i, $e := $params.persons }}{{ if $i }}, {{ end }}{
+        "@id": "person/{{ .id }}",
+        "@type": "schema:Person",
+        "email": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .email) }},
+        "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .name) }},
+        "telephone": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .telephone) }}
+      }{{ end }}
+    ],
+    "@context": {
+      "telephone": {
+        "@id": "http://schema.org/telephone"
+      },
+      "email": {
+        "@id": "http://schema.org/email"
+      },
+      "name": {
+        "@id": "http://schema.org/name"
+      },
+      "endDate": {
+        "@id": "http://schema.org/endDate",
+        "@type": "http://www.w3.org/2001/XMLSchema#date"
+      },
+      "databaseCharacteristic": {
+        "@id": "http://data.ohdsi.org/databaseCharacteristic"
+      },
+      "startDate": {
+        "@id": "http://schema.org/startDate",
+        "@type": "http://www.w3.org/2001/XMLSchema#date"
+      },
+      "administrativeContact": {
+        "@id": "http://data.ohdsi.org/administrativeContact",
+        "@type": "@id"
+      },
+      "databaseSystem": {
+        "@id": "http://data.ohdsi.org/databaseSystem"
+      },
+      "dateModified": {
+        "@id": "http://schema.org/dateModified",
+        "@type": "http://www.w3.org/2001/XMLSchema#date"
+      },
+      "description": {
+        "@id": "http://schema.org/description"
+      },
+      "alternateName": {
+        "@id": "http://schema.org/alternateName"
+      },
+      "url": {
+        "@id": "http://schema.org/url"
+      },
+      "associatedInstitution": {
+        "@id": "http://data.ohdsi.org/associatedInstitution"
+      },
+      "technicalContact": {
+        "@id": "http://data.ohdsi.org/technicalContact",
+        "@type": "@id"
+      },
+      "scientificContact": {
+        "@id": "http://data.ohdsi.org/scientificContact",
+        "@type": "@id"
+      },
+      "spatialCoverage": {
+        "@id": "http://schema.org/spatialCoverage",
+        "@type": "@id"
+      },
+      "dateCreated": {
+        "@id": "http://schema.org/dateCreated",
+        "@type": "http://www.w3.org/2001/XMLSchema#date"
+      },
+      "principalInvestigator": {
+        "@id": "http://data.ohdsi.org/principalInvestigator",
+        "@type": "@id"
+      },
+      "version": {
+        "@id": "http://schema.org/version",
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+      },
+      "identifier": {
+        "@id": "http://schema.org/identifier"
+      },
+      "publication": {
+        "@id": "http://schema.org/publication",
+        "@type": "@id"
+      },
+      "populationSize": {
+        "@id": "http://data.ohdsi.org/populationSize",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "schema": "http://schema.org/",
+      "database": "https://covid19.ohdsi.app/database/",
+      "person": "https://covid19.ohdsi.app/author/",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "ohdsi": "http://data.ohdsi.org/",
+      "wd": "https://www.wikidata.org/wiki/"
+    }
+  }
 </script>

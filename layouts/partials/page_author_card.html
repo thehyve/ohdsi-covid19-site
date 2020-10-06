@@ -13,7 +13,7 @@
     {{ $avatar := (.Resources.ByType "image").GetMatch "*avatar*" }}
     {{ $avatar_shape := site.Params.avatar.shape | default "circle" }}
     <div class="media author-card content-widget-hr">
-      {{ if .Params.accounts.ohdsiForumName}}
+      {{ if .Params.accounts.ohdsi_forum_name}}
         {{ partial "avatar" (dict "person" .Params "class" "mr-3" "avatar" $avatar) }}
       {{ else }}
         {{ if and site.Params.avatar.gravatar .Params.email }}

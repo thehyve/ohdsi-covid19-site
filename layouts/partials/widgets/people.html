@@ -38,7 +38,7 @@
   {{ end }}
   <div class="col-12 col-sm-auto people-person">
     {{ $src := "" }}
-    {{if .Params.accounts.ohdsiForumName}}
+    {{if .Params.accounts.ohdsi_forum_name}}
       {{ $avatar_shape := site.Params.avatar.shape | default "circle" }}
       {{with $link}}<a href="{{.}}">{{end}}
       {{ partial "avatar" (dict "person" .Params) }}

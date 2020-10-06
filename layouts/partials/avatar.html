@@ -3,7 +3,7 @@
 
 {{ $src := "" }}
 {{ $forum_name := "" }}
-{{ $forum_name := .person.accounts.ohdsiForumName }}
+{{ $forum_name := .person.accounts.ohdsi_forum_name }}
 
 {{ if $forum_name }}
   {{ $ohdsiForumData := getJSON "https://forums.ohdsi.org/u/" $forum_name ".json" }}

@@ -73,8 +73,8 @@
   </div>
   <div class="">
     <span class="article-date">
-      {{ if $page.Params.endDate }}
-      {{ with  $page.Params.endDate }}
+      {{ if $page.Params.end_date }}
+      {{ with  $page.Params.end_date }}
       {{/* $date := . | dateFormat site.Params.date_format */}}
       End date: {{ . }}
       {{ end }}
@@ -104,8 +104,8 @@
   </div>
   <div class="">
     <span class="article-date">
-      {{ if $page.Params.endDate }}
-      {{ with  $page.Params.endDate }}
+      {{ if $page.Params.end_date }}
+      {{ with  $page.Params.end_date }}
       End date: {{ . }}
       {{ end }}
       {{ else }}
