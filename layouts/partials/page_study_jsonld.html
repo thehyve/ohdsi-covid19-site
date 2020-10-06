@@ -102,7 +102,7 @@
 "startDate": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.event.startDate) }}
 },
 {
-"@id": "study:{{ $params.id }}",
+"@id": "study:{{ $params.study_id }}",
 "@type": "schema:MedicalObservationalStudy",
 "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.identifier) }},
 "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.title) }},
