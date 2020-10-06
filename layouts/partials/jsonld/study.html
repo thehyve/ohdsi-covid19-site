@@ -186,7 +186,7 @@
             "version": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .version) }}
           },
           {{- end }}
-          {{- range $i, $e := $params.softwareApplications }}{{ if $i }}, {{ end }}
+          {{- range $i, $e := $params.software }}{{ if $i }}, {{ end }}
           {
             "@type": "schema:SoftwareApplication",
             "mainEntityofPage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .mainEntityofPage) }},

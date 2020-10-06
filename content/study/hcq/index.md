@@ -61,7 +61,7 @@ source_code:
 
 # Software used for the study; if multiple software applications are used
 # duplicate all keys under "software"
-softwareApplications:
+software:
   # Name of the software
 - name: "Data Quality Dashboard"
   # URL to source code of software
