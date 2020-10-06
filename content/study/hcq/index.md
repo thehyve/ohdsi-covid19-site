@@ -49,7 +49,7 @@ forum_thread_url: "https://forums.ohdsi.org/"
 source_code:
 - name:
   # URL to GitHub repository containing the source code
-  codeRepository: "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine"
+  code_repository_url: "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine"
   # Last modification date, use date format YYYY-MM-DD
   dateModified: 2020-04-11
   # Maintainer of source code; use identifier of organization if applicable
