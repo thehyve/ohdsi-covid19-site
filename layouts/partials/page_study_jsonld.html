@@ -173,7 +173,7 @@
 {{- end -}}
 {{ end }}
 "hasPart": [
-{{- range $i, $e := $params.softwareSourceCodes }}
+{{- range $i, $e := $params.source_code }}
 {
 "@type": "schema:SoftwareSourceCode",
 "codeRepository": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .codeRepository) }},

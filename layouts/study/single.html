@@ -96,13 +96,13 @@
           </ul>
           {{ end }}
 
-          {{ with .Params.softwareSourceCodes }}
+          {{ with .Params.source_code }}
           <b>Source Codes:</b>
           <ul>
-            {{ range $softwareSourceCodes := . }}
+            {{ range $source_code := . }}
             {{ $maintainer := "" }}
             {{ range $params.organizations }}
-            {{ if eq .id $softwareSourceCodes.maintainer }}
+            {{ if eq .id $source_code.maintainer }}
             {{ $maintainer = .name }}
             {{ end }}
             {{ end }}
