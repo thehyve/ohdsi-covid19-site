@@ -31,18 +31,18 @@
           {{ with $params.dateModified }}<p><b>Date Modified:</b> {{ . }}</p>{{ end }}
           {{ with $params.startDate }}<p><b>Start Date:</b> {{ . }}</p>{{ end }}
           {{ with $params.endDate }}<p><b>End Date:</b> {{ . }}</p>{{ end */}}
-          {{ with $params.spatialCoverage }}<p><b>Spatial Coverage:</b> {{ . }}</p>{{ end }}
-          {{ with $params.populationSize }}<p><b>Population Size:</b> {{ . }}</p>{{ end }}
-          {{ with $params.databaseCharacteristic }}<p><b>Database Characteristic:</b>
+          {{ with $params.spatial_coverage }}<p><b>Spatial Coverage:</b> {{ . }}</p>{{ end }}
+          {{ with $params.population_size }}<p><b>Population Size:</b> {{ . }}</p>{{ end }}
+          {{ with $params.database_characteristics }}<p><b>Database Characteristic:</b>
             <ul>
               {{ range . }}
               <li>{{ . }}</li>
               {{ end }}
           </ul></p>{{ end }}
-          {{ with $params.associatedInstitution }}<p><b>Associated Institution:</b> {{ . }}</p>{{ end }}
+          {{ with $params.associated_institution }}<p><b>Associated Institution:</b> {{ . }}</p>{{ end }}
         </div>
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-          {{ with $administrativeContact := $params.administrativeContact }}
+          {{ with $administrativeContact := $params.administrative_contact }}
             {{$person := ""}}
             {{ range $params.persons }}
               {{ if eq .id $administrativeContact}}
@@ -55,7 +55,7 @@
               <li><b>Telephone:</b> {{ $person.telephone }}</li>
             </ul>
           {{ end }}
-          {{ with $principalInvestigator := $params.principalInvestigator }}
+          {{ with $principalInvestigator := $params.principal_investigator }}
             {{$person := ""}}
             {{ range $params.persons }}
               {{ if eq .id $principalInvestigator}}
@@ -68,7 +68,7 @@
               <li><b>Telephone:</b> {{ $person.telephone }}</li>
             </ul>
           {{ end }}
-          {{ with $scientificContact := $params.scientificContact }}
+          {{ with $scientificContact := $params.scientific_contact }}
             {{$person := ""}}
             {{ range $params.persons }}
               {{ if eq .id $scientificContact}}
@@ -81,7 +81,7 @@
               <li><b>Telephone:</b> {{ $person.telephone }}</li>
             </ul>
           {{ end }}
-          {{ with $technicalContact := $params.technicalContact }}
+          {{ with $technicalContact := $params.technical_contact }}
             {{$person := ""}}
             {{ range $params.persons }}
               {{ if eq .id $technicalContact}}

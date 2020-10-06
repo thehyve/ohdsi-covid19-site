@@ -47,7 +47,6 @@ authors: ["daniel_prieto"]
 # 1: Methods Research
 study_type: [1]
 
-# // TODO
 # Analytics Use Case of the Study, choose 0, 1, 2 or 3:
 # 0: Characterization
 # 1: Population-Level Estimation

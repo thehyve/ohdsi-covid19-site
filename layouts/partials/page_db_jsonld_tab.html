@@ -21,29 +21,29 @@
 {
   "@graph": [
     {
-      "@id": "database:{{ $params.id }}",
+      "@id": "database:{{ $params.database_id }}",
       "@type": "ohdsi:Database",
-      "administrativeContact": "ohdsi:person/{{ $params.administrativeContact }}",
-      "associatedInstitution": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.associatedInstitution) }},
-      "databaseCharacteristic": [{{ range $i, $e := $params.databaseCharacteristic }}{{ if $i }}, {{ end }}
+      "administrativeContact": "ohdsi:person/{{ $params.administrative_contact }}",
+      "associatedInstitution": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.associated_institution) }},
+      "databaseCharacteristic": [{{ range $i, $e := $params.database_characteristics }}{{ if $i }}, {{ end }}
         {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $e) }}{{ end }}
       ],
-      "databaseSystem": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.databaseSystem) }},
-      "ohdsi:populationSize": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.populationSize) }},
-      "principalInvestigator": "ohdsi:person/{{ $params.principalInvestigator }}",
-      "scientificContact": "ohdsi:person/{{ $params.scientificContact }}",
-      "technicalContact": "ohdsi:person/{{ $params.technicalContact }}",
-      "alternateName": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.alternateName) }},
-      "dateCreated": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.start_date) }},
-      "dateModified": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.dateModified) }},
+      "databaseSystem": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.database_system) }},
+      "ohdsi:populationSize": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.population_size) }},
+      "principalInvestigator": "ohdsi:person/{{ $params.principal_investigator }}",
+      "scientificContact": "ohdsi:person/{{ $params.scientific_contact }}",
+      "technicalContact": "ohdsi:person/{{ $params.technical_contact }}",
+      "alternateName": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.alternate_name) }},
+      "dateCreated": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.date_created) }},
+      "dateModified": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.date_modified) }},
       "description": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.description) }},
-      "endDate": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.endDate) }},
-      "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_identifier) }},
+      "endDate": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.end_date) }},
+      "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.identifier) }},
       "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.Title) }},
       "publication": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.publication) }},
-      "spatialCoverage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.spatialCoverage) }},
-      "startDate": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.startDate) }},
-      "url": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.databaseUrl) }},
+      "spatialCoverage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.spatial_coverage) }},
+      "startDate": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.start_date) }},
+      "url": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.database_url) }},
       "version": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.version) }}
     },
     {{ range $i, $e := $params.persons }}{{ if $i }}, {{ end }}{

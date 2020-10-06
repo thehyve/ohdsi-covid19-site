@@ -14,11 +14,11 @@
 <button type="button" class="btn btn-outline-secondary my-1 mr-1">{{ i18n "database_identifier" }}: {{ . }}</button>
 {{ end }}
 
-{{ with $page.Params.databaseSystem}}
+{{ with $page.Params.database_system}}
 <button type="button" class="btn btn-outline-secondary my-1 mr-1">{{ i18n "database_system" }}: {{ . }}</button>
 {{ end }}
 
-{{ with $page.Params.alternateName }}
+{{ with $page.Params.alternate_name }}
 <button type="button" class="btn btn-outline-secondary my-1 mr-1">{{ i18n "database_alternate_name" }}: {{ . }}</button>
 {{ end }}
 
@@ -30,7 +30,7 @@
 <button type="button" class="btn btn-outline-secondary my-1 mr-1">{{ i18n "database_license" }}: {{ . }}</button>
 {{ end }}
 
-{{ with $page.Params.databaseUrl }}
+{{ with $page.Params.database_url }}
 {{ $resource := $page.Resources.GetMatch . }}
 {{ if $resource }}
 {{ $link = $resource.RelPermalink }}
