@@ -35,7 +35,6 @@ study_type: [1]
 # Author identifier of the authors contributing to the study
 authors: ["daniel_prieto"]
 
-# // TODO
 # Start date of the study, use date format YYYY-MM-DD
 start_date: 2020-04-02
 
