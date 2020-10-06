@@ -153,7 +153,7 @@
           "person:{{ $e }}"{{ end }}
         ],
         "dateCreated": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.start_date) }},
-        "discussionUrl": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.discussionUrl) }},
+        "discussionUrl": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.forum_thread_url) }},
         {{ if $params.results }}
         {{- with $params.results -}}
         "result": [

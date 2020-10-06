@@ -41,9 +41,8 @@ start_date: 2020-04-02
 # Study description
 description: "Retrospective, real-world, observational study to estimate the population-level effects of hydroxychloroquine among patients with rheumatoid arthritis. Designed and executed during the OHDSI community COVID-19 virtual study-a-thon (March 26-29) to inform healthcare decision-making in response to the current global pandemic."
 
-# // TODO
 # URL to the forum thread about the study
-discussionUrl: "https://forums.ohdsi.org/"
+forum_thread_url: "https://forums.ohdsi.org/"
 
 # Source code used for the study; if multiple code repositories are available, 
 # duplicate all keys under "source_code"

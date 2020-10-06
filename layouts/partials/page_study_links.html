@@ -82,7 +82,7 @@
 </a>
 {{ end }}
 
-{{ with $page.Params.discussionUrl }}
+{{ with $page.Params.forum_thread_url }}
 {{ $resource := $page.Resources.GetMatch . }}
 {{ if $resource }}
 {{ $link = $resource.RelPermalink }}
