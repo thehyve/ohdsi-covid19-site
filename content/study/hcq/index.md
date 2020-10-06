@@ -46,7 +46,7 @@ forum_thread_url: "https://forums.ohdsi.org/"
 
 # Source code used for the study; if multiple code repositories are available, 
 # duplicate all keys under "source_code"
-softwareSourceCodes:
+source_code:
 - name:
   # URL to GitHub repository containing the source code
   codeRepository: "https://github.com/ohdsi-studies/Covid19EstimationHydroxychloroquine"
