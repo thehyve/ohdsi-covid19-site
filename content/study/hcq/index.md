@@ -65,7 +65,7 @@ software:
   # Name of the software
 - name: "Data Quality Dashboard"
   # URL to source code of software
-  mainEntityofPage: "https://github.com/OHDSI/DataQualityDashboard"
+  mainEntityofPage: "https://github.com/OHDSI/DataQualityDashboard" # // todo
   # Maintainer of source code; use identifier of organization if applicable.
   maintainer: "ohdsi:OHDSI"
   # Version of the software
@@ -77,7 +77,7 @@ software:
 
 # Conditions studied; if multiple conditions are being studied,
 # duplicate all keys under "conditions"
-healthConditions:
+conditions:
 # Concept name
 - name: "Disease caused by severe acute respiratory syndrome coronavirus 2"
   # Concept identifier

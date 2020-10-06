@@ -17,7 +17,7 @@
 "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .name) }}
 },
 {{- end -}}
-{{- range $i, $e := $params.healthConditions }}
+{{- range $i, $e := $params.conditions }}
 {
 "@id": "concept:{{ .id }}",
 "@type": "schema:MedicalCondition",
@@ -139,7 +139,7 @@
 {{- end -}}],
 {{- end -}}
 {{ end }}
-"healthCondition": [{{ range $i, $e := $params.healthConditions }}{{ if $i }}, {{ end }}
+"healthCondition": [{{ range $i, $e := $params.conditions }}{{ if $i }}, {{ end }}
 "concept:{{ .id }}"{{ end }}
 ],
 "studySubject": [{{ range $i, $e := $params.drugs }}{{ if $i }}, {{ end }}
