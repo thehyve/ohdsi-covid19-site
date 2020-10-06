@@ -13,9 +13,10 @@
     document.execCommand('copy');
     document.body.removeChild(el);
     alert('JSON-LD copied to clipboard.')
-}
+  }
 </script>
-<button class="btn btn-outline-primary mb-3" onclick="copyToClipboard()" style="text-align: right;"><i class="far fa-copy mr-1"></i>Copy to clipboard</button>
+<button class="btn btn-outline-primary mb-3" onclick="copyToClipboard()" style="text-align: right;"><i
+    class="far fa-copy mr-1"></i>Copy to clipboard</button>
 <pre id="item-to-copy" style="color: #000; font-size: 14px; line-height:1;"><code class="json">
 {
   "@graph": [
@@ -33,7 +34,7 @@
       "scientificContact": "ohdsi:person/{{ $params.scientificContact }}",
       "technicalContact": "ohdsi:person/{{ $params.technicalContact }}",
       "alternateName": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.alternateName) }},
-      "dateCreated": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.dateCreated) }},
+      "dateCreated": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.start_date) }},
       "dateModified": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.dateModified) }},
       "description": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.description) }},
       "endDate": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.endDate) }},

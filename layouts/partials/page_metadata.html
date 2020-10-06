@@ -26,29 +26,29 @@
   {{ if not (in (slice "talk" "page") $page.Type) }}
   <div class="">
     <span class="article-date">
-    {{ $date := $page.Lastmod.Format site.Params.date_format }}
-    {{ if eq $page.Type "publication" }}
+      {{ $date := $page.Lastmod.Format site.Params.date_format }}
+      {{ if eq $page.Type "publication" }}
       {{ $date = $page.Date.Format (site.Params.publications.date_format | default "January, 2006") }}
-    {{ else }}
+      {{ else }}
       {{ if ne $page.Params.Lastmod $page.Params.Date }}
-          {{ i18n "last_updated" }}
+      {{ i18n "last_updated" }}
       {{ end }}
-    {{ end }}
-    {{ $date }}
-  </span>
+      {{ end }}
+      {{ $date }}
+    </span>
   </div>
   {{/*}}
   <div class="">
     <span class="article-date">
       {{ $date := $page.Lastmod.Format site.Params.date_format }}
       {{ if eq $page.Type "publication" }}
-        {{ $date = $page.Date.Format (site.Params.publications.date_format | default "January, 2006") }}
+      {{ $date = $page.Date.Format (site.Params.publications.date_format | default "January, 2006") }}
       {{ else }}
-        {{ i18n "date_published" }}: 
+      {{ i18n "date_published" }}:
       {{ end }}
       {{with  $page.Params.date }}
-        {{$date = . | dateFormat site.Params.date_format }}
-        {{$date}}
+      {{$date = . | dateFormat site.Params.date_format }}
+      {{$date}}
       {{ end }}
     </span>
   </div>
@@ -58,13 +58,13 @@
   {{ if eq $page.Type "study" }}
   <div class="">
     <span class="article-date">
-      {{ if $page.Params.dateCreated }}
-      {{ with  $page.Params.dateCreated }}
+      {{ if $page.Params.start_date }}
+      {{ with  $page.Params.start_date }}
       {{/* $date := . | dateFormat site.Params.date_format */}}
       Start date: {{ . }}
       {{ end }}
       {{ else }}
-      {{ with  $page.Params.from_readme.dateCreated }}
+      {{ with  $page.Params.from_readme.start_date }}
       {{/* $date := . | dateFormat site.Params.date_format */}}
       Start date: {{ . }}
       {{ end }}
@@ -91,27 +91,27 @@
   {{ if eq $page.Type "database" }}
   <div class="">
     <span class="article-date">
-      {{ if $page.Params.dateCreated }}
-        {{ with  $page.Params.dateCreated }}
-        Start date: {{ . }}
-        {{ end }}
+      {{ if $page.Params.start_date }}
+      {{ with  $page.Params.start_date }}
+      Start date: {{ . }}
+      {{ end }}
       {{ else }}
-        {{ with  $page.Params.from_readme.dateCreated }}
-        Start date: {{ . }}
-        {{ end }}
+      {{ with  $page.Params.from_readme.start_date }}
+      Start date: {{ . }}
+      {{ end }}
       {{ end }}
     </span>
   </div>
   <div class="">
     <span class="article-date">
       {{ if $page.Params.endDate }}
-        {{ with  $page.Params.endDate }}
-        End date: {{ . }}
-        {{ end }}
+      {{ with  $page.Params.endDate }}
+      End date: {{ . }}
+      {{ end }}
       {{ else }}
-        {{ with  $page.Params.from_readme.endDate }}
-        End date: {{ . }}
-        {{ end }}
+      {{ with  $page.Params.from_readme.endDate }}
+      End date: {{ . }}
+      {{ end }}
       {{ end }}
     </span>
   </div>
@@ -121,9 +121,9 @@
   <span class="middot-divider"></span>
   <span class="pub-publication">
     {{ if $page.Params.publication_short }}
-      {{ $page.Params.publication_short | markdownify }}
+    {{ $page.Params.publication_short | markdownify }}
     {{ else if $page.Params.publication }}
-      {{ $page.Params.publication | markdownify }}
+    {{ $page.Params.publication | markdownify }}
     {{ end }}
   </span>
   {{ end }}
@@ -139,7 +139,8 @@
   {{ $disqus_enabled := eq site.Params.comments.engine 1 | and (index site.Params.comments.commentable $page.Type) | and (ne $page.Params.commentable false) | or $page.Params.commentable }}
   {{ if and $disqus_enabled (site.Params.comments.disqus.show_count | default true) }}
   <span class="middot-divider"></span>
-  <a href="{{ $page.RelPermalink }}#disqus_thread"><!-- Count will be inserted here --></a>
+  <a href="{{ $page.RelPermalink }}#disqus_thread">
+    <!-- Count will be inserted here --></a>
   {{ end}}
 
   {{ $taxonomy := "categories" }}
@@ -148,8 +149,8 @@
   <span class="article-categories">
     <i class="fas fa-folder mr-1"></i>
     {{- range $index, $value := ($page.GetTerms $taxonomy) -}}
-      {{- if gt $index 0 }}, {{ end -}}
-      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    {{- if gt $index 0 }}, {{ end -}}
+    <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
     {{- end -}}
   </span>
   {{ end }}

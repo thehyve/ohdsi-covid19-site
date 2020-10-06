@@ -152,7 +152,7 @@
         "author": [{{ range $i, $e := $params.authors }}{{ if $i }}, {{ end }}
           "person:{{ $e }}"{{ end }}
         ],
-        "dateCreated": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.dateCreated) }},
+        "dateCreated": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.start_date) }},
         "discussionUrl": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.discussionUrl) }},
         {{ if $params.results }}
         {{- with $params.results -}}

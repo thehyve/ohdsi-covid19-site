@@ -37,7 +37,7 @@ authors: ["daniel_prieto"]
 
 # // TODO
 # Start date of the study, use date format YYYY-MM-DD
-dateCreated: 2020-04-02
+start_date: 2020-04-02
 
 # Study description
 description: "Retrospective, real-world, observational study to estimate the population-level effects of hydroxychloroquine among patients with rheumatoid arthritis. Designed and executed during the OHDSI community COVID-19 virtual study-a-thon (March 26-29) to inform healthcare decision-making in response to the current global pandemic."
