@@ -25,9 +25,13 @@
       {{ end }}
 
       <div class="media-body">
-        <h5 class="card-title"><a href="{{$profile_url}}">{{.Title}}</a></h5>
+        {{/*  <h5 class="card-title"><a href="{{$profile_url}}">{{.Title}}</a></h5>  */}}
+        <h5 class="card-title"><a href="{{$profile_url}}">{{ partial "bio" (dict "person" .Params "type" "name") }}</a></h5>
         {{ with .Params.role }}<h6 class="card-subtitle">{{. | markdownify | emojify}}</h6>{{end}}
-        {{ with .Params.bio }}<p class="card-text">{{. | markdownify | emojify}}</p>{{end}}
+
+        {{ if .Params.bio }}{{ with .Params.bio }}<p class="card-text">{{. | markdownify | emojify}}</p>{{ end }}
+        {{ else }}<p class="card-text">{{ partial "bio" (dict "person" .Params "type" "excerpt") }}</p>{{ end }}
+        
         {{ partial "network_links" (dict "network" .Params.accounts) }}
        
         {{/* partial "social_links" . */}}

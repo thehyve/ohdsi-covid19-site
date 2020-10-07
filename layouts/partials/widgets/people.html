@@ -56,7 +56,8 @@
     {{end}}
 
     <div class="portrait-title">
-      <h2>{{with $link}}<a href="{{.}}">{{end}}{{ .Params.title }}{{if $link}}</a>{{end}}</h2>
+      {{/*  <h2>{{with $link}}<a href="{{.}}">{{end}}{{ .Params.title }}{{if $link}}</a>{{end}}</h2>  */}}
+      <h2>{{with $link}}<a href="{{.}}">{{end}}{{ partial "bio" (dict "person" .Params "type" "name") }}{{if $link}}</a>{{end}}</h2>
       {{ with .Params.role }}<h3>{{ . | markdownify | emojify }}</h3>{{ end }}
       {{ range .Params.organizations }}
       <h3>
