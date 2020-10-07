@@ -7,6 +7,8 @@ title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 lastmod: {{ .Date }} 
 featured: false
+
+# Change to 'false' to be published
 draft: true
 
 authors: []

@@ -3,6 +3,9 @@
 # Do not fill; filled automatically
 title: "{{ replace .Name "-" " " | title }}"
 
+# Change to 'false' to be published
+raft: true
+
 # Forumname 
 authors:
 - {{ .Name }}

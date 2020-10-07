@@ -69,7 +69,7 @@
 </button>
 {{ end }}
 {{ end }}
-{{ with $page.Params.mainEntityOfPage }}
+{{ with $page.Params.study_registration_url }}
 {{ $resource := $page.Resources.GetMatch . }}
 {{ if $resource }}
 {{ $link = $resource.RelPermalink }}
