@@ -114,3 +114,8 @@ weight = 70.0
 [[related.indices]]
 name = "authors"
 weight = 20.0
+
+[caches]
+[caches.getjson]
+dir = ":cacheDir/:project"
+maxAge = -1
