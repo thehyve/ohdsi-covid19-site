@@ -1,0 +1,8 @@
+{{ $forum_name := .person.accounts.ohdsi_forum_name }}
+
+{{ if $forum_name }}
+  {{ $ohdsiForumData := getJSON "https://forums.ohdsi.org/u/" $forum_name ".json" }}
+  {{ if eq .type "excerpt" }}{{$ohdsiForumData.user.bio_excerpt}}{{ end }}
+  {{ if eq .type "full" }}{{$ohdsiForumData.user.bio_raw}}{{ end }}
+  {{ if eq .type "name" }}{{$ohdsiForumData.user.name}}{{ end }}
+{{ end }}

@@ -18,7 +18,7 @@
       "scientificContact": "ohdsi:person/{{ $params.scientificContact }}",
       "technicalContact": "ohdsi:person/{{ $params.technicalContact }}",
       "alternateName": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.alternateName) }},
-      "dateCreated": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.dateCreated) }},
+      "dateCreated": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.start_date) }},
       "dateModified": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.dateModified) }},
       "description": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.description) }},
       "endDate": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.endDate) }},

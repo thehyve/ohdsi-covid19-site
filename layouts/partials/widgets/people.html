@@ -38,7 +38,7 @@
   {{ end }}
   <div class="col-12 col-sm-auto people-person">
     {{ $src := "" }}
-    {{if .Params.accounts.ohdsiForumName}}
+    {{if .Params.accounts.ohdsi_forum_name}}
       {{ $avatar_shape := site.Params.avatar.shape | default "circle" }}
       {{with $link}}<a href="{{.}}">{{end}}
       {{ partial "avatar" (dict "person" .Params) }}
@@ -57,6 +57,7 @@
 
     <div class="portrait-title">
       <h2>{{with $link}}<a href="{{.}}">{{end}}{{ .Params.title }}{{if $link}}</a>{{end}}</h2>
+      {{/*  <h2>{{with $link}}<a href="{{.}}">{{end}}{{ partial "bio" (dict "person" .Params "type" "name") }}{{if $link}}</a>{{end}}</h2>  */}}
       {{ with .Params.role }}<h3>{{ . | markdownify | emojify }}</h3>{{ end }}
       {{ range .Params.organizations }}
       <h3>

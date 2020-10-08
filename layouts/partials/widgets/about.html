@@ -21,7 +21,7 @@
 <div class="row">
   <div class="col-12 col-lg-4">
     <div id="profile">
-      {{if $person.accounts.ohdsiForumName }}
+      {{if $person.accounts.ohdsi_forum_name }}
       {{ partial "avatar" (dict "person" $person) }}
       {{else}}
         {{ if site.Params.avatar.gravatar }}
@@ -34,6 +34,8 @@
       
       <div class="portrait-title">
         <h2>{{ $person_page.Title }}</h2>
+        {{/*  <h2>{{ partial "bio" (dict "person" $page.Params "type" "name") }}</h2>  */}}
+
         {{ with $person.role }}<h3>{{ . | markdownify | emojify }}</h3>{{ end }}
 
         {{ range $person.organizations }}
@@ -51,11 +53,10 @@
 
     {{/* Only display widget title in explicit instances of about widget, not in author pages. */}}
     {{ if and $page.Params.widget $page.Title }}<h1>{{ $page.Title | markdownify | emojify }}</h1>{{ end }}
-
     {{ $person_page.Content }}
 
     <div class="row">
-
+      {{/*  <p>{{ partial "bio" (dict "person" $page.Params "type" "full") }}</p>  */}}
       {{ with $person.interests }}
       <div class="col-md-5">
         <h3>{{ i18n "interests" | markdownify }}</h3>

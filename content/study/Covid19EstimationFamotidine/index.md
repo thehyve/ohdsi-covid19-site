@@ -1,86 +1,39 @@
 ---
-# Display Name
-title: ""
+# Website information
+# Study title
+title: 
+
 tags: []
 categories: []
-date: 2020-09-20T20:16:50+02:00
-lastmod: 2020-09-20T20:16:50+02:00
+
+# Do not fill; filled automatically
+date: 2020-10-07T11:57:08+02:00
+lastmod: 2020-10-07T11:57:08+02:00
 featured: false
-draft: false
 
-id: 
+# Change to 'false' to be published
+draft: true
 
-# Analytics UseCase:
-# 0: Characterization
-# 1: Population-Level Estimation
-# 2: Patient-Level Prediction
-# 3: Characterization and Population-Level Estimation
-study_usecase: [1]
+# Study identifier, specifically created for the website.
+# The identifier is the last part of the URL directing to the particular study
+study_id: 
 
-databases: []
+# Study identifier 
+study_identifier: 
 
-# Study Type:
-# 0: Clinical Application
-# 1: Methods Research
-study_type: [0]
+# URL to study registration site
+study_registration_url: 
 
-# Author ID
-authors: []
+# Study description
+description: 
 
-#date format YYYY-MM-DD
-dateCreated:
+# Start date of the study, use date format YYYY-MM-DD
+start_date: 
 
-description:  
+# End date of the study, use date format YYYY-MM-DD
+end_date: 
 
-# URL
-discussionUrl: 
-
-# @type: hasParts
-softwareSourceCodes:
-- name:
-  # URL
-  codeRepository: 
-  # date format YYYY-MM-DD
-  dateModified: 
-  # id from 'organizations'
-  maintainer: 
-  programmingLanguage: ""
-  version: ""
-
-# @type: hasParts
-softwareApplications:
-- name:
-  # URL
-  mainEntityofPage:
-  # id from 'organizations'
-  maintainer: 
-  version: ""
-
-healthConditions:
-- name: ""
-  id: ""
-  code: 
-    codeValue: ""
-    codingSystem: ""
-    # URL
-    sameAs: ""
-
-identifier: 
-
-# URL
-mainEntityOfPage:
-
-# Array of URLs
-publications:
-- url: ""
-
-results:
-- name:
-  # URL
-  mainEntityofPage:
-  
-
-# Study Status: 
+# Study status, choose 0, 1, 2, 3 or 4:
 # 0: Complete
 # 1: Design Finalized
 # 2: Repo Created
@@ -88,62 +41,151 @@ results:
 # 4: Results Available
 study_status: []
 
-studyDesign:
-  id: 
-  # date format YYYY-MM-DD
-  dateModified: 
-  identifier: 
-  license:
-  # URL
-  url: 
+# Author identifier of the authors contributing to the study
+authors: []
+
+# Study Type, choose 0 or 1:
+# 0: Clinical Application
+# 1: Methods Research
+study_type: []
+
+# Analytics Use Case of the Study, choose 0, 1, 2 or 3:
+# 0: Characterization
+# 1: Population-Level Estimation
+# 2: Patient-Level Prediction
+# 3: Characterization and Population-Level Estimation
+study_usecase: []
+
+# Database identifiers of databases used for the study
+databases: []
+
+# Conditions studied; if multiple conditions are being studied,
+# duplicate all keys under "conditions"
+conditions:
+# Concept name
+- concept_name: 
+  # Concept identifier
+  concept_id: 
+  # Concept code and vocabulary metadata
+  code: 
+    # Concept code
+    concept_code: 
+    # Vocabulary id
+    vocabulary_id: 
+    # URL to term in vocabulary (e.g. http://snomed.info/id/69896004)
+    concept_code_url: 
+
+# Study protocol
+study_protocol:
+  # Protocol identifier; specifically created for the website
+  # The identifier is the last part of the URL directing to the particular study protocol
+  protocol_id: 
+  # Last modification date, use date format YYYY-MM-DD
+  date_modified: 
+  # Protocol identifier, in case protocol has an identifier elsewhere 
+  protocol_identifier: 
+  # Protocol license
+  license: 
+  # URL to the protocol
+  protocol_url: 
+  # Version of the protocol 
   version: 
 
-# @type: studySubject
-drugs: 
-- id:
-  name:
+# URL to the forum thread about the study
+forum_thread_url: 
+
+# Source code used for the study; if multiple code repositories are available, 
+# duplicate all keys under "source_code"
+source_code:
+- name:
+  # URL to GitHub repository containing the source code
+  code_repository_url: 
+  # Last modification date, use date format YYYY-MM-DD
+  date_modified: 
+  # Maintainer of source code; use identifier of organization if applicable
+  maintainer: 
+  # Programming language used
+  programming_language: 
+  # Version of the source code
+  version: 
+
+# Software used for the study; if multiple software applications are used
+# duplicate all keys under "software"
+software:
+  # Name of the software
+- name: 
+  # URL to source code of software
+  source_code_url: 
+  # Maintainer of source code; use identifier of organization if applicable.
+  maintainer: 
+  # Version of the software
+  version: 
+
+# doi of publications related to the study; if multiple articles have been published,
+# duplicate key under "publications"
+publications:
+- doi: 
+
+# study results (e.g. shiny web application)
+results:
+# Name of the web application showing the results
+- name: 
+  # URL to the web application
+  application_url: 
+
+# Drug studied; if multiple subjects are being studied,
+# duplicate all keys under "study_subject"
+study_subject: 
+# Concept identifier
+- concept_id: 
+  # Concept name 
+  concept_name: 
+  # Concept code and vocabulary metadata
   code:
-    id: 
-    codeValue: 
-    codingSystem: 
-    # URL
-    sameAs: 
+    # Concept code
+    concept_code: 
+    # Vocabulary id 
+    vocabulary_id: 
+    # URL to term in vocabulary (e.g. http://purl.bioontology.org/ontology/RXNORM/5521)
+    concept_code_url: 
 
-# @type: subjectOf
+# Event the study is part of, if applicable
 event:
-  id: 
+  # Identifier of event
+  event_identifier: 
+  # Name of the event
   name: 
-  # URL
-  mainEntityOfPage:
-  location:
-    type:
-    name:
-  # id from 'organizations'
-  organizer: 
-  # date format YYYY-MM-DD
-  startDate: 
-  # date format YYYY-MM-DD
-  endDate: 
-  recordedIn:
-    id:
-    # URL
-    url:
-    # id from 'organizations'
-    creator:
-    # date format YYYY-MM-DD
-    uploadDate:
+  # URL of event website
+  event_url: 
+  # Location of the event
+  location: 
+    type: 
+    name: 
+  # Identifier of the organizer of the event
+  organizer_identifier: 
+  # Start date of the event, use date format YYYY-MM-DD
+  start_date: 
+  # End date of the event, use date format YYYY-MM-DD
+  end_date: 
+  # Recording of event 
+  recordedIn: 
+    # URL to recording of event
+    recording_url: 
+    # Identifier of organizer of the event
+    creator: 
+    # Upload date of the recording, use date format YYYY-MM-DD
+    upload_date: 
 
+# Organization involved in the event around the study
 organizations:
-- id: 
-  # URL
-  mainEntityOfPage: 
+# Identifier of organizer of the event
+- organization_identifier: 
+  # URL to main organization website
+  organization_url: 
+  # Name of organization
   name: 
-  # Array of URLs
+  # Other URLs linking to important organization sites (e.g. twitter)
   url: []
-
-# date format YYYY-MM-DD
-end_date: 
-
 from_readme:
   title: 'Comparative Cohort Study of Famotidine in Hospitalized COVID-19 Patients'
   study_usecase: [1]

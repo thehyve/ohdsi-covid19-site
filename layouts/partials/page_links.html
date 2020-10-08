@@ -2,7 +2,7 @@
 {{ $page := .page }}
 {{ $link := "" }}
 
-{{ with $page.Params.identifier }}
+{{ with $page.Params.study_identifier }}
 <button type="button" class="btn btn-outline-secondary my-1 mr-1">{{ i18n "identifier" }}: {{ . }}</button>
 {{ end }}
 
@@ -19,18 +19,7 @@
   {{ end }}
 </button>
 {{ end }}
-{{ else }}
-{{ with $page.Params.from_readme.study_type }}
-{{ $all_study_types := partial "functions/get_study_types" . }}
-<button type="button" class="btn btn-outline-secondary my-1 mr-1">{{ i18n "study_type" }}:
-  {{ range $i, $v := . }}{{ if $i }}, {{ end }}
-  {{ $indexInt := int $v }}
-  {{- index $all_study_types $indexInt -}}
-  {{ end }}
-</button>
 {{ end }}
-{{ end }}
-
 
 {{ with $page.Params.study_usecase }}
 <button type="button" class="btn btn-outline-secondary my-1 mr-1">{{ i18n "study_useCase" }}: {{ . }}</button>
@@ -53,7 +42,7 @@
 </a>
 {{ end }}
 
-{{ with $page.Params.discussionUrl }}
+{{ with $page.Params.forum_thread_url }}
 {{ $resource := $page.Resources.GetMatch . }}
 {{ if $resource }}
 {{ $link = $resource.RelPermalink }}

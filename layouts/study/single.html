@@ -5,10 +5,7 @@
 
   <div class="article-container">
     <div class="article-style">
-      {{ $description := .Params.from_readme.description }}
-      {{ if .Description }}
-      {{ $description = .Description }}
-      {{ end }}
+      {{ $description := .Description }}
       <p>{{ $description }}</p>
 
       <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -31,20 +28,20 @@
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
-          {{ with .Params.drugs }}
+          {{ with .Params.study_subject }}
           <b>Drugs:</b>
           <ul>
             {{ range . }}
-            <li>{{ .name }}</li>
+            <li>{{ .concept_name }}</li>
             {{ end }}
           </ul>
           {{ end }}
 
-          {{ with .Params.healthConditions }}
+          {{ with .Params.conditions }}
           <b>Health Conditions:</b>
           <ul>
             {{ range . }}
-            <li>{{ .name }}</li>
+            <li>{{ .concept_name }}</li>
             {{ end }}
           </ul>
           {{ end }}
@@ -62,52 +59,44 @@
           {{ end }}
           {{ end }}
           {{ with .Params.event }}
-          <p><b>Event:</b> {{ .name }} <i>({{ .startDate }} to {{ .endDate }})</i> at {{ $location }}, Organizer:
+          <p><b>Event:</b> {{ .name }} <i>({{ .start_date }} to {{ .end_date }})</i> at {{ .location.name }}, Organizer:
             {{ $organizer }}</p>
           {{ end }}
+
           {{if .Params.results }}
           {{ with .Params.results }}
           <b>Results:</b>
           <ul>
             {{ range . }}
-            <li><a href="{{.mainEntityOfPage}}">{{.name}}</a></li>
+            <li><a href="{{.application_url}}">{{.name}}</a></li>
             {{ end }}
           </ul>
           {{ end }}
-          {{else}}
-          {{ with .Params.from_readme.results }}
-          <b>Results:</b>
-          <ul>
-            {{ range . }}
-            <li><a href="{{.mainEntityOfPage}}">{{.name}}</a></li>
-            {{ end }}
-          </ul>
           {{ end }}
-          {{end}}
 
         </div>
         <div class="tab-pane fade" id="software" role="tabpanel" aria-labelledby="software-tab">
-          {{ with .Params.softwareApplications }}
+          {{ with .Params.software }}
           <b>Applications:</b>
           <ul>
             {{ range . }}
-            <li><a href="{{ .installUrl }}">{{ .name }}</a> Version: {{ .version }}</li>
+            <li><a href="{{ .source_code_url }}">{{ .name }}</a> Version: {{ .version }}</li>
             {{ end }}
           </ul>
           {{ end }}
 
-          {{ with .Params.softwareSourceCodes }}
+          {{ with .Params.source_code }}
           <b>Source Codes:</b>
           <ul>
-            {{ range $softwareSourceCodes := . }}
+            {{ range $source_code := . }}
             {{ $maintainer := "" }}
             {{ range $params.organizations }}
-            {{ if eq .id $softwareSourceCodes.maintainer }}
+            {{ if eq .organization_identifier $source_code.maintainer }}
             {{ $maintainer = .name }}
             {{ end }}
             {{ end }}
-            <li><a href="{{ .codeRepository }}">{{ .name }}</a> Version: {{ .version }}, Programming Language:
-              {{ .programmingLanguage }}, Maintainer: {{ $maintainer }}</li>
+            <li><a href="{{ .code_repository_url }}">{{ .name }}</a> Version: {{ .version }}, Programming Language:
+              {{ .programming_language }}, Maintainer: {{ $maintainer }}</li>
             {{ end }}
           </ul>
           {{ end }}

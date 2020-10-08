@@ -7,8 +7,8 @@ tags: []
 categories: []
 
 # Do not fill; filled automatically
-date: {{ .Date }}
-lastmod: {{ .Date }}
+date: 2020-10-07T11:57:06+02:00
+lastmod: 2020-10-07T11:57:06+02:00
 featured: false
 
 # Change to 'false' to be published
@@ -186,4 +186,19 @@ organizations:
   name: 
   # Other URLs linking to important organization sites (e.g. twitter)
   url: []
+from_readme:
+  title: 'The Covid Age Study'
+  study_usecase: [2]
+  study_type: []
+  tags: [COVID-19, ohdsi-studies]
+  leads: ['Sara Khalid', 'Jenna Reps', 'Daniel Prieto-Alhambra']
+  leadForumTags: [{name: Sara_Khalid1, mainEntityofPage: 'https://forums.ohdsi.org/u/Sara_Khalid1'}, {name: '[Daniel_Prieto', mainEntityofPage: ""}]
+  startDate: '15 September 2020'
+  endDate: ""
+  protocol: {name: 'PDF document', mainEntityofPage: 'https://github.com/ohdsi-studies/CoverAge/blob/master/PLP_protocol_young_2020_09_23.pdf'}
+  publications: []
+  results: []
+  authors: [Sara_Khalid1, Daniel_Prieto]
+  description: 'Development and validation of patient-level prediction models for hospitalization and death amongst young patients presenting with a clinical diagnosis or positive test for COVID-19: a rapid network study to inform the management of COVID-19'
+
 ---

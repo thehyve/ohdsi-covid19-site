@@ -1,6 +1,6 @@
 {{ with .network }}
   <ul class="network-icon" aria-hidden="true">
-    {{ with .ohdsiCollaborator  }}
+    {{ with .ohdsi_collaborator_URL  }}
       {{ $link := print "https://www.ohdsi.org/who-we-are/collaborators/" . "/"}}
       {{ $scheme := (urls.Parse $link).Scheme }}
       {{ $target := "" }}
@@ -15,7 +15,7 @@
         </a>
       </li>
     {{ end }}
-    {{ with .ohdsiForumName }}
+    {{ with .ohdsi_forum_name }}
       {{ $link := print "https://forums.ohdsi.org/u/" . }}
       {{ $scheme := (urls.Parse $link).Scheme }}
       {{ $target := "" }}
@@ -31,7 +31,7 @@
       </li>
     {{ end }}
 
-    {{ with .githubHandle }}
+    {{ with .github_handle }}
       {{ $link := print "https://github.com/" . }}
       {{ $scheme := (urls.Parse $link).Scheme }}
       {{ $target := "" }}
@@ -46,7 +46,7 @@
         </a>
       </li>
     {{ end }}
-    {{ with .googlescholarId }}
+    {{ with .google_scholar_identifier }}
       {{ $link := print "https://scholar.google.co.uk/citations?user=" . }}
       {{ $scheme := (urls.Parse $link).Scheme }}
       {{ $target := "" }}
@@ -62,7 +62,7 @@
       </li>
     {{ end }}
     
-    {{ with .orcidIdentifier }}
+    {{ with .orcid_dentifier }}
       {{ $link := print "https://orcid.org/" . }}
       {{ $scheme := (urls.Parse $link).Scheme }}
       {{ $target := "" }}

@@ -3,10 +3,7 @@
 {{ $anchor := $page.Params.image.focal_point | default "Smart" }}
 
 {{/* Set default titles for node pages */}}
-{{ $title := .Params.from_readme.title}}
-{{ if .Title }}
-  {{ $title = .Title }}
-{{ end }}
+{{ $title := .Title }}
 {{ if and (not $title) .IsNode }}
   {{ if eq .Type "post" }}
     {{ $title = i18n "posts" }}

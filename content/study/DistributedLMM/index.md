@@ -7,8 +7,8 @@ tags: []
 categories: []
 
 # Do not fill; filled automatically
-date: {{ .Date }}
-lastmod: {{ .Date }}
+date: 2020-10-07T11:57:11+02:00
+lastmod: 2020-10-07T11:57:11+02:00
 featured: false
 
 # Change to 'false' to be published
@@ -186,4 +186,19 @@ organizations:
   name: 
   # Other URLs linking to important organization sites (e.g. twitter)
   url: []
+from_readme:
+  title: 'Applying the Lossless Distributed Linear Mixed Model to integrate heterogeneous COVID-19 hospitalization data across the OHDSI Network '
+  study_usecase: [2]
+  study_type: [0]
+  tags: [COVID-19]
+  leads: ['Jenna Reps', 'Yong Chen']
+  leadForumTags: [{name: 'Yong Chen', mainEntityofPage: ""}, {name: schuemie, mainEntityofPage: 'https://forums.ohdsi.org/u/schuemie'}, {name: jreps, mainEntityofPage: 'https://forums.ohdsi.org/u/jreps'}]
+  startDate: 'Aug 12, 2020'
+  endDate: ""
+  protocol: {name: Here, mainEntityofPage: 'https://github.com/ohdsi-studies/DistributedLMM/blob/master/extras/Lossless%20Distributed%20Linear%20Mixed%20Model.docx'}
+  publications: []
+  results: []
+  authors: ['Yong Chen', schuemie, jreps]
+  description: 'This study implements a distributed approach to calculating pooled effect estimates across heterogeneous data.  We are applying it to the outcome hospital length of stay for patients hospitalized due to COVID-19 across the OHDSI network.'
+
 ---
