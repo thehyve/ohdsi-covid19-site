@@ -1,9 +1,6 @@
 [build]
   command = "hugo --gc --minify -b $URL"
   publish = "public"
-  [caches]
-  [caches.getjson]
-    dir = "/hugo_cache/"
 
 [build.environment]
   HUGO_VERSION = "0.69.2"
