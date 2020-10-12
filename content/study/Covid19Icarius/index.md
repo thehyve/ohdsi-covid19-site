@@ -12,7 +12,7 @@ lastmod: 2020-10-07T11:57:09+02:00
 featured: false
 
 # Change to 'false' to be published
-draft: fals
+draft: false
 
 # Study identifier, specifically created for the website.
 # The identifier is the last part of the URL directing to the particular study

@@ -170,7 +170,7 @@ study_subject:
 event:
   # Identifier of event
   event_identifier: 'https://covid19.ohdsi.app/'
-  # Name of the event
+  # Name of the even
   name: 'OHDSI COVID-19 studyathon'
   # URL of event website
   event_url: 'OHDSI COVID-19 studyathon'
