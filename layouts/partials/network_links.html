@@ -1,6 +1,6 @@
 {{ with .network }}
   <ul class="network-icon" aria-hidden="true">
-    {{ with .ohdsi_collaborator_URL  }}
+    {{ with .ohdsi_collaborator_url  }}
       {{ $link := print "https://www.ohdsi.org/who-we-are/collaborators/" . "/"}}
       {{ $scheme := (urls.Parse $link).Scheme }}
       {{ $target := "" }}
