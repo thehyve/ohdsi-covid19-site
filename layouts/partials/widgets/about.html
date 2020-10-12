@@ -34,9 +34,7 @@
       
       <div class="portrait-title">
         <h2>{{ $person_page.Title }}</h2>
-        {{/*  <h2>{{ partial "bio" (dict "person" $page.Params "type" "name") }}</h2>  */}}
-
-        {{ with $person.role }}<h3>{{ . | markdownify | emojify }}</h3>{{ end }}
+        {{ with $person.job_title }}<h3>{{ . | markdownify | emojify }}</h3>{{ end }}
 
         {{ range $person.organizations }}
         <h3>

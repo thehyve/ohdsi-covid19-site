@@ -7,10 +7,13 @@ title: "Daniel Prieto-Alhambra"
 authors:
 - daniel_prieto
 
-# Role/position of person
-role: "Associate Director of Epidemiology Analytics"
+# Array of honorific suffixes (e.g. "MD", "PhD")
+honorificSuffix: ["MSc", "PhD", "MD"]
 
-# Organization/Affiliation of the person
+# Role/position of person
+job_title: "Associate Director of Epidemiology Analytics"
+
+# Organization/Affiliation the person works for
 organizations:
 # Name of organization
 - name: "University of Oxford"
@@ -20,48 +23,25 @@ organizations:
   address: "Windmill Road, Headington, Oxford, OX3 7HE, UK"
   # Department
   department: "Centre for Statistics in Medicine"
-  # Job title
-  job_title:  "Associate Director of Epidemiology Analytics"
 
 # Short bio (displayed in user profile at end of posts)
 bio: 
-
-# Person's interests
-interests:
-- 
-# Person's education
-education:
-  courses:
-  - course: 
-    institution: 
-    year: 
 
 # Academic Networking
 accounts:
   # Forum name on OHDSI forum
   ohdsi_forum_name: "daniel_prieto"
+  # Forum profile URL
+  ohdsi_forum_profile_url:
   # Github dandle
   github_handle:
   # Google scholar identifier
   google_scholar_identifier: "hiBxiTYAAAAJ"
   # URL directing to OHDSI collaborator page
-  ohdsi_collaborator_URL: "dani-prieto-alhambra"
+  ohdsi_collaborator_url: "dani-prieto-alhambra"
   # Orchid identifier
   orcid_dentifier: "0000-0002-3950-6346"
-  # Twitter name
-  twitter: 
-  # Email address
-  email: 
-
-# Honorific prefix (e.g. PhD) 
-honorificPrefix: ""
-
-# Array of honorific suffixes (e.g. "MD", "PhD")
-honorificSuffix: ["MSc", "PhD", "MD"]
-
-# Enter email to display Gravatar (if Gravatar enabled in Config)
-email: "asdas@sdasd.com"
-
+  
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
 user_groups:
