@@ -16,7 +16,7 @@
 {{ end }}
 
 {{ if eq .Type "study" }}
-{{ if .Params.study_identifier | or .Params.study_type | or .Params.from_readme.study_type | or .Params.study_registration_url | or .Params.results | or .Params.from_readme.result | or .Params.license | or .Params.forum_thread_url | or $cite_link | or $pdf_link | or .Params.external_link | or .Params.url_preprint | or .Params.url_pdf | or .Params.url_slides | or .Params.url_video | or .Params.url_source | or .Params.url_code | or .Params.url_dataset | or .Params.url_poster | or .Params.url_project | or .Params.doi | or .Params.links | or .Params.projects | or .Params.slides }}
+{{ if .Params.study_identifier | or .Params.study_type | or .Params.study_registration_url | or .Params.results | or .Params.license | or .Params.forum_thread_url | or $cite_link | or $pdf_link | or .Params.external_link | or .Params.url_preprint | or .Params.url_pdf | or .Params.url_slides | or .Params.url_video | or .Params.url_source | or .Params.url_code | or .Params.url_dataset | or .Params.url_poster | or .Params.url_project | or .Params.doi | or .Params.links | or .Params.projects | or .Params.slides }}
 <div class="btn-links mb-3">
   {{ with .Params.external_link }}
   <a class="btn btn-outline-primary my-1" href="{{ . }}" target="_blank"

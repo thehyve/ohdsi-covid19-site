@@ -51,11 +51,10 @@
 
     {{/* Only display widget title in explicit instances of about widget, not in author pages. */}}
     {{ if and $page.Params.widget $page.Title }}<h1>{{ $page.Title | markdownify | emojify }}</h1>{{ end }}
-
     {{ $person_page.Content }}
 
     <div class="row">
-
+      {{/*  <p>{{ partial "bio" (dict "person" $page.Params "type" "full") }}</p>  */}}
       {{ with $person.interests }}
       <div class="col-md-5">
         <h3>{{ i18n "interests" | markdownify }}</h3>

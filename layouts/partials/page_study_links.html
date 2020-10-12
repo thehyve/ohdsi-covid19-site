@@ -15,16 +15,6 @@
   {{ end }}
 </button>
 {{ end }}
-{{ else }}
-{{ with $page.Params.from_readme.study_type }}
-{{ $all_study_types := partial "functions/get_study_types" . }}
-<button type="button" class="btn btn-outline-secondary my-1 mr-1">{{ i18n "study_type" }}:
-  {{ range $i, $v := . }}{{ if $i }}, {{ end }}
-  {{ $indexInt := int $v }}
-  {{- index $all_study_types $indexInt -}}
-  {{ end }}
-</button>
-{{ end }}
 {{ end }}
 
 {{ if $page.Params.study_usecase }}
@@ -37,17 +27,8 @@
   {{ end }}
 </button>
 {{ end }}
-{{ else }}
-{{ with $page.Params.from_readme.study_usecase }}
-{{ $all_study_usecase := partial "functions/get_study_usecases" . }}
-<button type="button" class="btn btn-outline-secondary my-1 mr-1">{{ i18n "study_usecase" }}:
-  {{ range $i, $v := . }}{{ if $i }}, {{ end }}
-  {{ $indexInt := int $v }}
-  {{- index $all_study_usecase $indexInt -}}
-  {{ end }}
-</button>
 {{ end }}
-{{ end }}
+
 {{ if $page.Params.study_status }}
 {{ with $page.Params.study_status }}
 {{ $all_study_status := partial "functions/get_study_status" . }}
@@ -58,17 +39,8 @@
   {{ end }}
 </button>
 {{ end }}
-{{ else }}
-{{ with $page.Params.from_readme.study_status }}
-{{ $all_study_status := partial "functions/get_study_status" . }}
-<button type="button" class="btn btn-outline-secondary my-1 mr-1">{{ i18n "study_status" }}:
-  {{ range $i, $v := . }}{{ if $i }}, {{ end }}
-  {{ $indexInt := int $v }}
-  {{- index $all_study_status $indexInt -}}
-  {{ end }}
-</button>
 {{ end }}
-{{ end }}
+
 {{ with $page.Params.study_registration_url }}
 {{ $resource := $page.Resources.GetMatch . }}
 {{ if $resource }}
@@ -94,34 +66,6 @@
   {{ i18n "btn_discussion_url" }}
 </a>
 {{ end }}
-
-{{/* if $page.Params.result.url }}
-{{ with $page.Params.result.url }}
-{{ $resource := $page.Resources.GetMatch . }}
-{{ if $resource }}
-{{ $link = $resource.RelPermalink }}
-{{ else }}
-{{ $link = . | relURL }}
-{{ end }}
-<a type="button" class="btn btn-outline-primary my-1 mr-1" href="{{ $link }}" target="_blank" rel="noopener">
-  <i class="fas fa-link mr-1"></i>
-  {{ i18n "btn_result" }}
-</a>
-{{ end }}
-{{ else }}
-{{ with $page.Params.from_readme.result.url }}
-{{ $resource := $page.Resources.GetMatch . }}
-{{ if $resource }}
-{{ $link = $resource.RelPermalink }}
-{{ else }}
-{{ $link = . | relURL }}
-{{ end }}
-<a type="button" class="btn btn-outline-primary my-1 mr-1" href="{{ $link }}" target="_blank" rel="noopener">
-  <i class="fas fa-link mr-1"></i>
-  {{ i18n "btn_result" }}
-</a>
-{{ end }}
-{{ end */}}
 
 {{ with $page.Params.license }}
 {{ $resource := $page.Resources.GetMatch . }}

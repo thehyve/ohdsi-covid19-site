@@ -11,16 +11,6 @@
     {{ partial "page_metadata_authors" $page }}
   </div>
   {{ end }}
-  {{ else }}
-  {{ $authorLen := 0 }}
-  {{ if $page.Params.from_readme.authors }}
-  {{ $authorLen = len $page.Params.from_readme.authors }}
-  {{end}}
-  {{ if gt $authorLen 0 }}
-  <div>
-    {{ partial "page_metadata_readme_authors" $page }}
-  </div>
-  {{ end }}
   {{ end }}
 
   {{ if not (in (slice "talk" "page") $page.Type) }}
@@ -64,10 +54,6 @@
       {{ with  $page.Params.start_date }}
       Start Date: {{ dateFormat site.Params.date_format . }}
       {{ end }}
-      {{ else }}
-      {{ with  $page.Params.from_readme.start_date }}
-      Start Date: {{ dateFormat site.Params.date_format . }}
-      {{ end }}
       {{ end }}
     </span>
   </div>
@@ -75,10 +61,6 @@
     <span class="article-date">
       {{ if $page.Params.end_date }}
       {{ with  $page.Params.end_date }}
-      End Date: {{ dateFormat site.Params.date_format . }}
-      {{ end }}
-      {{ else }}
-      {{ with  $page.Params.from_readme.endDate }}
       End Date: {{ dateFormat site.Params.date_format . }}
       {{ end }}
       {{ end }}
@@ -93,10 +75,6 @@
       {{ with  $page.Params.start_date }}
       Start Date: {{ dateFormat site.Params.date_format . }}
       {{ end }}
-      {{ else }}
-      {{ with  $page.Params.from_readme.start_date }}
-      Start Date: {{ dateFormat site.Params.date_format . }}
-      {{ end }}
       {{ end }}
     </span>
   </div>
@@ -104,10 +82,6 @@
     <span class="article-date">
       {{ if $page.Params.end_date }}
       {{ with  $page.Params.end_date }}
-      End Date: {{ dateFormat site.Params.date_format . }}
-      {{ end }}
-      {{ else }}
-      {{ with  $page.Params.from_readme.endDate }}
       End Date: {{ dateFormat site.Params.date_format . }}
       {{ end }}
       {{ end }}

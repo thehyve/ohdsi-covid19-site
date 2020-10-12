@@ -5,10 +5,7 @@
 
   <div class="article-container">
     <div class="article-style">
-      {{ $description := .Params.from_readme.description }}
-      {{ if .Description }}
-      {{ $description = .Description }}
-      {{ end }}
+      {{ $description := .Description }}
       <p>{{ $description }}</p>
 
       <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -65,6 +62,7 @@
           <p><b>Event:</b> {{ .name }} <i>({{ .start_date }} to {{ .end_date }})</i> at {{ .location.name }}, Organizer:
             {{ $organizer }}</p>
           {{ end }}
+
           {{if .Params.results }}
           {{ with .Params.results }}
           <b>Results:</b>
@@ -74,16 +72,7 @@
             {{ end }}
           </ul>
           {{ end }}
-          {{else}}
-          {{ with .Params.from_readme.results }}
-          <b>Results:</b>
-          <ul>
-            {{ range . }}
-            <li><a href="{{.mainEntityOfPage}}">{{.name}}</a></li>
-            {{ end }}
-          </ul>
           {{ end }}
-          {{end}}
 
         </div>
         <div class="tab-pane fade" id="software" role="tabpanel" aria-labelledby="software-tab">
