@@ -1,9 +1,9 @@
 ---
 # Website information
 # Study title
-title: 
+title: 'Development and validation of complex and simple patient-level prediction models for predicting various outcomes in COVID patients: a rapid network study to inform the management of COVID-19'
 
-tags: []
+tags: [Study-a-thon, COVID-19]
 categories: []
 
 # Do not fill; filled automatically
@@ -12,11 +12,11 @@ lastmod: 2020-10-07T11:57:09+02:00
 featured: false
 
 # Change to 'false' to be published
-draft: true
+draft: false
 
 # Study identifier, specifically created for the website.
 # The identifier is the last part of the URL directing to the particular study
-study_id: 
+study_id: 'Covid19PredictionStudies'
 
 # Study identifier 
 study_identifier: 
@@ -25,10 +25,10 @@ study_identifier:
 study_registration_url: 
 
 # Study description
-description: 
+description: 'The objective of this study is to develop and validate various patient-level prediction models for COVID-19 patients.'
 
 # Start date of the study, use date format YYYY-MM-DD
-start_date: 
+start_date: 2020-03-26
 
 # End date of the study, use date format YYYY-MM-DD
 end_date: 
@@ -39,55 +39,55 @@ end_date:
 # 2: Repo Created
 # 3: Started
 # 4: Results Available
-study_status: []
+study_status: [4]
 
 # Author identifier of the authors contributing to the study
-authors: []
+authors: [jreps, RossW, Rijnbeek]
 
 # Study Type, choose 0 or 1:
 # 0: Clinical Application
 # 1: Methods Research
-study_type: []
+study_type: [0]
 
 # Analytics Use Case of the Study, choose 0, 1, 2 or 3:
 # 0: Characterization
 # 1: Population-Level Estimation
 # 2: Patient-Level Prediction
 # 3: Characterization and Population-Level Estimation
-study_usecase: []
+study_usecase: [2]
 
 # Database identifiers of databases used for the study
-databases: []
+databases: [optum]
 
 # Conditions studied; if multiple conditions are being studied,
 # duplicate all keys under "conditions"
 conditions:
 # Concept name
-- concept_name: 
+- concept_name: Disease caused by severe acute respiratory syndrome coronavirus 2
   # Concept identifier
-  concept_id: 
+  concept_id: 37311061
   # Concept code and vocabulary metadata
   code: 
     # Concept code
-    concept_code: 
+    concept_code: 840539006
     # Vocabulary id
-    vocabulary_id: 
+    vocabulary_id: 'SNOMED'
     # URL to term in vocabulary (e.g. http://snomed.info/id/69896004)
-    concept_code_url: 
+    concept_code_url: http://snomed.info/id/840539006
 
 # Study protocol
 study_protocol:
   # Protocol identifier; specifically created for the website
   # The identifier is the last part of the URL directing to the particular study protocol
-  protocol_id: 
+  protocol_id: 'Covid19PredictionStudies/design'
   # Last modification date, use date format YYYY-MM-DD
-  date_modified: 
+  date_modified: 2020-03-28
   # Protocol identifier, in case protocol has an identifier elsewhere 
   protocol_identifier: 
   # Protocol license
   license: 
   # URL to the protocol
-  protocol_url: 
+  protocol_url: https://github.com/ohdsi-studies/Covid19PredictionStudies/blob/master/HospitalizationInSymptomaticPatients/docs/PLP_protocol_Q1%2BQ2_20200329.docx
   # Version of the protocol 
   version: 
 
@@ -97,15 +97,15 @@ forum_thread_url:
 # Source code used for the study; if multiple code repositories are available, 
 # duplicate all keys under "source_code"
 source_code:
-- name:
+- name: 'Covid19PredictionStudies'
   # URL to GitHub repository containing the source code
-  code_repository_url: 
+  code_repository_url: https://github.com/ohdsi-studies/Covid19PredictionStudies
   # Last modification date, use date format YYYY-MM-DD
-  date_modified: 
+  date_modified: 2020-08-17
   # Maintainer of source code; use identifier of organization if applicable
-  maintainer: 
+  maintainer: 'OHDSI'
   # Programming language used
-  programming_language: 
+  programming_language: 'R' 
   # Version of the source code
   version: 
 
@@ -124,14 +124,29 @@ software:
 # doi of publications related to the study; if multiple articles have been published,
 # duplicate key under "publications"
 publications:
-- doi: 
+- doi: https://doi.org/10.1101/2020.06.15.20130328
 
 # study results (e.g. shiny web application)
 results:
 # Name of the web application showing the results
-- name: 
+- name: 'Can we trust the prediction model? Demonstrating the importance of external validation by investigating the COVID-19 Vulnerability (C-19) Index across an international network of observational healthcare datasets'
   # URL to the web application
-  application_url: 
+  application_url: http://evidence.ohdsi.org:3838/C19validation/
+# Name of the web application showing the results
+- name: 'Predicting Patients Requiring Hospitalization When Initially Presenting with Flu or Flu like symptoms (To be investigated for the use on Patients, with or suspected to have, Covid-19)'
+  # URL to the web application
+  application_url: https://data.ohdsi.org/Covid19PredictingHospitalizationInFluPatients/
+# Name of the web application showing the results
+- name: 'Predicting Patients Requiring Hospitalization After Being Sent Home From An Outpatient Visit Presenting with Flu or Flu like symptoms (To be investigated for the use on Patients, with or suspected to have, Covid-19)'
+  # URL to the web application
+  application_url: https://data.ohdsi.org/Covid19PredictingHospitilizationAfterSentHome/
+# Name of the web application showing the results
+- name: 'Predicting Severely Ill Patients In Those Admitted To Hospital For Pneumonia (To be investigated for the use on Patients, with or suspected to have, Covid-19)'
+  # URL to the web application
+  application_url: https://data.ohdsi.org/Covid19PredictingSevereInHospResults/
+- name: 'OHDSI Covid-19 Simple Models Results'
+  # URL to the web application
+  application_url: https://data.ohdsi.org/Covid19PredictingSimpleModels/
 
 # Drug studied; if multiple subjects are being studied,
 # duplicate all keys under "study_subject"
@@ -152,40 +167,41 @@ study_subject:
 # Event the study is part of, if applicable
 event:
   # Identifier of event
-  event_identifier: 
+  event_identifier: 'https://covid19.ohdsi.app/'
   # Name of the event
-  name: 
+  name: 'OHDSI COVID-19 studyathon'
   # URL of event website
-  event_url: 
+  event_url: 'OHDSI COVID-19 studyathon'
   # Location of the event
   location: 
-    type: 
-    name: 
+    type: VirtualLocation
+    name: 'Microsoft Teams'
   # Identifier of the organizer of the event
   organizer_identifier: 
   # Start date of the event, use date format YYYY-MM-DD
-  start_date: 
+  start_date: '2020-03-26'
   # End date of the event, use date format YYYY-MM-DD
-  end_date: 
+  end_date: '2020-03-29'
   # Recording of event 
   recordedIn: 
     # URL to recording of event
-    recording_url: 
+    recording_url: https://www.youtube.com/playlist?list=PLpzbqK7kvfeVGZiT1eKO6KxQiN7nzBFK
     # Identifier of organizer of the event
-    creator: 
+    creator: http://data.ohdsi.org/OHDSI
     # Upload date of the recording, use date format YYYY-MM-DD
-    upload_date: 
+    upload_date: 2020-03-29
 
 # Organization involved in the event around the study
 organizations:
 # Identifier of organizer of the event
-- organization_identifier: 
+- organization_identifier: http://data.ohdsi.org/OHDSI
   # URL to main organization website
-  organization_url: 
+  organization_url: ttps://www.ohdsi.org/
   # Name of organization
-  name: 
+  name: 'Observational Health Data Sciences and Informatics'
   # Other URLs linking to important organization sites (e.g. twitter)
-  url: []
+  url: [https://www.linkedin.com/company/ohdsi/, https://twitter.com/ohdsi, https://www.youtube.com/user/OHDSIJoinTheJourney]
+  
 from_readme:
   title: 'Development and validation of complex and simple patient-level prediction models for predicting various outcomes in COVID patients: a rapid network study to inform the management of COVID-19'
   study_usecase: [2]
