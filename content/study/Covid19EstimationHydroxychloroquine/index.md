@@ -135,29 +135,29 @@ conditions:
     # URL to term in vocabulary (e.g. http://snomed.info/id/69896004)
     concept_code_url: http://snomed.info/id/96531000119109
  # Concept name
- - concept_name: 'Deformity of foot due to rheumatoid arthritis'
-   # Concept identifier
-   concept_id: 4334806 
-   # Concept code and vocabulary metadata
-   code: 
-     # Concept code
-     concept_code: 433228003
-     # Vocabulary id
-     vocabulary_id: 'SNOMED'
-     # URL to term in vocabulary (e.g. http://snomed.info/id/69896004)
-     concept_code_url: http://snomed.info/id/433228003
- # Concept name
- - concept_name: 'Cutaneous atrophy due to rheumatoid arthritis'
-   # Concept identifier
-   concept_id: 4297650 
-   # Concept code and vocabulary metadata
-   code: 
-     # Concept code
-     concept_code: 402431009
-     # Vocabulary id
-     vocabulary_id: 'SNOMED'
-     # URL to term in vocabulary (e.g. http://snomed.info/id/69896004)
-     concept_code_url: http://snomed.info/id/402431009
+- concept_name: 'Deformity of foot due to rheumatoid arthritis'
+  # Concept identifier
+  concept_id: 4334806 
+  # Concept code and vocabulary metadata
+  code: 
+    # Concept code
+    concept_code: 433228003
+    # Vocabulary id
+    vocabulary_id: 'SNOMED'
+    # URL to term in vocabulary (e.g. http://snomed.info/id/69896004)
+    concept_code_url: http://snomed.info/id/433228003
+# Concept name
+- concept_name: 'Cutaneous atrophy due to rheumatoid arthritis'
+  # Concept identifier
+  concept_id: 4297650 
+  # Concept code and vocabulary metadata
+  code: 
+    # Concept code
+    concept_code: 402431009
+    # Vocabulary id
+    vocabulary_id: 'SNOMED'
+    # URL to term in vocabulary (e.g. http://snomed.info/id/69896004)
+    concept_code_url: http://snomed.info/id/402431009
  
 # Study protocol
 study_protocol:
@@ -193,8 +193,8 @@ source_code:
   # Version of the source code
   version: 
 
-# Software used for the study; if multiple software applications are used
-# duplicate all keys under "software"
+# # Software used for the study; if multiple software applications are used
+# # duplicate all keys under "software"
 software:
   # Name of the software
 - name: 
@@ -205,8 +205,8 @@ software:
   # Version of the software
   version: 
 
-# doi of publications related to the study; if multiple articles have been published,
-# duplicate key under "publications"
+# # doi of publications related to the study; if multiple articles have been published,
+# # duplicate key under "publications"
 publications:
 - doi: 
 
