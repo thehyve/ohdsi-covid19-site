@@ -26,8 +26,8 @@ logos:
   img: '/img/logos/EU_flag.jpg'
 
 about:
-  title: "COVID-19 Studyathon"
-  content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dictum ante nec mauris porta hendrerit. Ut venenatis malesuada iaculis. Nulla non molestie lectus, sed pellentesque nisi. Phasellus eu condimentum augue, at lobortis lectus. Aliquam eu placerat elit. Nullam nec magna massa. Mauris sit amet nisl nec mi pharetra pellentesque."
+  title: "OHDSI COVID-19 Study-a-thon"
+  content: "The OHDSI COVID-19 study-a-thon is a virtual collaboration of about 300 scientsts coming together on March 26-29, 2020, to inform healthcare decision-making in response to the global pandemic. This page provides a collection of metadata of digital assets produced during the study-a-thon."
 ---
 
 

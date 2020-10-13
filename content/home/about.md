@@ -40,7 +40,7 @@ subtitle = ""
 
 [design.spacing]
   # Customize the section spacing. Order is top, right, bottom, left.
-  # padding = ["30vh", "0", "20px", "0"]
+padding = ["10vh", "0", "20px", "0"]
 
 [advanced]
  # Custom CSS. 
@@ -50,7 +50,7 @@ subtitle = ""
  css_class = ""
 +++
 
-In March 2020, the [OHDSI community](https://www.ohdsi.org) has hosted a [COVID-19 virtual study-a-thon](https://www.ohdsi.org/ohdsi-news-updates/covid19-studyathon/) to inform healthcare decision-making in response to the current global pandemic. Researching form all over the world have contributed to designing and executing a series of observational studies across the international OHDSI network of data captured during clinical practice; **these sources include electronic health records and administrative claims**. These retrospective analyses examine the **safety of proposed drugs**, as well as **predict outcomes for patients** with viral symptoms or complications.
+In March 2020, the [OHDSI community](https://www.ohdsi.org) has hosted a [virtual COVID-19 study-a-thon](https://www.ohdsi.org/ohdsi-news-updates/covid19-studyathon/) to inform healthcare decision-making in response to the current global pandemic. More than 300 researchers from all over the world have contributed to designing and executing a series of observational studies across the international OHDSI network of data captured during clinical practice; **these sources include electronic health records and administrative claims**. These retrospective analyses examine the **safety of proposed drugs**, as well as **predict outcomes for patients** with viral symptoms or complications.
 
 In order to disseminate these results in a [FAIR](https://www.dtls.nl/fair-data/fair-principles-explained/) way, [The Hyve](https://www.thehyve.nl), as part of work done for [EHDEN](https://ehden.eu), has set up this page to collect and present metadata of the study-a-thon assets. All generated real-world evidence has been placed in the public domain to support and inform current public health efforts. Here, we make the results findable and accessible.
 
