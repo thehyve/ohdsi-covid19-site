@@ -4,8 +4,8 @@
 title: "Optum de-identified Electronic Health Record Dataset"
 
 # Do not fill; filled automatically
-date: {{ .Date }}
-lastmod: {{ .Date }}
+date: 2020-10-13T14:16:13+02:00
+lastmod: 2020-10-13T14:16:13+02:00
 featured: false
 
 # Change to 'false' to be published

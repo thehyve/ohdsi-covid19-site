@@ -4,8 +4,8 @@
 title: "South Korea: Health Insurance and Review Assessment (HIRA)"
 
 # Do not fill; filled automatically
-date: {{ .Date }}
-lastmod: {{ .Date }}
+date: 2020-10-13T14:16:13+02:00
+lastmod: 2020-10-13T14:16:13+02:00
 featured: false
 
 # Change to 'false' to be published
@@ -56,7 +56,7 @@ database_system:
 population_size: 50000000
 
 # Spatial coverage of database (e.g. "Florence")
-spatial_coverage: wd:Q884
+spatial_coverage: "wd:Q884"
 
 # Temporal coverage of the database
 temporal_coverage:
