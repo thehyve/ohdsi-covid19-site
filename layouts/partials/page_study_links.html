@@ -2,9 +2,57 @@
 {{ $page := .page }}
 {{ $link := "" }}
 
+{{ if $page.Params.study_registration_url }}
+  {{ $resource := $page.Resources.GetMatch $page.Params.study_registration_url }}
+  {{ if $resource }}
+  {{ $link = $resource.RelPermalink }}
+  {{ else }}
+  {{ $link = $page.Params.study_registration_url | relURL }}
+  {{ end }}
+
+  {{ if $page.Params.study_identifier }}
+  <a type="button" class="btn btn-outline-primary my-1 mr-1" href="{{ $link }}" target="_blank" rel="noopener">
+    <i class="fas fa-link mr-1"></i>
+    {{ i18n "identifier" }}: {{ $page.Params.study_identifier }}
+  </a>
+  {{ else }}
+  <a type="button" class="btn btn-outline-primary my-1 mr-1" href="{{ $link }}" target="_blank" rel="noopener">
+    <i class="fas fa-link mr-1"></i>
+    {{ i18n "btn_url" }}
+  </a>
+  {{ end }}
+{{ else }}
 {{ with $page.Params.study_identifier }}
 <button type="button" class="btn btn-outline-secondary my-1 mr-1">{{ i18n "identifier" }}: {{ . }}</button>
 {{ end }}
+{{ end }}
+
+{{ with $page.Params.forum_thread_url }}
+{{ $resource := $page.Resources.GetMatch . }}
+{{ if $resource }}
+{{ $link = $resource.RelPermalink }}
+{{ else }}
+{{ $link = . | relURL }}
+{{ end }}
+<a type="button" class="btn btn-outline-primary my-1 mr-1" href="{{ $link }}" target="_blank" rel="noopener">
+  <i class="fas fa-link mr-1"></i>
+  {{ i18n "btn_discussion_url" }}
+</a>
+{{ end }}
+
+{{ with $page.Params.license }}
+{{ $resource := $page.Resources.GetMatch . }}
+{{ if $resource }}
+{{ $link = $resource.RelPermalink }}
+{{ else }}
+{{ $link = . | relURL }}
+{{ end }}
+<a type="button" class="btn btn-outline-primary my-1 mr-1" href="{{ $link }}" target="_blank" rel="noopener">
+  <i class="fas fa-link mr-1"></i>
+  {{ i18n "btn_license" }}
+</a>
+{{ end }}
+
 {{ if $page.Params.study_type }}
 {{ with $page.Params.study_type }}
 {{ $all_study_types := partial "functions/get_study_types" . }}
@@ -39,45 +87,6 @@
   {{ end }}
 </button>
 {{ end }}
-{{ end }}
-
-{{ with $page.Params.study_registration_url }}
-{{ $resource := $page.Resources.GetMatch . }}
-{{ if $resource }}
-{{ $link = $resource.RelPermalink }}
-{{ else }}
-{{ $link = . | relURL }}
-{{ end }}
-<a type="button" class="btn btn-outline-primary my-1 mr-1" href="{{ $link }}" target="_blank" rel="noopener">
-  <i class="fas fa-link mr-1"></i>
-  {{ i18n "btn_url" }}
-</a>
-{{ end }}
-
-{{ with $page.Params.forum_thread_url }}
-{{ $resource := $page.Resources.GetMatch . }}
-{{ if $resource }}
-{{ $link = $resource.RelPermalink }}
-{{ else }}
-{{ $link = . | relURL }}
-{{ end }}
-<a type="button" class="btn btn-outline-primary my-1 mr-1" href="{{ $link }}" target="_blank" rel="noopener">
-  <i class="fas fa-link mr-1"></i>
-  {{ i18n "btn_discussion_url" }}
-</a>
-{{ end }}
-
-{{ with $page.Params.license }}
-{{ $resource := $page.Resources.GetMatch . }}
-{{ if $resource }}
-{{ $link = $resource.RelPermalink }}
-{{ else }}
-{{ $link = . | relURL }}
-{{ end }}
-<a type="button" class="btn btn-outline-primary my-1 mr-1" href="{{ $link }}" target="_blank" rel="noopener">
-  <i class="fas fa-link mr-1"></i>
-  {{ i18n "btn_license" }}
-</a>
 {{ end }}
 
 {{ with $page.Params.url_test }}
