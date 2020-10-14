@@ -1,41 +1,40 @@
 ---
 # Website information
 # Do not fill; filled automatically
-title: "{{ replace .Name "-" " " | title }}"
+title: "Peter Rijnbeek"
 
 # Forumname 
 authors:
-- {{ .Name }}
-
+- Rijnbeek
 # Array of honorific suffixes (e.g. "MD", "PhD")
-honorificSuffix: []
+honorificSuffix: ["PhD"]
 
 # Role/position of person
-job_title: 
+job_title: 'Associate Professor Health Data Science'
 
 # Organization/Affiliation the person works for
 organizations:
 # Name of organization
-- name: 
+- name: 'Erasmus University Medical Center'
   # Identifier of organization
   organization_identifier: 
   # Address of organization
   address: 
   # Department
-  department: 
+  department: 'Department of Medical Informatics'
 
 # Academic Networking
 accounts:
   # Forum name on OHDSI forum
-  ohdsi_forum_name: 
+  ohdsi_forum_name: 'Rijnbeek'
   # Forum profile URL
-  ohdsi_forum_profile_url:
+  ohdsi_forum_profile_url: https://forums.ohdsi.org/u/Rijnbeek
   # Github handle
-  github_handle:
+  github_handle: 'PRijnbeek'
   # Google scholar identifier
-  google_scholar_identifier: 
+  google_scholar_identifier: https://orcid.org/0000-0003-0621-1979
   # URL directing to OHDSI collaborator page
-  ohdsi_collaborator_url:
+  ohdsi_collaborator_url: https://www.ohdsi.org/who-we-are/collaborators/peter-rijnbeek/
   # Orcid identifier
   orcid_identifier: 
   

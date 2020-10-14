@@ -1,22 +1,22 @@
 ---
 # Website information
 # Do not fill; filled automatically
-title: "{{ replace .Name "-" " " | title }}"
+title: "Mitchell Conover"
 
 # Forumname 
 authors:
-- {{ .Name }}
+- Conovermitch
 
 # Array of honorific suffixes (e.g. "MD", "PhD")
-honorificSuffix: []
+honorificSuffix: ["PhD"]
 
 # Role/position of person
-job_title: 
+job_title: 'Manager, Epidemiology Analytics'
 
 # Organization/Affiliation the person works for
 organizations:
 # Name of organization
-- name: 
+- name: 'Janssen Research and Development'
   # Identifier of organization
   organization_identifier: 
   # Address of organization
@@ -27,17 +27,17 @@ organizations:
 # Academic Networking
 accounts:
   # Forum name on OHDSI forum
-  ohdsi_forum_name: 
+  ohdsi_forum_name: 'Conovermitch'
   # Forum profile URL
-  ohdsi_forum_profile_url:
+  ohdsi_forum_profile_url: https://forums.ohdsi.org/u/Conovermitch
   # Github handle
-  github_handle:
+  github_handle: 
   # Google scholar identifier
   google_scholar_identifier: 
   # URL directing to OHDSI collaborator page
-  ohdsi_collaborator_url:
+  ohdsi_collaborator_url: https://www.ohdsi.org/who-we-are/collaborators/mitchell-conover/
   # Orcid identifier
-  orcid_identifier: 
+  orcid_identifier:
   
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.

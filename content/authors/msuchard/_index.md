@@ -1,43 +1,43 @@
 ---
 # Website information
 # Do not fill; filled automatically
-title: "{{ replace .Name "-" " " | title }}"
+title: "Marc Suchard"
 
 # Forumname 
 authors:
-- {{ .Name }}
+- msuchard
 
 # Array of honorific suffixes (e.g. "MD", "PhD")
-honorificSuffix: []
+honorificSuffix: ["MD", "PhD"]
 
 # Role/position of person
-job_title: 
+job_title: 'Professor, Department of Biomathematics'
 
 # Organization/Affiliation the person works for
 organizations:
 # Name of organization
-- name: 
+- name: 'University of California'
   # Identifier of organization
   organization_identifier: 
   # Address of organization
   address: 
   # Department
-  department: 
+  department: 'Department of Biomathematics, David Geffen School of Medicine'
 
 # Academic Networking
 accounts:
   # Forum name on OHDSI forum
-  ohdsi_forum_name: 
+  ohdsi_forum_name: 'msuchard'
   # Forum profile URL
-  ohdsi_forum_profile_url:
+  ohdsi_forum_profile_url: https://forums.ohdsi.org/u/msuchard
   # Github handle
-  github_handle:
+  github_handle: 'msuchard'
   # Google scholar identifier
-  google_scholar_identifier: 
+  google_scholar_identifier: 'vF2UV4MAAAAJ'
   # URL directing to OHDSI collaborator page
-  ohdsi_collaborator_url:
+  ohdsi_collaborator_url: https://www.ohdsi.org/who-we-are/collaborators/marc-suchard/
   # Orcid identifier
-  orcid_identifier: 
+  orcid_identifier: https://orcid.org/0000-0001-9818-479X
   
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.

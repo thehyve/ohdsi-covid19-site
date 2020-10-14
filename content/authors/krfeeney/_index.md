@@ -1,22 +1,22 @@
 ---
 # Website information
 # Do not fill; filled automatically
-title: "{{ replace .Name "-" " " | title }}"
+title: "Kristin Kostka"
 
 # Forumname 
 authors:
-- {{ .Name }}
+- krfeeney
 
 # Array of honorific suffixes (e.g. "MD", "PhD")
-honorificSuffix: []
+honorificSuffix: ["MPH"]
 
 # Role/position of person
-job_title: 
+job_title: 'Associate Director, OMOP Data Network'
 
 # Organization/Affiliation the person works for
 organizations:
 # Name of organization
-- name: 
+- name: 'IQVIA'
   # Identifier of organization
   organization_identifier: 
   # Address of organization
@@ -27,17 +27,17 @@ organizations:
 # Academic Networking
 accounts:
   # Forum name on OHDSI forum
-  ohdsi_forum_name: 
+  ohdsi_forum_name: 'krfeeney'
   # Forum profile URL
-  ohdsi_forum_profile_url:
+  ohdsi_forum_profile_url: https://forums.ohdsi.org/u/krfeeney
   # Github handle
-  github_handle:
+  github_handle: 'kmkostka'
   # Google scholar identifier
-  google_scholar_identifier: 
+  google_scholar_identifier: 'Jy7yDLMAAAAJ'
   # URL directing to OHDSI collaborator page
-  ohdsi_collaborator_url:
+  ohdsi_collaborator_url: https://www.ohdsi.org/who-we-are/collaborators/kristin-kostka/
   # Orcid identifier
-  orcid_identifier: 
+  orcid_identifier: https://orcid.org/0000-0003-2595-8736
   
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.

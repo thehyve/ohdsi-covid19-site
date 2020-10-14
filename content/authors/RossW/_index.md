@@ -1,41 +1,41 @@
 ---
 # Website information
 # Do not fill; filled automatically
-title: "{{ replace .Name "-" " " | title }}"
+title: "Ross Williams"
 
 # Forumname 
 authors:
-- {{ .Name }}
+- RossW
 
 # Array of honorific suffixes (e.g. "MD", "PhD")
-honorificSuffix: []
+honorificSuffix: ["MSc"]
 
 # Role/position of person
-job_title: 
+job_title: 'PhD Student'
 
 # Organization/Affiliation the person works for
 organizations:
 # Name of organization
-- name: 
+- name: 'Erasmus University Medical Centre'
   # Identifier of organization
   organization_identifier: 
   # Address of organization
   address: 
   # Department
-  department: 
+  department: 'Health Data Science'
 
 # Academic Networking
 accounts:
   # Forum name on OHDSI forum
-  ohdsi_forum_name: 
+  ohdsi_forum_name: 'RossW'
   # Forum profile URL
-  ohdsi_forum_profile_url:
+  ohdsi_forum_profile_url: https://forums.ohdsi.org/u/RossW
   # Github handle
-  github_handle:
+  github_handle: 'rossdwilliams'
   # Google scholar identifier
   google_scholar_identifier: 
   # URL directing to OHDSI collaborator page
-  ohdsi_collaborator_url:
+  ohdsi_collaborator_url: https://www.ohdsi.org/who-we-are/collaborators/ross-d-williams/
   # Orcid identifier
   orcid_identifier: 
   
