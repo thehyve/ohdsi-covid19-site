@@ -1,0 +1,47 @@
+---
+# Website information
+# Do not fill; filled automatically
+title: "Marc Suchard"
+
+# Forumname 
+authors:
+- msuchard
+
+# Array of honorific suffixes (e.g. "MD", "PhD")
+honorificSuffix: ["MD", "PhD"]
+
+# Role/position of person
+job_title: 'Professor, Department of Biomathematics'
+
+# Organization/Affiliation the person works for
+organizations:
+# Name of organization
+- name: 'University of California'
+  # Identifier of organization
+  organization_identifier: 
+  # Address of organization
+  address: 
+  # Department
+  department: 'Department of Biomathematics, David Geffen School of Medicine'
+
+# Academic Networking
+accounts:
+  # Forum name on OHDSI forum
+  ohdsi_forum_name: 'msuchard'
+  # Forum profile URL
+  ohdsi_forum_profile_url: https://forums.ohdsi.org/u/msuchard
+  # Github dandle
+  github_handle: 'msuchard'
+  # Google scholar identifier
+  google_scholar_identifier: 'vF2UV4MAAAAJ'
+  # URL directing to OHDSI collaborator page
+  ohdsi_collaborator_url: https://www.ohdsi.org/who-we-are/collaborators/marc-suchard/
+  # Orchid identifier
+  orcid_dentifier: https://orcid.org/0000-0001-9818-479X
+  
+# Organizational groups that you belong to (for People widget)
+#   Set this to `[]` or comment out if you are not using People widget.
+user_groups:
+- Researchers
+- Visitors
+---
