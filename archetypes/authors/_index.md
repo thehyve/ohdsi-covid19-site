@@ -30,14 +30,14 @@ accounts:
   ohdsi_forum_name: 
   # Forum profile URL
   ohdsi_forum_profile_url:
-  # Github dandle
+  # Github handle
   github_handle:
   # Google scholar identifier
   google_scholar_identifier: 
   # URL directing to OHDSI collaborator page
   ohdsi_collaborator_url:
   # Orchid identifier
-  orcid_dentifier: 
+  orcid_identifier: 
   
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
