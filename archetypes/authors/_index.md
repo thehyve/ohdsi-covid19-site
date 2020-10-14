@@ -36,7 +36,7 @@ accounts:
   google_scholar_identifier: 
   # URL directing to OHDSI collaborator page
   ohdsi_collaborator_url:
-  # Orchid identifier
+  # Orcid identifier
   orcid_identifier: 
   
 # Organizational groups that you belong to (for People widget)
