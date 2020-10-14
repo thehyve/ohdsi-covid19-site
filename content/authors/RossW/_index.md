@@ -30,14 +30,14 @@ accounts:
   ohdsi_forum_name: 'RossW'
   # Forum profile URL
   ohdsi_forum_profile_url: https://forums.ohdsi.org/u/RossW
-  # Github dandle
+  # Github handle
   github_handle: 'rossdwilliams'
   # Google scholar identifier
   google_scholar_identifier: 
   # URL directing to OHDSI collaborator page
   ohdsi_collaborator_url: https://www.ohdsi.org/who-we-are/collaborators/ross-d-williams/
-  # Orchid identifier
-  orcid_dentifier: 
+  # Orcid identifier
+  orcid_identifier: 
   
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.

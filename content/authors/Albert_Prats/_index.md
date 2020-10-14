@@ -30,14 +30,14 @@ accounts:
   ohdsi_forum_name: 'Albert_Prats'
   # Forum profile URL
   ohdsi_forum_profile_url: https://forums.ohdsi.org/u/Albert_Prats
-  # Github dandle
+  # Github handle
   github_handle: 
   # Google scholar identifier
   google_scholar_identifier: 
   # URL directing to OHDSI collaborator page
   ohdsi_collaborator_url:
-  # Orchid identifier
-  orcid_dentifier: https://orcid.org/0000-0003-1202-9153
+  # Orcid identifier
+  orcid_identifier: https://orcid.org/0000-0003-1202-9153
   
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.

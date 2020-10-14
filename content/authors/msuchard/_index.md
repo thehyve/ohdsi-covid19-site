@@ -30,14 +30,14 @@ accounts:
   ohdsi_forum_name: 'msuchard'
   # Forum profile URL
   ohdsi_forum_profile_url: https://forums.ohdsi.org/u/msuchard
-  # Github dandle
+  # Github handle
   github_handle: 'msuchard'
   # Google scholar identifier
   google_scholar_identifier: 'vF2UV4MAAAAJ'
   # URL directing to OHDSI collaborator page
   ohdsi_collaborator_url: https://www.ohdsi.org/who-we-are/collaborators/marc-suchard/
-  # Orchid identifier
-  orcid_dentifier: https://orcid.org/0000-0001-9818-479X
+  # Orcid identifier
+  orcid_identifier: https://orcid.org/0000-0001-9818-479X
   
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.

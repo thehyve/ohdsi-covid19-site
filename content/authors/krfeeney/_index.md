@@ -30,14 +30,14 @@ accounts:
   ohdsi_forum_name: 'krfeeney'
   # Forum profile URL
   ohdsi_forum_profile_url: https://forums.ohdsi.org/u/krfeeney
-  # Github dandle
+  # Github handle
   github_handle: 'kmkostka'
   # Google scholar identifier
   google_scholar_identifier: 'Jy7yDLMAAAAJ'
   # URL directing to OHDSI collaborator page
   ohdsi_collaborator_url: https://www.ohdsi.org/who-we-are/collaborators/kristin-kostka/
-  # Orchid identifier
-  orcid_dentifier: https://orcid.org/0000-0003-2595-8736
+  # Orcid identifier
+  orcid_identifier: https://orcid.org/0000-0003-2595-8736
   
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.

@@ -29,14 +29,14 @@ accounts:
   ohdsi_forum_name: 'Rijnbeek'
   # Forum profile URL
   ohdsi_forum_profile_url: https://forums.ohdsi.org/u/Rijnbeek
-  # Github dandle
+  # Github handle
   github_handle: 'PRijnbeek'
   # Google scholar identifier
   google_scholar_identifier: https://orcid.org/0000-0003-0621-1979
   # URL directing to OHDSI collaborator page
   ohdsi_collaborator_url: https://www.ohdsi.org/who-we-are/collaborators/peter-rijnbeek/
-  # Orchid identifier
-  orcid_dentifier: 
+  # Orcid identifier
+  orcid_identifier: 
   
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
