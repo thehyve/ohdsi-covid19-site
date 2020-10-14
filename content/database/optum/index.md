@@ -9,7 +9,7 @@ lastmod: 2020-10-13T14:16:13+02:00
 featured: false
 
 # Change to 'false' to be published
-draft: true
+draft: false
 
 authors: []
 tags: []
