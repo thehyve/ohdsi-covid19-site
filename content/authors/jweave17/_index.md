@@ -1,7 +1,7 @@
 ---
 # Website information
 # Do not fill; filled automatically
-title: "{{ replace .Name "-" " " | title }}"
+title: "James Weaver"
 
 # Forumname 
 authors:
