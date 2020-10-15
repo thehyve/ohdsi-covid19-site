@@ -45,7 +45,7 @@ local_business_type = ""
 
 # Organization name (optional)
 # Enter an organization or project name. Defaults to the site title from `config.toml`.
-org_name = "OHDSI COVID-19 studyathon"
+org_name = "OHDSI COVID-19 study-a-thon"
 
 # Description for social sharing and search engines. If undefined, superuser role is used in place.
 description = "The OHDSI COVID-19 study-a-thon is a virtual collaboration of about 300 scientsts coming together on March 26-29, 2020, to inform healthcare decision-making in response to the global pandemic."

@@ -13,7 +13,7 @@ subtitle = ""
 
 [design]
   # Choose how many columns the section has. Valid values: 1 or 2.
-  columns = "2"
+  columns = "1"
 
 [design.background]
   # Apply a background color, gradient, or image.
@@ -40,7 +40,7 @@ subtitle = ""
 
 [design.spacing]
   # Customize the section spacing. Order is top, right, bottom, left.
-  # padding = ["30vh", "0", "20px", "0"]
+padding = ["10vh", "0", "20px", "0"]
 
 [advanced]
  # Custom CSS. 
@@ -50,6 +50,8 @@ subtitle = ""
  css_class = ""
 +++
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id lectus at mauris auctor scelerisque. Proin imperdiet lacus sed mattis volutpat. Fusce imperdiet ipsum scelerisque, ullamcorper libero quis, pulvinar metus. Morbi maximus vitae risus at tempus. Donec sodales pulvinar tortor, id ultrices nisl condimentum id. Sed ut sem accumsan, laoreet purus et, imperdiet arcu. Proin vitae erat quam. Phasellus in dignissim purus, a pretium velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae odio enim. Suspendisse potenti. Mauris vulputate erat augue, eget imperdiet mi feugiat at. Mauris eu turpis at nunc blandit fermentum id sed quam.
+In March 2020, the [OHDSI community](https://www.ohdsi.org) has hosted a [virtual COVID-19 study-a-thon](https://www.ohdsi.org/ohdsi-news-updates/covid19-studyathon/) to inform healthcare decision-making in response to the current global pandemic. More than 300 researchers from all over the world have contributed to designing and executing a series of observational studies across the international OHDSI network of data captured during clinical practice; **these sources include electronic health records and administrative claims**. These retrospective analyses examine the **safety of proposed drugs**, as well as **predict outcomes for patients** with viral symptoms or complications.
 
-In accumsan lorem in volutpat laoreet. Cras dapibus condimentum purus sed malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam at fermentum lectus. Curabitur aliquet id turpis at sollicitudin. Quisque dapibus ornare leo a porttitor. Ut purus ipsum, efficitur at tellus sit amet, facilisis elementum purus. Pellentesque non mi sit amet risus mollis laoreet sit amet eget felis. Sed elementum enim id tortor faucibus efficitur.
+In order to disseminate these results in a [FAIR](https://www.dtls.nl/fair-data/fair-principles-explained/) way, [The Hyve](https://www.thehyve.nl), as part of work done for [EHDEN](https://ehden.eu), has set up this page to collect and present metadata of the study-a-thon assets. All real-world evidence generated in the study-a-thon has been placed in the public domain to support and inform current public health efforts. Here, we make these results findable and accessible, using standardized and interoperable metadata standards.
+
+The latest news of the ongoing studies can be found on [the official updates page](https://www.ohdsi.org/covid-19-updates/).

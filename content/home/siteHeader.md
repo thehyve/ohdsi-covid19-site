@@ -8,7 +8,7 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 15  # Order that this section will appear.
 
-title = "Covid-19 Study-a-thon"
+title = "OHDSI COVID-19 Study-a-thon"
 subtitle = ""
 
 [design]
@@ -50,4 +50,4 @@ subtitle = ""
  css_class = "custom-site-header"
 +++
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id lectus at mauris auctor scelerisque.
+Catalogue with human- and machine-readable metadata on digital assets from the OHDSI COVID-19 study-a-thon.
