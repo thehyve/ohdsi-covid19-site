@@ -200,7 +200,7 @@ organizations:
   # URL to main organization website
   organization_url: ttps://www.ohdsi.org/
   # Name of organization
-  name: 'Observational Health Data Sciences and Informatics'
+  name: 'OHDSI'
   # Other URLs linking to important organization sites (e.g. twitter)
   url: [https://www.linkedin.com/company/ohdsi/, https://twitter.com/ohdsi, https://www.youtube.com/user/OHDSIJoinTheJourney]
   
