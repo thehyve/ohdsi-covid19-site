@@ -38,9 +38,9 @@ accounts:
   # Google scholar identifier
   google_scholar_identifier: "hiBxiTYAAAAJ"
   # URL directing to OHDSI collaborator page
-  ohdsi_collaborator_url: "dani-prieto-alhambra"
+  ohdsi_collaborator_url: https://www.ohdsi.org/who-we-are/collaborators/dani-prieto-alhambra
   # Orchid identifier
-  orcid_dentifier: "0000-0002-3950-6346"
+  orcid_identifier: "0000-0002-3950-6346"
   
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.

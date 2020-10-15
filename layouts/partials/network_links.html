@@ -1,7 +1,7 @@
 {{ with .network }}
   <ul class="network-icon" aria-hidden="true">
     {{ with .ohdsi_collaborator_url  }}
-      {{ $link := print "https://www.ohdsi.org/who-we-are/collaborators/" . "/"}}
+      {{ $link :=  . }}
       {{ $scheme := (urls.Parse $link).Scheme }}
       {{ $target := "" }}
       {{ if not $scheme }}
@@ -62,7 +62,7 @@
       </li>
     {{ end }}
     
-    {{ with .orcid_dentifier }}
+    {{ with .orcid_identifier }}
       {{ $link := print "https://orcid.org/" . }}
       {{ $scheme := (urls.Parse $link).Scheme }}
       {{ $target := "" }}
