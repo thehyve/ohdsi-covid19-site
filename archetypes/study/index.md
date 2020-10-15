@@ -66,6 +66,8 @@ conditions:
 - concept_name: 
   # Concept identifier
   concept_id: 
+   # Descendants of concept are included in analysis, true/false
+  descendants_included:
   # Concept code and vocabulary metadata
   code: 
     # Concept code
