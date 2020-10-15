@@ -107,20 +107,20 @@ source_code:
   maintainer: 'OHDSI'
   # Programming language used
   programming_language: 'R'
-  # Version of the source code
-  version: 
+#  # Version of the source code
+#  version: 
 
-# Software used for the study; if multiple software applications are used
-# duplicate all keys under "software"
-software:
-  # Name of the software
-- name: 
-  # URL to source code of software
-  source_code_url: 
-  # Maintainer of source code; use identifier of organization if applicable.
-  maintainer: 
-  # Version of the software
-  version: 
+# # Software used for the study; if multiple software applications are used
+# # duplicate all keys under "software"
+# software:
+#  # Name of the software
+# - name: 
+#  # URL to source code of software
+#  source_code_url: 
+#  # Maintainer of source code; use identifier of organization if applicable.
+#  maintainer: 
+#  # Version of the software
+#  version: 
 
 # doi of publications related to the study; if multiple articles have been published,
 # duplicate key under "publications"
