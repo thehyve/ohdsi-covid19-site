@@ -37,7 +37,7 @@ accounts:
   # URL directing to OHDSI collaborator page
   ohdsi_collaborator_url: https://www.ohdsi.org/who-we-are/collaborators/marc-suchard/
   # Orcid identifier
-  orcid_identifier: https://orcid.org/0000-0001-9818-479X
+  orcid_identifier: "0000-0001-9818-479X"
   
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.

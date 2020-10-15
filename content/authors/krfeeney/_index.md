@@ -37,7 +37,7 @@ accounts:
   # URL directing to OHDSI collaborator page
   ohdsi_collaborator_url: https://www.ohdsi.org/who-we-are/collaborators/kristin-kostka/
   # Orcid identifier
-  orcid_identifier: https://orcid.org/0000-0003-2595-8736
+  orcid_identifier: "0000-0003-2595-8736"
   
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
