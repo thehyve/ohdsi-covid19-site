@@ -269,6 +269,9 @@
 - id: btn_discussion_url
   translation: Forum Discussion
 
+- id: btn_study_protocol
+  translation: Study Protocol
+
 - id: btn_result
   translation: Result
 
