@@ -10,7 +10,7 @@ categories: []
 date: 2020-08-21T14:52:18+02:00
 lastmod: 2020-08-21T14:52:18+02:00
 featured: false
-draft: false
+draft: true
 
 # Study identifier, specifically created for the website.
 # The identifier is the last part of the URL directing to the particular study
