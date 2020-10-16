@@ -27,6 +27,22 @@
 {{ end }}
 {{ end }}
 
+{{ with $page.Params.study_protocol }}
+{{ with .protocol_url }}
+{{ $resource := $page.Resources.GetMatch . }}
+{{ if $resource }}
+{{ $link = $resource.RelPermalink }}
+{{ else }}
+{{ $link = . | relURL }}
+{{ end }}
+<a type="button" class="btn btn-outline-primary my-1 mr-1" href="{{ $link }}" target="_blank" rel="noopener">
+  <i class="fas fa-link mr-1"></i>
+  {{ i18n "btn_study_protocol" }}
+</a>
+{{ end }}
+
+{{ end }}
+
 {{ with $page.Params.forum_thread_url }}
 {{ $resource := $page.Resources.GetMatch . }}
 {{ if $resource }}
