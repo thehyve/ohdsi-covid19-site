@@ -103,4 +103,15 @@ footer{
 // h3.article-title{
 //   font-weight: 400;
 // }
-
+.accordion .card-header{
+  background-color: #fff;
+}
+.accordion .card-header:after {
+  //font-family: 'FontAwesome';  
+  content: "-";
+  float: right; 
+}
+.accordion .card-header.collapsed:after {
+  /* symbol for "collapsed" panels */
+  content: "+"; 
+}
