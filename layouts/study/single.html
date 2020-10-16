@@ -80,7 +80,7 @@
           <b>Applications:</b>
           <ul>
             {{ range . }}
-            <li><a href="{{ .source_code_url }}">{{ .name }}</a> Version: {{ .version }}</li>
+            <li><a href="{{ .source_code_url }}">{{ .name }}</a>, {{ with .version }}Version: {{ . }}{{ end }}</li>
             {{ end }}
           </ul>
           {{ end }}
@@ -95,8 +95,8 @@
             {{ $maintainer = .name }}
             {{ end }}
             {{ end }}
-            <li><a href="{{ .code_repository_url }}">{{ .name }}</a> Version: {{ .version }}, Programming Language:
-              {{ .programming_language }}, Maintainer: {{ $maintainer }}</li>
+            <li><a href="{{ .code_repository_url }}">{{ .name }}</a>{{ with .version }}, Version: {{ . }}{{ end }}, Programming Language:
+              {{ .programming_language }}{{ with $maintainer }}, Maintainer: {{ $maintainer }}{{ end }}</li>
             {{ end }}
           </ul>
           {{ end }}
