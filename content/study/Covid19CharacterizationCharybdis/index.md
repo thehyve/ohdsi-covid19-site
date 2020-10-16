@@ -25,8 +25,7 @@ study_identifier:
 study_registration_url: 
 
 # Study description
-description: 'Objectives: Describe the baseline demographic, clinical characteristics, treatments and outcomes of interest among individuals tested for SARS-CoV-2 and/or diagnosed with COVID-19 overall and stratified by sex, age, race and specific comorbidities; Describe characteristics and outcomes of patients diagnosed/tested positive for influenza as well as patients hospitalized with influenza between September 2017 and April 2018 compared to the COVID-19 population.'
-
+description: 'Objectives: 1. Describe the baseline demographic, clinical characteristics, treatments and outcomes of interest among individuals tested for SARS-CoV-2 and/or diagnosed with COVID-19 overall and stratified by sex, age, race and specific comorbidities; 2. Describe characteristics and outcomes of patients diagnosed/tested positive for influenza as well as patients hospitalized with influenza between September 2017 and April 2018 compared to the COVID-19 population.'
 
 # Start date of the study, use date format YYYY-MM-DD
 start_date: 2020-04-21
@@ -58,7 +57,7 @@ study_type: [0]
 study_usecase: [0]
 
 # Database identifiers of databases used for the study
-databases: [HIRA, STARR, CLARET, Columbia University Irving Medical Center, Veteran’s Affairs, UC Health Data Compass, University of Washington, SIDIAP]
+databases: [HIRA, STARR, CLARET, CUIMC, VA, UCHDC, UW, SIDIAP]
 
 # Conditions studied; if multiple conditions are being studied,
 # duplicate all keys under "conditions"

@@ -1,7 +1,7 @@
 ---
 # Website information
 # Database name
-title: "Stanford Medicine Research Data Repository (STARR)"
+title: "Tufts Clinical Academic Research Enterprice Trust (CLARET)"
 
 # Do not fill; filled automatically
 date: 2020-10-13T14:16:13+02:00
@@ -17,7 +17,7 @@ categories: []
 
 # Database identifier, specifically created for the website.
 # The identifier is the last part of the URL directing to the particular database
-database_id: 'STARR'
+database_id: 'CLARET'
 
 # Database identifier
 identifier:
@@ -26,13 +26,13 @@ identifier:
 alternate_name:
 
 # Description of the database
-description: 'General practice electronic health records, outpatient specialist electronic health records, inpatient hospital electronic health records, hospital billing/summary.'
+description: "Electronic medical record data on approximately 1 million patients who received care beginning in 2006 at Tufts Medical Center (TMC). TMC is an academic medical center that includes Tuft Medical Center's main downtown Boston hospital for adult patients, the Floating Hospital for Children, and associated primary and specialty care clinics. CLARET contains TMC's EHR data fused with data on the same patients from TMC's CoC accredited tumor registry, its oncology EHR, and death data from the Massachusetts State Registry of Vital Statistics. EHR data streams ingested into CLARET include controlled vocabulary data on all domains except cost, and select free text sources and devices."
 
 # Database characteristics; key words, can be multiple (e.g. "EHR data", "Primary care records")
-database_characteristics: ["EHR"]
+database_characteristics: ["EHR data"]
 
 # Date the database is created, use date format YYYY-MM-DD
-date_created:
+date_created: 
 
 # Date the database is modified, use date format YYYY-MM-DD
 date_modified:
@@ -41,10 +41,10 @@ date_modified:
 version:
 
 # URL directing to information about the database
-database_url: 'https://med.stanford.edu/starr-tools.html'
+database_url: 
 
 # Start date of data in the database, use date format YYYY-MM-DD
-start_date:
+start_date: 2006-01-01
 
 # End date of data in the databse, use date format YYYY-MM-DD
 end_date:
@@ -53,16 +53,16 @@ end_date:
 database_system:
 
 # Size of the database (number of subjects)
-population_size: 3000000
+population_size: 1000000
 
 # Spatial coverage of database (e.g. "Florence")
-spatial_coverage: "wd:Q213205"
+spatial_coverage: "Boston, USA"
 
 # Temporal coverage of the database
 temporal_coverage:
 
 # Institution associated with the database
-associated_institution: 'Stanford University '
+associated_institution: 'Tufts Medical Center'
 
 # Persons used in administrative_contact, principal_investigator, scientific_contact, technical_contact
 # If there are multiples, duplicate all keys under "persons"
