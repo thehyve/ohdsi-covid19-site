@@ -15,7 +15,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" id="software-tab" data-toggle="tab" href="#software" role="tab" aria-controls="software"
-            aria-selected="false">Software</a>
+            aria-selected="false">Code</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="databases-tab" data-toggle="tab" href="#databases" role="tab"
@@ -32,7 +32,7 @@
           <b>Drugs:</b>
           <ul>
             {{ range . }}
-            <li>{{ .concept_name }}</li>
+            <li>{{ .concept_name }} {{ with .descendants_included }}(descendants included){{ end }}</li>
             {{ end }}
           </ul>
           {{ end }}
@@ -41,7 +41,7 @@
           <b>Health Conditions:</b>
           <ul>
             {{ range . }}
-            <li>{{ .concept_name }}</li>
+            <li>{{ .concept_name }} {{ with .descendants_included }}(descendants included){{ end }}</li>
             {{ end }}
           </ul>
           {{ end }}
