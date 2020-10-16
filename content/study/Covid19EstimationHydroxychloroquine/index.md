@@ -57,7 +57,7 @@ study_type: [0]
 study_usecase: [1]
 
 # Database identifiers of databases used for the study
-databases: [IQVIA_US_EMR, IQVIA_AUS_EMR, IQVIAFrance_EMR, IQVIA_Germany_EMR, IQVIA_HUSCM, IQVIA_UK_THIN_IMRD_EMR, EHIS, IPCI, SIDIAP]
+databases: [IQVIA_US_EMR, IQVIA_AUS_EMR, IQVIA_France_EMR, IQVIA_Germany_EMR, IQVIA_HUSCM, IQVIA_UK_THIN_IMRD_EMR, EHIS, IPCI, SIDIAP]
 
 # Conditions studied; if multiple conditions are being studied,
 # duplicate all keys under "conditions"
