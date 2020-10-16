@@ -26,7 +26,7 @@ identifier:
 alternate_name:
 
 # Description of the database
-description: 'Health Data Compass (HDC) is a multi-institutional data warehouse. HDC contains inpatient and outpatient electronic medical data including patient, encounter, diagnosis, procedures, medications, laboratory results from two electronic medical record systems (UCHealth and Children's Hospital of Colorado), state-level all-payers claims data, and the Colorado death registry.'
+description: "Health Data Compass (HDC) is a multi-institutional data warehouse. HDC contains inpatient and outpatient electronic medical data including patient, encounter, diagnosis, procedures, medications, laboratory results from two electronic medical record systems (UCHealth and Children's Hospital of Colorado), state-level all-payers claims data, and the Colorado death registry."
 
 # Database characteristics; key words, can be multiple (e.g. "EHR data", "Primary care records")
 database_characteristics: ["EHR"]
