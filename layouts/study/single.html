@@ -28,7 +28,78 @@
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
-          {{ with .Params.study_subject }}
+          {{ $location := "" }}
+          {{ range $params.eventLocations }}
+          {{ if eq .id $params.event.location }}
+          {{ $location = .name }}
+          {{ end }}
+          {{ end }}
+          {{ $organizer := "" }}
+          {{ range $params.organizations }}
+          {{ if eq .id $params.event.organizer }}
+          {{ $organizer = .name }}
+          {{ end }}
+          {{ end }}
+          {{ with .Params.event }}
+          <div class="card-body">
+            <p><b>Event:</b> {{ .name }} <i>({{ .start_date }} to {{ .end_date }})</i> at {{ .location.name }}, Organizer:
+              {{ $organizer }}</p>
+          </div>
+
+          {{ end }}
+
+          <div id="accordion" class="accordion">
+            <!-- <div class="card mb-0"> -->
+              {{ with .Params.study_subject }}
+              <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
+                  <a class="card-title">
+                    <b>Drugs</b>
+                  </a>
+              </div>
+              <div id="collapseOne" class="card-body collapse" data-parent="#accordion" >
+                <ul>
+                  {{ range . }}
+                  <li>{{ .concept_name }} {{ with .descendants_included }}(descendants included){{ end }}</li>
+                  {{ end }}
+                </ul>
+              </div>
+              {{ end }}
+              {{ with .Params.conditions }}
+              <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                  <a class="card-title">
+                    <b>Health Conditions</b>
+                  </a>
+              </div>
+              <div id="collapseTwo" class="card-body collapse" data-parent="#accordion" >
+                <ul>
+                  {{ range . }}
+                  <li>{{ .concept_name }} {{ with .descendants_included }}(descendants included){{ end }}</li>
+                  {{ end }}
+                </ul>
+              </div>
+              {{ end }}
+              {{if .Params.results }}
+              {{ with .Params.results }}
+                <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                  <a class="card-title">
+                    <b>Results</b>
+                  </a>
+                </div>
+                <div id="collapseThree" class="card-body collapse" data-parent="#accordion" >
+                  <ul>
+                    {{ range . }}
+                    <li><a href="{{.application_url}}">{{.name}}</a></li>
+                    {{ end }}
+                  </ul>
+                </div>
+              {{ end }}
+              {{ end }}
+            <!-- </div> -->
+        </div>
+
+
+
+          <!-- {{ with .Params.study_subject }}
           <b>Drugs:</b>
           <ul>
             {{ range . }}
@@ -72,7 +143,7 @@
             {{ end }}
           </ul>
           {{ end }}
-          {{ end }}
+          {{ end }} -->
 
         </div>
         <div class="tab-pane fade" id="software" role="tabpanel" aria-labelledby="software-tab">
