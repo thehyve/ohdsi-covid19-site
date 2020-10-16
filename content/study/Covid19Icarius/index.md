@@ -57,7 +57,7 @@ study_type: [0]
 study_usecase: [1]
 
 # Database identifiers of databases used for the study
-databases: [HIRA, Columbia University Irving Medical Center]
+databases: [HIRA, CUIMC]
 
 # Conditions studied; if multiple conditions are being studied,
 # duplicate all keys under "conditions"

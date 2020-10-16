@@ -58,7 +58,7 @@ study_type: [0]
 study_usecase: [0]
 
 # Database identifiers of databases used for the study
-databases: [HIRA, STARR, CLARET, Columbia University Irving Medical Center, Veteran’s Affairs, UC Health Data Compass, University of Washington, SIDIAP]
+databases: [HIRA, STARR, CLARET, CUIMC, VA, UCHDC, UW, SIDIAP]
 
 # Conditions studied; if multiple conditions are being studied,
 # duplicate all keys under "conditions"

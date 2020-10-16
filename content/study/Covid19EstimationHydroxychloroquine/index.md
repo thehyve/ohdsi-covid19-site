@@ -57,7 +57,7 @@ study_type: [0]
 study_usecase: [1]
 
 # Database identifiers of databases used for the study
-databases: [IQVIA US Ambulatory EMR, IQVIA Australia EMR, IQVIA Disease Analyser France EMR, IQVIA Disease Analyser Germany EMR, IQVIA Hospital US Charge Master, IQVIA UK THIN IMRD EMR, Estonian Health Information System, Integrated Primary Care Information, SIDIAP]
+databases: [IQVIA_US_EMR, IQVIA_AUS_EMR, IQVIAFrance_EMR, IQVIA_Germany_EMR, IQVIA_HUSCM, IQVIA_UK_THIN_IMRD_EMR, EHIS, IPCI, SIDIAP]
 
 # Conditions studied; if multiple conditions are being studied,
 # duplicate all keys under "conditions"
