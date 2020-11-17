@@ -36,6 +36,7 @@ ignoreFiles = [
   "_files$",
   "_cache$"
 ]
+enableRobotsTXT = true
 
 # Workaround Hugo publishing taxonomy URLs as plurals - consistently use singular across Academic.
 [permalinks]
