@@ -57,23 +57,24 @@
         {{ with $profile_page.Params.organizations }}"jobTitle": [{{ range $j, $v := $profile_page.Params.organizations }}{{ if $j }}, {{ end }}
           {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .job_title) }}{{ end }}
         ],{{ end }}
-        "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $profile_page.Params.title) }},
         {{- with $profile_page.Params.organization }}
         "worksFor": {
           "@type": "schema:Organization",
           "address": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .address) }},
           "department": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .department) }},
           "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .name) }}
-        }
+        },
         {{- end }}
+        "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $profile_page.Params.title) }}
+
       },
     {{- end -}}
     {{- range $i, $e := $params.databases -}}{{- $db_page := site.GetPage (printf "/database/%s" $e) }}
       {
         "@id": "database:{{ $e }}",
         "@type": "ohdsi:Database",
-        "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $db_page.Params.database_id) }},
-        "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $db_page.Params.title) }}
+        "description": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $db_page.Params.title) }},
+        "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $db_page.Params.database_id) }}
       },
     {{- end }}
       {
@@ -82,7 +83,7 @@
         "dateModified": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.date_modified) }},
         "identifier": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.protocol_identifier) }},
         "license": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.license) }},
-        "url": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.protocol_url) }},
+        "schema:url": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.protocol_url) }},
         "version": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_protocol.version) }}
       },
       {
@@ -157,11 +158,20 @@
         {{ if $params.results }}
         {{- with $params.results -}}
         "result": [
+          {
+            "@type": "schema:Dataset",
+            "description": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.description) }},
+            "keywords": [{{ range $i, $e := $params.tags }}{{ if $i }}, {{ end }}
+              {{ $e }}{{ end }}
+            ],
+            "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.title) }},
+            "schema:url": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.study_registration_url) }}
+          },
           {{- range $i, $v := . -}}{{- if $i -}}, {{- end }}
           {
             "@type": "schema:WebApplication",
-            "mainEntityofPage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .application_url) }},
-            "name": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .name) }}
+            "description": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .name) }},
+            "schema:url": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .application_url) }}
           }
           {{- end }}
         ],
@@ -176,7 +186,7 @@
         {{- end -}}
         {{ end }}
         "hasPart": [
-          {{- range $i, $e := $params.source_code }}
+          {{- range $i, $e := $params.source_code }}{{ if $i }}, {{ end }}
           {
             "@type": "schema:SoftwareSourceCode",
             "codeRepository": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .code_repository_url) }},
@@ -184,8 +194,9 @@
             "maintainer": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .maintainer) }},
             "programmingLanguage": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .programming_language) }},
             "version": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" .version) }}
-          },
+          }
           {{- end }}
+          {{ if $params.software }},{{ end }}
           {{- range $i, $e := $params.software }}{{ if $i }}, {{ end }}
           {
             "@type": "schema:SoftwareApplication",
@@ -206,180 +217,183 @@
       }
     ],
     "@context": {
+      "description": {
+        "@id": "http://schema.org/description"
+      },
+      "identifier": {
+        "@id": "http://schema.org/identifier"
+      },
+      "recordedIn": {
+        "@id": "http://schema.org/recordedIn",
+        "@type": "@id"
+      },
+      "mainEntityOfPage": {
+        "@id": "http://schema.org/mainEntityOfPage",
+        "@type": "@id"
+      },
+      "endDate": {
+        "@id": "http://schema.org/endDate",
+        "@type": "http://www.w3.org/2001/XMLSchema#date"
+      },
+      "startDate": {
+        "@id": "http://schema.org/startDate",
+        "@type": "http://www.w3.org/2001/XMLSchema#date"
+      },
+      "location": {
+        "@id": "http://schema.org/location",
+        "@type": "@id"
+      },
+      "organizer": {
+        "@id": "http://schema.org/organizer",
+        "@type": "@id"
+      },
       "name": {
-      "@id": "http://schema.org/name"
-    },
-    "mainEntityofPage": {
-      "@id": "http://schema.org/mainEntityofPage"
-    },
-    "recordedIn": {
-      "@id": "http://schema.org/recordedIn",
-      "@type": "@id"
-    },
-    "mainEntityOfPage": {
-      "@id": "http://schema.org/mainEntityOfPage",
-      "@type": "@id"
-    },
-    "endDate": {
-      "@id": "http://schema.org/endDate",
-      "@type": "http://www.w3.org/2001/XMLSchema#date"
-    },
-    "startDate": {
-      "@id": "http://schema.org/startDate",
-      "@type": "http://www.w3.org/2001/XMLSchema#date"
-    },
-    "location": {
-      "@id": "http://schema.org/location",
-      "@type": "@id"
-    },
-    "organizer": {
-      "@id": "http://schema.org/organizer",
-      "@type": "@id"
-    },
-    "code": {
-      "@id": "http://schema.org/code",
-      "@type": "@id"
-    },
-    "identifier": {
-      "@id": "http://schema.org/identifier"
-    },
-    "address": {
-      "@id": "http://schema.org/address"
-    },
-    "department": {
-      "@id": "http://schema.org/department"
-    },
-    "honorificSuffix": {
-      "@id": "http://schema.org/honorificSuffix"
-    },
-    "forumProfile": {
-      "@id": "http://data.ohdsi.org/forumProfile"
-    },
-    "githubHandle": {
-      "@id": "http://data.ohdsi.org/githubHandle"
-    },
-    "worksFor": {
-      "@id": "http://schema.org/worksFor",
-      "@type": "@id"
-    },
-    "googleScholarID": {
-      "@id": "http://data.ohdsi.org/googleScholarID"
-    },
-    "jobTitle": {
-      "@id": "http://schema.org/jobTitle"
-    },
-    "orcidID": {
-      "@id": "http://data.ohdsi.org/orcidID"
-    },
-    "creator": {
-      "@id": "http://schema.org/creator",
-      "@type": "@id"
-    },
-    "uploadDate": {
-      "@id": "http://schema.org/uploadDate",
-      "@type": "http://www.w3.org/2001/XMLSchema#date"
-    },
-    "maintainer": {
-      "@id": "http://schema.org/maintainer",
-      "@type": "@id"
-    },
-    "version": {
-      "@id": "http://schema.org/version",
-      "@type": "http://www.w3.org/2001/XMLSchema#decimal"
-    },
-    "programmingLanguage": {
-      "@id": "http://schema.org/programmingLanguage"
-    },
-    "dateModified": {
-      "@id": "http://schema.org/dateModified",
-      "@type": "http://www.w3.org/2001/XMLSchema#date"
-    },
-    "codeRepository": {
-      "@id": "http://schema.org/codeRepository"
-    },
-    "sameAs": {
-      "@id": "http://schema.org/sameAs"
-    },
-    "codingSystem": {
-      "@id": "http://schema.org/codingSystem"
-    },
-    "codeValue": {
-      "@id": "http://schema.org/codeValue"
-    },
-    "license": {
-      "@id": "http://schema.org/license"
-    },
-    "url": {
-      "@id": "http://schema.org/url"
-    },
-    "softwareVersion": {
-      "@id": "http://schema.org/softwareVersion",
-      "@type": "http://www.w3.org/2001/XMLSchema#decimal"
-    },
-    "healthCondition": {
-      "@id": "http://schema.org/healthCondition",
-      "@type": "@id"
-    },
-    "hasPart": {
-      "@id": "http://schema.org/hasPart",
-      "@type": "@id"
-    },
-    "result": {
-      "@id": "http://schema.org/result",
-      "@type": "@id"
-    },
-    "studySubject": {
-      "@id": "http://schema.org/studySubject",
-      "@type": "@id"
-    },
-    "dateCreated": {
-      "@id": "http://schema.org/dateCreated",
-      "@type": "http://www.w3.org/2001/XMLSchema#date"
-    },
-    "status": {
-      "@id": "http://schema.org/status",
-      "@type": "@id"
-    },
-    "subjectOf": {
-      "@id": "http://schema.org/subjectOf",
-      "@type": "@id"
-    },
-    "studyType": {
-      "@id": "http://data.ohdsi.org/studyType",
-      "@type": "@id"
-    },
-    "author": {
-      "@id": "http://schema.org/author",
-      "@type": "@id"
-    },
-    "description": {
-      "@id": "http://schema.org/description"
-    },
-    "discussionUrl": {
-      "@id": "http://schema.org/discussionUrl"
-    },
-    "database": "https://covid19.ohdsi.app/database/",
-    "publication": {
-      "@id": "http://schema.org/publication",
-      "@type": "@id"
-    },
-    "studyDesign": {
-      "@id": "http://schema.org/studyDesign",
-      "@type": "@id"
-    },
-    "analyticsUseCase": {
-      "@id": "http://data.ohdsi.org/analyticsUseCase",
-      "@type": "@id"
-    },
-    "schema": "http://schema.org/",
-    "study": "https://covid19.ohdsi.app/study/",
-    "owl": "http://www.w3.org/2002/07/owl#",
-    "person": "https://covid19.ohdsi.app/author/",
-    "snomed": "http://snomed.info/id/",
-    "concept": "http://data.ohdsi.org/concept/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "ohdsi": "http://data.ohdsi.org/",
-    "covid19": "https://covid19.ohdsi.app/"
+        "@id": "http://schema.org/name"
+      },
+      "code": {
+        "@id": "http://schema.org/code",
+        "@type": "@id"
+      },
+      "creator": {
+        "@id": "http://schema.org/creator",
+        "@type": "@id"
+      },
+      "uploadDate": {
+        "@id": "http://schema.org/uploadDate",
+        "@type": "http://www.w3.org/2001/XMLSchema#date"
+      },
+      "url": {
+        "@id": "http://schema.org/url",
+        "@type": "@id"
+      },
+      "maintainer": {
+        "@id": "http://schema.org/maintainer",
+        "@type": "@id"
+      },
+      "softwareVersion": {
+        "@id": "http://schema.org/softwareVersion",
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+      },
+      "mainEntityofPage": {
+        "@id": "http://schema.org/mainEntityofPage"
+      },
+      "honorificSuffix": {
+        "@id": "http://schema.org/honorificSuffix"
+      },
+      "forumProfile": {
+        "@id": "http://data.ohdsi.org/forumProfile"
+      },
+      "githubHandle": {
+        "@id": "http://data.ohdsi.org/githubHandle"
+      },
+      "googleScholarID": {
+        "@id": "http://data.ohdsi.org/googleScholarID"
+      },
+      "worksFor": {
+        "@id": "http://schema.org/worksFor",
+        "@type": "@id"
+      },
+      "jobTitle": {
+        "@id": "http://schema.org/jobTitle"
+      },
+      "orcidID": {
+        "@id": "http://data.ohdsi.org/orcidID"
+      },
+      "version": {
+        "@id": "http://schema.org/version",
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+      },
+      "programmingLanguage": {
+        "@id": "http://schema.org/programmingLanguage"
+      },
+      "dateModified": {
+        "@id": "http://schema.org/dateModified",
+        "@type": "http://www.w3.org/2001/XMLSchema#date"
+      },
+      "codeRepository": {
+        "@id": "http://schema.org/codeRepository"
+      },
+      "address": {
+        "@id": "http://schema.org/address"
+      },
+      "department": {
+        "@id": "http://schema.org/department"
+      },
+      "sameAs": {
+        "@id": "http://schema.org/sameAs"
+      },
+      "codingSystem": {
+        "@id": "http://schema.org/codingSystem"
+      },
+      "codeValue": {
+        "@id": "http://schema.org/codeValue"
+      },
+      "license": {
+        "@id": "http://schema.org/license"
+      },
+      "keywords": {
+        "@id": "http://schema.org/keywords"
+      },
+      "healthCondition": {
+        "@id": "http://schema.org/healthCondition",
+        "@type": "@id"
+      },
+      "studySubject": {
+        "@id": "http://schema.org/studySubject",
+        "@type": "@id"
+      },
+      "hasPart": {
+        "@id": "http://schema.org/hasPart",
+        "@type": "@id"
+      },
+      "dateCreated": {
+        "@id": "http://schema.org/dateCreated",
+        "@type": "http://www.w3.org/2001/XMLSchema#date"
+      },
+      "status": {
+        "@id": "http://schema.org/status",
+        "@type": "@id"
+      },
+      "subjectOf": {
+        "@id": "http://schema.org/subjectOf",
+        "@type": "@id"
+      },
+      "database": "https://covid19.ohdsi.app/database/",
+      "studyType": {
+        "@id": "http://data.ohdsi.org/studyType",
+        "@type": "@id"
+      },
+      "author": {
+        "@id": "http://schema.org/author",
+        "@type": "@id"
+      },
+      "discussionUrl": {
+        "@id": "http://schema.org/discussionUrl"
+      },
+      "result": {
+        "@id": "http://schema.org/result",
+        "@type": "@id"
+      },
+      "publication": {
+        "@id": "http://schema.org/publication",
+        "@type": "@id"
+      },
+      "studyDesign": {
+        "@id": "http://schema.org/studyDesign",
+        "@type": "@id"
+      },
+      "analyticsUseCase": {
+        "@id": "http://data.ohdsi.org/analyticsUseCase",
+        "@type": "@id"
+      },
+      "schema": "http://schema.org/",
+      "study": "https://covid19.ohdsi.app/study/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "person": "https://covid19.ohdsi.app/author/",
+      "snomed": "http://snomed.info/id/",
+      "concept": "http://data.ohdsi.org/concept/",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "ohdsi": "http://data.ohdsi.org/"
     }
   }
 </script>
