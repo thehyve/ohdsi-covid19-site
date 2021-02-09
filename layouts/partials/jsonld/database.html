@@ -15,7 +15,7 @@
     "@graph": [
       {
         "@id": "database:{{ $params.database_id }}",
-        "@type": "ohdsi:Database",
+        "@type": "schema:Dataset",
         "administrativeContact": "ohdsi:person/{{ $params.administrative_contact }}",
         "associatedInstitution": {{ partial "functions/get_jsonld_value" (dict "type" $type "value" $params.associated_institution) }},
         "databaseCharacteristic": [{{ range $i, $e := $params.database_characteristics }}{{ if $i }}, {{ end }}
